@@ -158,6 +158,7 @@ public class UiInventoryManager
 				addItem(new Pickaxe(0, 576));
 				addItem(new Axe(0, 576));
 				addItem(new Knife(0, 576));
+				addItem(new Hammer(0, 576));
 				cPressed = true;
 			}
 		}

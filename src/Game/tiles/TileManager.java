@@ -10,6 +10,7 @@ import Game.ui.UiInventoryManager;
 public class TileManager 
 {
 	public static int tileY1, tileY2, tileX1, tileX2;
+	public static int x, y;
 	
 	public TileManager()
 	{
@@ -25,9 +26,9 @@ public class TileManager
 	 	tileY2 = (int) (Game.virtualSpace.getY() / 64) + 128;
 	 	tileX2 = (int) (Game.virtualSpace.getX() / 64) + 128;
 	 	
-		for(int y = tileY1;  y < tileY2; y++)
+		for(y = tileY1;  y < tileY2; y++)
 		{
-			for(int x = tileX1; x < tileX2; x++)
+			for(x = tileX1; x < tileX2; x++)
 			{
 				tiles[y][x].tick();
 				
@@ -42,14 +43,21 @@ public class TileManager
 						Game.pointerX = tiles[y][x].getGx();	
 						Game.pointerY = tiles[y][x].getGy();	
 						
-						if(Game.mouseManager.isRightPressed())
+						if(Game.mouseManager.isRightPressed() && UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
 						{
-							tiles[y][x] = new Dirt(tiles[y][x].getVx(),
-													tiles[y][x].getVy(),
-													tiles[y][x].getGx(),
-													tiles[y][x].getGy(),
-													64,
-													64);
+							boolean band = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].use();
+							
+							if(band)
+							{
+								if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
+								{
+									UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].setCount(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() - 1);
+								}
+								else 
+								{
+									UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
+								}
+							}
 						}
 					}
 					

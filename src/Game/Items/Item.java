@@ -38,6 +38,11 @@ public class Item implements Cloneable
 		
 	}
 	
+	public boolean use()
+	{
+		return false;
+	}
+	
 	public int getCount() 
 	{
 		return count;
