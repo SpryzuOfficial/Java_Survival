@@ -116,9 +116,6 @@ public class Game implements Runnable
 			pointer.setY(pointerY);
 			
 			colliding = false;
-			
-			//lastX = virtualSpace.getX();
-			//lastY = virtualSpace.getY();
 	 	}
 	}
 	

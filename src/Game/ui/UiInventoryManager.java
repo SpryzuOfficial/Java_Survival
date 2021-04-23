@@ -208,72 +208,13 @@ public class UiInventoryManager
 		{
 			if(itemsHotbar[i] != null)
 			{
-				itemsHotbar[i].render(g);
-				if(itemsHotbar[i].getTopLife() != -1 && itemsHotbar[i].getLife() != 0)
-				{
-					g.setColor(Color.BLACK);
-					g.fillRect(itemsHotbar[i].getX() + 13, itemsHotbar[i].getY() + 45, 40, 5);
-					g.drawRect(itemsHotbar[i].getX() + 12, itemsHotbar[i].getY() + 44, 41, 6);
-					
-					g.setColor(Color.GREEN);
-					g.fillRect(itemsHotbar[i].getX() + 13, itemsHotbar[i].getY() + 45, (int) ((1-(((itemsHotbar[i].getLife() * 100) / itemsHotbar[i].getTopLife())/100f)) * 40), 5);
-				}
+				renderItem(g, itemsHotbar[i], itemsHotbar[i].getX(), itemsHotbar[i].getY());
 			}
 		}
 		
 		if(inventoryTool != null)
 		{
-			inventoryTool.render(g);
-			if(inventoryTool.getTopLife() != -1 && inventoryTool.getLife() != 0)
-			{
-				g.setColor(Color.BLACK);
-				g.fillRect(inventoryTool.getX() + 13, inventoryTool.getY() + 45, 40, 5);
-				g.drawRect(inventoryTool.getX() + 12, inventoryTool.getY() + 44, 41, 6);
-				
-				g.setColor(Color.GREEN);
-				g.fillRect(inventoryTool.getX() + 13, inventoryTool.getY() + 45, (int) ((1-(((inventoryTool.getLife() * 100) / inventoryTool.getTopLife())/100f)) * 40), 5);
-			}
-		}
-		
-		for(int i = 0; i < ISIZE; i++)
-		{
-			if(itemsHotbar[i] != null)
-			{
-				if(itemsHotbar[i].getCount() < 10)
-				{
-					if(numHotBar[itemsHotbar[i].getCount()] != null)
-					{
-						if(itemsHotbar[i].getCount() != 1)
-						{
-							g.drawImage(numHotBar[itemsHotbar[i].getCount()], ((i + 3) * 64) + 32, 608, 32, 32, null);	
-						}
-					}
-				}
-				else
-				{
-					g.drawImage(numHotBar[1], ((i + 3) * 64) + 22, 608, 32, 32, null);
-					g.drawImage(numHotBar[itemsHotbar[i].getCount() - 10], ((i + 3) * 64) + 32, 608, 32, 32, null);
-				}
-			}
-		}
-		
-		if(inventoryTool != null)
-		{
-			if(inventoryTool.getCount() < 10)
-			{
-				if(numHotBar[inventoryTool.getCount()] != null)
-				{
-					if(inventoryTool.getCount() != 1)
-					{
-						g.drawImage(numHotBar[inventoryTool.getCount()], 64 + 32, 608, 32, 32, null);	
-					}
-				}
-			}
-			else
-			{
-				g.drawImage(numHotBar[1], 64 + 22, 608, 32, 32, null);
-				g.drawImage(numHotBar[inventoryTool.getCount() - 10], 64 + 32, 608, 32, 32, null);
-			}
+			renderItem(g, inventoryTool, inventoryTool.getX(), inventoryTool.getY());
 		}
 		
 		if(UiManager.uiImage == Assets.inventory)
@@ -285,16 +226,7 @@ public class UiInventoryManager
 			{
 				if(itemsHotbar[i] != null)
 				{
-					g.drawImage(itemsHotbar[i].getTexture(), itemsHotbar[i].getX(), 512, 64, 64, null);
-					if(itemsHotbar[i].getTopLife() != -1 && itemsHotbar[i].getLife() != 0)
-					{
-						g.setColor(Color.BLACK);
-						g.fillRect(itemsHotbar[i].getX() + 13, 512 + 45, 40, 5);
-						g.drawRect(itemsHotbar[i].getX() + 12, 512 + 44, 41, 6);
-						
-						g.setColor(Color.GREEN);
-						g.fillRect(itemsHotbar[i].getX() + 13, 512 + 45, (int) ((1-(((itemsHotbar[i].getLife() * 100) / itemsHotbar[i].getTopLife())/100f)) * 40), 5);
-					}
+					renderItem(g, itemsHotbar[i], itemsHotbar[i].getX(), 512);
 				}
 			}
 			
@@ -304,16 +236,7 @@ public class UiInventoryManager
 				{
 					if(itemsInventory[i][j] != null)
 					{
-						g.drawImage(itemsInventory[i][j].getTexture(), iInventorySlots[i][j].getX(), iInventorySlots[i][j].getY(), 64, 64, null);
-						if(itemsInventory[i][j].getTopLife() != -1 && itemsInventory[i][j].getLife() != 0)
-						{
-							g.setColor(Color.BLACK);
-							g.fillRect(itemsInventory[i][j].getX() + 13, iInventorySlots[i][j].getY() + 45, 40, 5);
-							g.drawRect(itemsInventory[i][j].getX() + 12, iInventorySlots[i][j].getY() + 44, 41, 6);
-							
-							g.setColor(Color.GREEN);
-							g.fillRect(itemsInventory[i][j].getX() + 13, iInventorySlots[i][j].getY() + 45, (int) ((1-(((itemsInventory[i][j].getLife() * 100) / itemsInventory[i][j].getTopLife())/100f)) * 40), 5);
-						}
+						renderItem(g, itemsInventory[i][j], iInventorySlots[i][j].getX(), iInventorySlots[i][j].getY());
 					}
 				}
 			}
@@ -324,213 +247,29 @@ public class UiInventoryManager
 				{
 					if(itemsCrafting[i][j] != null)
 					{
-						g.drawImage(itemsCrafting[i][j].getTexture(), cInventorySlots[i][j].getX(), cInventorySlots[i][j].getY(), 64, 64, null);
-						if(itemsCrafting[i][j].getTopLife() != -1 && itemsCrafting[i][j].getLife() != 0)
-						{
-							g.setColor(Color.BLACK);
-							g.fillRect(itemsCrafting[i][j].getX() + 13, cInventorySlots[i][j].getY() + 45, 40, 5);
-							g.drawRect(itemsCrafting[i][j].getX() + 12, cInventorySlots[i][j].getY() + 44, 41, 6);
-							
-							g.setColor(Color.GREEN);
-							g.fillRect(itemsCrafting[i][j].getX() + 13, cInventorySlots[i][j].getY() + 45, (int) ((1-(((itemsCrafting[i][j].getLife() * 100) / itemsCrafting[i][j].getTopLife())/100f)) * 40), 5);
-						}
+						renderItem(g, itemsCrafting[i][j], cInventorySlots[i][j].getX(), cInventorySlots[i][j].getY());
 					}
 				}
 			}
 			
 			if(itemCraftingTool != null)
 			{
-				g.drawImage(itemCraftingTool.getTexture(), ctInventorySlot.getX(), ctInventorySlot.getY(), 64, 64, null);
-				if(itemCraftingTool.getTopLife() != -1 && itemCraftingTool.getLife() != 0)
-				{
-					g.setColor(Color.BLACK);
-					g.fillRect(itemCraftingTool.getX() + 13, ctInventorySlot.getY() + 45, 40, 5);
-					g.drawRect(itemCraftingTool.getX() + 12, ctInventorySlot.getY() + 44, 41, 6);
-					
-					g.setColor(Color.GREEN);
-					g.fillRect(itemCraftingTool.getX() + 13, ctInventorySlot.getY() + 45, (int) ((1-(((itemCraftingTool.getLife() * 100) / itemCraftingTool.getTopLife())/100f)) * 40), 5);
-				}
+				renderItem(g, itemCraftingTool, ctInventorySlot.getX(), ctInventorySlot.getY());
 			}
 			
 			if(itemCraftingResult != null)
 			{
-				g.drawImage(itemCraftingResult.getTexture(), crInventorySlot.getX(), crInventorySlot.getY(), 64, 64, null);
+				renderItem(g, itemCraftingResult, crInventorySlot.getX(), crInventorySlot.getY());
 			}
 			
 			if(inventoryTrashCan != null)
 			{
-				g.drawImage(inventoryTrashCan.getTexture(), tInventorySlot.getX(), tInventorySlot.getY(), 64, 64, null);
-				if(inventoryTrashCan.getTopLife() != -1 && inventoryTrashCan.getLife() != 0)
-				{
-					g.setColor(Color.BLACK);
-					g.fillRect(inventoryTrashCan.getX() + 13, tInventorySlot.getY() + 45, 40, 5);
-					g.drawRect(inventoryTrashCan.getX() + 12, tInventorySlot.getY() + 44, 41, 6);
-					
-					g.setColor(Color.GREEN);
-					g.fillRect(inventoryTrashCan.getX() + 13, tInventorySlot.getY() + 45, (int) ((1-(((inventoryTrashCan.getLife() * 100) / inventoryTrashCan.getTopLife())/100f)) * 40), 5);
-				}
+				renderItem(g, inventoryTrashCan, tInventorySlot.getX(), tInventorySlot.getY());
 			}
 			
 			if(inventoryTool != null)
 			{
-				g.drawImage(inventoryTool.getTexture(), toolInventorySlot.getX(), toolInventorySlot.getY(), 64, 64, null);
-				if(inventoryTool.getTopLife() != -1 && inventoryTool.getLife() != 0)
-				{
-					g.setColor(Color.BLACK);
-					g.fillRect(inventoryTool.getX() + 13, toolInventorySlot.getY() + 45, 40, 5);
-					g.drawRect(inventoryTool.getX() + 12, toolInventorySlot.getY() + 44, 41, 6);
-					
-					g.setColor(Color.GREEN);
-					g.fillRect(inventoryTool.getX() + 13, toolInventorySlot.getY() + 45, (int) ((1-(((inventoryTool.getLife() * 100) / inventoryTool.getTopLife())/100f)) * 40), 5);
-				}
-			}
-			
-			for(int i = 0; i < ISIZE; i++)
-			{
-				if(itemsHotbar[i] != null)
-				{
-					if(itemsHotbar[i].getCount() < 10)
-					{
-						if(numHotBar[itemsHotbar[i].getCount()] != null)
-						{
-							if(itemsHotbar[i].getCount() != 1)
-							{
-								g.drawImage(numHotBar[itemsHotbar[i].getCount()], ((i + 3) * 64) + 32, 544, 32, 32, null);	
-							}
-						}
-					}
-					else
-					{
-						g.drawImage(numHotBar[1], ((i + 3) * 64) + 22, 544, 32, 32, null);
-						g.drawImage(numHotBar[itemsHotbar[i].getCount() - 10], ((i + 3) * 64) + 32, 544, 32, 32, null);
-					}
-				}
-			}
-			
-			for(int i = 0; i < 2; i++)
-			{
-				for(int j = 0; j < ISIZE; j++)
-				{
-					if(itemsInventory[i][j] != null)
-					{
-						if(itemsInventory[i][j].getCount() < 10)
-						{
-							if(numHotBar[itemsInventory[i][j].getCount()] != null)
-							{
-								if(itemsInventory[i][j].getCount() != 1)
-								{
-									g.drawImage(numHotBar[itemsInventory[i][j].getCount()], ((j + 3) * 64) + 32, ((i + 5) * 64) + 32, 32, 32, null);	
-								}
-							}
-						}
-						else
-						{
-							g.drawImage(numHotBar[1], ((j + 3) * 64) + 22, ((i + 5) * 64) + 32, 32, 32, null);
-							g.drawImage(numHotBar[itemsInventory[i][j].getCount() - 10], ((j + 3) * 64) + 32, ((i + 5) * 64) + 32, 32, 32, null);
-						}
-					}
-				}
-			}
-			
-			for(int i = 0; i < 2; i++)
-			{
-				for(int j = 0; j < 2; j++)
-				{
-					if(itemsCrafting[i][j] != null)
-					{
-						if(itemsCrafting[i][j].getCount() < 10)
-						{
-							if(numHotBar[itemsCrafting[i][j].getCount()] != null)
-							{	
-								if(itemsCrafting[i][j].getCount() != 1)
-								{
-									g.drawImage(numHotBar[itemsCrafting[i][j].getCount()], ((j + 6) * 64) + 32, ((i + 2) * 64) + 32, 32, 32, null);	
-								}
-							}
-						}
-						else
-						{
-							g.drawImage(numHotBar[1], ((j + 6) * 64) + 22, ((i + 2) * 64) + 32, 32, 32, null);
-							g.drawImage(numHotBar[itemsCrafting[i][j].getCount() - 10], ((j + 6) * 64) + 32, ((i + 2) * 64) + 32, 32, 32, null);
-						}
-					}
-				}
-			}
-			
-			if(itemCraftingTool != null)
-			{
-				if(itemCraftingTool.getCount() < 10)
-				{
-					if(numHotBar[itemCraftingTool.getCount()] != null)
-					{
-						if(itemCraftingTool.getCount() != 1)
-						{
-							g.drawImage(numHotBar[itemCraftingTool.getCount()], 576 + 32, 128 + 32, 32, 32, null);
-						}
-					}
-				}
-				else
-				{
-					g.drawImage(numHotBar[1], 576 + 22, 128 + 32, 32, 32, null);
-					g.drawImage(numHotBar[itemCraftingTool.getCount() - 10], 576 + 32, 128 + 32, 32, 32, null);
-				}
-			}
-			
-			if(itemCraftingResult != null)
-			{
-				if(itemCraftingResult.getCount() < 10)
-				{
-					if(numHotBar[itemCraftingResult.getCount()] != null)
-					{
-						if(itemCraftingResult.getCount() != 1)
-						{
-							g.drawImage(numHotBar[itemCraftingResult.getCount()], 576 + 32, 192 + 32, 32, 32, null);	
-						}
-					}
-				}
-				else
-				{
-					g.drawImage(numHotBar[1], 576 + 22, 192 + 32, 32, 32, null);
-					g.drawImage(numHotBar[itemCraftingResult.getCount() - 10], 576 + 32, 192 + 32, 32, 32, null);
-				}
-			}
-			
-			if(inventoryTrashCan != null)
-			{
-				if(inventoryTrashCan.getCount() < 10)
-				{
-					if(numHotBar[inventoryTrashCan.getCount()] != null)
-					{
-						if(inventoryTrashCan.getCount() != 1)
-						{
-							g.drawImage(numHotBar[inventoryTrashCan.getCount()], 576 + 32, 544, 32, 32, null);
-						}
-					}
-				}
-				else
-				{
-					g.drawImage(numHotBar[1], 576 + 22, 544, 32, 32, null);
-					g.drawImage(numHotBar[inventoryTrashCan.getCount() - 10], 576 + 32, 544, 32, 32, null);
-				}
-			}
-			
-			if(inventoryTool != null)
-			{
-				if(inventoryTool.getCount() < 10)
-				{
-					if(numHotBar[inventoryTool.getCount()] != null)
-					{
-						if(inventoryTool.getCount() != 1)
-						{
-							g.drawImage(numHotBar[inventoryTool.getCount()], 64 + 32, 544, 32, 32, null);	
-						}
-					}
-				}
-				else
-				{
-					g.drawImage(numHotBar[1], 64 + 22, 544, 32, 32, null);
-					g.drawImage(numHotBar[inventoryTool.getCount() - 10], 64 + 32, 544, 32, 32, null);
-				}
+				renderItem(g, inventoryTool, toolInventorySlot.getX(), toolInventorySlot.getY());
 			}
 			
 			for(int i = 0; i < 2; i++)
@@ -1398,33 +1137,7 @@ public class UiInventoryManager
 			
 			if(inventoryItemHolded != null)
 			{
-				g.drawImage(inventoryItemHolded.getTexture(), Game.mouseManager.getMouseX() - 32, Game.mouseManager.getMouseY() - 32, 64, 64, null);
-				
-				if(inventoryItemHolded.getTopLife() != -1 && inventoryItemHolded.getLife() != 0)
-				{
-					g.setColor(Color.BLACK);
-					g.fillRect(Game.mouseManager.getMouseX() - 32 + 13, Game.mouseManager.getMouseY() - 32 + 45, 40, 5);
-					g.drawRect(Game.mouseManager.getMouseX() - 32 + 12, Game.mouseManager.getMouseY() - 32 + 44, 41, 6);
-					
-					g.setColor(Color.GREEN);
-					g.fillRect(Game.mouseManager.getMouseX() - 32 + 13, Game.mouseManager.getMouseY() - 32 + 45, (int) ((1-(((inventoryItemHolded.getLife() * 100) / inventoryItemHolded.getTopLife())/100f)) * 40), 5);
-				}
-				
-				if(inventoryItemHolded.getCount() < 10)
-				{
-					if(numHotBar[inventoryItemHolded.getCount()] != null)
-					{
-						if(inventoryItemHolded.getCount() != 1)
-						{
-							g.drawImage(numHotBar[inventoryItemHolded.getCount()], Game.mouseManager.getMouseX() - 32 + 32, Game.mouseManager.getMouseY(), 32, 32, null);	
-						}
-					}
-				}
-				else
-				{
-					g.drawImage(numHotBar[1], Game.mouseManager.getMouseX() - 32 + 22, Game.mouseManager.getMouseY(), 32, 32, null);
-					g.drawImage(numHotBar[inventoryItemHolded.getCount() - 10], Game.mouseManager.getMouseX() - 32 + 32, Game.mouseManager.getMouseY(), 32, 32, null);
-				}
+				renderItem(g, inventoryItemHolded, Game.mouseManager.getMouseX() - 32, Game.mouseManager.getMouseY() - 32);
 			}
 			
 			itemCraftingResult = checkCraftings.checkCrafting(itemsCrafting, itemCraftingTool);
@@ -1464,8 +1177,36 @@ public class UiInventoryManager
 				ctInventorySlot.setItem(itemCraftingTool);
 			}
 		}
+	}
+	
+	public static void renderItem(Graphics g, Item item, int x, int y) // int x, int y
+	{
+		g.drawImage(item.getTexture(), x, y, 64, 64, null);
+		if(item.getTopLife() != -1 && item.getLife() != 0)
+		{
+			g.setColor(Color.BLACK);
+			g.fillRect(x + 13, y + 45, 40, 5);
+			g.drawRect(x + 12, y + 44, 41, 6);
+			
+			g.setColor(Color.GREEN);
+			g.fillRect(x + 13, y + 45, (int) ((1-(((item.getLife() * 100) / item.getTopLife())/100f)) * 40), 5);
+		}
 		
-		//System.out.println(inventoryTool);
+		if(item.getCount() < 10)
+		{
+			if(numHotBar[item.getCount()] != null)
+			{
+				if(item.getCount() != 1)
+				{
+					g.drawImage(numHotBar[item.getCount()], x + 32, y + 32, 32, 32, null);	
+				}
+			}
+		}
+		else
+		{
+			g.drawImage(numHotBar[1], x + 22, y + 32, 32, 32, null);
+			g.drawImage(numHotBar[item.getCount() - 10], x + 32, y + 32, 32, 32, null);
+		}
 	}
 	
 	public static void addItem(Item item)
