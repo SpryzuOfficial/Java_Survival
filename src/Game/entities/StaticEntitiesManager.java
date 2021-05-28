@@ -3,7 +3,9 @@ package Game.entities;
 import java.awt.Graphics;
 
 import Game.engine.Game;
+import Game.tiles.TileManager;
 import Game.ui.UiInventoryManager;
+import Game.ui.UiManager;
 
 public class StaticEntitiesManager
 {
@@ -17,7 +19,7 @@ public class StaticEntitiesManager
 	}
 	
 	public static void tick()
-	{
+	{	
 		for(int i = 0; i < Game.generateWorld.SESIZE; i++)
 		{
 			boolean otherEMining = false;
@@ -37,6 +39,14 @@ public class StaticEntitiesManager
 						otherEMining = true;
 						otherEMiningId = j;
 						break;
+					}
+				}
+				
+				if(Game.mouseManager.isRightPressed())
+				{
+					if(!TileManager.rightPress)
+					{
+						Game.generateWorld.getSEntities().get(i).use();
 					}
 				}
 				

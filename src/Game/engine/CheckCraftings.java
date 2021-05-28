@@ -143,6 +143,43 @@ public class CheckCraftings
 															 			  new Sandpaper(0, 576) 
 																		  )
 												};
+	private CraftingItemsSlots[] nailsRecipes = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null}, 
+														   			        {new Stone(1, 0, 576),  null}
+																		  },
+												 			  			  new Sandpaper(0, 576)
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null}, 
+														   			        {null, new Stone(1, 0, 576)}
+																		  },
+														 				  new Sandpaper(0, 576) 
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stone(1, 0, 576), null}, 
+														   			        {null, null}
+																		  },
+														 				  new Sandpaper(0, 576) 
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Stone(1, 0, 576)}, 
+														   			        {null, null}
+																		  },
+														 				  new Sandpaper(0, 576) 
+																		  )
+												};
+	private CraftingItemsSlots[] tableRecipes = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)}, 
+														   			        {new Wood(1, 0, 576),  new Wood(1, 0, 576)}
+																		  },
+												 			  			  new Hammer(0, 576)
+																		  )
+												};
 	
 	public Item checkCrafting(Item[][] craftingItems, Item tool)
 	{
@@ -179,6 +216,16 @@ public class CheckCraftings
 		if(updateCrafting(craftingItems, tool, woodTableRecipes))
 		{
 			return new WoodTable(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tool, nailsRecipes))
+		{
+			return new Nail(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tool, tableRecipes))
+		{
+			return new Table(1, 0, 576);
 		}
 		
 		return null;

@@ -50,6 +50,8 @@ public class Game implements Runnable
 	
 	public static boolean colliding;
 	
+	public int a;
+	
 	public Game(String title, int width, int heigth)
 	{
 		this.title = title;

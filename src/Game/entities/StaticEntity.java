@@ -40,6 +40,11 @@ public class StaticEntity extends Entity
 		g.drawImage(texture, x, y, width, height, null);
 	}
 	
+	public void use()
+	{
+		
+	}
+	
 	public boolean isMining() 
 	{
 		return isMining;

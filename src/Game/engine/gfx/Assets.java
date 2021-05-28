@@ -10,20 +10,21 @@ public class Assets
 	
 	public static BufferedImage dirt, grass, sand, water;
 	
-	public static BufferedImage tree, rock;
+	public static BufferedImage tree, rock, tableE, woodPlankE;
 	
 	public static BufferedImage hotbar, hotbarSelected, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
 	
-	public static BufferedImage wood, stone, wool, string, woodTable;
+	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer;
 	
-	public static BufferedImage inventory;
+	public static BufferedImage inventory, craftingtable;
 	
 	public static void init()
 	{
 		SpriteSheet spriteSheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
 		inventory = ImageLoader.loadImage("/textures/inventory_sheet.png");
+		craftingtable = ImageLoader.loadImage("/textures/craftingTable_sheet.png");
 		
 		player = spriteSheet.crop(0, 0, WIDTH, HEIGHT);
 		player_water = spriteSheet.crop(WIDTH * 7, HEIGHT * 2, WIDTH, HEIGHT);
@@ -39,6 +40,8 @@ public class Assets
 		
 		tree = spriteSheet.crop(0, HEIGHT, WIDTH, HEIGHT * 2);
 		rock = spriteSheet.crop(WIDTH * 4, HEIGHT * 2, WIDTH, HEIGHT);
+		tableE = spriteSheet.crop(WIDTH * 3, HEIGHT * 4, WIDTH, HEIGHT);
+		woodPlankE = spriteSheet.crop(WIDTH * 5, HEIGHT * 4, WIDTH, HEIGHT);
 		
 		hotbar = spriteSheet.crop(WIDTH * 5, 0, WIDTH, HEIGHT);
 		hotbarSelected = spriteSheet.crop(WIDTH * 6, 0, WIDTH, HEIGHT);
@@ -48,6 +51,9 @@ public class Assets
 		wool = spriteSheet.crop(WIDTH, HEIGHT * 3, WIDTH, HEIGHT);
 		string = spriteSheet.crop(WIDTH * 2, HEIGHT * 3, WIDTH, HEIGHT);
 		woodTable = spriteSheet.crop(WIDTH * 7, HEIGHT * 3, WIDTH, HEIGHT);
+		nail = spriteSheet.crop(WIDTH, HEIGHT * 4, WIDTH, HEIGHT);
+		table = spriteSheet.crop(WIDTH * 2, HEIGHT * 4, WIDTH, HEIGHT);
+		woodPlank = spriteSheet.crop(WIDTH * 4, HEIGHT * 4, WIDTH, HEIGHT);
 		
 		sandpaper = spriteSheet.crop(WIDTH * 3, HEIGHT * 3, WIDTH, HEIGHT);
 		axe = spriteSheet.crop(WIDTH * 4, HEIGHT * 3, WIDTH, HEIGHT);

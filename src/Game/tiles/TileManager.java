@@ -11,6 +11,7 @@ public class TileManager
 {
 	public static int tileY1, tileY2, tileX1, tileX2;
 	public static int x, y;
+	public static boolean rightPress;
 	
 	public TileManager()
 	{
@@ -45,17 +46,33 @@ public class TileManager
 						
 						if(Game.mouseManager.isRightPressed() && UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
 						{
-							boolean band = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].use();
-							
-							if(band)
+							if(!rightPress)
 							{
-								if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
+								boolean band = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].use();
+								
+								if(band)
 								{
-									UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].setCount(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() - 1);
+									rightPress = true;
+									if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
+									{
+										UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].setCount(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() - 1);
+										UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
+									}
+									else 
+									{
+										UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
+										UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
+									}
 								}
-								else 
+							}
+						}
+						else
+						{
+							if(rightPress)
+							{
+								if(!Game.mouseManager.isRightPressed())
 								{
-									UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
+									rightPress = false;
 								}
 							}
 						}
