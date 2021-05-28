@@ -107,7 +107,7 @@ public class UiInventoryManager
 		
 		crInventorySlot = new InventorySlot(576, 192, 64, 64, itemCraftingResult);
 		
-		crTableSlot = new InventorySlot(576, 192, 64, 64, itemCraftingResultTable);
+		crTableSlot = new InventorySlot(448, 192, 64, 64, itemCraftingResultTable);
 		
 		checkCraftings = new CheckCraftings();
 		
@@ -185,6 +185,9 @@ public class UiInventoryManager
 				addItem(new Knife(0, 576));
 				addItem(new Hammer(0, 576));
 				addItem(new Table(1, 0, 576));
+				addItem(new Wood(12, 0, 576));
+				addItem(new Stone(12, 0, 576));
+				addItem(new Wool(12, 0, 576));
 				cPressed = true;
 			}
 		}
@@ -1166,7 +1169,7 @@ public class UiInventoryManager
 				renderItem(g, inventoryItemHolded, Game.mouseManager.getMouseX() - 32, Game.mouseManager.getMouseY() - 32);
 			}
 			
-			itemCraftingResult = checkCraftings.checkCrafting(itemsCrafting, itemCraftingTool);
+			itemCraftingResult = checkCraftings.checkCrafting(itemsCrafting, new Item[] {itemCraftingTool});
 			crInventorySlot.setItem(itemCraftingResult);
 		}
 		else if(UiManager.uiImage == Assets.craftingtable)
@@ -1214,6 +1217,11 @@ public class UiInventoryManager
 			if(inventoryTool != null)
 			{
 				renderItem(g, inventoryTool, toolInventorySlot.getX(), toolInventorySlot.getY());
+			}
+			
+			if(itemCraftingResultTable != null)
+			{
+				renderItem(g, itemCraftingResultTable, crTableSlot.getX(), crTableSlot.getY());
 			}
 			
 			for(int i = 0; i < 2; i++)
@@ -1903,8 +1911,65 @@ public class UiInventoryManager
 			
 			if(inventoryItemHolded != null)
 			{
+				inventoryItemHolded.setX(toolInventorySlot.getX());
+			}
+			
+			if(!uiLeftPressed && !uiRightPressed)
+			{
+				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				{	
+					try
+					{
+						if(!inventoryItemHolded.isStack())
+						{
+							if(Game.mouseManager.isLeftPressed())
+							{
+								inventoryTool = inventoryItemHolded;
+								inventoryItemHolded = toolInventorySlot.getItem();
+								toolInventorySlot.setItem(inventoryTool); 
+								uiLeftPressed = true;
+							}
+							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+							{
+								inventoryTool = inventoryItemHolded;
+								inventoryItemHolded = toolInventorySlot.getItem();
+								toolInventorySlot.setItem(inventoryTool); 
+								uiLeftPressed = true;
+							}
+						}
+					}
+					catch(Exception e)
+					{ 
+						if(Game.mouseManager.isLeftPressed())
+						{
+							inventoryTool = inventoryItemHolded;
+							inventoryItemHolded = toolInventorySlot.getItem();
+							toolInventorySlot.setItem(inventoryTool); 
+							uiLeftPressed = true;
+						}
+					}
+				}
+			}
+			else
+			{
+				if(!Game.mouseManager.isLeftPressed())
+				{
+					uiLeftPressed = false;
+				}
+				
+				if(!Game.mouseManager.isRightPressed())
+				{
+					uiRightPressed = false;
+				}
+			}
+			
+			if(inventoryItemHolded != null)
+			{
 				renderItem(g, inventoryItemHolded, Game.mouseManager.getMouseX() - 32, Game.mouseManager.getMouseY() - 32);
 			}
+			
+			itemCraftingResultTable = checkCraftings.checkCraftingTable(itemsCraftingTable, itemsCraftingToolsTable);
+			crTableSlot.setItem(itemCraftingResultTable);
 		}
 		else
 		{

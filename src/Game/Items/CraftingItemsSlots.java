@@ -3,12 +3,12 @@ package Game.Items;
 public class CraftingItemsSlots 
 {
 	private Item[][] item;
-	private Item tool;
+	private Item[] tools;
 	
-	public CraftingItemsSlots(Item[][] item, Item tool)
+	public CraftingItemsSlots(Item[][] item, Item[] tools)
 	{
 		this.item = item;
-		this.tool = tool;
+		this.tools = tools;
 	}
 
 	public Item getItem(int y, int x) 
@@ -16,8 +16,13 @@ public class CraftingItemsSlots
 		return item[y][x];
 	}
 	
-	public Item getTool() 
+	public Item getTool(int i) 
 	{
-		return tool;
+		return tools[i];
+	}
+	
+	public Item[] getTools()
+	{
+		return tools;
 	}
 }
