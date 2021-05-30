@@ -8,7 +8,7 @@ public class Nail extends Item
 {
 	public Nail(int count, int x, int y) 
 	{
-		super(Assets.nail, count, x, y, 1, 1, 1, true, -1);
+		super(Assets.nail, count, x, y, 1, 1, 1, true, 1);
 	}
 	
 	@Override
