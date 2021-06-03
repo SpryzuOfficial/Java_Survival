@@ -75,6 +75,25 @@ public class UiManager
 					}
 				}
 			}
+			
+			if(uiImage == Assets.ovenUI)
+			{
+				if(Game.keyManager.e)
+				{
+					if(!ePressed)
+					{
+						uiImage = null;
+						ePressed = true;
+					}
+				}
+				else
+				{
+					if(ePressed)
+					{
+						ePressed = false;
+					}
+				}
+			}
 		}
 	}
 }

@@ -6,7 +6,7 @@ import Game.entities.*;
 import Game.noise.PerlinNoise;
 import Game.tiles.*;
 
-public class GenerateWorld 
+public class GenerateWorld
 {	
 	public static int ASIZE = 0;
 	public static int SESIZE = 0;
@@ -30,14 +30,16 @@ public class GenerateWorld
 		{
 			for(int xC = 0; xC < 88; xC++)
 			{
-				double fact = noise.noise(xC, yC);
+				double fact = noise.noise(xC*2, yC*2);
 				
-				if(fact < 0.4)
+				//System.out.printf("%.2f", fact);
+				
+				if(fact < 0.38)
 				{
 					//"O"
 					System.out.print("O");
 				}
-				else if(fact < 0.5)
+				else if(fact < 0.6)
 				{
 					//"D"
 					System.out.print("D");
@@ -117,9 +119,26 @@ public class GenerateWorld
 								{
 									if(v > 0.4 && v < 0.9)
 									{
-										if((int) (Math.random() * (10 - 1 + 1) + 1) == 1)
+										double r = (Math.random() * (100 - 1 + 1) + 1);
+										if((int) r == 1)
 										{
 											sEntities.add(new Rock(entityX, entityY, entityX - Game.virtualSpace.getX(), entityY - Game.virtualSpace.getY()));
+											SESIZE++;
+										}
+										else if((int) r == 50)
+										{
+											sEntities.add(new BasaltE(entityX, entityY, entityX - Game.virtualSpace.getX(), entityY - Game.virtualSpace.getY()));
+											SESIZE++;
+										}
+										else if((int) r == 99)
+										{
+											sEntities.add(new ClayE(entityX, entityY, entityX - Game.virtualSpace.getX(), entityY - Game.virtualSpace.getY()));
+											SESIZE++;
+										}
+										
+										if((int) (Math.random() * (500 - 1 + 1) + 1) == 1)
+										{
+											sEntities.add(new IronOreE(entityX, entityY, entityX - Game.virtualSpace.getX(), entityY - Game.virtualSpace.getY()));
 											SESIZE++;
 										}
 									}
