@@ -14,7 +14,7 @@ public class Basalt extends Item
 {
 	public Basalt(int count, int x, int y) 
 	{
-		super(Assets.basalt, count, x, y, 1, 1, 1, true, -1);
+		super(Assets.basalt, count, x, y, 1, 1, 1, true, -1, 0);
 	}
 	
 	@Override

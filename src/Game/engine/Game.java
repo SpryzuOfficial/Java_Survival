@@ -108,10 +108,18 @@ public class Game implements Runnable
 				lastX = virtualSpace.getX();
 				lastY = virtualSpace.getY();
 			}
-			
-			TileManager.tick();
-			StaticEntitiesManager.tick();
-			AnimalsManager.tick();
+	 	}
+	 	
+	 	if(UiManager.uiImage == null)
+	 	{
+	 		TileManager.tick();
+	 	}
+	 	
+ 		AnimalsManager.tick();
+ 		
+ 		if(UiManager.uiImage == null)
+	 	{
+ 			StaticEntitiesManager.tick();
 			UiInventoryManager.tick();
 			
 			pointer.setX(pointerX);

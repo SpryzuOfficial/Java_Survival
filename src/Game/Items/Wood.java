@@ -8,7 +8,7 @@ public class Wood extends Item
 {
 	public Wood(int count, int x, int y) 
 	{
-		super(Assets.wood, count, x, y, 1, 1, 1, true, -1);
+		super(Assets.wood, count, x, y, 1, 1, 1, true, -1, 1);
 	}
 	
 	@Override

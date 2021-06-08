@@ -14,7 +14,7 @@ public class IronOre extends Item
 {
 	public IronOre(int count, int x, int y) 
 	{
-		super(Assets.ironOre, count, x, y, 1, 1, 1, true, -1);
+		super(Assets.ironOre, count, x, y, 1, 1, 1, true, -1, 0);
 	}
 	
 	@Override

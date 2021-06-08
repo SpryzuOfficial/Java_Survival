@@ -14,7 +14,7 @@ public class Anvil extends Item
 {
 	public Anvil(int count, int x, int y) 
 	{
-		super(Assets.anvil, count, x, y, 1, 1, 1, true, -1);
+		super(Assets.anvil, count, x, y, 1, 1, 1, true, -1, 0);
 	}
 	
 	@Override

@@ -14,7 +14,7 @@ public class Oven extends Item
 {
 	public Oven(int count, int x, int y) 
 	{
-		super(Assets.oven, count, x, y, 1, 1, 1, true, -1);
+		super(Assets.oven, count, x, y, 1, 1, 1, true, -1, 0);
 	}
 	
 	@Override

@@ -8,6 +8,7 @@ import Game.Items.*;
 import Game.engine.CheckCraftings;
 import Game.engine.Game;
 import Game.engine.gfx.Assets;
+import Game.entities.OvenE;
 import Game.ui.utils.InventorySlot;
 
 public class UiInventoryManager
@@ -51,6 +52,8 @@ public class UiInventoryManager
 	
 	private static boolean fPressed;
 	private static boolean cPressed;
+	
+	public static OvenE oven;
 	
 	public UiInventoryManager()
 	{
@@ -1991,11 +1994,29 @@ public class UiInventoryManager
 		}
 		else if(UiManager.uiImage == Assets.ovenUI)
 		{
-			g.setColor(Color.RED);
+			if(oven.fuel_int == 0)
+			{
+				g.setColor(Color.GRAY);
+			}
+			else if(oven.fuel_int > 0 && oven.fuel_int < 60)
+			{
+				g.setColor(Color.RED);
+			}
+			else if(oven.fuel_int > 60 && oven.fuel_int < 120)
+			{
+				g.setColor(Color.ORANGE);
+			}
+			else if(oven.fuel_int > 120)
+			{
+				g.setColor(Color.YELLOW);
+			}
 			g.fillRect(338, 178, 48, 25);
 			
+			g.setColor(Color.DARK_GRAY);
+			g.fillRect(328, 210, 46, 30);
+			
 			g.setColor(Color.WHITE);
-			g.fillRect(325, 210, (int) 55, 30);
+			g.fillRect(328, 210, (int) oven.process_float, 30);
 			
 			g.drawImage(UiManager.uiImage, 0, 64, 704, 576, null);
 			
@@ -2700,10 +2721,6 @@ public class UiInventoryManager
 				}
 			}
 			
-			
-			
-			
-			
 			if(inventoryItemHolded != null)
 			{
 				inventoryItemHolded.setX(toolInventorySlot.getX());
@@ -2777,6 +2794,37 @@ public class UiInventoryManager
 				tInventorySlot.setItem(inventoryTrashCan);
 			}
 			
+			try
+			{
+				if(itemOvenFuel != null)
+				{
+					oven.fuel = itemOvenFuel.clone();
+				}
+				else if(oven.fuel == null)
+				{
+					oven.fuel = null;
+				}
+				
+				if(itemOvenInput != null)
+				{
+					oven.input = itemOvenInput.clone();
+				}
+				else if(oven.input == null)
+				{
+					oven.input = null;
+				}
+				
+				if(itemOvenOutputT != null)
+				{
+					oven.tray = itemOvenOutputT.clone();
+				}
+				else if(oven.tray == null)
+				{
+					oven.tray = null;
+				}
+			}
+			catch (Exception e) { }
+			
 			for(int i = 0; i < 2; i++)
 			{
 				for(int j = 0; j < 2; j++)
@@ -2819,6 +2867,36 @@ public class UiInventoryManager
 					ctTableSlots[i].setItem(itemsCraftingToolsTable[i]);
 				}
 			}
+		}
+		
+		if(oven != null)
+		{
+			if(itemOvenFuel != null)
+			{
+				if(itemOvenFuel.getOvenValue() != 0)
+				{
+					if(!oven.is_process)
+					{
+						try
+						{ oven.fuel = itemOvenFuel.clone(); }
+						       catch(Exception e) {}
+						if((itemOvenFuel.getCount() - 1) == 0)
+						{
+							itemOvenFuel = null;
+						}
+						else
+						{
+							itemOvenFuel.setCount(itemOvenFuel.getCount() - 1);
+						}
+						
+						ofOvenSlot.setItem(itemOvenFuel);
+					}
+					
+					oven.is_process = true;
+				}
+			}
+			
+			oven.tick();
 		}
 	}
 	
@@ -2985,5 +3063,17 @@ public class UiInventoryManager
 				iInventorySlots[i][j].setItem(itemsInventory[i][j]);
 			}
 		}
+	}
+	
+	public static void openOven()
+	{
+		itemOvenInput = oven.input;
+		oiOvenSlot.setItem(itemOvenInput);
+		
+		itemOvenOutputT = oven.tray;
+		ootOvenSlot.setItem(itemOvenOutputT);
+		
+		itemOvenFuel = oven.fuel;
+		ofOvenSlot.setItem(itemOvenFuel);
 	}
 }

@@ -13,8 +13,9 @@ public class Item implements Cloneable
 	protected boolean isStack;
 	protected int topLife;
 	protected int life;
+	protected double ovenValue;
 	
-	public Item(BufferedImage texture, int count, int x, int y, int miningValue1, int miningValue2, int miningValue3, boolean isStack, int topLife)
+	public Item(BufferedImage texture, int count, int x, int y, int miningValue1, int miningValue2, int miningValue3, boolean isStack, int topLife, double ovenValue)
 	{
 		this.texture = texture;
 		this.count = count;
@@ -26,6 +27,7 @@ public class Item implements Cloneable
 		this.isStack = isStack;
 		this.topLife = topLife;
 		this.life = 0;
+		this.ovenValue = ovenValue;
 	}
 	
 	public Item clone() throws CloneNotSupportedException
@@ -121,5 +123,15 @@ public class Item implements Cloneable
 	public void setLife(int life) 
 	{
 		this.life = life;
+	}
+
+	public double getOvenValue() 
+	{
+		return ovenValue;
+	}
+
+	public void setOvenValue(double ovenValue) 
+	{
+		this.ovenValue = ovenValue;
 	}
 }

@@ -12,7 +12,7 @@ public class Stone extends Item
 {
 	public Stone(int count, int x, int y) 
 	{
-		super(Assets.stone, count, x, y, 1, 1, 1, true, -1);
+		super(Assets.stone, count, x, y, 1, 1, 1, true, -1, 0);
 	}
 	
 	@Override
