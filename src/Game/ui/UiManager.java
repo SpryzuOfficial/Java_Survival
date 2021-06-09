@@ -37,46 +37,7 @@ public class UiManager
 			 		}
 			 	}
 			}
-			
-			if(uiImage == Assets.inventory)
-			{
-				if(Game.keyManager.e)
-				{
-					if(!ePressed)
-					{
-						uiImage = null;
-						ePressed = true;
-					}
-				}
-				else
-				{
-					if(ePressed)
-					{
-						ePressed = false;
-					}
-				}
-			}
-			
-			if(uiImage == Assets.craftingtable)
-			{
-				if(Game.keyManager.e)
-				{
-					if(!ePressed)
-					{
-						uiImage = null;
-						ePressed = true;
-					}
-				}
-				else
-				{
-					if(ePressed)
-					{
-						ePressed = false;
-					}
-				}
-			}
-			
-			if(uiImage == Assets.ovenUI)
+			else
 			{
 				if(Game.keyManager.e)
 				{

@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 
 import Game.Items.*;
 import Game.engine.CheckCraftings;
+import Game.engine.CheckOven;
 import Game.engine.Game;
 import Game.engine.gfx.Assets;
 import Game.entities.OvenE;
@@ -25,10 +26,10 @@ public class UiInventoryManager
 	private static Item[] itemsCraftingToolsTable;
 	private static Item itemCraftingResult;
 	private static Item itemCraftingResultTable;
-	private static Item itemOvenInput;
-	private static Item itemOvenFuel;
-	private static Item itemOvenOutputT;
-	private static Item itemOvenOutput;
+	public static Item itemOvenInput;
+	public static Item itemOvenFuel;
+	public static Item itemOvenOutputT;
+	public static Item itemOvenOutput;
 	private static Item inventoryTrashCan;
 	public static Item inventoryTool;
 	public static InventorySlot[] hInventorySlots;
@@ -39,16 +40,17 @@ public class UiInventoryManager
 	private static InventorySlot[] ctTableSlots;
 	private static InventorySlot crInventorySlot;
 	private static InventorySlot crTableSlot;
-	private static InventorySlot oiOvenSlot;
-	private static InventorySlot ofOvenSlot;
-	private static InventorySlot ootOvenSlot;
-	private static InventorySlot ooOvenSlot;
+	public static InventorySlot oiOvenSlot;
+	public static InventorySlot ofOvenSlot;
+	public static InventorySlot ootOvenSlot;
+	public static InventorySlot ooOvenSlot;
 	private static InventorySlot tInventorySlot;
 	public static InventorySlot toolInventorySlot;
 	private static BufferedImage[] numHotBar;
 	private static boolean uiLeftPressed;
 	private static boolean uiRightPressed;
 	private static CheckCraftings checkCraftings;
+	private static CheckOven checkOven;
 	
 	private static boolean fPressed;
 	private static boolean cPressed;
@@ -122,6 +124,8 @@ public class UiInventoryManager
 		
 		checkCraftings = new CheckCraftings();
 		
+		checkOven = new CheckOven();
+		
 		tInventorySlot = new InventorySlot(576, 512, 64, 64, inventoryTrashCan);
 		
 		toolInventorySlot = new InventorySlot(64, 512, 64, 64, inventoryTool);
@@ -132,7 +136,7 @@ public class UiInventoryManager
 		
 		ootOvenSlot = new InventorySlot(256, 192, 64, 64, itemOvenOutputT);
 		
-		ooOvenSlot = new InventorySlot(384, 256, 64, 64, itemOvenOutput);
+		ooOvenSlot = new InventorySlot(384, 192, 64, 64, itemOvenOutput);
 	}
 	
 	public static void tick()
@@ -205,10 +209,13 @@ public class UiInventoryManager
 				addItem(new Hammer(0, 576));
 				addItem(new Table(1, 0, 576));
 				addItem(new Oven(1, 0, 576));
+				addItem(new Anvil(1, 0, 576));
 				addItem(new Wood(12, 0, 576));
 				addItem(new Stone(12, 0, 576));
 				addItem(new Basalt(12, 0, 576));
 				addItem(new Wool(12, 0, 576));
+				addItem(new IronOre(12, 0, 576));
+				addItem(new BasaltTray(12, 0, 576));
 				cPressed = true;
 			}
 		}
@@ -2049,6 +2056,11 @@ public class UiInventoryManager
 				renderItem(g, itemOvenOutputT, ootOvenSlot.getX(), ootOvenSlot.getY());
 			}
 			
+			if(itemOvenOutput != null)
+			{
+				renderItem(g, itemOvenOutput, ooOvenSlot.getX(), ooOvenSlot.getY());
+			}
+			
 			if(itemOvenFuel != null)
 			{
 				renderItem(g, itemOvenFuel, ofOvenSlot.getX(), ofOvenSlot.getY());
@@ -2775,11 +2787,69 @@ public class UiInventoryManager
 				}
 			}
 			
+			
+			if(inventoryItemHolded != null)
+			{
+				inventoryItemHolded.setX(ooOvenSlot.getX());
+			}
+			
+			if(!uiLeftPressed && !uiRightPressed)
+			{
+				if(ooOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				{	
+					if(Game.mouseManager.isLeftPressed())
+					{
+						if(inventoryItemHolded != null)
+						{
+							if(itemOvenOutput != null)
+							{
+								if(itemOvenOutput.getClass() == inventoryItemHolded.getClass() && itemOvenOutput.isStack())
+								{
+									if((inventoryItemHolded.getCount() + itemOvenOutput.getCount()) <= 12)
+									{
+										inventoryItemHolded.setCount(inventoryItemHolded.getCount() + itemOvenOutput.getCount());
+										ooOvenSlot.setItem(itemOvenOutput);
+										uiLeftPressed = true;
+									}
+								}
+							}
+						}
+						else
+						{
+							if(inventoryItemHolded == null && itemOvenOutput != null)
+							{
+								itemOvenOutput = inventoryItemHolded;
+								inventoryItemHolded = ooOvenSlot.getItem();
+								ooOvenSlot.setItem(itemOvenOutput);
+								uiLeftPressed = true;
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				if(!Game.mouseManager.isLeftPressed())
+				{
+					uiLeftPressed = false;
+				}
+				
+				if(!Game.mouseManager.isRightPressed())
+				{
+					uiRightPressed = false;
+				}
+			}
+			
+			
 			if(inventoryItemHolded != null)
 			{
 				renderItem(g, inventoryItemHolded, Game.mouseManager.getMouseX() - 32, Game.mouseManager.getMouseY() - 32);
 			}
 		}
+		else if(UiManager.uiImage == Assets.anvilUI)
+		{
+			g.drawImage(UiManager.uiImage, 0, 64, 704, 576, null);
+		}	
 		else
 		{
 			if(inventoryItemHolded != null)
@@ -2809,7 +2879,7 @@ public class UiInventoryManager
 				{
 					oven.input = itemOvenInput.clone();
 				}
-				else if(oven.input == null)
+				else if(oven.input != null)
 				{
 					oven.input = null;
 				}
@@ -2818,7 +2888,7 @@ public class UiInventoryManager
 				{
 					oven.tray = itemOvenOutputT.clone();
 				}
-				else if(oven.tray == null)
+				else if(oven.tray != null)
 				{
 					oven.tray = null;
 				}
@@ -2871,28 +2941,84 @@ public class UiInventoryManager
 		
 		if(oven != null)
 		{
+			try
+			{
+				if(itemOvenOutput != null)
+				{
+					oven.output = itemOvenOutput.clone();
+				}
+				else if(oven.output != null)
+				{
+					oven.output = null;
+				}
+				
+				if(itemOvenFuel != null)
+				{
+					oven.fuel = itemOvenFuel.clone();
+				}
+				else if(oven.fuel != null)
+				{
+					oven.fuel = null;
+				}
+				
+				if(itemOvenInput != null)
+				{
+					oven.input = itemOvenInput.clone();
+				}
+				else if(oven.input != null)
+				{
+					oven.input = null;
+				}
+				
+				if(itemOvenOutputT != null)
+				{
+					oven.tray = itemOvenOutputT.clone();
+				}
+				else if(oven.tray != null)
+				{
+					oven.tray = null;
+				}
+			}
+			catch (Exception e) { }
+			
 			if(itemOvenFuel != null)
 			{
 				if(itemOvenFuel.getOvenValue() != 0)
 				{
-					if(!oven.is_process)
+					if(checkOven.checkOven(itemOvenInput, itemOvenOutputT) != null || oven.is_process)
 					{
-						try
-						{ oven.fuel = itemOvenFuel.clone(); }
-						       catch(Exception e) {}
-						if((itemOvenFuel.getCount() - 1) == 0)
+						boolean band = true;
+						if(itemOvenOutput != null)
 						{
-							itemOvenFuel = null;
+							if(itemOvenOutput.getClass() != checkOven.checkOven(itemOvenInput, itemOvenOutputT).getClass())
+							{
+								band = false;
+							}
+						}
+						
+						if(band)
+						{
+							if(!oven.is_process)
+							{
+								try
+								{ 
+									oven.fuel = itemOvenFuel.clone(); 
+								}
+								catch(Exception e) 
+								{ }
+							}
+							
+							oven.is_process = true;
 						}
 						else
 						{
-							itemOvenFuel.setCount(itemOvenFuel.getCount() - 1);
+							oven.is_process = false;
 						}
-						
-						ofOvenSlot.setItem(itemOvenFuel);
 					}
-					
-					oven.is_process = true;
+					else
+					{
+						oven.is_process = false;
+					}
 				}
 			}
 			

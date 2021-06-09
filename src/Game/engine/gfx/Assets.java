@@ -14,11 +14,11 @@ public class Assets
 	
 	public static BufferedImage hotbar, hotbarSelected, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
 	
-	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray;
+	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer;
 	
-	public static BufferedImage inventory, craftingtable, ovenUI;
+	public static BufferedImage inventory, craftingtable, ovenUI, anvilUI;
 	
 	public static void init()
 	{
@@ -26,6 +26,7 @@ public class Assets
 		inventory = ImageLoader.loadImage("/textures/inventory_sheet.png");
 		craftingtable = ImageLoader.loadImage("/textures/craftingTable_sheet.png");
 		ovenUI = ImageLoader.loadImage("/textures/oven_sheet.png");
+		anvilUI = ImageLoader.loadImage("/textures/anvil_sheet.png");
 		
 		player = spriteSheet.crop(0, 0, WIDTH, HEIGHT);
 		player_water = spriteSheet.crop(WIDTH * 7, HEIGHT * 2, WIDTH, HEIGHT);
@@ -70,6 +71,7 @@ public class Assets
 		clayMold = spriteSheet.crop(WIDTH, HEIGHT * 6, WIDTH, HEIGHT);
 		ironOre = spriteSheet.crop(WIDTH * 3, HEIGHT * 6, WIDTH, HEIGHT);
 		basaltTray = spriteSheet.crop(WIDTH * 4, HEIGHT * 6, WIDTH, HEIGHT);
+		ironBasaltTray = spriteSheet.crop(WIDTH * 6, HEIGHT * 6, WIDTH, HEIGHT);
 		
 		sandpaper = spriteSheet.crop(WIDTH * 3, HEIGHT * 3, WIDTH, HEIGHT);
 		axe = spriteSheet.crop(WIDTH * 4, HEIGHT * 3, WIDTH, HEIGHT);
