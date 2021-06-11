@@ -50,13 +50,11 @@ public class Game implements Runnable
 	
 	public static boolean colliding;
 	
-	public int a;
-	
 	public Game(String title, int width, int heigth)
 	{
-		this.title = title;
-		this.width = width;
-		this.height = heigth;
+		Game.title = title;
+		Game.width = width;
+		Game.height = heigth;
 	}
 	
 	private void init()
@@ -116,6 +114,14 @@ public class Game implements Runnable
 	 	}
 	 	
  		AnimalsManager.tick();
+ 		
+ 		if(UiManager.uiImage != null)
+ 		{
+	 		for(int i = 0; i < generateWorld.getOvens().size(); i++)
+	 		{
+	 			generateWorld.getFromOven(i).tick();
+	 		}
+ 		}
  		
  		if(UiManager.uiImage == null)
 	 	{

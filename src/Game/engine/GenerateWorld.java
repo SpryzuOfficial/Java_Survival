@@ -14,12 +14,14 @@ public class GenerateWorld
 	private Tile[][] tiles;
 	private ArrayList<Animal> animals;
 	private ArrayList<StaticEntity> sEntities;
+	private ArrayList<OvenE> ovens;
 	
 	public GenerateWorld(int W, int H)
 	{
 		this.tiles = new Tile[H][W];
 		this.sEntities = new ArrayList<StaticEntity>();
 		this.animals = new ArrayList<Animal>();
+		this.ovens = new ArrayList<OvenE>();
 	}
 	
 	public void generate()
@@ -243,5 +245,15 @@ public class GenerateWorld
 	public Animal getFromAnimals(int i)
 	{
 		return animals.get(i);
+	}
+	
+	public ArrayList<OvenE> getOvens()
+	{
+		return ovens;
+	}
+	
+	public OvenE getFromOven(int i)
+	{
+		return ovens.get(i);
 	}
 }

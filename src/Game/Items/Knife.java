@@ -6,6 +6,6 @@ public class Knife extends Tool
 {
 	public Knife(int x, int y)
 	{
-		super(Assets.kinfe, x, y, 1, 1, 2, 25);
+		super(Assets.kinfe, x, y, 1, 1, 2, 20);
 	}
 }

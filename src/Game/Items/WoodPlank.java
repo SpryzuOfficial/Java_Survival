@@ -13,7 +13,7 @@ public class WoodPlank extends Item
 {
 	public WoodPlank(int count, int x, int y) 
 	{
-		super(Assets.woodPlank, count, x, y, 1, 1, 1, true, -1, 0.5);
+		super(Assets.woodPlank, count, x, y, 1, 1, 1, true, -1, 960);
 	}
 	
 	@Override

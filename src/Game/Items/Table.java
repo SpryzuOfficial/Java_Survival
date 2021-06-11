@@ -13,7 +13,7 @@ public class Table extends Item
 {
 	public Table(int count, int x, int y) 
 	{
-		super(Assets.table, count, x, y, 1, 1, 1, true, -1, 1);
+		super(Assets.table, count, x, y, 1, 1, 1, true, -1, 240);
 	}
 	
 	@Override

@@ -14,7 +14,7 @@ public class Assets
 	
 	public static BufferedImage hotbar, hotbarSelected, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
 	
-	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray;
+	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, ironSword;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer;
 	
@@ -72,6 +72,10 @@ public class Assets
 		ironOre = spriteSheet.crop(WIDTH * 3, HEIGHT * 6, WIDTH, HEIGHT);
 		basaltTray = spriteSheet.crop(WIDTH * 4, HEIGHT * 6, WIDTH, HEIGHT);
 		ironBasaltTray = spriteSheet.crop(WIDTH * 6, HEIGHT * 6, WIDTH, HEIGHT);
+		iron = spriteSheet.crop(WIDTH * 7, HEIGHT * 6, WIDTH, HEIGHT);
+		woodSwordTemplate = spriteSheet.crop(0, HEIGHT * 7, WIDTH, HEIGHT);
+		clayMoldSword = spriteSheet.crop(WIDTH, HEIGHT * 7, WIDTH, HEIGHT);
+		ironSwordClay = spriteSheet.crop(WIDTH * 2, HEIGHT * 7, WIDTH, HEIGHT);
 		
 		sandpaper = spriteSheet.crop(WIDTH * 3, HEIGHT * 3, WIDTH, HEIGHT);
 		axe = spriteSheet.crop(WIDTH * 4, HEIGHT * 3, WIDTH, HEIGHT);
@@ -79,6 +83,7 @@ public class Assets
 		kinfe = spriteSheet.crop(WIDTH * 6, HEIGHT * 3, WIDTH, HEIGHT);
 		hammer = spriteSheet.crop(0, HEIGHT * 4, WIDTH, HEIGHT);
 		basaltHammer = spriteSheet.crop(WIDTH * 5, HEIGHT * 6, WIDTH, HEIGHT);
+		ironSword = spriteSheet.crop(WIDTH * 3, HEIGHT * 7, WIDTH, HEIGHT);
 		
 		num0 = spriteSheet.crop(WIDTH * 3, HEIGHT * 2, WIDTH, HEIGHT);
 		num1 = spriteSheet.crop(WIDTH, HEIGHT, WIDTH, HEIGHT);

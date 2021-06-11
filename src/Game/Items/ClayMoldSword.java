@@ -4,11 +4,11 @@ import java.awt.Graphics;
 
 import Game.engine.gfx.Assets;
 
-public class Stick extends Item
+public class ClayMoldSword extends Item
 {
-	public Stick(int count, int x, int y) 
+	public ClayMoldSword(int count, int x, int y) 
 	{
-		super(Assets.stick, count, x, y, 1, 1, 1, true, 1, 480);
+		super(Assets.clayMoldSword, count, x, y, 1, 1, 1, true, 1, 0);
 	}
 	
 	@Override

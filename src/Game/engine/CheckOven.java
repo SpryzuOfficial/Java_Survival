@@ -7,11 +7,18 @@ public class CheckOven
 {
 	private OvenItemSlots ironRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new BasaltTray(1, 0, 576)});
 	
+	private OvenItemSlots ironSwordClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldSword(1, 0, 576)});
+	
 	public Item checkOven(Item input, Item tray)
 	{
 		if(updateOven(input, tray, ironRecipe))
 		{
 			return new IronBasaltTray(1, 0, 576);
+		}
+		
+		if(updateOven(input, tray, ironSwordClayRecipe))
+		{
+			return new IronSwordClay(1, 0, 576);
 		}
 		
 		return null;

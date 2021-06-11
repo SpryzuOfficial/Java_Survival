@@ -85,7 +85,10 @@ public class StaticEntitiesManager
 					{
 						for (int j = 0; j < Game.generateWorld.getSEntities().get(i).getItems().size(); j++)
 						{
-							UiInventoryManager.addItem(Game.generateWorld.getSEntities().get(i).getItems().get(j));
+							if(Game.generateWorld.getSEntities().get(i).getItems().get(j) != null)
+							{
+								UiInventoryManager.addItem(Game.generateWorld.getSEntities().get(i).getItems().get(j));
+							}
 						}
 						
 						Game.generateWorld.getSEntities().remove(i);

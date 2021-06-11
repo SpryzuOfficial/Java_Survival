@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 
 import Game.engine.Game;
 import Game.engine.gfx.Assets;
+import Game.ui.UiInventoryManager;
 
 public class Player extends Entity
 {
@@ -54,6 +55,15 @@ public class Player extends Entity
 	public void render(Graphics g)
 	{
 		g.drawImage(texture, x, y, width, height, null);
+		if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
+		{
+			g.drawImage(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getTexture(), x + 100, y, -64, 64, null);
+		}
+		
+		if(UiInventoryManager.inventoryTool != null)
+		{
+			g.drawImage(UiInventoryManager.inventoryTool.getTexture(), x - 36, y, 64, 64, null);
+		}
 		g.drawImage(playerExtraLayer, x, y, width, height, null);
 	}
 	
