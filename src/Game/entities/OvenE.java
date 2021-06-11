@@ -96,9 +96,16 @@ public class OvenE extends StaticEntity
 					boolean band = true;
 					if(output != null)
 					{
-						if(output.getClass() != checkOven.checkOven(input, tray).getClass())
+						try
 						{
-							band = false;
+							if(output.getClass() != checkOven.checkOven(input, tray).getClass())
+							{
+								band = false;
+							}
+						}
+						catch(Exception e)
+						{
+							band = true;
 						}
 					}
 					
@@ -129,7 +136,7 @@ public class OvenE extends StaticEntity
 				
 				fuel_int++;
 				fuel_bar += 25 / (fuel.getOvenValue() * 1);
-				process_float += 48f/(240 * 1);
+				process_float += (48f/(240 * 1)) * (input == null || tray == null ? 0 : 1);
 				
 				if(process_float > 48)
 				{
