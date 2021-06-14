@@ -31,9 +31,9 @@ public class Smoke extends Entity
 	{	
 		Color smoke_color = new Color(150, 150, 150, alpha);
 		g.setColor(smoke_color);
-		g.fillRect(x + x1, y + y1, 32, 32);
+		g.fillRect(x + x1, y + y1, 32 + x1, 32 + y1);
 		g.fillRect(x, y, 32, 32);
-		g.fillRect(x + x2, y + y2, 32, 32);
+		g.fillRect(x + x2, y + y2, 32 - x2, 32 - y2);
 	}
 	
 	@Override
@@ -44,7 +44,7 @@ public class Smoke extends Entity
 		
 		timer++;
 		super_timer++;
-		if(timer > 60)
+		if(timer > 15)
 		{	
 			Vx += x1;
 			Vy += y1;

@@ -10,6 +10,8 @@ public class AnimalsManager
 {
 	private static boolean animalLeftPressed;
 	
+	private static int otherFocusId = -999999;
+	
 	public AnimalsManager() 
 	{
 		
@@ -35,8 +37,11 @@ public class AnimalsManager
 				Game.mouseManager.getMouseY() >= Game.generateWorld.getAnimals().get(i).getY() &&
 				Game.mouseManager.getMouseY() <= Game.generateWorld.getAnimals().get(i).getY() + Game.generateWorld.getAnimals().get(i).getHeight())
 			{
+				otherFocusId = i;
 				Game.pointerX = Game.generateWorld.getAnimals().get(i).getX();	
 				Game.pointerY = Game.generateWorld.getAnimals().get(i).getY();
+				
+				StaticEntitiesManager.destructionBarValue = (int) (((((Game.generateWorld.getAnimals().get(i).getLife() * 100) / Game.generateWorld.getAnimals().get(i).getTopLife())/100f)) * 64);
 				
 				if(!animalLeftPressed)
 				{
@@ -76,7 +81,11 @@ public class AnimalsManager
 						}
 					}
 				}
-			}			
+			}
+			else if(otherFocusId == i)
+			{
+				StaticEntitiesManager.destructionBarValue = 0;
+			}
 		}
 	}
 	

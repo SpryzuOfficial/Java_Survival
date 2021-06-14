@@ -23,77 +23,81 @@ public class Assets
 	public static void init()
 	{
 		SpriteSheet spriteSheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
+		
+		SpriteSheet tilesSESheet = new SpriteSheet(ImageLoader.loadImage("/textures/tilesStaticEntities_sheet.png"));
+		SpriteSheet entitiesSheet = new SpriteSheet(ImageLoader.loadImage("/textures/entities_sheet.png"));
+		SpriteSheet itemsSheet = new SpriteSheet(ImageLoader.loadImage("/textures/items_sheet.png"));
+		
 		inventory = ImageLoader.loadImage("/textures/inventory_sheet.png");
 		craftingtable = ImageLoader.loadImage("/textures/craftingTable_sheet.png");
 		ovenUI = ImageLoader.loadImage("/textures/oven_sheet.png");
 		anvilUI = ImageLoader.loadImage("/textures/anvil_sheet.png");
 		
-		player = spriteSheet.crop(0, 0, WIDTH, HEIGHT);
-		player_water = spriteSheet.crop(WIDTH * 7, HEIGHT * 2, WIDTH, HEIGHT);
+		//Tiles
+		grass = tilesSESheet.crop(0, 0, WIDTH, HEIGHT);
+		dirt = tilesSESheet.crop(WIDTH, 0, WIDTH, HEIGHT);
+		sand = tilesSESheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
+		water = tilesSESheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
 		
-		dirt = spriteSheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
-		grass = spriteSheet.crop(WIDTH, 0, WIDTH, HEIGHT);
-		sand = spriteSheet.crop(WIDTH * 5, HEIGHT * 2, WIDTH, HEIGHT);
-		water = spriteSheet.crop(WIDTH * 6, HEIGHT * 2, WIDTH, HEIGHT);
+		//Static entities
+		rock = tilesSESheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
+		tree = tilesSESheet.crop(WIDTH * 5, 0, WIDTH, HEIGHT * 2);
+		basaltE = tilesSESheet.crop(WIDTH * 6, 0, WIDTH, HEIGHT);
+		tableE = tilesSESheet.crop(WIDTH * 7, 0, WIDTH, HEIGHT);
+		woodPlankE = tilesSESheet.crop(WIDTH * 8, 0, WIDTH, HEIGHT);
+		polishedBasaltE = tilesSESheet.crop(WIDTH * 9, 0, WIDTH, HEIGHT);
+		anvilE = tilesSESheet.crop(WIDTH * 10, 0, WIDTH, HEIGHT);
+		clayE = tilesSESheet.crop(WIDTH * 11, 0, WIDTH, HEIGHT);
+		ironOreE = tilesSESheet.crop(WIDTH * 12, 0, WIDTH, HEIGHT);
+		ovenE = tilesSESheet.crop(WIDTH * 13, 0, WIDTH, HEIGHT);
 		
-		pointer = spriteSheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
+		//Entities
+		player = entitiesSheet.crop(0, 0, WIDTH, HEIGHT);
+		pointer = entitiesSheet.crop(WIDTH, 0, WIDTH, HEIGHT);
+		cow = entitiesSheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
+		player_water = entitiesSheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
 		
-		cow = spriteSheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
-		
-		tree = spriteSheet.crop(0, HEIGHT, WIDTH, HEIGHT * 2);
-		rock = spriteSheet.crop(WIDTH * 4, HEIGHT * 2, WIDTH, HEIGHT);
-		tableE = spriteSheet.crop(WIDTH * 3, HEIGHT * 4, WIDTH, HEIGHT);
-		woodPlankE = spriteSheet.crop(WIDTH * 5, HEIGHT * 4, WIDTH, HEIGHT);
-		basaltE = spriteSheet.crop(0, HEIGHT * 5, WIDTH, HEIGHT);
-		polishedBasaltE = spriteSheet.crop(WIDTH * 3, HEIGHT * 5, WIDTH, HEIGHT);
-		ovenE = spriteSheet.crop(WIDTH * 7, HEIGHT * 4, WIDTH, HEIGHT);
-		anvilE = spriteSheet.crop(WIDTH * 5, HEIGHT * 5, WIDTH, HEIGHT);
-		clayE = spriteSheet.crop(WIDTH * 6, HEIGHT * 5, WIDTH, HEIGHT);
-		ironOreE = spriteSheet.crop(WIDTH * 2, HEIGHT * 6, WIDTH, HEIGHT);
-		
-		hotbar = spriteSheet.crop(WIDTH * 5, 0, WIDTH, HEIGHT);
-		hotbarSelected = spriteSheet.crop(WIDTH * 6, 0, WIDTH, HEIGHT);
-		
-		wood = spriteSheet.crop(WIDTH * 7, 0, WIDTH, HEIGHT);
-		stone = spriteSheet.crop(0, HEIGHT * 3, WIDTH, HEIGHT);
-		wool = spriteSheet.crop(WIDTH, HEIGHT * 3, WIDTH, HEIGHT);
-		string = spriteSheet.crop(WIDTH * 2, HEIGHT * 3, WIDTH, HEIGHT);
-		woodTable = spriteSheet.crop(WIDTH * 7, HEIGHT * 3, WIDTH, HEIGHT);
-		nail = spriteSheet.crop(WIDTH, HEIGHT * 4, WIDTH, HEIGHT);
-		table = spriteSheet.crop(WIDTH * 2, HEIGHT * 4, WIDTH, HEIGHT);
-		woodPlank = spriteSheet.crop(WIDTH * 4, HEIGHT * 4, WIDTH, HEIGHT);
-		basalt = spriteSheet.crop(WIDTH, HEIGHT * 5, WIDTH, HEIGHT);
-		polishedBasalt = spriteSheet.crop(WIDTH * 2, HEIGHT * 5, WIDTH, HEIGHT);
-		oven = spriteSheet.crop(WIDTH * 6, HEIGHT * 4, WIDTH, HEIGHT);
-		anvil = spriteSheet.crop(WIDTH * 4, HEIGHT * 5, WIDTH, HEIGHT);
-		clay = spriteSheet.crop(WIDTH * 7, HEIGHT * 5, WIDTH, HEIGHT);
-		stick = spriteSheet.crop(0, HEIGHT * 6, WIDTH, HEIGHT);
-		clayMold = spriteSheet.crop(WIDTH, HEIGHT * 6, WIDTH, HEIGHT);
-		ironOre = spriteSheet.crop(WIDTH * 3, HEIGHT * 6, WIDTH, HEIGHT);
-		basaltTray = spriteSheet.crop(WIDTH * 4, HEIGHT * 6, WIDTH, HEIGHT);
-		ironBasaltTray = spriteSheet.crop(WIDTH * 6, HEIGHT * 6, WIDTH, HEIGHT);
-		iron = spriteSheet.crop(WIDTH * 7, HEIGHT * 6, WIDTH, HEIGHT);
-		woodSwordTemplate = spriteSheet.crop(0, HEIGHT * 7, WIDTH, HEIGHT);
-		clayMoldSword = spriteSheet.crop(WIDTH, HEIGHT * 7, WIDTH, HEIGHT);
-		ironSwordClay = spriteSheet.crop(WIDTH * 2, HEIGHT * 7, WIDTH, HEIGHT);
-		
-		sandpaper = spriteSheet.crop(WIDTH * 3, HEIGHT * 3, WIDTH, HEIGHT);
-		axe = spriteSheet.crop(WIDTH * 4, HEIGHT * 3, WIDTH, HEIGHT);
-		pickaxe = spriteSheet.crop(WIDTH * 5, HEIGHT * 3, WIDTH, HEIGHT);
-		kinfe = spriteSheet.crop(WIDTH * 6, HEIGHT * 3, WIDTH, HEIGHT);
-		hammer = spriteSheet.crop(0, HEIGHT * 4, WIDTH, HEIGHT);
-		basaltHammer = spriteSheet.crop(WIDTH * 5, HEIGHT * 6, WIDTH, HEIGHT);
-		ironSword = spriteSheet.crop(WIDTH * 3, HEIGHT * 7, WIDTH, HEIGHT);
-		
-		num0 = spriteSheet.crop(WIDTH * 3, HEIGHT * 2, WIDTH, HEIGHT);
-		num1 = spriteSheet.crop(WIDTH, HEIGHT, WIDTH, HEIGHT);
-		num2 = spriteSheet.crop(WIDTH * 2, HEIGHT, WIDTH, HEIGHT);
-		num3 = spriteSheet.crop(WIDTH * 3, HEIGHT, WIDTH, HEIGHT);
-		num4 = spriteSheet.crop(WIDTH * 4, HEIGHT, WIDTH, HEIGHT);
-		num5 = spriteSheet.crop(WIDTH * 5, HEIGHT, WIDTH, HEIGHT);
-		num6 = spriteSheet.crop(WIDTH * 6, HEIGHT, WIDTH, HEIGHT);
-		num7 = spriteSheet.crop(WIDTH * 7, HEIGHT, WIDTH, HEIGHT);
-		num8 = spriteSheet.crop(WIDTH, HEIGHT * 2, WIDTH, HEIGHT);
-		num9 = spriteSheet.crop(WIDTH * 2, HEIGHT * 2, WIDTH, HEIGHT);
+		//Items
+		hotbar = itemsSheet.crop(0, 0, WIDTH, HEIGHT);
+		hotbarSelected = itemsSheet.crop(WIDTH, 0, WIDTH, HEIGHT);
+		num0 = itemsSheet.crop(WIDTH * 11, 0, WIDTH, HEIGHT);
+		num1 = itemsSheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
+		num2 = itemsSheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
+		num3 = itemsSheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
+		num4 = itemsSheet.crop(WIDTH * 5, 0, WIDTH, HEIGHT);
+		num5 = itemsSheet.crop(WIDTH * 6, 0, WIDTH, HEIGHT);
+		num6 = itemsSheet.crop(WIDTH * 7, 0, WIDTH, HEIGHT);
+		num7 = itemsSheet.crop(WIDTH * 8, 0, WIDTH, HEIGHT);
+		num8 = itemsSheet.crop(WIDTH * 9, 0, WIDTH, HEIGHT);
+		num9 = itemsSheet.crop(WIDTH * 10, 0, WIDTH, HEIGHT);
+		wood = itemsSheet.crop(WIDTH * 12, 0, WIDTH, HEIGHT);
+		stone = itemsSheet.crop(WIDTH * 13, 0, WIDTH, HEIGHT);
+		wool = itemsSheet.crop(WIDTH * 14, 0, WIDTH, HEIGHT);
+		string = itemsSheet.crop(WIDTH * 15, 0, WIDTH, HEIGHT);
+		woodTable = itemsSheet.crop(WIDTH * 6, HEIGHT, WIDTH, HEIGHT);
+		nail = itemsSheet.crop(WIDTH * 7, HEIGHT, WIDTH, HEIGHT);
+		basalt = itemsSheet.crop(WIDTH * 8, HEIGHT, WIDTH, HEIGHT);
+		polishedBasalt = itemsSheet.crop(WIDTH * 9, HEIGHT, WIDTH, HEIGHT);
+		table = itemsSheet.crop(WIDTH * 10, HEIGHT, WIDTH, HEIGHT);
+		oven = itemsSheet.crop(WIDTH * 11, HEIGHT, WIDTH, HEIGHT);
+		anvil = itemsSheet.crop(WIDTH * 12, HEIGHT, WIDTH, HEIGHT);
+		woodPlank = itemsSheet.crop(WIDTH * 13, HEIGHT, WIDTH, HEIGHT);
+		stick = itemsSheet.crop(WIDTH * 14, HEIGHT, WIDTH, HEIGHT);
+		basaltTray = itemsSheet.crop(WIDTH * 15, HEIGHT, WIDTH, HEIGHT);
+		clay = itemsSheet.crop(0, HEIGHT * 2, WIDTH, HEIGHT);
+		ironOre = itemsSheet.crop(WIDTH, HEIGHT * 2, WIDTH, HEIGHT);
+		clayMold = itemsSheet.crop(WIDTH * 2, HEIGHT * 2, WIDTH, HEIGHT);
+		ironBasaltTray = itemsSheet.crop(WIDTH * 3, HEIGHT * 2, WIDTH, HEIGHT);
+		iron = itemsSheet.crop(WIDTH * 4, HEIGHT * 2, WIDTH, HEIGHT);
+		woodSwordTemplate = itemsSheet.crop(WIDTH * 5, HEIGHT * 2, WIDTH, HEIGHT);
+		clayMoldSword = itemsSheet.crop(WIDTH * 6, HEIGHT * 2, WIDTH, HEIGHT);
+		ironSwordClay = itemsSheet.crop(WIDTH * 7, HEIGHT * 2, WIDTH, HEIGHT);
+		sandpaper = itemsSheet.crop(0, HEIGHT, WIDTH, HEIGHT);
+		axe = itemsSheet.crop(WIDTH, HEIGHT, WIDTH, HEIGHT);
+		pickaxe = itemsSheet.crop(WIDTH * 2, HEIGHT, WIDTH, HEIGHT);
+		kinfe = itemsSheet.crop(WIDTH * 3, HEIGHT, WIDTH, HEIGHT);
+		hammer = itemsSheet.crop(WIDTH * 4, HEIGHT, WIDTH, HEIGHT);
+		basaltHammer = itemsSheet.crop(WIDTH * 5, HEIGHT, WIDTH, HEIGHT);
+		ironSword = itemsSheet.crop(WIDTH * 8, HEIGHT * 2, WIDTH, HEIGHT);
 	}
 }

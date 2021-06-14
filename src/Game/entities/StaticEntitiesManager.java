@@ -23,7 +23,7 @@ public class StaticEntitiesManager
 		for(int i = 0; i < Game.generateWorld.SESIZE; i++)
 		{
 			boolean otherEMining = false;
-			int otherEMiningId = 99999999;
+			int otherEMiningId = -999999;
 			
 			Game.generateWorld.getSEntities().get(i).tick();
 			

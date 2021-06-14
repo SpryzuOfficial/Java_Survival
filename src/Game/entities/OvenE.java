@@ -129,7 +129,7 @@ public class OvenE extends StaticEntity
 		{
 			if(fuel != null)
 			{
-				if(fuel_int == 0)
+				if(process_float == 0)
 				{
 					smokes.add(new Smoke(this));
 				}

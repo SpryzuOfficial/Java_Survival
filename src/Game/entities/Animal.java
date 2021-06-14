@@ -12,10 +12,11 @@ public class Animal extends Entity
 	protected int punchedTimer;
 	protected int dir;
 	protected int life;
+	protected int topLife;
 	protected int type;
 	protected int damage;
 	
-	public Animal(BufferedImage texture, int x, int y, int Vx, int Vy, int speed, int life)
+	public Animal(BufferedImage texture, int x, int y, int Vx, int Vy, int speed, int topLife)
 	{
 		super(texture, x, y, Vx, Vy, 64, 64, speed);
 		
@@ -25,7 +26,8 @@ public class Animal extends Entity
 		this.punchedTimer = 0;
 		this.isPunched = false;
 		this.isOnRange = false;
-		this.life = life;
+		this.topLife = topLife;
+		this.life = topLife;
 		this.type = 2;
 	}
 	
@@ -83,5 +85,15 @@ public class Animal extends Entity
 	public void setDamage(int damage) 
 	{
 		this.damage = damage;
+	}
+
+	public int getTopLife() 
+	{
+		return topLife;
+	}
+
+	public void setTopLife(int topLife) 
+	{
+		this.topLife = topLife;
 	}
 }
