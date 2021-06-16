@@ -27,30 +27,107 @@ public class GenerateWorld
 	public void generate()
 	{
 		PerlinNoise noise = new PerlinNoise();
+		PerlinNoise noiseTemp = new PerlinNoise();
 		
 		for(int yC = 0; yC < 88; yC++)
 		{
 			for(int xC = 0; xC < 88; xC++)
 			{
-				double fact = noise.noise(xC*2, yC*2);
+				double fact = noise.noise(xC / 2, yC / 2);
+				double temp = noiseTemp.noise(xC/6, yC/6);
 				
-				//System.out.printf("%.2f", fact);
-				
-				if(fact < 0.38)
+				/*
+				if(temp < 0.1)
 				{
-					//"O"
-					System.out.print("O");
+					System.out.print("0");
 				}
-				else if(fact < 0.6)
+				else if(temp < 0.2)
 				{
-					//"D"
-					System.out.print("D");
+					System.out.print("1");
+				}
+				else if(temp < 0.3)
+				{
+					System.out.print("2");
+				}
+				else if(temp < 0.4)
+				{
+					System.out.print("3");
+				}
+				else if(temp < 0.5)
+				{
+					System.out.print("4");
+				}
+				else if(temp < 0.6)
+				{
+					System.out.print("5");
+				}
+				else if(temp < 0.7)
+				{
+					System.out.print("6");
+				}
+				else if(temp < 0.8)
+				{
+					System.out.print("7");
+				}
+				else if(temp < 0.9)
+				{
+					System.out.print("8");
 				}
 				else
 				{
-					//"F"
-					System.out.print("F");
+					System.out.print("9");
 				}
+				//*/
+				
+				///*
+				if(fact < 0.4)
+				{
+					//"F"
+					if(temp < 0.5)
+					{
+						System.out.print("F");
+					}
+					else if(temp < 0.6)
+					{
+						System.out.print("/");
+					}
+					else if(temp < 0.7)
+					{
+						System.out.print("R");
+					}
+					else 
+					{
+						System.out.print("V");
+					}
+				}
+				else if(fact > 0.4 && fact < 0.58)
+				{
+					//"O"
+					if(fact > 0.495 && fact < 0.4963)
+					{
+						System.out.print("*");
+					}
+					else
+					{
+						System.out.print("O");
+					}
+				}
+				else
+				{
+					if(temp < 0.6)
+					{
+						System.out.print("M");
+					}
+					else if(temp < 0.74)
+					{
+						System.out.print("R");
+					}
+					else
+					{
+						System.out.print("V");
+					}
+				}
+				//*/
 				
 				for(int y = yC * 11; y < ((yC + 1) * 11); y++) 
 				{
