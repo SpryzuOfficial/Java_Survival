@@ -10,12 +10,12 @@ public class Biome
 		
 	}
 	
-	public Tile generateTiles(double f, double v)
+	public Tile generateTiles(double f, double v, int x, int y)
 	{
 		return null;
 	}
 	
-	public Entity generateEntities(double f, double v)
+	public Entity generateEntities(double f, double v, int x, int y)
 	{
 		return null;
 	}

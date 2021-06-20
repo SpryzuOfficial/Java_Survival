@@ -3,8 +3,6 @@ package Game.tiles;
 import java.awt.Graphics;
 
 import Game.engine.Game;
-import Game.entities.Entity;
-import Game.entities.StaticEntity;
 import Game.ui.UiInventoryManager;
 
 public class TileManager 
@@ -31,6 +29,8 @@ public class TileManager
 		{
 			for(x = tileX1; x < tileX2; x++)
 			{
+				if(tiles[y][x]!=null)
+				{
 				tiles[y][x].tick();
 				
 				if(tiles[y][x].getGx() + tiles[y][x].getWidth() > 0 && tiles[y][x].getGx() < 0 + Game.width
@@ -43,6 +43,7 @@ public class TileManager
 					{
 						Game.pointerX = tiles[y][x].getGx();	
 						Game.pointerY = tiles[y][x].getGy();	
+						System.out.println(Game.generateWorld.worldNoises[y][x]);
 						
 						if(Game.mouseManager.isRightPressed() && UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
 						{
@@ -91,6 +92,7 @@ public class TileManager
 						}
 					}
 				}
+				}
 			}
 		}
 	}
@@ -103,10 +105,13 @@ public class TileManager
 		{
 			for(int x = tileX1; x < tileX2; x++)
 			{
+				if(tiles[y][x]!=null)
+				{
 				if(tiles[y][x].getGx() + tiles[y][x].getWidth() > 0 && tiles[y][x].getGx() < 0 + Game.width
 				   && tiles[y][x].getGy() + tiles[y][x].getHeight() > 0 && tiles[y][x].getGy() < 0 + Game.height)
 				{
 					tiles[y][x].render(g);
+				}
 				}
 			}
 		}
