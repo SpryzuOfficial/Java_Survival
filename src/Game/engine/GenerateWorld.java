@@ -18,9 +18,8 @@ public class GenerateWorld
 	private ArrayList<StaticEntity> sEntities;
 	private ArrayList<OvenE> ovens;
 	
-	public static Double[][] worldNoises;
-	private Double[][] biomesNoises;
-	private Double[][] tempsNoises;
+	public Double[][] worldNoises;
+	public Double[][] worldMoisture;
 	
 	//Biomes
 	private Forest forest;
@@ -36,9 +35,7 @@ public class GenerateWorld
 		this.ovens = new ArrayList<OvenE>();
 		
 		worldNoises = new Double[968][968];
-		
-		this.biomesNoises = new Double[88][88];
-		this.tempsNoises = new Double[968][968];
+		worldMoisture = new Double[968][968];
 		
 		this.forest = new Forest();
 		this.wetForest = new WetForest();
@@ -49,215 +46,92 @@ public class GenerateWorld
 	public void generate()
 	{
 		PerlinNoise noise = new PerlinNoise();
-		PerlinNoise noiseTemp = new PerlinNoise();
+		PerlinNoise noiseMoisture = new PerlinNoise();
 		
 		try
 		{
 			FileWriter world = new FileWriter("world.txt");
-			FileWriter chunks = new FileWriter("chunks.txt");
-			FileWriter biomes = new FileWriter("biomes.txt");
-			FileWriter chunksTemp = new FileWriter("chunksTemp.txt");
 			FileWriter chunksValues = new FileWriter("chunksV.txt");
+			FileWriter chunksMoisture = new FileWriter("chunksM.txt");
+			FileWriter tilesFile = new FileWriter("tiles.txt");
 			
-			for(int i = 0; i < 88; i++)
-			{
-				for(int j = 0; j < 88; j++)
-				{
-					double fact = noise.noise(i, j);
-					double temp = noiseTemp.noise(i, j);
-					
-					biomesNoises[i][j] = fact;
-					tempsNoises[i][j] = temp;
-					
-					if(temp < 0.1)
-					{
-						chunksTemp.write("0");
-					}
-					else if(temp < 0.2)
-					{
-						chunksTemp.write("1");
-					}
-					else if(temp < 0.3)
-					{
-						chunksTemp.write("2");
-					}
-					else if(temp < 0.4)
-					{
-						chunksTemp.write("3");
-					}
-					else if(temp < 0.5)
-					{
-						chunksTemp.write("4");
-					}
-					else if(temp < 0.6)
-					{
-						chunksTemp.write("5");
-					}
-					else if(temp < 0.7)
-					{
-						chunksTemp.write("6");
-					}
-					else if(temp < 0.8)
-					{
-						chunksTemp.write("7");
-					}
-					else if(temp < 0.9)
-					{
-						chunksTemp.write("8");
-					}
-					else
-					{
-						chunksTemp.write("9");
-					}
-					
-					if(fact < 0.4)
-					{
-						if(temp < 0.5)
-						{
-							biomes.write("}");
-						}
-						else if(temp < 0.6)
-						{
-							biomes.write("/");
-						}
-						else if(temp < 0.7)
-						{
-							biomes.write("R");
-						}
-						else 
-						{
-							biomes.write("V");
-						}
-					}
-					else if(fact < 0.44)
-					{
-						biomes.write("_");
-					}
-					else if(fact > 0.42 && fact < 0.58)
-					{
-						biomes.write("O");
-					}
-					else
-					{
-						if(temp < 0.6)
-						{
-							biomes.write("M");
-						}
-						else if(temp < 0.74)
-						{
-							biomes.write("R");
-						}
-						else
-						{
-							biomes.write("V");
-						}
-					}
-					
-					if(fact < 0.1)
-					{
-						chunks.write("0");
-					}
-					else if(fact < 0.2)
-					{
-						chunks.write("1");
-					}
-					else if(fact < 0.3)
-					{
-						chunks.write("2");
-					}
-					else if(fact < 0.4)
-					{
-						chunks.write("3");
-					}
-					else if(fact < 0.5)
-					{
-						chunks.write("4");
-					}
-					else if(fact < 0.6)
-					{
-						chunks.write("5");
-					}
-					else if(fact < 0.7)
-					{
-						chunks.write("6");
-					}
-					else if(fact < 0.8)
-					{
-						chunks.write("7");
-					}
-					else if(fact < 0.9)
-					{
-						chunks.write("8");
-					}
-					else
-					{
-						chunks.write("9");
-					}
-				}
-				chunks.write("\n");
-				biomes.write("\n");
-				chunksTemp.write("\n");
-			}
-			
-			int x=0, y=0;
 			for(int i = 0; i < 968; i++)
 			{
 				for(int j = 0; j < 968; j++)
 				{
-					double v = noise.noise(i/5, j/5);
-					//double temp = noiseTemp.noise(i/5, j/5);
+					double v = noise.noise(i/2, j/2);
+					double moisture = noiseMoisture.noise(i, j);
 					
-					//tempsNoises[i][j] = temp;
+					if(v > 0.55)
+					{
+						v = 0.0;
+					}
+					
 					worldNoises[i][j] = v;
+					worldMoisture[i][j] = moisture;
 					
-					/*
-					if(temp < 0.1)
+					if(v < 0.1)
 					{
-						chunksTemp.write("0");
+						if(moisture < 0.4)
+						{
+							tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+							tilesFile.write("S");
+						}
+						else
+						{
+							tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+							tilesFile.write("W");
+						}
 					}
-					else if(temp < 0.2)
+					else if(v < 0.5)
 					{
-						chunksTemp.write("1");
+						if(moisture < 0.42)
+						{
+							tiles[i][j] = new Dirt(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+							tilesFile.write(":");
+							
+						}
+						else if(moisture < 0.46)
+						{
+							tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+							tilesFile.write("^");
+						}
+						else if(moisture < 0.7)
+						{
+							tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+							tilesFile.write("+");
+						}
+						else
+						{
+							tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+							tilesFile.write("S");
+						}
 					}
-					else if(temp < 0.3)
+					else if(v < 0.6)
 					{
-						chunksTemp.write("2");
+						tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+						tilesFile.write("^");
 					}
-					else if(temp < 0.4)
-					{
-						chunksTemp.write("3");
-					}
-					else if(temp < 0.5)
-					{
-						chunksTemp.write("4");
-					}
-					else if(temp < 0.6)
-					{
-						chunksTemp.write("5");
-					}
-					else if(temp < 0.7)
-					{
-						chunksTemp.write("6");
-					}
-					else if(temp < 0.8)
-					{
-						chunksTemp.write("7");
-					}
-					else if(temp < 0.9)
-					{
-						chunksTemp.write("8");
-					}
-					else
-					{
-						chunksTemp.write("9");
-					}
-					*/
+					
 					
 					if(j % 11 == 0 && j != 0)
 					{
 						chunksValues.write(" ");
 					}
 					
+					/*
+					if(v == 0)
+					{
+						world.write("0");
+						chunksValues.write("0");
+					}
+					else
+					{
+						world.write(".");
+						chunksValues.write(".");
+					}//*/
+					
+					///*
 					if(v < 0.1)
 					{
 						world.write("0");
@@ -308,10 +182,54 @@ public class GenerateWorld
 						world.write("9");
 						chunksValues.write("9");
 					}
+					//*/
+					
+					if(moisture < 0.1)
+					{
+						chunksMoisture.write("0");
+					}
+					else if(moisture < 0.2)
+					{
+						chunksMoisture.write("1");
+					}
+					else if(moisture < 0.3)
+					{
+						chunksMoisture.write("2");
+					}
+					else if(moisture < 0.4)
+					{
+						chunksMoisture.write("3");
+					}
+					else if(moisture < 0.5)
+					{
+						chunksMoisture.write("4");
+					}
+					else if(moisture < 0.6)
+					{
+						chunksMoisture.write("5");
+					}
+					else if(moisture < 0.7)
+					{
+						chunksMoisture.write("6");
+					}
+					else if(moisture < 0.8)
+					{
+						chunksMoisture.write("7");
+					}
+					else if(moisture < 0.9)
+					{
+						chunksMoisture.write("8");
+					}
+					else
+					{
+						chunksMoisture.write("9");
+					}
+					
 				}
 				world.write("\n");
-				chunksTemp.write("\n");
 				chunksValues.write("\n");
+				chunksMoisture.write("\n");
+				tilesFile.write("\n");
 				if(i % 11 == 0 && i != 0)
 				{
 					chunksValues.write("\n");
@@ -319,79 +237,13 @@ public class GenerateWorld
 			}
 			
 			world.close();
-			chunks.close();
-			biomes.close();
-			chunksTemp.close();
 			chunksValues.close();
+			chunksMoisture.close();
+			tilesFile.close();
 		}
 		catch(Exception e)
 		{
 			System.err.println(e);
-		}
-		
-		for(int yC = 0; yC < 88; yC++)
-		{
-			for(int xC = 0; xC < 88; xC++)
-			{
-				double fact = biomesNoises[yC][xC];
-				double temp = tempsNoises[yC][xC];
-				
-				for(int y = yC * 11; y < ((yC + 1) * 11); y++) 
-				{
-					for(int x = xC * 11; x < ((xC + 1) * 11); x++)
-					{
-						double v = worldNoises[y][x];
-						
-						if(fact < 0.4)
-						{
-							if(temp < 0.5)
-							{
-								tiles[y][x] = forest.generateTiles(fact, v, x, y);
-								forest.generateEntities(fact, v, x, y);
-							}
-							else if(temp < 0.6)
-							{
-								tiles[y][x] = wetForest.generateTiles(fact, v, x, y);
-								wetForest.generateEntities(fact, v, x, y);
-							}
-							else if(temp < 0.7)
-							{
-								
-							}
-							else 
-							{
-								
-							}
-						}
-						else if(fact < 0.44)
-						{
-							tiles[y][x] = desert.generateTiles(fact, v, x, y);
-							desert.generateEntities(fact, v, x, y);
-						}
-						else if(fact > 0.44 && fact < 0.58)
-						{
-							tiles[y][x] = ocean.generateTiles(fact, v, x, y);
-							ocean.generateEntities(fact, v, x, y);
-						}
-						else
-						{
-							if(temp < 0.6)
-							{
-								tiles[y][x] = desert.generateTiles(fact, v, x, y);
-								desert.generateEntities(fact, v, x, y);
-							}
-							else if(temp < 0.74)
-							{
-								
-							}
-							else
-							{
-								
-							}
-						}
-					}
-				}
-			}
 		}
 		
 		System.out.println(ASIZE);

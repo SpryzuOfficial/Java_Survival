@@ -163,6 +163,17 @@ public class Game implements Runnable
 		g.setColor(Color.RED);
 		g.fillRect(pointer.getX(), pointer.getY() - 10, (int) StaticEntitiesManager.destructionBarValue, 10);
 		
+		g.setColor(Color.BLACK);
+		g.fillRect(48, 48, 128, 24);
+		
+		g.setColor(Color.WHITE);
+		g.drawChars("X".toCharArray(), 0, 1, 64, 64);
+		g.drawChars(String.valueOf(virtualSpace.getX() / 64).toCharArray(), 0, String.valueOf(virtualSpace.getX() / 64).toCharArray().length, 70, 64);
+		
+		g.setColor(Color.WHITE);
+		g.drawChars("Y".toCharArray(), 0, 1, 96, 64);
+		g.drawChars(String.valueOf(virtualSpace.getY() / 64).toCharArray(), 0, String.valueOf(virtualSpace.getY() / 64).toCharArray().length, 102, 64);
+		
 		/*
 		g.setColor(Color.LIGHT_GRAY);
 		g.fillRect(23, 2, 210, 108);
