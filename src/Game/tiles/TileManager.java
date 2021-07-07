@@ -43,7 +43,7 @@ public class TileManager
 					{
 						Game.pointerX = tiles[y][x].getGx();	
 						Game.pointerY = tiles[y][x].getGy();	
-						System.out.println(Game.generateWorld.worldNoises[y][x] + " | " + Game.generateWorld.worldMoisture[y][x]);
+						//System.out.println(Game.generateWorld.worldNoises[y][x] + " | " + Game.generateWorld.worldMoisture[y][x]);
 						
 						if(Game.mouseManager.isRightPressed() && UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
 						{

@@ -3,6 +3,8 @@ package Game.engine;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
+import javax.swing.event.TreeExpansionEvent;
+
 import Game.biomes.*;
 import Game.entities.*;
 import Game.noise.PerlinNoise;
@@ -20,12 +22,15 @@ public class GenerateWorld
 	
 	public Double[][] worldNoises;
 	public Double[][] worldMoisture;
+	public Double[][] blueNoise;
 	
 	//Biomes
 	private Forest forest;
 	private WetForest wetForest;
 	private Ocean ocean;
 	private Desert desert;
+	
+	private boolean istickocuped = false;
 	
 	public GenerateWorld(int W, int H)
 	{
@@ -36,6 +41,7 @@ public class GenerateWorld
 		
 		worldNoises = new Double[968][968];
 		worldMoisture = new Double[968][968];
+		blueNoise = new Double[968][968];
 		
 		this.forest = new Forest();
 		this.wetForest = new WetForest();
@@ -47,6 +53,7 @@ public class GenerateWorld
 	{
 		PerlinNoise noise = new PerlinNoise();
 		PerlinNoise noiseMoisture = new PerlinNoise();
+		PerlinNoise bluenoise = new PerlinNoise();
 		
 		try
 		{
@@ -54,6 +61,15 @@ public class GenerateWorld
 			FileWriter chunksValues = new FileWriter("chunksV.txt");
 			FileWriter chunksMoisture = new FileWriter("chunksM.txt");
 			FileWriter tilesFile = new FileWriter("tiles.txt");
+			
+			for(int i = 0; i < 968; i++)
+			{
+				for(int j = 0; j < 968; j++)
+				{
+					double blue = bluenoise.noise(50*i, 50*j);
+					blueNoise[i][j] = blue;
+				}
+			}
 			
 			for(int i = 0; i < 968; i++)
 			{
@@ -74,6 +90,27 @@ public class GenerateWorld
 					{
 						if(moisture < 0.4)
 						{
+							if(generateEntitiesByR(i, j, 5) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new IronOreE((j*64), (i*64), (j*64) - Game.virtualSpace.getX(), (i*64) - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
+							if(generateEntitiesByR(i, j, 4) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new BasaltE((j*64), (i*64), (j*64) - Game.virtualSpace.getX(), (i*64) - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
+							if(generateEntitiesByR(i, j, 3) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new Rock((j*64), (i*64), (j*64) - Game.virtualSpace.getX(), (i*64) - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
 							tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 							tilesFile.write("S");
 						}
@@ -87,28 +124,112 @@ public class GenerateWorld
 					{
 						if(moisture < 0.42)
 						{
+							if(generateEntitiesByR(i, j, 4) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new ClayE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
+							if(generateEntitiesByR(i, j, 1) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new Tree(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
 							tiles[i][j] = new Dirt(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 							tilesFile.write(":");
 							
 						}
 						else if(moisture < 0.46)
 						{
+							if(generateEntitiesByR(i, j, 4) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
 							tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 							tilesFile.write("^");
 						}
 						else if(moisture < 0.7)
 						{
+							if(generateEntitiesByR(i, j, 7) && !istickocuped)
+							{
+								istickocuped = true;
+								animals.add(new Sheep(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								ASIZE++;
+							}
+							
+							if(generateEntitiesByR(i, j, 5) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
+							if(generateEntitiesByR(i, j, 2) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new Tree(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
 							tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 							tilesFile.write("+");
 						}
 						else
 						{
+							if(generateEntitiesByR(i, j, 3) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
+							if(generateEntitiesByR(i, j, 2) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new BasaltE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
+							if(generateEntitiesByR(i, j, 2) && !istickocuped)
+							{
+								istickocuped = true;
+								sEntities.add(new IronOreE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+								SESIZE++;
+							}
+							
 							tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 							tilesFile.write("S");
 						}
 					}
 					else if(v < 0.6)
 					{
+						if(generateEntitiesByR(i, j, 4) && !istickocuped)
+						{
+							istickocuped = true;
+							sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+							SESIZE++;
+						}
+						
+						if(generateEntitiesByR(i, j, 2) && !istickocuped)
+						{
+							istickocuped = true;
+							sEntities.add(new BasaltE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+							SESIZE++;
+						}
+						
+						if(generateEntitiesByR(i, j, 2) && !istickocuped)
+						{
+							istickocuped = true;
+							sEntities.add(new IronOreE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+							SESIZE++;
+						}
+						
 						tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 						tilesFile.write("^");
 					}
@@ -118,18 +239,6 @@ public class GenerateWorld
 					{
 						chunksValues.write(" ");
 					}
-					
-					/*
-					if(v == 0)
-					{
-						world.write("0");
-						chunksValues.write("0");
-					}
-					else
-					{
-						world.write(".");
-						chunksValues.write(".");
-					}//*/
 					
 					///*
 					if(v < 0.1)
@@ -225,6 +334,7 @@ public class GenerateWorld
 						chunksMoisture.write("9");
 					}
 					
+					istickocuped = false;
 				}
 				world.write("\n");
 				chunksValues.write("\n");
@@ -287,5 +397,31 @@ public class GenerateWorld
 	public OvenE getFromOven(int i)
 	{
 		return ovens.get(i);
+	}
+	
+	public boolean generateEntitiesByR(int i, int j, int R)
+	{
+		double max = 0;
+		for (int y = i - R; y <= i + R; y++) 
+		{
+			for (int x = j - R; x <= j + R; x++) 
+			{
+				if (0 <= y && y < 968 && 0 <= x && x < 968) 
+				{
+					double e = blueNoise[y][x];
+					if (e > max) 
+					{
+						max = e; 
+					}
+				}
+			}
+		}
+		
+		if (blueNoise[i][j] == max) 
+		{
+			return true;
+	    }
+		
+		return false;
 	}
 }
