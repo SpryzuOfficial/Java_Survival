@@ -62,7 +62,7 @@ public class Game implements Runnable
 		keyManager = new KeyManager();
 		mouseManager = new MouseManager();
 		
-		virtualSpace = new VirtualSpace(((TVSWIDTH / 2) - (VSWIDTH / 2)) + 32, ((TVSHEIGHT / 2) - (VSHEIGHT / 2)) + 32, VSWIDTH, VSHEIGHT, TVSWIDTH, TVSHEIGHT, 4, keyManager, mouseManager);
+		virtualSpace = new VirtualSpace(((TVSWIDTH / 2) - (VSWIDTH / 2)) + 32, ((TVSHEIGHT / 2) - (VSHEIGHT / 2)) + 32, VSWIDTH, VSHEIGHT, TVSWIDTH, TVSHEIGHT, 4);
 		
 		generateWorld = new GenerateWorld(TAWIDTH, TAHEIGHT);
 		
@@ -106,7 +106,29 @@ public class Game implements Runnable
 				lastX = virtualSpace.getX();
 				lastY = virtualSpace.getY();
 			}
-	 	}
+			
+			if(!Game.mouseManager.isLeftPressed())
+			{
+				if(Game.keyManager.up || Game.keyManager.down || Game.keyManager.right || Game.keyManager.left)
+				{
+					if(virtualSpace.getSpeed() == 4)
+					{
+						player.setFoodPerF(0.0015);
+					}
+					else
+					{
+						player.setFoodPerF(0.002);
+					}
+				}
+				else
+				{
+					player.setFoodPerF(0.001);
+				}
+			}
+			
+		}
+	 	
+		player.setFood(player.getFood() - player.getFoodPerF());
 	 	
 	 	if(UiManager.uiImage == null)
 	 	{
@@ -158,23 +180,18 @@ public class Game implements Runnable
 		pointer.render(g);
 		
 		g.setColor(Color.BLACK);
-		g.fillRect(pointer.getX(), pointer.getY() - 10, pointer.getWidth(), 10);
+		g.fillRect(pointer.getX(), pointer.getY() - 21, pointer.getWidth(), 10);
 		
 		g.setColor(Color.RED);
-		g.fillRect(pointer.getX(), pointer.getY() - 10, (int) StaticEntitiesManager.destructionBarValue, 10);
+		g.fillRect(pointer.getX(), pointer.getY() - 21, (int) AnimalsManager.destructionBarValue, 10);
 		
 		g.setColor(Color.BLACK);
-		g.fillRect(48, 48, 128, 24);
+		g.fillRect(pointer.getX(), pointer.getY() - 10, pointer.getWidth(), 10);
 		
-		g.setColor(Color.WHITE);
-		g.drawChars("X".toCharArray(), 0, 1, 64, 64);
-		g.drawChars(String.valueOf(virtualSpace.getX() / 64).toCharArray(), 0, String.valueOf(virtualSpace.getX() / 64).toCharArray().length, 70, 64);
+		g.setColor(Color.GREEN);
+		g.fillRect(pointer.getX(), pointer.getY() - 10, (int) StaticEntitiesManager.destructionBarValue, 10);
 		
-		g.setColor(Color.WHITE);
-		g.drawChars("Y".toCharArray(), 0, 1, 96, 64);
-		g.drawChars(String.valueOf(virtualSpace.getY() / 64).toCharArray(), 0, String.valueOf(virtualSpace.getY() / 64).toCharArray().length, 102, 64);
-		
-		/*
+		///*
 		g.setColor(Color.LIGHT_GRAY);
 		g.fillRect(23, 2, 210, 108);
 		
@@ -188,7 +205,7 @@ public class Game implements Runnable
 		g.fillRect(32, 32, 192, 16);
 		
 		g.setColor(Color.GREEN);
-		g.fillRect(32, 32, 192, 16);
+		g.fillRect(32, 32, (int) (192 * (player.getLife() / 100f)), 16);
 		
 		g.setColor(Color.BLACK);
 		g.drawChars("Food".toCharArray(), 0, 4, 32, 68);
@@ -200,8 +217,21 @@ public class Game implements Runnable
 		g.fillRect(32, 84, 192, 16);
 		
 		g.setColor(Color.BLUE);
-		g.fillRect(32, 84, 192, 16);
-		*/
+		g.fillRect(32, 84, (int) (192 * (player.getFood() / 100f)), 16);
+		
+		
+		g.setColor(Color.BLACK);
+		g.fillRect(240, 2, 128, 24);
+		
+		g.setColor(Color.WHITE);
+		g.drawChars("X".toCharArray(), 0, 1, 256, 18);
+		g.drawChars(String.valueOf(virtualSpace.getX() / 64).toCharArray(), 0, String.valueOf(virtualSpace.getX() / 64).toCharArray().length, 262, 18);
+		
+		g.setColor(Color.WHITE);
+		g.drawChars("Y".toCharArray(), 0, 1, 288, 18);
+		g.drawChars(String.valueOf(virtualSpace.getY() / 64).toCharArray(), 0, String.valueOf(virtualSpace.getY() / 64).toCharArray().length, 294, 18);
+		
+		//*/
 		
 		player.render(g);
 		

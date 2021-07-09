@@ -2,9 +2,13 @@ package Game.entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
+import Game.Items.Item;
 
 public class Animal extends Entity
 {
+	protected ArrayList<Item> items;
 	protected boolean isOnRange;
 	protected boolean isPunched;
 	protected int pauseTimer;
@@ -20,6 +24,7 @@ public class Animal extends Entity
 	{
 		super(texture, x, y, Vx, Vy, 64, 64, speed);
 		
+		this.items = new ArrayList<Item>();
 		this.dir = 180;
 		this.pauseTimer = 0;
 		this.moveTimer = 0;
@@ -95,5 +100,15 @@ public class Animal extends Entity
 	public void setTopLife(int topLife) 
 	{
 		this.topLife = topLife;
+	}
+
+	public ArrayList<Item> getItems() 
+	{
+		return items;
+	}
+
+	public void setItems(ArrayList<Item> items) 
+	{
+		this.items = items;
 	}
 }

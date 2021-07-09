@@ -8,13 +8,13 @@ public class Assets
 	
 	public static BufferedImage player, pointer, cow, player_water;
 	
-	public static BufferedImage dirt, grass, sand, water;
+	public static BufferedImage dirt, grass, sand, water, rocks, magma;
 	
 	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE;
 	
 	public static BufferedImage hotbar, hotbarSelected, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
 	
-	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, ironSword;
+	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, ironSword, sheepRawMeat, sheepMeat;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer;
 	
@@ -38,6 +38,8 @@ public class Assets
 		dirt = tilesSESheet.crop(WIDTH, 0, WIDTH, HEIGHT);
 		sand = tilesSESheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
 		water = tilesSESheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
+		rocks = tilesSESheet.crop(0, HEIGHT, WIDTH, HEIGHT);
+		magma = tilesSESheet.crop(WIDTH, HEIGHT, WIDTH, HEIGHT);
 		
 		//Static entities
 		rock = tilesSESheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
@@ -99,5 +101,7 @@ public class Assets
 		hammer = itemsSheet.crop(WIDTH * 4, HEIGHT, WIDTH, HEIGHT);
 		basaltHammer = itemsSheet.crop(WIDTH * 5, HEIGHT, WIDTH, HEIGHT);
 		ironSword = itemsSheet.crop(WIDTH * 8, HEIGHT * 2, WIDTH, HEIGHT);
+		sheepRawMeat = itemsSheet.crop(WIDTH * 9, HEIGHT * 2, WIDTH, HEIGHT);
+		sheepMeat = itemsSheet.crop(WIDTH * 10, HEIGHT * 2, WIDTH, HEIGHT);
 	}
 }

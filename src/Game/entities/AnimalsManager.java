@@ -9,6 +9,7 @@ import Game.ui.UiInventoryManager;
 public class AnimalsManager 
 {
 	private static boolean animalLeftPressed;
+	public static float destructionBarValue = 0;
 	
 	private static int otherFocusId = -999999;
 	
@@ -41,7 +42,7 @@ public class AnimalsManager
 				Game.pointerX = Game.generateWorld.getAnimals().get(i).getX();	
 				Game.pointerY = Game.generateWorld.getAnimals().get(i).getY();
 				
-				StaticEntitiesManager.destructionBarValue = (int) (((((Game.generateWorld.getAnimals().get(i).getLife() * 100) / Game.generateWorld.getAnimals().get(i).getTopLife())/100f)) * 64);
+				destructionBarValue = (int) (((((Game.generateWorld.getAnimals().get(i).getLife() * 100) / Game.generateWorld.getAnimals().get(i).getTopLife())/100f)) * 64);
 				
 				if(!animalLeftPressed)
 				{
@@ -67,7 +68,13 @@ public class AnimalsManager
 				
 				if(Game.generateWorld.getAnimals().get(i).getLife() <= 0)
 				{
-					UiInventoryManager.addItem(new Wool(1, 0, 576));
+					for (int j = 0; j < Game.generateWorld.getAnimals().get(i).getItems().size(); j++)
+					{
+						if(Game.generateWorld.getAnimals().get(i).getItems().get(j) != null)
+						{
+							UiInventoryManager.addItem(Game.generateWorld.getAnimals().get(i).getItems().get(j));
+						}
+					}
 					
 					Game.generateWorld.getAnimals().remove(i);
 					Game.generateWorld.ASIZE--;
@@ -84,7 +91,7 @@ public class AnimalsManager
 			}
 			else if(otherFocusId == i)
 			{
-				StaticEntitiesManager.destructionBarValue = 0;
+				destructionBarValue = 0;
 			}
 		}
 	}

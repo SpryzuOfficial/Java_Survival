@@ -1,12 +1,9 @@
 package Game.positionSpaces;
 
 import Game.engine.Game;
-import Game.engine.input.*;
 
 public class VirtualSpace 
 {
-	private KeyManager keyManager;
-	private MouseManager mouseManager;
 	private int x;
 	private int y;
 	private int width;
@@ -15,10 +12,8 @@ public class VirtualSpace
 	private int totalHeight;
 	private int speed;
 	
-	public VirtualSpace(int x, int y, int width, int height, int totalWidth, int totalHeight, int speed, KeyManager keyManager, MouseManager mouseManager)
+	public VirtualSpace(int x, int y, int width, int height, int totalWidth, int totalHeight, int speed)
 	{
-		this.keyManager = keyManager;
-		this.mouseManager = mouseManager;
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -30,24 +25,24 @@ public class VirtualSpace
 	
 	public void tick()
 	{
-		if(!mouseManager.isLeftPressed())
+		if(!Game.mouseManager.isLeftPressed())
 		{
-			if(keyManager.up)
+			if(Game.keyManager.up)
 			{
 				y -= speed;
 			}
 			
-			if(keyManager.down)
+			if(Game.keyManager.down)
 			{
 				y += speed;
 			}
 			
-			if(keyManager.right)
+			if(Game.keyManager.right)
 			{
 				x += speed;
 			}
 			
-			if(keyManager.left)
+			if(Game.keyManager.left)
 			{
 				x -= speed;
 			}

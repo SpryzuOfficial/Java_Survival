@@ -3,8 +3,6 @@ package Game.engine;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-import javax.swing.event.TreeExpansionEvent;
-
 import Game.biomes.*;
 import Game.entities.*;
 import Game.noise.PerlinNoise;
@@ -75,8 +73,8 @@ public class GenerateWorld
 			{
 				for(int j = 0; j < 968; j++)
 				{
-					double v = noise.noise(i/2, j/2);
-					double moisture = noiseMoisture.noise(i, j);
+					double v = noise.noise(i/3, j/3);
+					double moisture = noiseMoisture.noise(i/6, j/6);
 					
 					if(v > 0.55)
 					{
@@ -401,26 +399,29 @@ public class GenerateWorld
 	
 	public boolean generateEntitiesByR(int i, int j, int R)
 	{
-		double max = 0;
-		for (int y = i - R; y <= i + R; y++) 
+		if(i != 479 && j != 479)
 		{
-			for (int x = j - R; x <= j + R; x++) 
+			double max = 0;
+			for (int y = i - R; y <= i + R; y++) 
 			{
-				if (0 <= y && y < 968 && 0 <= x && x < 968) 
+				for (int x = j - R; x <= j + R; x++) 
 				{
-					double e = blueNoise[y][x];
-					if (e > max) 
+					if (0 <= y && y < 968 && 0 <= x && x < 968) 
 					{
-						max = e; 
+						double e = blueNoise[y][x];
+						if (e > max) 
+						{
+							max = e; 
+						}
 					}
 				}
 			}
+			
+			if (blueNoise[i][j] == max) 
+			{
+				return true;
+		    }
 		}
-		
-		if (blueNoise[i][j] == max) 
-		{
-			return true;
-	    }
 		
 		return false;
 	}

@@ -11,6 +11,10 @@ public class Player extends Entity
 {
 	private BufferedImage[] playerExtraLayers = new BufferedImage[] {Assets.player_water};
 	private BufferedImage playerExtraLayer;
+	private int life = 100;
+	private double food = 100;
+	
+	private double foodPerF = 0.001;
 	
 	public Player(int x, int y, int Vx, int Vy)
 	{
@@ -82,5 +86,35 @@ public class Player extends Entity
 		{
 			playerExtraLayer = playerExtraLayers[i];
 		}
+	}
+
+	public int getLife() 
+	{
+		return life;
+	}
+
+	public void setLife(int life) 
+	{
+		this.life = life;
+	}
+
+	public double getFood() 
+	{
+		return food;
+	}
+
+	public void setFood(double food) 
+	{
+		this.food = food;
+	}
+
+	public double getFoodPerF() 
+	{
+		return foodPerF;
+	}
+
+	public void setFoodPerF(double foodPerF) 
+	{
+		this.foodPerF = foodPerF;
 	}
 }

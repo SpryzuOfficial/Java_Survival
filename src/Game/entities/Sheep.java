@@ -1,5 +1,6 @@
 package Game.entities;
 
+import Game.Items.*;
 import Game.engine.gfx.Assets;
 import Game.noise.PerlinNoise;
 
@@ -8,6 +9,9 @@ public class Sheep extends Animal
 	public Sheep(int Vx, int Vy, int Gx, int Gy)
 	{
 		super(Assets.cow, Gx, Gy, Vx, Vy, 2, 10);
+		
+		this.items.add(new Wool(1, 0, 576));
+		this.items.add(new SheepRawMeat(1, 0, 576));
 	}
 	
 	@Override
@@ -34,7 +38,7 @@ public class Sheep extends Animal
 				PerlinNoise noise = new PerlinNoise();
 				
 				int random = (int) (Math.random() * 10000 + 100);
-				double v = noise.noise(random, random);
+				double v = noise.noise(random*4, random*4);
 				
 				if(v > 0.0 && v < 0.2)
 				{
@@ -73,7 +77,7 @@ public class Sheep extends Animal
 				PerlinNoise noise = new PerlinNoise();
 				
 				int random = (int) (Math.random() * 10000 + 100);
-				double v = noise.noise(random, random);
+				double v = noise.noise(random*3, random*3);
 				
 				if(v > 0.0 && v < 0.1)
 				{
@@ -136,25 +140,25 @@ public class Sheep extends Animal
 				{
 					case 0:
 						
-						Vy += Math.cos(dir) * speed;
+						Vy += speed;
 						
 						break;
 					
 					case 180:
 						
-						Vy += Math.cos(dir) * speed;
+						Vy += -1 * speed;
 						
 						break;
 						
 					case 90:
 	
-						Vx += Math.sin(dir) * speed;
+						Vx += speed;
 						
 						break;
 						
 					case 270:
 	
-						Vx += Math.sin(dir) * speed;
+						Vx += -1 * speed;						
 						
 						break;
 				}
