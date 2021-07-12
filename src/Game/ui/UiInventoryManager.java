@@ -3996,46 +3996,121 @@ public class UiInventoryManager
 		
 		if(!isTool)
 		{
-			for(int i = 0; i < item.getCount(); i++)
+			for(int y = 0; y < 2; y++)
 			{
-				for(int j = 0; j < ISIZE; j++)
+				for(int i = 0; i < item.getCount(); i++)
 				{
-					if(itemsHotbar[j] == null)
+					for(int x = 0; x < ISIZE; x++)
 					{
-						item.setCount(item.getCount() - i);
-						item.setX((j + 3) * 64);
-						itemsHotbar[j] = item;
-						isBreak2 = true;
-						finish = true;
-						break;
-					}
-					else if(itemsHotbar[j].getClass() == item.getClass() && itemsHotbar[j].isStack())
-					{
-						if(itemsHotbar[j].getCount() < 12)
+						if(itemsInventory[y][x] != null)
 						{
-							itemsHotbar[j].setCount(itemsHotbar[j].getCount() + 1);
-							itemsHotbar[j].setX((j + 3) * 64);
-							
-							if(i == item.getCount() - 1)
+							if(itemsInventory[y][x].getClass() == item.getClass() && itemsInventory[y][x].isStack())
 							{
-								finish = true;
+								if(itemsInventory[y][x].getCount() < 12)
+								{
+									itemsInventory[y][x].setCount(itemsInventory[y][x].getCount() + 1);
+									iInventorySlots[y][x].setX((x + 3) * 64);
+									iInventorySlots[y][x].setY((y + 5) * 64);
+									
+									if(i == item.getCount() - 1)
+									{
+										finish = true;
+										isBreak3 = true;
+									}
+									
+									break;
+								}
 							}
-							
-							break;
+						}
+						else
+						{
+							isBreak1 = true;
 						}
 					}
-					else
+					
+					if(isBreak1)
 					{
-						isBreak2 = true;
+						break;
 					}
 				}
 				
-				if(isBreak2)
+				if(isBreak1)
+				{
+					break;
+				}
+				
+				if(isBreak3)
 				{
 					break;
 				}
 			}
-	
+			
+			if(!finish)
+			{
+				for(int i = 0; i < item.getCount(); i++)
+				{
+					for(int j = 0; j < ISIZE; j++)
+					{
+						if(itemsHotbar[j] != null)
+						{
+							if(itemsHotbar[j].getClass() == item.getClass() && itemsHotbar[j].isStack())
+							{
+								if(itemsHotbar[j].getCount() < 12)
+								{
+									itemsHotbar[j].setCount(itemsHotbar[j].getCount() + 1);
+									itemsHotbar[j].setX((j + 3) * 64);
+									
+									if(i == item.getCount() - 1)
+									{
+										finish = true;
+										isBreak2 = true;
+									}
+									
+									break;
+								}
+							}
+							else
+							{
+								isBreak2 = true;
+							}
+						}
+					}
+					
+					if(isBreak2)
+					{
+						break;
+					}
+				}
+			}
+			
+			if(!finish)
+			{
+				for(int i = 0; i < item.getCount(); i++)
+				{
+					for(int j = 0; j < ISIZE; j++)
+					{
+						if(itemsHotbar[j] == null)
+						{
+							item.setCount(item.getCount() - i);
+							item.setX((j + 3) * 64);
+							itemsHotbar[j] = item;
+							finish = true;
+							isBreak2 = true;
+							break;
+						}
+						else
+						{
+							isBreak2 = true;
+						}
+					}
+					
+					if(isBreak2)
+					{
+						break;
+					}
+				}
+			}
+			
 			if(!finish)
 			{
 				for(int y = 0; y < 2; y++)
@@ -4044,31 +4119,13 @@ public class UiInventoryManager
 					{
 						for(int x = 0; x < ISIZE; x++)
 						{
-							if(itemsInventory[y][x] != null)
-							{
-								if(itemsInventory[y][x].getClass() == item.getClass() && itemsInventory[y][x].isStack())
-								{
-									if(itemsInventory[y][x].getCount() < 12)
-									{
-										itemsInventory[y][x].setCount(itemsInventory[y][x].getCount() + 1);
-										iInventorySlots[y][x].setX((x + 3) * 64);
-										iInventorySlots[y][x].setY((y + 5) * 64);
-										
-										if(i == item.getCount() - 1)
-										{
-											isBreak3 = true;
-										}
-										
-										break;
-									}
-								}
-							}
-							else if(itemsInventory[y][x] == null)
+							if(itemsInventory[y][x] == null)
 							{
 								item.setCount(item.getCount() - i);
 								iInventorySlots[y][x].setX((x + 3) * 64);
 								iInventorySlots[y][x].setY((y + 5) * 64);
 								itemsInventory[y][x] = item;
+								finish = true;
 								isBreak1 = true;
 								break;
 							}
@@ -4088,14 +4145,10 @@ public class UiInventoryManager
 					{
 						break;
 					}
-					
-					if(isBreak3)
-					{
-						break;
-					}
 				}
 			}
 		}
+		
 		for(int i = 0; i < ISIZE; i++)
 		{
 			hInventorySlots[i].setItem(itemsHotbar[i]);
