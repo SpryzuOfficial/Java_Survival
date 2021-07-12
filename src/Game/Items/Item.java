@@ -40,7 +40,12 @@ public class Item implements Cloneable
 		
 	}
 	
-	public boolean use()
+	public void use()
+	{
+		
+	}
+	
+	public boolean place()
 	{
 		return false;
 	}

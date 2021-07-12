@@ -220,21 +220,14 @@ public class UiInventoryManager
 			{
 				addItem(new Pickaxe(0, 576));
 				addItem(new Axe(0, 576));
-				//addItem(new Hammer(0, 576));
-				//addItem(new BasaltHammer(0, 576));
+				addItem(new Hammer(0, 576));
+				addItem(new BasaltHammer(0, 576));
 				addItem(new Sandpaper(0, 576));
-				addItem(new Sandpaper(0, 576));
-				addItem(new Sandpaper(0, 576));
-				addItem(new Sandpaper(0, 576));
-				//addItem(new Knife(0, 576));
+				addItem(new Knife(0, 576));
 				addItem(new Table(1, 0, 576));
-				addItem(new Oven(2, 0, 576));
+				addItem(new Oven(1, 0, 576));
 				addItem(new Anvil(1, 0, 576));
 				addItem(new Wood(12, 0, 576));
-				addItem(new Wood(12, 0, 576));
-				addItem(new Wood(12, 0, 576));
-				addItem(new IronOre(12, 0, 576));
-				addItem(new BasaltTray(12, 0, 576));
 				addItem(new Stone(12, 0, 576));
 				//addItem(new Stick(12, 0, 576));
 				//addItem(new Clay(12, 0, 576));
@@ -4022,10 +4015,6 @@ public class UiInventoryManager
 								}
 							}
 						}
-						else
-						{
-							isBreak1 = true;
-						}
 					}
 					
 					if(isBreak1)
@@ -4069,10 +4058,6 @@ public class UiInventoryManager
 									break;
 								}
 							}
-							else
-							{
-								isBreak2 = true;
-							}
 						}
 					}
 					
@@ -4097,10 +4082,6 @@ public class UiInventoryManager
 							finish = true;
 							isBreak2 = true;
 							break;
-						}
-						else
-						{
-							isBreak2 = true;
 						}
 					}
 					
@@ -4128,10 +4109,6 @@ public class UiInventoryManager
 								finish = true;
 								isBreak1 = true;
 								break;
-							}
-							else
-							{
-								isBreak1 = true;
 							}
 						}
 						

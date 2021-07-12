@@ -49,7 +49,8 @@ public class TileManager
 						{
 							if(!rightPress)
 							{
-								boolean band = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].use();
+								boolean band = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].place();
+								UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].use();
 								
 								if(band)
 								{

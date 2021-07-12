@@ -65,7 +65,6 @@ public class StaticEntitiesManager
 					{
 						if(UiInventoryManager.inventoryTool != null)
 						{
-							System.out.println(UiInventoryManager.inventoryTool.getMiningValue(Game.generateWorld.getSEntities().get(i).getType()));
 							destructionTimer += (miningValue * UiInventoryManager.inventoryTool.getMiningValue(Game.generateWorld.getSEntities().get(i).getType()));
 							destructionBarValue += 64f / Game.generateWorld.getSEntities().get(i).getMiningTime() * (miningValue * UiInventoryManager.inventoryTool.getMiningValue(Game.generateWorld.getSEntities().get(i).getType()));
 						}

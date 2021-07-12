@@ -14,7 +14,7 @@ public class Assets
 	
 	public static BufferedImage hotbar, hotbarSelected, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
 	
-	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, ironSword, sheepRawMeat, sheepMeat;
+	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, ironSword, sheepRawMeat, sheepMeat, rockFoodTray, rockSheepMeatTray;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer;
 	
@@ -103,5 +103,7 @@ public class Assets
 		ironSword = itemsSheet.crop(WIDTH * 8, HEIGHT * 2, WIDTH, HEIGHT);
 		sheepRawMeat = itemsSheet.crop(WIDTH * 9, HEIGHT * 2, WIDTH, HEIGHT);
 		sheepMeat = itemsSheet.crop(WIDTH * 10, HEIGHT * 2, WIDTH, HEIGHT);
+		rockFoodTray = itemsSheet.crop(WIDTH * 11, HEIGHT * 2, WIDTH, HEIGHT);
+		rockSheepMeatTray = itemsSheet.crop(WIDTH * 12, HEIGHT * 2, WIDTH, HEIGHT);
 	}
 }

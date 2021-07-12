@@ -24,7 +24,7 @@ public class Basalt extends Item
 	}
 	
 	@Override
-	public boolean use()
+	public boolean place()
 	{
 		ArrayList<StaticEntity> sEntities = Game.generateWorld.getSEntities();
 		Tile tile = Game.generateWorld.getFromTile(TileManager.y, TileManager.x);

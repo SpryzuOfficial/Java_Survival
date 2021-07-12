@@ -11,7 +11,7 @@ public class CheckOven
 	
 	private OvenItemSlots ironOreSwordClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldSword(1, 0, 576)});
 	
-	private OvenItemSlots sheepMeatRecipe = new OvenItemSlots(new SheepRawMeat(1, 0, 576), new Item[] {new BasaltTray(1, 0, 576)});
+	private OvenItemSlots sheepMeatRecipe = new OvenItemSlots(new SheepRawMeat(1, 0, 576), new Item[] {new RockFoodTray(1, 0, 576)});
 	
 	public Item checkOven(Item input, Item tray)
 	{
@@ -32,7 +32,7 @@ public class CheckOven
 		
 		if(updateOven(input, tray, sheepMeatRecipe))
 		{
-			return new SheepMeat(1, 0, 576);
+			return new RockSheepMeatTray(1, 0, 576);
 		}
 		
 		return null;

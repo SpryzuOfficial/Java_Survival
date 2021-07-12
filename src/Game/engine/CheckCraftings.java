@@ -2000,6 +2000,57 @@ public class CheckCraftings
 																		  )
 												};
 	
+	private CraftingItemsSlots[] rockFoodTrayRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
+														   			        {null, null, null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
+														   			        {null, null, null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+												};
+	
 	public Item checkCrafting(Item[][] craftingItems, Item[] tools)
 	{
 		if(updateCrafting(craftingItems, tools, stringRecipes))
@@ -2170,6 +2221,11 @@ public class CheckCraftings
 		if(updateCrafting(craftingItems, tools, clayMoldSwordRecipesTable))
 		{
 			return new ClayMoldSword(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, rockFoodTrayRecipesTable))
+		{
+			return new RockFoodTray(1, 0, 576);
 		}
 		
 		return null;
