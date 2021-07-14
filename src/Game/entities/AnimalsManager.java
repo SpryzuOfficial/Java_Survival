@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import Game.Items.Wool;
 import Game.engine.Game;
 import Game.ui.UiInventoryManager;
+import Game.ui.UiManager;
 
 public class AnimalsManager 
 {
@@ -46,19 +47,22 @@ public class AnimalsManager
 				
 				if(!animalLeftPressed)
 				{
-					if(Game.mouseManager.isLeftPressed())
+					if(UiManager.uiImage == null)
 					{
-						if(UiInventoryManager.inventoryTool != null)
+						if(Game.mouseManager.isLeftPressed())
 						{
-							Game.generateWorld.getAnimals().get(i).setDamage(UiInventoryManager.inventoryTool.getMiningValue(2));
+							if(UiInventoryManager.inventoryTool != null)
+							{
+								Game.generateWorld.getAnimals().get(i).setDamage(UiInventoryManager.inventoryTool.getMiningValue(2));
+							}
+							else
+							{
+								Game.generateWorld.getAnimals().get(i).setDamage(1);
+							}
+							
+							Game.generateWorld.getAnimals().get(i).setPunched(true);
+							animalLeftPressed = true;
 						}
-						else
-						{
-							Game.generateWorld.getAnimals().get(i).setDamage(1);
-						}
-						
-						Game.generateWorld.getAnimals().get(i).setPunched(true);
-						animalLeftPressed = true;
 					}
 				}
 				else if(!Game.mouseManager.isLeftPressed())

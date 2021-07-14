@@ -113,16 +113,16 @@ public class Game implements Runnable
 				{
 					if(virtualSpace.getSpeed() == 4)
 					{
-						player.setFoodPerF(0.0015);
+						player.setFoodPerF(0.005);
 					}
 					else
 					{
-						player.setFoodPerF(0.002);
+						player.setFoodPerF(0.007);
 					}
 				}
 				else
 				{
-					player.setFoodPerF(0.001);
+					player.setFoodPerF(0.004);
 				}
 			}
 			

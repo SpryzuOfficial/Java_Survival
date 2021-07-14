@@ -37,7 +37,7 @@ public class Item implements Cloneable
 	
 	public void render(Graphics g)
 	{
-		
+		g.drawImage(texture, x, y, 64, 64, null);
 	}
 	
 	public void use()

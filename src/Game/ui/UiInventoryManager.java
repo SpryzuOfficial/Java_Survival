@@ -63,6 +63,8 @@ public class UiInventoryManager
 	private static boolean fPressed;
 	private static boolean cPressed;
 	
+	private static boolean isFirstTick = true;
+	
 	public static OvenE oven;
 	
 	public UiInventoryManager()
@@ -288,6 +290,28 @@ public class UiInventoryManager
 		if(inventoryTool != null)
 		{
 			renderItem(g, inventoryTool, inventoryTool.getX(), inventoryTool.getY());
+		}
+		
+		if(UiManager.uiImage != null)
+		{
+			if(isFirstTick)
+			{
+				if(Game.mouseManager.isLeftPressed())
+				{
+					uiLeftPressed = true;
+				}
+				
+				if(Game.mouseManager.isRightPressed())
+				{
+					uiRightPressed = true;
+				}
+				
+				isFirstTick = false;
+			}
+		}
+		else
+		{
+			isFirstTick = true;
 		}
 		
 		if(UiManager.uiImage == Assets.inventory)
@@ -3989,9 +4013,13 @@ public class UiInventoryManager
 		
 		if(!isTool)
 		{
+			int i = 0;
+			int count = item.getCount();
+			
+			int ncount = count;
 			for(int y = 0; y < 2; y++)
 			{
-				for(int i = 0; i < item.getCount(); i++)
+				for(i = 0; i < ncount; i++)
 				{
 					for(int x = 0; x < ISIZE; x++)
 					{
@@ -4002,6 +4030,7 @@ public class UiInventoryManager
 								if(itemsInventory[y][x].getCount() < 12)
 								{
 									itemsInventory[y][x].setCount(itemsInventory[y][x].getCount() + 1);
+									count -= 1;
 									iInventorySlots[y][x].setX((x + 3) * 64);
 									iInventorySlots[y][x].setY((y + 5) * 64);
 									
@@ -4036,7 +4065,8 @@ public class UiInventoryManager
 			
 			if(!finish)
 			{
-				for(int i = 0; i < item.getCount(); i++)
+				ncount = count;
+				for(i = 0; i < ncount; i++)
 				{
 					for(int j = 0; j < ISIZE; j++)
 					{
@@ -4047,6 +4077,7 @@ public class UiInventoryManager
 								if(itemsHotbar[j].getCount() < 12)
 								{
 									itemsHotbar[j].setCount(itemsHotbar[j].getCount() + 1);
+									count -= 1;
 									itemsHotbar[j].setX((j + 3) * 64);
 									
 									if(i == item.getCount() - 1)
@@ -4070,13 +4101,14 @@ public class UiInventoryManager
 			
 			if(!finish)
 			{
-				for(int i = 0; i < item.getCount(); i++)
+				ncount = count;
+				for(i = 0; i < ncount; i++)
 				{
 					for(int j = 0; j < ISIZE; j++)
 					{
 						if(itemsHotbar[j] == null)
 						{
-							item.setCount(item.getCount() - i);
+							item.setCount(count - i);
 							item.setX((j + 3) * 64);
 							itemsHotbar[j] = item;
 							finish = true;
@@ -4094,15 +4126,16 @@ public class UiInventoryManager
 			
 			if(!finish)
 			{
+				ncount = count;
 				for(int y = 0; y < 2; y++)
 				{
-					for(int i = 0; i < item.getCount(); i++)
+					for(i = 0; i < ncount; i++)
 					{
 						for(int x = 0; x < ISIZE; x++)
 						{
 							if(itemsInventory[y][x] == null)
 							{
-								item.setCount(item.getCount() - i);
+								item.setCount(count - i);
 								iInventorySlots[y][x].setX((x + 3) * 64);
 								iInventorySlots[y][x].setY((y + 5) * 64);
 								itemsInventory[y][x] = item;

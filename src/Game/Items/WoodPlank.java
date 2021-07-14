@@ -1,6 +1,5 @@
 package Game.Items;
 
-import java.awt.Graphics;
 import java.util.ArrayList;
 
 import Game.engine.Game;
@@ -14,12 +13,6 @@ public class WoodPlank extends Item
 	public WoodPlank(int count, int x, int y) 
 	{
 		super(Assets.woodPlank, count, x, y, 1, 1, 1, true, -1, 960);
-	}
-	
-	@Override
-	public void render(Graphics g)
-	{
-		g.drawImage(texture, x, y, 64, 64, null);
 	}
 	
 	@Override

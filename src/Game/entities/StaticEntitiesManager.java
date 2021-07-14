@@ -67,11 +67,13 @@ public class StaticEntitiesManager
 						{
 							destructionTimer += (miningValue * UiInventoryManager.inventoryTool.getMiningValue(Game.generateWorld.getSEntities().get(i).getType()));
 							destructionBarValue += 64f / Game.generateWorld.getSEntities().get(i).getMiningTime() * (miningValue * UiInventoryManager.inventoryTool.getMiningValue(Game.generateWorld.getSEntities().get(i).getType()));
+							Game.player.setFoodPerF(0.0055);
 						}
 						else
 						{
 							destructionTimer += (miningValue);
 							destructionBarValue += 64f / Game.generateWorld.getSEntities().get(i).getMiningTime() * (miningValue);
+							Game.player.setFoodPerF(0.006);
 						}
 					}				
 					else if(!Game.mouseManager.isLeftPressed())

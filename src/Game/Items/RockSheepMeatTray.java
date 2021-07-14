@@ -1,7 +1,5 @@
 package Game.Items;
 
-import java.awt.Graphics;
-
 import Game.engine.gfx.Assets;
 import Game.ui.UiInventoryManager;
 
@@ -13,17 +11,20 @@ public class RockSheepMeatTray extends Item
 	}
 	
 	@Override
-	public void render(Graphics g)
-	{
-		g.drawImage(texture, x, y, 64, 64, null);
-	}
-	
-	@Override
 	public void use()
 	{
 		UiInventoryManager.addItem(new SheepMeat(1, 0, 576));
 		UiInventoryManager.addItem(new RockFoodTray(1, 0, 576));
 		
-		UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
+		if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
+		{
+			UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].setCount(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() - 1);
+			UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
+		}
+		else 
+		{
+			UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
+			UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
+		}
 	}
 }
