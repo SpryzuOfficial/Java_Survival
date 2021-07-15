@@ -6,6 +6,6 @@ public class Sandpaper extends Tool
 {
 	public Sandpaper(int x, int y)
 	{
-		super(Assets.sandpaper, x, y, 2, 2, 1, 8);
+		super(Assets.sandpaper, x, y, 2, 2, 1, 12);
 	}
 }

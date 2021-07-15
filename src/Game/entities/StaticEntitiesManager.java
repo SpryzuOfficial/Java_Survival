@@ -1,17 +1,20 @@
 package Game.entities;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import Game.engine.Game;
 import Game.tiles.TileManager;
 import Game.ui.UiInventoryManager;
-import Game.ui.UiManager;
 
 public class StaticEntitiesManager
 {
+	private static ArrayList<Integer> index = new ArrayList<Integer>();
 	private static int destructionTimer = 0;
 	public static float destructionBarValue = 0;
 	private static int miningValue = 1;
+	
+	private static int framesLastUpdate = 320;
 	
 	public StaticEntitiesManager() 
 	{
@@ -20,21 +23,42 @@ public class StaticEntitiesManager
 	
 	public static void tick()
 	{	
-		for(int i = 0; i < Game.generateWorld.SESIZE; i++)
+		if(framesLastUpdate == 320)
+		{
+			for(int i = 0; i < Game.generateWorld.SESIZE; i++)
+			{
+				double c = Math.sqrt(Math.pow(Math.abs(Game.generateWorld.getSEntities().get(i).Vx - Game.virtualSpace.getX()), 2) + Math.pow(Math.abs(Game.generateWorld.getSEntities().get(i).Vx - Game.virtualSpace.getX()), 2));
+				
+				c /= 64;
+				
+				if(c < 32)
+				{
+					index.add(i);
+				}
+			}
+			
+			framesLastUpdate = 0;
+		}
+		
+		framesLastUpdate++;
+		
+		for(int i = 0; i < index.size(); i++)
 		{
 			boolean otherEMining = false;
 			int otherEMiningId = -999999;
 			
-			Game.generateWorld.getSEntities().get(i).tick();
+			StaticEntity entity = Game.generateWorld.getSEntities().get(index.get(i));
 			
-			if(Game.mouseManager.getMouseX() >= Game.generateWorld.getSEntities().get(i).getX() &&
-					Game.mouseManager.getMouseX() <= Game.generateWorld.getSEntities().get(i).getX() + Game.generateWorld.getSEntities().get(i).getWidth() &&
-					Game.mouseManager.getMouseY() >= Game.generateWorld.getSEntities().get(i).getY() &&
-					Game.mouseManager.getMouseY() <= Game.generateWorld.getSEntities().get(i).getY() + Game.generateWorld.getSEntities().get(i).getHeight())
+			entity.tick();
+			
+			if(Game.mouseManager.getMouseX() >= entity.getX() &&
+					Game.mouseManager.getMouseX() <= entity.getX() + entity.getWidth() &&
+					Game.mouseManager.getMouseY() >= entity.getY() &&
+					Game.mouseManager.getMouseY() <= entity.getY() + entity.getHeight())
 			{
-				for(int j = 0; j < Game.generateWorld.SESIZE; j++)
+				for(int j = 0; j < index.size(); j++)
 				{
-					if(Game.generateWorld.getSEntities().get(j).isMining())
+					if(Game.generateWorld.getSEntities().get(index.get(j)).isMining())
 					{
 						otherEMining = true;
 						otherEMiningId = j;
@@ -46,55 +70,57 @@ public class StaticEntitiesManager
 				{
 					if(!TileManager.rightPress)
 					{
-						Game.generateWorld.getSEntities().get(i).use();
+						entity.use();
 					}
 				}
 				
 				if(!otherEMining || i == otherEMiningId)
 				{
-					Game.pointerX = Game.generateWorld.getSEntities().get(i).getX() + Game.generateWorld.getSEntities().get(i).getPointerOffx();	
-					Game.pointerY = Game.generateWorld.getSEntities().get(i).getY() + Game.generateWorld.getSEntities().get(i).getPointerOffy();
+					Game.pointerX = entity.getX() + entity.getPointerOffx();	
+					Game.pointerY = entity.getY() + entity.getPointerOffy();
 					
-					if(Game.mouseManager.isLeftPressed() && !Game.generateWorld.getSEntities().get(i).isMining())
+					if(Game.mouseManager.isLeftPressed() && !entity.isMining())
 					{
-						Game.generateWorld.getSEntities().get(i).setMining(true);
+						entity.setMining(true);
 						destructionTimer = 0;
 					}
 					
-					if(Game.mouseManager.isLeftPressed() && Game.generateWorld.getSEntities().get(i).isMining())
+					if(Game.mouseManager.isLeftPressed() && entity.isMining())
 					{
 						if(UiInventoryManager.inventoryTool != null)
 						{
-							destructionTimer += (miningValue * UiInventoryManager.inventoryTool.getMiningValue(Game.generateWorld.getSEntities().get(i).getType()));
-							destructionBarValue += 64f / Game.generateWorld.getSEntities().get(i).getMiningTime() * (miningValue * UiInventoryManager.inventoryTool.getMiningValue(Game.generateWorld.getSEntities().get(i).getType()));
+							destructionTimer += (miningValue * UiInventoryManager.inventoryTool.getMiningValue(entity.getType()));
+							destructionBarValue += 64f / entity.getMiningTime() * (miningValue * UiInventoryManager.inventoryTool.getMiningValue(entity.getType()));
 							Game.player.setFoodPerF(0.0055);
 						}
 						else
 						{
 							destructionTimer += (miningValue);
-							destructionBarValue += 64f / Game.generateWorld.getSEntities().get(i).getMiningTime() * (miningValue);
+							destructionBarValue += 64f / entity.getMiningTime() * (miningValue);
 							Game.player.setFoodPerF(0.006);
 						}
 					}				
 					else if(!Game.mouseManager.isLeftPressed())
 					{
-						Game.generateWorld.getSEntities().get(i).setMining(false);
+						entity.setMining(false);
 						destructionTimer = 0;
 						destructionBarValue = 0;
 					}
 					
-					if(Game.mouseManager.isLeftPressed() && Game.generateWorld.getSEntities().get(i).isMining() && destructionTimer >= Game.generateWorld.getSEntities().get(i).getMiningTime())
+					if(Game.mouseManager.isLeftPressed() && entity.isMining() && destructionTimer >= entity.getMiningTime())
 					{
-						for (int j = 0; j < Game.generateWorld.getSEntities().get(i).getItems().size(); j++)
+						for (int j = 0; j < entity.getItems().size(); j++)
 						{
-							if(Game.generateWorld.getSEntities().get(i).getItems().get(j) != null)
+							if(entity.getItems().get(j) != null)
 							{
-								UiInventoryManager.addItem(Game.generateWorld.getSEntities().get(i).getItems().get(j));
+								UiInventoryManager.addItem(entity.getItems().get(j));
 							}
 						}
 						
-						Game.generateWorld.getSEntities().remove(i);
+						System.out.println(index.get(i));
+						Game.generateWorld.getSEntities().remove((int) index.get(i));
 						Game.generateWorld.SESIZE--;
+						index.remove(index.get(i));
 						
 						if(UiInventoryManager.inventoryTool != null)
 						{
@@ -116,12 +142,14 @@ public class StaticEntitiesManager
 	
 	public static void render(Graphics g)
 	{
-		for(int i = 0; i < Game.generateWorld.SESIZE; i++)
+		for(int i = 0; i < index.size(); i++)
 		{
-			if(Game.generateWorld.getSEntities().get(i).getX() + Game.generateWorld.getSEntities().get(i).getWidth() > 0 && Game.generateWorld.getSEntities().get(i).getX() < 0 + Game.width
-			   && Game.generateWorld.getSEntities().get(i).getY() + Game.generateWorld.getSEntities().get(i).getHeight() > 0 && Game.generateWorld.getSEntities().get(i).getY() < 0 + Game.height)
+			StaticEntity entity = Game.generateWorld.getSEntities().get(index.get(i));
+			
+			if(entity.getX() + entity.getWidth() > 0 && entity.getX() < 0 + Game.width
+			   && entity.getY() + entity.getHeight() > 0 && entity.getY() < 0 + Game.height)
 			{
-				Game.generateWorld.getSEntities().get(i).render(g);
+				entity.render(g);
 			}
 		}
 	}

@@ -225,11 +225,11 @@ public class Game implements Runnable
 		
 		g.setColor(Color.WHITE);
 		g.drawChars("X".toCharArray(), 0, 1, 256, 18);
-		g.drawChars(String.valueOf(virtualSpace.getX() / 64).toCharArray(), 0, String.valueOf(virtualSpace.getX() / 64).toCharArray().length, 262, 18);
+		g.drawChars(String.valueOf(player.getVx() / 64).toCharArray(), 0, String.valueOf(player.getVx() / 64).toCharArray().length, 262, 18);
 		
 		g.setColor(Color.WHITE);
 		g.drawChars("Y".toCharArray(), 0, 1, 288, 18);
-		g.drawChars(String.valueOf(virtualSpace.getY() / 64).toCharArray(), 0, String.valueOf(virtualSpace.getY() / 64).toCharArray().length, 294, 18);
+		g.drawChars(String.valueOf(player.getVy() / 64).toCharArray(), 0, String.valueOf(player.getVy() / 64).toCharArray().length, 294, 18);
 		
 		//*/
 		

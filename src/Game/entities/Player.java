@@ -26,7 +26,7 @@ public class Player extends Entity
 	{
 		if(Game.keyManager.shift)
 		{
-			virtualSpace.setSpeed(6);
+			virtualSpace.setSpeed(7);
 		}
 		else
 		{

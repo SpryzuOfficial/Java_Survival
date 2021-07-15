@@ -6,6 +6,6 @@ public class Pickaxe extends Tool
 {
 	public Pickaxe(int x, int y)
 	{
-		super(Assets.pickaxe, x, y, 1, 3, 1, 15);
+		super(Assets.pickaxe, x, y, 1, 3, 1, 16);
 	}
 }
