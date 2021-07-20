@@ -3,6 +3,9 @@ package Game.Items;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import Game.engine.Game;
+import Game.entities.StaticEntitiesManager;
+
 public class Item implements Cloneable
 {
 	protected BufferedImage texture;
@@ -48,6 +51,23 @@ public class Item implements Cloneable
 	public boolean place()
 	{
 		return false;
+	}
+	
+	public void refreshEntities()
+	{
+		for(int i = 0; i < Game.generateWorld.SESIZE; i++)
+		{
+			double c = Math.sqrt(Math.pow(Math.abs(Game.generateWorld.getSEntities().get(i).getVx() - Game.virtualSpace.getX()), 2) + Math.pow(Math.abs(Game.generateWorld.getSEntities().get(i).getVx() - Game.virtualSpace.getX()), 2));
+			
+			c /= 64;
+			
+			if(c < 32)
+			{
+				StaticEntitiesManager.index.add(i);
+			}
+		}
+		
+		StaticEntitiesManager.framesLastUpdate = 0;
 	}
 	
 	public int getCount() 

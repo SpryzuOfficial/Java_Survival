@@ -111,24 +111,46 @@ public class Game implements Runnable
 			{
 				if(Game.keyManager.up || Game.keyManager.down || Game.keyManager.right || Game.keyManager.left)
 				{
-					if(virtualSpace.getSpeed() == 4)
+					if(!Game.keyManager.shift)
 					{
+						player.setStaminaPerF(-0.45);
 						player.setFoodPerF(0.005);
 					}
 					else
 					{
+						player.setStaminaPerF(0.8);
 						player.setFoodPerF(0.007);
 					}
 				}
 				else
-				{
+				{						
+					player.setStaminaPerF(-0.6);
 					player.setFoodPerF(0.004);
 				}
 			}
 			
 		}
 	 	
-		player.setFood(player.getFood() - player.getFoodPerF());
+	 	if(player.getFood() > 0)
+	 	{
+	 		player.setFood(player.getFood() - player.getFoodPerF());
+	 	}
+	 	else
+	 	{
+	 		player.setFood(0);
+	 	}
+
+	 	player.setStamina(player.getStamina() - player.getStaminaPerF());
+	 	
+	 	if(player.getStamina() > 100)
+	 	{
+	 		player.setStamina(100);
+	 	}
+	 	
+	 	if(player.getStamina() < 0)
+	 	{
+	 		player.setStamina(0);
+	 	}
 	 	
 	 	if(UiManager.uiImage == null)
 	 	{
@@ -193,7 +215,7 @@ public class Game implements Runnable
 		
 		///*
 		g.setColor(Color.LIGHT_GRAY);
-		g.fillRect(23, 2, 210, 108);
+		g.fillRect(23, 2, 210, 162);
 		
 		g.setColor(Color.BLACK);
 		g.drawChars("Life".toCharArray(), 0, 4, 32, 16);
@@ -218,6 +240,18 @@ public class Game implements Runnable
 		
 		g.setColor(Color.BLUE);
 		g.fillRect(32, 84, (int) (192 * (player.getFood() / 100f)), 16);
+		
+		g.setColor(Color.BLACK);
+		g.drawChars("Stamina".toCharArray(), 0, 7, 32, 120);
+		
+		g.setColor(Color.WHITE);
+		g.fillRect(27, 131, 202, 26);
+		
+		g.setColor(Color.BLACK);
+		g.fillRect(32, 136, 192, 16);
+		
+		g.setColor(Color.YELLOW);
+		g.fillRect(32, 136, (int) (192 * (player.getStamina() / 100f)), 16);
 		
 		
 		g.setColor(Color.BLACK);

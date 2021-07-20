@@ -9,12 +9,12 @@ import Game.ui.UiInventoryManager;
 
 public class StaticEntitiesManager
 {
-	private static ArrayList<Integer> index = new ArrayList<Integer>();
+	public static ArrayList<Integer> index = new ArrayList<Integer>();
 	private static int destructionTimer = 0;
 	public static float destructionBarValue = 0;
 	private static int miningValue = 1;
 	
-	private static int framesLastUpdate = 320;
+	public static int framesLastUpdate = 320;
 	
 	public StaticEntitiesManager() 
 	{

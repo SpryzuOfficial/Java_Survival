@@ -13,8 +13,10 @@ public class Player extends Entity
 	private BufferedImage playerExtraLayer;
 	private int life = 100;
 	private double food = 100;
+	private double stamina = 100;
 	
 	private double foodPerF = 0.001;
+	private double staminaPerF = 0.0;
 	
 	public Player(int x, int y, int Vx, int Vy)
 	{
@@ -26,7 +28,14 @@ public class Player extends Entity
 	{
 		if(Game.keyManager.shift)
 		{
-			virtualSpace.setSpeed(7);
+			if(stamina > 0)
+			{
+				virtualSpace.setSpeed(8);
+			}
+			else
+			{
+				virtualSpace.setSpeed(4);
+			}
 		}
 		else
 		{
@@ -116,5 +125,25 @@ public class Player extends Entity
 	public void setFoodPerF(double foodPerF) 
 	{
 		this.foodPerF = foodPerF;
+	}
+
+	public double getStamina()
+	{
+		return stamina;
+	}
+
+	public void setStamina(double stamina) 
+	{
+		this.stamina = stamina;
+	}
+
+	public double getStaminaPerF()
+	{
+		return staminaPerF;
+	}
+
+	public void setStaminaPerF(double staminaPerF) 
+	{
+		this.staminaPerF = staminaPerF;
 	}
 }

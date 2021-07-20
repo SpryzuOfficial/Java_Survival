@@ -55,6 +55,7 @@ public class TileManager
 								rightPress = true;
 								if(band)
 								{
+									UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].refreshEntities();
 									if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
 									{
 										UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].setCount(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() - 1);

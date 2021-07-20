@@ -1,8 +1,11 @@
 package Game.noise;
 
-public class Point {
+public class Point
+{
     public double x, y;
-    public Point(double a, double b) {
+    
+    public Point(double a, double b) 
+    {
         x = a;
         y = b;
     }

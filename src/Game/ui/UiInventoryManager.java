@@ -231,7 +231,9 @@ public class UiInventoryManager
 				addItem(new Anvil(1, 0, 576));
 				addItem(new Wood(12, 0, 576));
 				addItem(new Stone(12, 0, 576));
-				//addItem(new Stick(12, 0, 576));
+				addItem(new IronOre(12, 0, 576));
+				addItem(new Clay(12, 0, 576));
+				addItem(new Stick(12, 0, 576));
 				//addItem(new Clay(12, 0, 576));
 				//addItem(new IronBasaltTray(1, 0, 576));
 				cPressed = true;
