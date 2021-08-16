@@ -50,6 +50,11 @@ public class Game implements Runnable
 	
 	public static boolean colliding;
 	
+	// Time cycle
+	private int tickC = 0;
+	private int alpha = 0;
+	private boolean isDay = true;
+	
 	public Game(String title, int width, int heigth)
 	{
 		Game.title = title;
@@ -213,6 +218,46 @@ public class Game implements Runnable
 		g.setColor(Color.GREEN);
 		g.fillRect(pointer.getX(), pointer.getY() - 10, (int) StaticEntitiesManager.destructionBarValue, 10);
 		
+		player.render(g);
+		
+		Color skyColor = new Color(68, 51, 85, alpha);
+		g.setColor(skyColor);
+		g.fillRect(0, 0, width, height);
+		
+		if(tickC == 60)
+		{
+			if(isDay)
+			{
+				if(alpha == 220)
+				{
+					isDay = false;
+				}
+				else
+				{
+					alpha++;
+				}
+			}
+			else
+			{
+				if(alpha == 0)
+				{
+					isDay = true;
+				}
+				else
+				{
+					alpha--;
+				}
+			}
+			
+			tickC = 0;
+		}
+		else
+		{
+			tickC++;
+		}
+		
+		System.out.println(alpha);
+		
 		///*
 		g.setColor(Color.LIGHT_GRAY);
 		g.fillRect(23, 2, 210, 162);
@@ -266,8 +311,6 @@ public class Game implements Runnable
 		g.drawChars(String.valueOf(player.getVy() / 64).toCharArray(), 0, String.valueOf(player.getVy() / 64).toCharArray().length, 294, 18);
 		
 		//*/
-		
-		player.render(g);
 		
 		UiInventoryManager.render(g);
 		
