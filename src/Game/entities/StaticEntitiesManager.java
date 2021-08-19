@@ -23,8 +23,9 @@ public class StaticEntitiesManager
 	
 	public static void tick()
 	{	
-		if(framesLastUpdate == 330)
+		if(framesLastUpdate == 320)
 		{
+			index = new ArrayList<Integer>();
 			for(int i = 0; i < Game.generateWorld.SESIZE; i++)
 			{
 				double c = Math.sqrt(Math.pow(Math.abs(Game.generateWorld.getSEntities().get(i).Vx - Game.virtualSpace.getX()), 2) + Math.pow(Math.abs(Game.generateWorld.getSEntities().get(i).Vx - Game.virtualSpace.getX()), 2));
@@ -119,8 +120,9 @@ public class StaticEntitiesManager
 						
 						Game.generateWorld.getSEntities().remove((int) index.get(i));
 						Game.generateWorld.SESIZE--;
-						index.remove(index.get(i));
+						index.remove(i);
 						
+						UiInventoryManager.inventoryTool.refreshEntities();
 						if(UiInventoryManager.inventoryTool != null)
 						{
 							UiInventoryManager.inventoryTool.setLife(UiInventoryManager.inventoryTool.getLife() + 1);
@@ -133,8 +135,6 @@ public class StaticEntitiesManager
 						
 						destructionTimer = 0;
 						destructionBarValue = 0;
-						
-						break;
 					}
 				}
 			}

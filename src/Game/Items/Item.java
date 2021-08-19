@@ -2,6 +2,7 @@ package Game.Items;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import Game.engine.Game;
 import Game.entities.StaticEntitiesManager;
@@ -55,6 +56,7 @@ public class Item implements Cloneable
 	
 	public void refreshEntities()
 	{
+		StaticEntitiesManager.index = new ArrayList<Integer>();
 		for(int i = 0; i < Game.generateWorld.SESIZE; i++)
 		{
 			double c = Math.sqrt(Math.pow(Math.abs(Game.generateWorld.getSEntities().get(i).getVx() - Game.virtualSpace.getX()), 2) + Math.pow(Math.abs(Game.generateWorld.getSEntities().get(i).getVx() - Game.virtualSpace.getX()), 2));
