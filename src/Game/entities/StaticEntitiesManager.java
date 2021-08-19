@@ -23,7 +23,7 @@ public class StaticEntitiesManager
 	
 	public static void tick()
 	{	
-		if(framesLastUpdate == 320)
+		if(framesLastUpdate == 330)
 		{
 			for(int i = 0; i < Game.generateWorld.SESIZE; i++)
 			{
@@ -52,16 +52,16 @@ public class StaticEntitiesManager
 			entity.tick();
 			
 			if(Game.mouseManager.getMouseX() >= entity.getX() &&
-					Game.mouseManager.getMouseX() <= entity.getX() + entity.getWidth() &&
-					Game.mouseManager.getMouseY() >= entity.getY() &&
-					Game.mouseManager.getMouseY() <= entity.getY() + entity.getHeight())
+			   Game.mouseManager.getMouseX() <= entity.getX() + entity.getWidth() &&
+			   Game.mouseManager.getMouseY() >= entity.getY() &&
+			   Game.mouseManager.getMouseY() <= entity.getY() + entity.getHeight())
 			{
 				for(int j = 0; j < index.size(); j++)
 				{
-					if(Game.generateWorld.getSEntities().get(index.get(j)).isMining())
+					if(Game.generateWorld.getSEntities().get(index.get(i)).isMining())
 					{
 						otherEMining = true;
-						otherEMiningId = j;
+						otherEMiningId = i;
 						break;
 					}
 				}
@@ -117,7 +117,6 @@ public class StaticEntitiesManager
 							}
 						}
 						
-						System.out.println(index.get(i));
 						Game.generateWorld.getSEntities().remove((int) index.get(i));
 						Game.generateWorld.SESIZE--;
 						index.remove(index.get(i));
@@ -134,6 +133,8 @@ public class StaticEntitiesManager
 						
 						destructionTimer = 0;
 						destructionBarValue = 0;
+						
+						break;
 					}
 				}
 			}

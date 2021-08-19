@@ -30,7 +30,7 @@ public class Player extends Entity
 		{
 			if(stamina > 0)
 			{
-				virtualSpace.setSpeed(8);
+				virtualSpace.setSpeed(6);
 			}
 			else
 			{
@@ -145,5 +145,10 @@ public class Player extends Entity
 	public void setStaminaPerF(double staminaPerF) 
 	{
 		this.staminaPerF = staminaPerF;
+	}
+
+	public BufferedImage getPlayerExtraLayer() 
+	{
+		return playerExtraLayer;
 	}
 }

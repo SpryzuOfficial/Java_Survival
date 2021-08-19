@@ -50,11 +50,6 @@ public class Game implements Runnable
 	
 	public static boolean colliding;
 	
-	// Time cycle
-	private int tickC = 0;
-	private int alpha = 0;
-	private boolean isDay = true;
-	
 	public Game(String title, int width, int heigth)
 	{
 		Game.title = title;
@@ -182,7 +177,7 @@ public class Game implements Runnable
 			
 			colliding = false;
 	 	}
-	}
+ 	}
 	
 	private void render()
 	{
@@ -219,44 +214,6 @@ public class Game implements Runnable
 		g.fillRect(pointer.getX(), pointer.getY() - 10, (int) StaticEntitiesManager.destructionBarValue, 10);
 		
 		player.render(g);
-		
-		Color skyColor = new Color(68, 51, 85, alpha);
-		g.setColor(skyColor);
-		g.fillRect(0, 0, width, height);
-		
-		if(tickC == 60)
-		{
-			if(isDay)
-			{
-				if(alpha == 220)
-				{
-					isDay = false;
-				}
-				else
-				{
-					alpha++;
-				}
-			}
-			else
-			{
-				if(alpha == 0)
-				{
-					isDay = true;
-				}
-				else
-				{
-					alpha--;
-				}
-			}
-			
-			tickC = 0;
-		}
-		else
-		{
-			tickC++;
-		}
-		
-		System.out.println(alpha);
 		
 		///*
 		g.setColor(Color.LIGHT_GRAY);
