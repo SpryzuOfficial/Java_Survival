@@ -13,9 +13,6 @@ public class RockSheepMeatTray extends Item
 	@Override
 	public void use()
 	{
-		UiInventoryManager.addItem(new SheepMeat(1, 0, 576));
-		UiInventoryManager.addItem(new RockFoodTray(1, 0, 576));
-		
 		if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
 		{
 			UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].setCount(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() - 1);
@@ -26,5 +23,8 @@ public class RockSheepMeatTray extends Item
 			UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
 			UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
 		}
+		
+		UiInventoryManager.addItem(new SheepMeat(1, 0, 576));
+		UiInventoryManager.addItem(new RockFoodTray(1, 0, 576));
 	}
 }

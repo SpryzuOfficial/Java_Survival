@@ -143,6 +143,7 @@ public class CheckCraftings
 												              			  new Item[] {new Sandpaper(0, 576)} 
 																		  )
 												};
+	
 	private CraftingItemsSlots[] nailsRecipes = { 
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
@@ -258,6 +259,36 @@ public class CheckCraftings
 														   			        {null, new ClayMold(1, 0, 576)}
 																		  },
 												              			  new Item[] {new WoodSwordTemplate(1, 0, 576)} 
+																		  )
+												};
+	
+	private CraftingItemsSlots[] woodPotHerbRecipes = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null}
+																		  },
+															              new Item[] {new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576)}, 
+														   			        {null, null}
+																		  },
+												              			  new Item[] {new RockPotHerb(1, 0, 576)}	 
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null,                null}, 
+														   			        {new WoodPot(1, 0, 576), null}
+																		  },
+												              			  new Item[] {new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null}, 
+														   			        {null, new WoodPot(1, 0, 576)}
+																		  },
+												              			  new Item[] {new RockPotHerb(1, 0, 576)} 
 																		  )
 												};
 	
@@ -2085,6 +2116,186 @@ public class CheckCraftings
 																		  )
 												};
 	
+	private CraftingItemsSlots[] woodPotRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Wood(1, 0, 576), null, new Wood(1, 0, 576)},
+														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Wood(1, 0, 576), null, new Wood(1, 0, 576)}, 
+														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Wood(1, 0, 576), null, new Wood(1, 0, 576)},
+														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Wood(1, 0, 576), null, new Wood(1, 0, 576)}, 
+														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  )
+												};
+	
+	private CraftingItemsSlots[] woodPotHerbRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new WoodPot(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new WoodPot(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new WoodPot(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new WoodPot(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new WoodPot(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new WoodPot(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new WoodPot(1, 0, 576)},
+																		  },
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new WoodPot(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new WoodPot(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new WoodPot(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new WoodPot(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new WoodPot(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new WoodPot(1, 0, 576), null},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new WoodPot(1, 0, 576)},
+																		  },
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+																		  )
+												};
+	
 	public Item checkCrafting(Item[][] craftingItems, Item[] tools)
 	{
 		if(updateCrafting(craftingItems, tools, stringRecipes))
@@ -2155,6 +2366,11 @@ public class CheckCraftings
 		if(updateCrafting(craftingItems, tools, clayMoldSwordRecipes))
 		{
 			return new ClayMoldSword(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, woodPotHerbRecipes))
+		{
+			return new WoodPotHerb(1, 0, 576);
 		}
 		
 		return null;
@@ -2265,6 +2481,16 @@ public class CheckCraftings
 		if(updateCrafting(craftingItems, tools, rockPotRecipesTable))
 		{
 			return new RockPot(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, woodPotRecipesTable))
+		{
+			return new WoodPot(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, woodPotHerbRecipesTable))
+		{
+			return new WoodPotHerb(1, 0, 576);
 		}
 		
 		return null;

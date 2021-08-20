@@ -6,6 +6,6 @@ public class RockPotWater extends Item
 {
 	public RockPotWater(int count, int x, int y) 
 	{
-		super(Assets.rockPotWater, count, x, y, 1, 1, 1, true, -1, 1);
+		super(Assets.rockPotWater, count, x, y, 1, 1, 1, false, -1, 1);
 	}
 }

@@ -220,20 +220,25 @@ public class UiInventoryManager
 		{
 			if(!cPressed)
 			{
+				Game.player.setFood(0);
 				addItem(new Pickaxe(0, 576));
 				addItem(new Axe(0, 576));
-				addItem(new Hammer(0, 576));
-				addItem(new BasaltHammer(0, 576));
+				//addItem(new Hammer(0, 576));
+				//addItem(new BasaltHammer(0, 576));
 				addItem(new Sandpaper(0, 576));
-				addItem(new Knife(0, 576));
+				//addItem(new Knife(0, 576));
 				addItem(new Table(1, 0, 576));
 				addItem(new Oven(1, 0, 576));
 				addItem(new Anvil(1, 0, 576));
 				addItem(new Wood(12, 0, 576));
 				addItem(new Stone(12, 0, 576));
-				addItem(new IronOre(12, 0, 576));
-				addItem(new Clay(12, 0, 576));
-				addItem(new Stick(12, 0, 576));
+				addItem(new WoodPot(12, 0, 576));
+				addItem(new RockPotHerb(1, 0, 576));
+				addItem(new SheepMeat(1, 0, 576));
+				addItem(new RockSheepMeatTray(1, 0, 576));
+				//addItem(new IronOre(12, 0, 576));
+				//addItem(new Clay(12, 0, 576));
+				//addItem(new Stick(12, 0, 576));
 				//addItem(new Clay(12, 0, 576));
 				//addItem(new IronBasaltTray(1, 0, 576));
 				cPressed = true;
@@ -1856,7 +1861,7 @@ public class UiInventoryManager
 				if(!uiLeftPressed && !uiRightPressed)
 				{
 					if(ctTableSlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
-					{	
+					{
 						try
 						{
 							if(itemsCraftingToolsTable[i].getClass() == inventoryItemHolded.getClass() && itemsCraftingToolsTable[i].isStack())
@@ -3996,6 +4001,11 @@ public class UiInventoryManager
 	
 	public static void addItem(Item item)
 	{
+		if(item == null)
+		{
+			return;
+		}
+		
 		boolean isTool = false;
 		boolean finish = false;
 		boolean isBreak1 = false;

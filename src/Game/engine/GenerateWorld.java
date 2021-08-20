@@ -156,6 +156,13 @@ public class GenerateWorld
 							}
 							else if(moisture < 0.7)
 							{
+								if(generateEntitiesByR(i, j, 8) && !istickocuped)
+								{
+									istickocuped = true;
+									sEntities.add(new Plant(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+									SESIZE++;
+								}
+								
 								if(generateEntitiesByR(i, j, 7) && !istickocuped)
 								{
 									istickocuped = true;

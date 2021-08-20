@@ -3,6 +3,7 @@ package Game.entities;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+import Game.Items.Item;
 import Game.engine.Game;
 import Game.tiles.TileManager;
 import Game.ui.UiInventoryManager;
@@ -122,7 +123,10 @@ public class StaticEntitiesManager
 						Game.generateWorld.SESIZE--;
 						index.remove(i);
 						
-						UiInventoryManager.inventoryTool.refreshEntities();
+						Item item = new Item(null, 1, 0, 0, 0, 0, 0, true, 0, 0);
+						
+						item.refreshEntities();
+						
 						if(UiInventoryManager.inventoryTool != null)
 						{
 							UiInventoryManager.inventoryTool.setLife(UiInventoryManager.inventoryTool.getLife() + 1);

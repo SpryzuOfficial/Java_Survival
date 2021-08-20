@@ -10,11 +10,11 @@ public class Assets
 	
 	public static BufferedImage dirt, grass, sand, water, rocks, magma;
 	
-	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE;
+	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE, plant;
 	
 	public static BufferedImage hotbar, hotbarSelected, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
 	
-	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, ironSword, sheepRawMeat, sheepMeat, rockFoodTray, rockSheepMeatTray, rockPot, rockPotWater;
+	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, ironSword, sheepRawMeat, sheepMeat, rockFoodTray, rockSheepMeatTray, rockPot, rockPotWater, herbs, woodPot, woodPotHerb, rockPotHerb;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer;
 	
@@ -52,6 +52,7 @@ public class Assets
 		clayE = tilesSESheet.crop(WIDTH * 11, 0, WIDTH, HEIGHT);
 		ironOreE = tilesSESheet.crop(WIDTH * 12, 0, WIDTH, HEIGHT);
 		ovenE = tilesSESheet.crop(WIDTH * 13, 0, WIDTH, HEIGHT);
+		plant = tilesSESheet.crop(WIDTH * 14, 0, WIDTH, HEIGHT);
 		
 		//Entities
 		player = entitiesSheet.crop(0, 0, WIDTH, HEIGHT);
@@ -107,5 +108,9 @@ public class Assets
 		rockSheepMeatTray = itemsSheet.crop(WIDTH * 12, HEIGHT * 2, WIDTH, HEIGHT);
 		rockPot = itemsSheet.crop(WIDTH * 13, HEIGHT * 2, WIDTH, HEIGHT);
 		rockPotWater = itemsSheet.crop(WIDTH * 14, HEIGHT * 2, WIDTH, HEIGHT);
+		herbs = itemsSheet.crop(WIDTH * 15, HEIGHT * 2, WIDTH, HEIGHT);
+		woodPot = itemsSheet.crop(0, HEIGHT * 3, WIDTH, HEIGHT);
+		woodPotHerb = itemsSheet.crop(WIDTH, HEIGHT * 3, WIDTH, HEIGHT);
+		rockPotHerb = itemsSheet.crop(WIDTH * 2, HEIGHT * 3, WIDTH, HEIGHT);
 	}
 }

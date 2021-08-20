@@ -7,12 +7,14 @@ import Game.ui.UiInventoryManager;
 
 public class Food extends Item
 {
-	protected int level;
+	protected Item itemGive;
+	protected double level;
 	
-	public Food(BufferedImage texture, int count, int x, int y, int level) 
+	public Food(BufferedImage texture, int count, int x, int y, double level, Item itemGive) 
 	{
 		super(texture, count, x, y, 1, 1, 1, true, -1, 0);
 		this.level = level;
+		this.itemGive = itemGive;
 	}
 	
 	@Override
@@ -37,6 +39,7 @@ public class Food extends Item
 				UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
 				UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
 			}
+			UiInventoryManager.addItem(itemGive);
 		}
 	}
 }
