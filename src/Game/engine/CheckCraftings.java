@@ -292,6 +292,126 @@ public class CheckCraftings
 																		  )
 												};
 	
+	private CraftingItemsSlots[] woodPotMushroomRedRecipes = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null}
+																		  },
+															              new Item[] {new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576)}, 
+														   			        {null, null}
+																		  },
+												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)}	 
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null,                null}, 
+														   			        {new WoodPot(1, 0, 576), null}
+																		  },
+												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null}, 
+														   			        {null, new WoodPot(1, 0, 576)}
+																		  },
+												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)} 
+																		  )
+												};
+	
+	private CraftingItemsSlots[] woodPotMushroomBlueRecipes = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null}
+																		  },
+															              new Item[] {new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576)}, 
+														   			        {null, null}
+																		  },
+												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)}	 
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null,                null}, 
+														   			        {new WoodPot(1, 0, 576), null}
+																		  },
+												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null}, 
+														   			        {null, new WoodPot(1, 0, 576)}
+																		  },
+												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)} 
+																		  )
+												};
+	
+	private CraftingItemsSlots[] clayMoldPickaxeRecipes = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new ClayMold(1, 0, 576), null}, 
+														   			        {null, 				  null}
+																		  },
+															              new Item[] {new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new ClayMold(1, 0, 576)}, 
+														   			        {null, null}
+																		  },
+												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)}	 
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null,                null}, 
+														   			        {new ClayMold(1, 0, 576), null}
+																		  },
+												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null}, 
+														   			        {null, new ClayMold(1, 0, 576)}
+																		  },
+												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)} 
+																		  )
+												};
+	
+	private CraftingItemsSlots[] clayMoldAxeRecipes = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new ClayMold(1, 0, 576), null}, 
+														   			        {null, 				  null}
+																		  },
+															              new Item[] {new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new ClayMold(1, 0, 576)}, 
+														   			        {null, null}
+																		  },
+												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)}	 
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null,                null}, 
+														   			        {new ClayMold(1, 0, 576), null}
+																		  },
+												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null}, 
+														   			        {null, new ClayMold(1, 0, 576)}
+																		  },
+												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)} 
+																		  )
+												};
+	
 	private CraftingItemsSlots[] stringRecipesTable = { 
 													new CraftingItemsSlots(
 															 new Item[][] { {new Wool(1, 0, 576), null, null}, 
@@ -2296,6 +2416,784 @@ public class CheckCraftings
 																		  )
 												};
 	
+	private CraftingItemsSlots[] woodPotMushroomRedRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new WoodPot(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new WoodPot(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new WoodPot(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new WoodPot(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new WoodPot(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new WoodPot(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new WoodPot(1, 0, 576)},
+																		  },
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new WoodPot(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new WoodPot(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new WoodPot(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new WoodPot(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new WoodPot(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new WoodPot(1, 0, 576), null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new WoodPot(1, 0, 576)},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+																		  )
+												};
+	
+	private CraftingItemsSlots[] woodPotMushroomBlueRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new WoodPot(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new WoodPot(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new WoodPot(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new WoodPot(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new WoodPot(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new WoodPot(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new WoodPot(1, 0, 576)},
+																		  },
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new WoodPot(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new WoodPot(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new WoodPot(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new WoodPot(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new WoodPot(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new WoodPot(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new WoodPot(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new WoodPot(1, 0, 576), null},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new WoodPot(1, 0, 576)},
+																		  },
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+																		  )
+												};
+	
+	private CraftingItemsSlots[] woodPickaxeTemplateRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new Stick(1, 0, 576), new Stick(1, 0, 576)},
+														   			        {null, null, new Stick(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new Stick(1, 0, 576), new Stick(1, 0, 576)},
+														   			        {null, new Stick(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), null},
+														   			        {null, new Stick(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), null},
+														   			        {new Stick(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Stick(1, 0, 576), new Stick(1, 0, 576)}, 
+														   			        {null, null, new Stick(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Stick(1, 0, 576), new Stick(1, 0, 576)}, 
+														   			        {null, new Stick(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stick(1, 0, 576), new Stick(1, 0, 576), null}, 
+														   			        {null, new Stick(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stick(1, 0, 576), new Stick(1, 0, 576), null}, 
+														   			        {new Stick(1, 0, 576), null, null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new Stick(1, 0, 576), new Stick(1, 0, 576)},
+														   			        {null, null, new Stick(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new Stick(1, 0, 576), new Stick(1, 0, 576)},
+														   			        {null, new Stick(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), null},
+														   			        {null, new Stick(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), null},
+														   			        {new Stick(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Stick(1, 0, 576), new Stick(1, 0, 576)}, 
+														   			        {null, null, new Stick(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Stick(1, 0, 576), new Stick(1, 0, 576)}, 
+														   			        {null, new Stick(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stick(1, 0, 576), new Stick(1, 0, 576), null}, 
+														   			        {null, new Stick(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stick(1, 0, 576), new Stick(1, 0, 576), null}, 
+														   			        {new Stick(1, 0, 576), null, null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  )
+												};
+	
+	private CraftingItemsSlots[] clayMoldPickaxeRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new ClayMold(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new ClayMold(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new ClayMold(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new ClayMold(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new ClayMold(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new ClayMold(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new ClayMold(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new ClayMold(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new ClayMold(1, 0, 576)},
+																		  },
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new ClayMold(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new ClayMold(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new ClayMold(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new ClayMold(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new ClayMold(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new ClayMold(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new ClayMold(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new ClayMold(1, 0, 576), null},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new ClayMold(1, 0, 576)},
+																		  },
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+																		  )
+												};
+	
+	private CraftingItemsSlots[] woodAxeTemplateRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)},
+														   			        {null, null, new Stick(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)},
+														   			        {new Stick(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)}, 
+														   			        {null, null, new Stick(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)}, 
+														   			        {new Stick(1, 0, 576), null, null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+																		  ),
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)},
+														   			        {null, null, new Stick(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)},
+														   			        {new Stick(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)}, 
+														   			        {null, null, new Stick(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)}, 
+														   			        {new Stick(1, 0, 576), null, null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+																		  )
+												};
+	
+	private CraftingItemsSlots[] clayMoldAxeRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new ClayMold(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new ClayMold(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new ClayMold(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new ClayMold(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new ClayMold(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new ClayMold(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new ClayMold(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new ClayMold(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new ClayMold(1, 0, 576)},
+																		  },
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new ClayMold(1, 0, 576), null, null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new ClayMold(1, 0, 576), null}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new ClayMold(1, 0, 576)}, 
+														   			        {null, 				  null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new ClayMold(1, 0, 576),null, null},
+														   			        {null, 				  null, null},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new ClayMold(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new ClayMold(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {new ClayMold(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, new ClayMold(1, 0, 576), null},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, null},
+														   			        {null, null, new ClayMold(1, 0, 576)},
+																		  },
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+																		  )
+												};
+	
 	public Item checkCrafting(Item[][] craftingItems, Item[] tools)
 	{
 		if(updateCrafting(craftingItems, tools, stringRecipes))
@@ -2371,6 +3269,26 @@ public class CheckCraftings
 		if(updateCrafting(craftingItems, tools, woodPotHerbRecipes))
 		{
 			return new WoodPotHerb(1, 0, 576);
+		}
+
+		if(updateCrafting(craftingItems, tools, woodPotMushroomRedRecipes))
+		{
+			return new WoodPotMushroomRed(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, woodPotMushroomBlueRecipes))
+		{
+			return new WoodPotMushroomBlue(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, clayMoldPickaxeRecipes))
+		{
+			return new ClayMoldPickaxe(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, clayMoldAxeRecipes))
+		{
+			return new ClayMoldAxe(1, 0, 576);
 		}
 		
 		return null;
@@ -2485,12 +3403,42 @@ public class CheckCraftings
 		
 		if(updateCrafting(craftingItems, tools, woodPotRecipesTable))
 		{
-			return new WoodPot(1, 0, 576);
+			return new WoodPot(4, 0, 576);
 		}
 		
 		if(updateCrafting(craftingItems, tools, woodPotHerbRecipesTable))
 		{
 			return new WoodPotHerb(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, woodPotMushroomRedRecipesTable))
+		{
+			return new WoodPotMushroomRed(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, woodPotMushroomBlueRecipesTable))
+		{
+			return new WoodPotMushroomBlue(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, woodPickaxeTemplateRecipesTable))
+		{
+			return new WoodPickaxeTemplate(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, clayMoldPickaxeRecipesTable))
+		{
+			return new ClayMoldPickaxe(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, woodAxeTemplateRecipesTable))
+		{
+			return new WoodAxeTemplate(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, clayMoldAxeRecipesTable))
+		{
+			return new ClayMoldAxe(1, 0, 576);
 		}
 		
 		return null;

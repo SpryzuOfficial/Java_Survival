@@ -124,6 +124,20 @@ public class GenerateWorld
 						{
 							if(moisture < 0.42)
 							{
+								if(generateEntitiesByR(i, j, 13) && !istickocuped)
+								{
+									istickocuped = true;
+									sEntities.add(new MushroomBlueE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+									SESIZE++;
+								}
+								
+								if(generateEntitiesByR(i, j, 9) && !istickocuped)
+								{
+									istickocuped = true;
+									sEntities.add(new MushroomRedE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+									SESIZE++;
+								}
+								
 								if(generateEntitiesByR(i, j, 4) && !istickocuped)
 								{
 									istickocuped = true;

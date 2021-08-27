@@ -15,6 +15,18 @@ public class CheckOven
 	
 	private OvenItemSlots herbRecipe = new OvenItemSlots(new Herbs(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)});
 	
+	private OvenItemSlots mushroomRedRecipe = new OvenItemSlots(new MushroomRed(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)});
+	
+	private OvenItemSlots mushroomBlueRecipe = new OvenItemSlots(new MushroomBlue(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)});
+	
+	private OvenItemSlots ironPickaxeClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldPickaxe(1, 0, 576)});
+	
+	private OvenItemSlots ironOrePickaxeClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldPickaxe(1, 0, 576)});
+	
+	private OvenItemSlots ironAxeClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldAxe(1, 0, 576)});
+	
+	private OvenItemSlots ironOreAxeClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldAxe(1, 0, 576)});
+	
 	public Item checkOven(Item input, Item tray)
 	{
 		if(updateOven(input, tray, ironRecipe))
@@ -40,6 +52,36 @@ public class CheckOven
 		if(updateOven(input, tray, herbRecipe))
 		{
 			return new RockPotHerb(1, 0, 576);
+		}
+		
+		if(updateOven(input, tray, mushroomRedRecipe))
+		{
+			return new RockPotMushroomRed(1, 0, 576);
+		}
+		
+		if(updateOven(input, tray, mushroomBlueRecipe))
+		{
+			return new RockPotMushroomBlue(1, 0, 576);
+		}
+		
+		if(updateOven(input, tray, ironPickaxeClayRecipe))
+		{
+			return new IronPickaxeClay(1, 0, 576);
+		}
+		
+		if(updateOven(input, tray, ironOrePickaxeClayRecipe))
+		{
+			return new IronPickaxeClay(1, 0, 576);
+		}
+		
+		if(updateOven(input, tray, ironAxeClayRecipe))
+		{
+			return new IronAxeClay(1, 0, 576);
+		}
+		
+		if(updateOven(input, tray, ironOreAxeClayRecipe))
+		{
+			return new IronAxeClay(1, 0, 576);
 		}
 		
 		return null;

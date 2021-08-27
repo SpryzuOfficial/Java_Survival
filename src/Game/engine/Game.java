@@ -139,10 +139,21 @@ public class Game implements Runnable
 	 	if(player.getFood() > 0)
 	 	{
 	 		player.setFood(player.getFood() - player.getFoodPerF());
+	 		player.setLifePerF(0.0);
 	 	}
 	 	else
 	 	{
 	 		player.setFood(0);
+	 		player.setLifePerF(0.01);
+	 	}
+	 	
+	 	if(player.getLife() > 0)
+	 	{
+	 		player.setLife(player.getLife() - player.getLifePerF());
+	 	}
+	 	else
+	 	{
+	 		player.setLife(0);
 	 	}
 	 	
 	 	player.setStamina(player.getStamina() - player.getStaminaPerF());
@@ -224,7 +235,7 @@ public class Game implements Runnable
 		g.setColor(skyColor);
 		g.fillRect(0, 0, width, height);
 		
-		if(tickC == 60)
+		if(tickC == 120)
 		{
 			if(isDay)
 			{

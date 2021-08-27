@@ -18,6 +18,7 @@ public class Item implements Cloneable
 	protected int topLife;
 	protected int life;
 	protected double ovenValue;
+	protected Item nextItem;
 	
 	public Item(BufferedImage texture, int count, int x, int y, int miningValue1, int miningValue2, int miningValue3, boolean isStack, int topLife, double ovenValue)
 	{
@@ -32,6 +33,23 @@ public class Item implements Cloneable
 		this.topLife = topLife;
 		this.life = 0;
 		this.ovenValue = ovenValue;
+		this.nextItem = null;
+	}
+	
+	public Item(BufferedImage texture, int count, int x, int y, int miningValue1, int miningValue2, int miningValue3, boolean isStack, int topLife, double ovenValue, Item nextItem)
+	{
+		this.texture = texture;
+		this.count = count;
+		this.x = x;
+		this.y = y;
+		this.miningValue[0] = miningValue1;
+		this.miningValue[1] = miningValue2;
+		this.miningValue[2] = miningValue3;
+		this.isStack = isStack;
+		this.topLife = topLife;
+		this.life = 0;
+		this.ovenValue = ovenValue;
+		this.nextItem = nextItem;
 	}
 	
 	public Item clone() throws CloneNotSupportedException
@@ -160,5 +178,10 @@ public class Item implements Cloneable
 	public void setOvenValue(double ovenValue) 
 	{
 		this.ovenValue = ovenValue;
+	}
+
+	public Item getNextItem() 
+	{
+		return nextItem;
 	}
 }

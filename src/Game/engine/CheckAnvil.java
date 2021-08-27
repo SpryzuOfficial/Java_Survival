@@ -9,6 +9,10 @@ public class CheckAnvil
 	
 	private AnvilItemSlots ironSwordRecipe = new AnvilItemSlots(new IronSwordClay(1, 0, 576), new BasaltHammer(0, 576));
 	
+	private AnvilItemSlots ironPickaxeRecipe = new AnvilItemSlots(new IronPickaxeClay(1, 0, 576), new BasaltHammer(0, 576));
+	
+	private AnvilItemSlots ironAxeRecipe = new AnvilItemSlots(new IronAxeClay(1, 0, 576), new BasaltHammer(0, 576));
+	
 	public Item checkAnvil(Item input, Item tool)
 	{
 		if(updateAnvil(input, tool, ironRecipe))
@@ -19,6 +23,16 @@ public class CheckAnvil
 		if(updateAnvil(input, tool, ironSwordRecipe))
 		{
 			return new IronSword(0, 576);
+		}
+		
+		if(updateAnvil(input, tool, ironPickaxeRecipe))
+		{
+			return new IronPickaxe(0, 576);
+		}
+		
+		if(updateAnvil(input, tool, ironAxeRecipe))
+		{
+			return new IronAxe(0, 576);
 		}
 		
 		return null;

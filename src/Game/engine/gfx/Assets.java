@@ -10,13 +10,17 @@ public class Assets
 	
 	public static BufferedImage dirt, grass, sand, water, rocks, magma;
 	
-	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE, plant;
+	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE, plant, mushroomRedE, mushroomBlueE;
 	
 	public static BufferedImage hotbar, hotbarSelected, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
 	
-	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, ironSword, sheepRawMeat, sheepMeat, rockFoodTray, rockSheepMeatTray, rockPot, rockPotWater, herbs, woodPot, woodPotHerb, rockPotHerb;
+	public static BufferedImage wood, stone, wool, string, woodTable, nail, table, woodPlank, basalt, polishedBasalt, oven, anvil, clay, stick, 
+	clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, sheepRawMeat, sheepMeat, 
+	rockFoodTray, rockSheepMeatTray, rockPot, rockPotWater, herbs, woodPot, woodPotHerb, rockPotHerb, mushroomRed, rockPotMushroomRed, 
+	woodPotMushroomRed, mushroomBlue, rockPotMushroomBlue, woodPotMushroomBlue, woodPickaxeTemplate, clayMoldPickaxe, ironPickaxeClay,
+	woodAxeTemplate, clayMoldAxe, ironAxeClay;
 	
-	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer;
+	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer, ironSword, ironPickaxe, ironAxe;
 	
 	public static BufferedImage inventory, craftingtable, ovenUI, anvilUI;
 	
@@ -53,6 +57,8 @@ public class Assets
 		ironOreE = tilesSESheet.crop(WIDTH * 12, 0, WIDTH, HEIGHT);
 		ovenE = tilesSESheet.crop(WIDTH * 13, 0, WIDTH, HEIGHT);
 		plant = tilesSESheet.crop(WIDTH * 14, 0, WIDTH, HEIGHT);
+		mushroomRedE = tilesSESheet.crop(WIDTH * 15, 0, WIDTH, HEIGHT);
+		mushroomBlueE = tilesSESheet.crop(WIDTH * 4, HEIGHT, WIDTH, HEIGHT);
 		
 		//Entities
 		player = entitiesSheet.crop(0, 0, WIDTH, HEIGHT);
@@ -102,6 +108,8 @@ public class Assets
 		hammer = itemsSheet.crop(WIDTH * 4, HEIGHT, WIDTH, HEIGHT);
 		basaltHammer = itemsSheet.crop(WIDTH * 5, HEIGHT, WIDTH, HEIGHT);
 		ironSword = itemsSheet.crop(WIDTH * 8, HEIGHT * 2, WIDTH, HEIGHT);
+		ironPickaxe = itemsSheet.crop(WIDTH * 12, HEIGHT * 3, WIDTH, HEIGHT);
+		ironAxe = itemsSheet.crop(0, HEIGHT * 4, WIDTH, HEIGHT);
 		sheepRawMeat = itemsSheet.crop(WIDTH * 9, HEIGHT * 2, WIDTH, HEIGHT);
 		sheepMeat = itemsSheet.crop(WIDTH * 10, HEIGHT * 2, WIDTH, HEIGHT);
 		rockFoodTray = itemsSheet.crop(WIDTH * 11, HEIGHT * 2, WIDTH, HEIGHT);
@@ -112,5 +120,17 @@ public class Assets
 		woodPot = itemsSheet.crop(0, HEIGHT * 3, WIDTH, HEIGHT);
 		woodPotHerb = itemsSheet.crop(WIDTH, HEIGHT * 3, WIDTH, HEIGHT);
 		rockPotHerb = itemsSheet.crop(WIDTH * 2, HEIGHT * 3, WIDTH, HEIGHT);
+		mushroomRed = itemsSheet.crop(WIDTH * 3, HEIGHT * 3, WIDTH, HEIGHT);
+		rockPotMushroomRed = itemsSheet.crop(WIDTH * 4, HEIGHT * 3, WIDTH, HEIGHT);
+		woodPotMushroomRed = itemsSheet.crop(WIDTH * 5, HEIGHT * 3, WIDTH, HEIGHT);
+		mushroomBlue = itemsSheet.crop(WIDTH * 6, HEIGHT * 3, WIDTH, HEIGHT);
+		rockPotMushroomBlue = itemsSheet.crop(WIDTH * 7, HEIGHT * 3, WIDTH, HEIGHT);
+		woodPotMushroomBlue = itemsSheet.crop(WIDTH * 8, HEIGHT * 3, WIDTH, HEIGHT);
+		woodPickaxeTemplate = itemsSheet.crop(WIDTH * 9, HEIGHT * 3, WIDTH, HEIGHT);
+		clayMoldPickaxe = itemsSheet.crop(WIDTH * 10, HEIGHT * 3, WIDTH, HEIGHT);
+		ironPickaxeClay = itemsSheet.crop(WIDTH * 11, HEIGHT * 3, WIDTH, HEIGHT);
+		woodAxeTemplate = itemsSheet.crop(WIDTH * 13, HEIGHT * 3, WIDTH, HEIGHT);
+		clayMoldAxe = itemsSheet.crop(WIDTH * 14, HEIGHT * 3, WIDTH, HEIGHT);
+		ironAxeClay = itemsSheet.crop(WIDTH * 15, HEIGHT * 3, WIDTH, HEIGHT);
 	}
 }

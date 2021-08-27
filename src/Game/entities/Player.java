@@ -11,10 +11,11 @@ public class Player extends Entity
 {
 	private BufferedImage[] playerExtraLayers = new BufferedImage[] {Assets.player_water};
 	private BufferedImage playerExtraLayer;
-	private int life = 100;
+	private double life = 100;
 	private double food = 100;
 	private double stamina = 100;
 	
+	private double lifePerF = 0.0;
 	private double foodPerF = 0.001;
 	private double staminaPerF = 0.0;
 	
@@ -97,12 +98,12 @@ public class Player extends Entity
 		}
 	}
 
-	public int getLife() 
+	public double getLife() 
 	{
 		return life;
 	}
 
-	public void setLife(int life) 
+	public void setLife(double life) 
 	{
 		this.life = life;
 	}
@@ -145,6 +146,16 @@ public class Player extends Entity
 	public void setStaminaPerF(double staminaPerF) 
 	{
 		this.staminaPerF = staminaPerF;
+	}
+
+	public double getLifePerF() 
+	{
+		return lifePerF;
+	}
+
+	public void setLifePerF(double lifePerF)
+	{
+		this.lifePerF = lifePerF;
 	}
 
 	public BufferedImage getPlayerExtraLayer() 

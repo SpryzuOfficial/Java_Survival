@@ -220,27 +220,30 @@ public class UiInventoryManager
 		{
 			if(!cPressed)
 			{
-				Game.player.setFood(0);
+				//Game.player.setFood(0);
 				addItem(new Pickaxe(0, 576));
 				addItem(new Axe(0, 576));
-				//addItem(new Hammer(0, 576));
-				//addItem(new BasaltHammer(0, 576));
+				addItem(new Hammer(0, 576));
+				addItem(new BasaltHammer(0, 576));
 				addItem(new Sandpaper(0, 576));
-				//addItem(new Knife(0, 576));
+				addItem(new Knife(0, 576));
 				addItem(new Table(1, 0, 576));
 				addItem(new Oven(1, 0, 576));
 				addItem(new Anvil(1, 0, 576));
 				addItem(new Wood(12, 0, 576));
 				addItem(new Stone(12, 0, 576));
-				addItem(new WoodPot(12, 0, 576));
-				addItem(new RockPotHerb(1, 0, 576));
-				addItem(new SheepMeat(1, 0, 576));
-				addItem(new RockSheepMeatTray(1, 0, 576));
-				//addItem(new IronOre(12, 0, 576));
-				//addItem(new Clay(12, 0, 576));
-				//addItem(new Stick(12, 0, 576));
-				//addItem(new Clay(12, 0, 576));
-				//addItem(new IronBasaltTray(1, 0, 576));
+				//addItem(new WoodPot(12, 0, 576));
+				//addItem(new RockPotHerb(1, 0, 576));
+				//addItem(new MushroomRed(1, 0, 576));
+				//addItem(new MushroomBlue(1, 0, 576));
+				//addItem(new RockPotWater(1, 0, 576));
+				//addItem(new RockPotWater(1, 0, 576));
+				//addItem(new SheepMeat(1, 0, 576));
+				//addItem(new RockSheepMeatTray(1, 0, 576));
+				addItem(new IronOre(12, 0, 576));
+				addItem(new Clay(12, 0, 576));
+				addItem(new Stick(12, 0, 576));
+				addItem(new IronBasaltTray(1, 0, 576));
 				cPressed = true;
 			}
 		}
@@ -832,12 +835,19 @@ public class UiInventoryManager
 													itemCraftingTool.setLife(itemCraftingTool.getLife() + 1);
 													if(itemCraftingTool.getLife() == itemCraftingTool.getTopLife())
 													{
-														itemCraftingTool = null;
+														itemCraftingTool = itemCraftingTool.getNextItem();
 													}
 												}
 												else
 												{
-													itemCraftingTool.setCount(itemCraftingTool.getCount() - 1);
+													if(itemCraftingTool.getNextItem() == null)
+													{
+														itemCraftingTool.setCount(itemCraftingTool.getCount() - 1);
+													}
+													else
+													{
+														itemCraftingTool = itemCraftingTool.getNextItem();
+													}
 												}
 											}
 											
@@ -888,12 +898,19 @@ public class UiInventoryManager
 											itemCraftingTool.setLife(itemCraftingTool.getLife() + 1);
 											if(itemCraftingTool.getLife() == itemCraftingTool.getTopLife())
 											{
-												itemCraftingTool = null;
+												itemCraftingTool = itemCraftingTool.getNextItem();
 											}
 										}
 										else
 										{
-											itemCraftingTool.setCount(itemCraftingTool.getCount() - 1);
+											if(itemCraftingTool.getNextItem() == null)
+											{
+												itemCraftingTool.setCount(itemCraftingTool.getCount() - 1);
+											}
+											else
+											{
+												itemCraftingTool = itemCraftingTool.getNextItem();
+											}
 										}
 									}
 									
@@ -1757,12 +1774,19 @@ public class UiInventoryManager
 														itemsCraftingToolsTable[i].setLife(itemsCraftingToolsTable[i].getLife() + 1);
 														if(itemsCraftingToolsTable[i].getLife() == itemsCraftingToolsTable[i].getTopLife())
 														{
-															itemsCraftingToolsTable[i] = null;
+															itemsCraftingToolsTable[i] = itemsCraftingToolsTable[i] = itemsCraftingToolsTable[i].getNextItem();
 														}
 													}
 													else
 													{
-														itemsCraftingToolsTable[i].setCount(itemsCraftingToolsTable[i].getCount() - 1);
+														if(itemsCraftingToolsTable[i].getNextItem() == null)
+														{
+															itemsCraftingToolsTable[i].setCount(itemsCraftingToolsTable[i].getCount() - 1);
+														}
+														else
+														{
+															itemsCraftingToolsTable[i] = itemsCraftingToolsTable[i].getNextItem();
+														}
 													}
 												}
 												
@@ -1816,12 +1840,19 @@ public class UiInventoryManager
 												itemsCraftingToolsTable[i].setLife(itemsCraftingToolsTable[i].getLife() + 1);
 												if(itemsCraftingToolsTable[i].getLife() == itemsCraftingToolsTable[i].getTopLife())
 												{
-													itemsCraftingToolsTable[i] = null;
+													itemsCraftingToolsTable[i] = itemsCraftingToolsTable[i].getNextItem();
 												}
 											}
 											else
 											{
-												itemsCraftingToolsTable[i].setCount(itemsCraftingToolsTable[i].getCount() - 1);
+												if(itemsCraftingToolsTable[i].getNextItem() == null)
+												{
+													itemsCraftingToolsTable[i].setCount(itemsCraftingToolsTable[i].getCount() - 1);
+												}
+												else
+												{
+													itemsCraftingToolsTable[i] = itemsCraftingToolsTable[i].getNextItem();
+												}
 											}
 										}
 										
