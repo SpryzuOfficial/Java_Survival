@@ -62,9 +62,9 @@ public class Item implements Cloneable
 		g.drawImage(texture, x, y, 64, 64, null);
 	}
 	
-	public void use()
+	public boolean use()
 	{
-		
+		return false;
 	}
 	
 	public boolean place()

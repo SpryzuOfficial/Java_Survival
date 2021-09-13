@@ -7,7 +7,6 @@ import Game.Items.Item;
 import Game.Items.Oven;
 import Game.engine.CheckOven;
 import Game.engine.Game;
-import Game.engine.GenerateWorld;
 import Game.engine.gfx.Assets;
 import Game.ui.UiInventoryManager;
 import Game.ui.UiManager;

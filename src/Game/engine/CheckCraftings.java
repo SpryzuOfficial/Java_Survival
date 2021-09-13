@@ -3194,6 +3194,24 @@ public class CheckCraftings
 																		  )
 												};
 	
+	private CraftingItemsSlots[] chestRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)}, 
+														   			        {new Wood(1, 0, 576), new Iron(1, 0, 576), new Wood(1, 0, 576)},
+														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)}, 
+														   			        {new Wood(1, 0, 576), new Iron(1, 0, 576), new Wood(1, 0, 576)},
+														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)}
+																		  )
+												};
+	
 	public Item checkCrafting(Item[][] craftingItems, Item[] tools)
 	{
 		if(updateCrafting(craftingItems, tools, stringRecipes))
@@ -3439,6 +3457,11 @@ public class CheckCraftings
 		if(updateCrafting(craftingItems, tools, clayMoldAxeRecipesTable))
 		{
 			return new ClayMoldAxe(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, chestRecipesTable))
+		{
+			return new Chest(1, 0, 576);
 		}
 		
 		return null;

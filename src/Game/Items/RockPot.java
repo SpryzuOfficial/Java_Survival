@@ -12,7 +12,7 @@ public class RockPot extends Item
 	}
 	
 	@Override
-	public void use()
+	public boolean use()
 	{
 		if(Game.player.getPlayerExtraLayer() == Assets.player_water)
 		{
@@ -20,6 +20,10 @@ public class RockPot extends Item
 			UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
 		
 			UiInventoryManager.addItem(new RockPotWater(1, 0, 576));
+			
+			return true;
 		}
+		
+		return false;
 	}
 }

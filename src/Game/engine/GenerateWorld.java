@@ -17,6 +17,7 @@ public class GenerateWorld
 	private ArrayList<Animal> animals;
 	private ArrayList<StaticEntity> sEntities;
 	private ArrayList<OvenE> ovens;
+	private ArrayList<ChestE> chests;
 	
 	public Double[][] worldNoises;
 	public Double[][] worldMoisture;
@@ -36,6 +37,7 @@ public class GenerateWorld
 		this.sEntities = new ArrayList<StaticEntity>();
 		this.animals = new ArrayList<Animal>();
 		this.ovens = new ArrayList<OvenE>();
+		this.chests = new ArrayList<ChestE>();
 		
 		worldNoises = new Double[968][968];
 		worldMoisture = new Double[968][968];
@@ -426,6 +428,16 @@ public class GenerateWorld
 	public OvenE getFromOven(int i)
 	{
 		return ovens.get(i);
+	}
+	
+	public ArrayList<ChestE> getChests()
+	{
+		return chests;
+	}
+	
+	public ChestE getFromChest(int i)
+	{
+		return chests.get(i);
 	}
 	
 	public boolean generateEntitiesByR(int i, int j, int R)

@@ -11,7 +11,7 @@ public class RockSheepMeatTray extends Item
 	}
 	
 	@Override
-	public void use()
+	public boolean use()
 	{
 		if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
 		{
@@ -26,5 +26,7 @@ public class RockSheepMeatTray extends Item
 		
 		UiInventoryManager.addItem(new SheepMeat(1, 0, 576));
 		UiInventoryManager.addItem(new RockFoodTray(1, 0, 576));
+		
+		return true;
 	}
 }

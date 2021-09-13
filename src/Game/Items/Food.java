@@ -18,7 +18,7 @@ public class Food extends Item
 	}
 	
 	@Override
-	public void use()
+	public boolean use()
 	{
 		if(Game.player.getFood() < 90)
 		{
@@ -40,6 +40,10 @@ public class Food extends Item
 				UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
 			}
 			UiInventoryManager.addItem(itemGive);
+			
+			return true;
 		}
+		
+		return false;
 	}
 }

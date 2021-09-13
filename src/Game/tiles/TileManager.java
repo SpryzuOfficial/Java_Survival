@@ -45,27 +45,44 @@ public class TileManager
 						Game.pointerY = tiles[y][x].getGy();	
 						//System.out.println(Game.generateWorld.worldNoises[y][x] + " | " + Game.generateWorld.worldMoisture[y][x]);
 						
-						if(Game.mouseManager.isRightPressed() && UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
+						if(Game.mouseManager.isRightPressed())
 						{
 							if(!rightPress)
 							{
-								boolean band = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].place();
-								UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].use();
+								boolean band = false;
+								boolean band2 = false;
+								if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
+								{
+									band = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].place();
+									
+									if(!band)
+									{
+										band2 = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].use();
+									}
+								}
 								
-								rightPress = true;
 								if(band)
 								{
-									UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].refreshEntities();
-									if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
+									rightPress = true;
+									
+									if(!band2)
 									{
-										UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].setCount(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() - 1);
-										UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
+										UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].refreshEntities();
+										if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() > 1)
+										{
+											UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].setCount(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getCount() - 1);
+											UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
+										}
+										else 
+										{
+											UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
+											UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
+										}
 									}
-									else 
-									{
-										UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
-										UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);
-									}
+								}
+								else
+								{
+									rightPress = false;
 								}
 							}
 						}

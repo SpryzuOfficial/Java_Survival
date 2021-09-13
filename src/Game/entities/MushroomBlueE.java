@@ -1,6 +1,6 @@
 package Game.entities;
 
-import Game.Items.Herbs;
+import Game.Items.MushroomBlue;
 import Game.engine.gfx.Assets;
 
 public class MushroomBlueE extends StaticEntity
@@ -9,6 +9,6 @@ public class MushroomBlueE extends StaticEntity
 	{
 		super(Assets.mushroomBlueE, Gx, Gy, Vx, Vy, 64, 64, 40, 0, 0, 0);
 		
-		this.items.add(new Herbs(1, 0, 576));
+		this.items.add(new MushroomBlue(1, 0, 576));
 	}
 }
