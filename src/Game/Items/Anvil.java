@@ -36,4 +36,10 @@ public class Anvil extends Item
 		
 		return true;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Anvil";
+	}
 }

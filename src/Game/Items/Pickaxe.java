@@ -8,4 +8,10 @@ public class Pickaxe extends Tool
 	{
 		super(Assets.pickaxe, x, y, 1, 3, 1, 16);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Pickaxe";
+	}
 }

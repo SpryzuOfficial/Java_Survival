@@ -8,4 +8,10 @@ public class WoodPotMushroomRed extends Food
 	{
 		super(Assets.woodPotMushroomRed, count, x, y, 1.5, new WoodPot(1, 0, 576));
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Wood Pot Red Mushroom";
+	}
 }

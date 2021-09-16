@@ -35,4 +35,10 @@ public class Table extends Item
 		
 		return true;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Table";
+	}
 }

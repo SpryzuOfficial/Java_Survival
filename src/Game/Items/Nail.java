@@ -8,4 +8,10 @@ public class Nail extends Item
 	{
 		super(Assets.nail, count, x, y, 1, 1, 1, true, 1, 0);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Nails";
+	}
 }

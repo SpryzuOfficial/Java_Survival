@@ -8,4 +8,10 @@ public class Sandpaper extends Tool
 	{
 		super(Assets.sandpaper, x, y, 2, 2, 1, 12);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Sandpaper";
+	}
 }

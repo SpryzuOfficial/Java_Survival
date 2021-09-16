@@ -36,4 +36,10 @@ public class Oven extends Item
 		
 		return true;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Oven";
+	}
 }

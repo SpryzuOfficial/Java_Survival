@@ -8,4 +8,10 @@ public class IronSword extends Tool
 	{
 		super(Assets.ironSword, x, y, 1, 1, 4, 55);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Iron Sword";
+	}
 }

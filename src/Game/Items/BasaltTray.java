@@ -8,4 +8,10 @@ public class BasaltTray extends Item
 	{
 		super(Assets.basaltTray, count, x, y, 1, 1, 1, true, -1, 0);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Basalt Tray";
+	}
 }

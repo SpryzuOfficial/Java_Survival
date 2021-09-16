@@ -8,4 +8,10 @@ public class BasaltHammer extends Tool
 	{
 		super(Assets.basaltHammer, x, y, 1, 4, 6, 30);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Basalt Hammer";
+	}
 }

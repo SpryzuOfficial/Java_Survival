@@ -8,4 +8,10 @@ public class Knife extends Tool
 	{
 		super(Assets.kinfe, x, y, 1, 1, 2, 20);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Knife";
+	}
 }

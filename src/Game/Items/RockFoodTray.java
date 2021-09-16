@@ -8,4 +8,10 @@ public class RockFoodTray extends Item
 	{
 		super(Assets.rockFoodTray, count, x, y, 1, 1, 1, true, -1, 1);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Rock Tray";
+	}
 }

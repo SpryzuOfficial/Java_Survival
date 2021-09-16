@@ -8,4 +8,10 @@ public class Wool extends Item
 	{
 		super(Assets.wool, count, x, y, 1, 1, 1, true, -1, 60);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Wool";
+	}
 }

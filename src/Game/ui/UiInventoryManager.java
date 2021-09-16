@@ -259,7 +259,7 @@ public class UiInventoryManager
 				//addItem(new RockSheepMeatTray(1, 0, 576));
 				addItem(new IronOre(12, 0, 576));
 				addItem(new Clay(12, 0, 576));
-				addItem(new Stick(12, 0, 576));
+				addItem(new WoodPlank(12, 0, 576));
 				addItem(new IronBasaltTray(1, 0, 576));
 				cPressed = true;
 			}
@@ -407,7 +407,7 @@ public class UiInventoryManager
 					
 					if(!uiLeftPressed && !uiRightPressed)
 					{
-						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 						{	
 							try
 							{
@@ -455,7 +455,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -541,7 +541,7 @@ public class UiInventoryManager
 				
 				if(!uiLeftPressed && !uiRightPressed)
 				{
-					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 					{	
 						if(Game.mouseManager.isLeftPressed())
 						{
@@ -591,7 +591,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -679,7 +679,7 @@ public class UiInventoryManager
 					
 					if(!uiLeftPressed && !uiRightPressed)
 					{
-						if(cInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+						if(cInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 						{	
 							try
 							{
@@ -727,7 +727,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(cInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(cInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -811,7 +811,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(crInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(crInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					if(Game.mouseManager.isLeftPressed())
 					{
@@ -963,7 +963,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(ctInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+				if(ctInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 				{	
 					try
 					{
@@ -1011,7 +1011,7 @@ public class UiInventoryManager
 						uiLeftPressed = true;
 					}
 				}
-				else if(ctInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+				else if(ctInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 				{
 					try
 					{
@@ -1093,7 +1093,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(tInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(tInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					if(Game.mouseManager.isLeftPressed())
 					{
@@ -1143,7 +1143,7 @@ public class UiInventoryManager
 							uiLeftPressed = true;
 						}
 					}
-					else if(tInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+					else if(tInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 					{
 						try
 						{
@@ -1226,7 +1226,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					try
 					{
@@ -1239,7 +1239,7 @@ public class UiInventoryManager
 								toolInventorySlot.setItem(inventoryTool); 
 								uiLeftPressed = true;
 							}
-							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 							{
 								inventoryTool = inventoryItemHolded;
 								inventoryItemHolded = toolInventorySlot.getItem();
@@ -1344,7 +1344,7 @@ public class UiInventoryManager
 					
 					if(!uiLeftPressed && !uiRightPressed)
 					{
-						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 						{	
 							try
 							{
@@ -1392,7 +1392,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -1478,7 +1478,7 @@ public class UiInventoryManager
 				
 				if(!uiLeftPressed && !uiRightPressed)
 				{
-					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 					{	
 						if(Game.mouseManager.isLeftPressed())
 						{
@@ -1528,7 +1528,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -1616,7 +1616,7 @@ public class UiInventoryManager
 					
 					if(!uiLeftPressed && !uiRightPressed)
 					{
-						if(cTableSlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+						if(cTableSlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 						{	
 							try
 							{
@@ -1664,7 +1664,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(cTableSlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(cTableSlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -1748,7 +1748,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(crTableSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(crTableSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					if(Game.mouseManager.isLeftPressed())
 					{
@@ -1908,7 +1908,7 @@ public class UiInventoryManager
 				
 				if(!uiLeftPressed && !uiRightPressed)
 				{
-					if(ctTableSlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+					if(ctTableSlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 					{
 						try
 						{
@@ -1956,7 +1956,7 @@ public class UiInventoryManager
 							uiLeftPressed = true;
 						}
 					}
-					else if(ctTableSlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+					else if(ctTableSlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 					{
 						try
 						{
@@ -2039,7 +2039,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					try
 					{
@@ -2052,7 +2052,7 @@ public class UiInventoryManager
 								toolInventorySlot.setItem(inventoryTool); 
 								uiLeftPressed = true;
 							}
-							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 							{
 								inventoryTool = inventoryItemHolded;
 								inventoryItemHolded = toolInventorySlot.getItem();
@@ -2227,7 +2227,7 @@ public class UiInventoryManager
 					
 					if(!uiLeftPressed && !uiRightPressed)
 					{
-						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 						{	
 							try
 							{
@@ -2275,7 +2275,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -2361,7 +2361,7 @@ public class UiInventoryManager
 				
 				if(!uiLeftPressed && !uiRightPressed)
 				{
-					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 					{	
 						if(Game.mouseManager.isLeftPressed())
 						{
@@ -2411,7 +2411,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -2495,7 +2495,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(oiOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+				if(oiOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 				{	
 					try
 					{
@@ -2543,7 +2543,7 @@ public class UiInventoryManager
 						uiLeftPressed = true;
 					}
 				}
-				else if(oiOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+				else if(oiOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 				{
 					try
 					{
@@ -2625,7 +2625,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(ootOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+				if(ootOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 				{	
 					try
 					{
@@ -2673,7 +2673,7 @@ public class UiInventoryManager
 						uiLeftPressed = true;
 					}
 				}
-				else if(ootOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+				else if(ootOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 				{
 					try
 					{
@@ -2755,7 +2755,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(ofOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+				if(ofOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 				{	
 					try
 					{
@@ -2803,7 +2803,7 @@ public class UiInventoryManager
 						uiLeftPressed = true;
 					}
 				}
-				else if(ofOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+				else if(ofOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 				{
 					try
 					{
@@ -2885,7 +2885,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					try
 					{
@@ -2898,7 +2898,7 @@ public class UiInventoryManager
 								toolInventorySlot.setItem(inventoryTool); 
 								uiLeftPressed = true;
 							}
-							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 							{
 								inventoryTool = inventoryItemHolded;
 								inventoryItemHolded = toolInventorySlot.getItem();
@@ -2940,7 +2940,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(ooOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(ooOvenSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					if(Game.mouseManager.isLeftPressed())
 					{
@@ -3045,7 +3045,7 @@ public class UiInventoryManager
 					
 					if(!uiLeftPressed && !uiRightPressed)
 					{
-						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 						{	
 							try
 							{
@@ -3093,7 +3093,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -3179,7 +3179,7 @@ public class UiInventoryManager
 				
 				if(!uiLeftPressed && !uiRightPressed)
 				{
-					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 					{	
 						if(Game.mouseManager.isLeftPressed())
 						{
@@ -3229,7 +3229,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -3322,7 +3322,7 @@ public class UiInventoryManager
 					
 					if(!uiLeftPressed && !uiRightPressed)
 					{
-						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 						{	
 							try
 							{
@@ -3370,7 +3370,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -3454,7 +3454,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(aiAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+				if(aiAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 				{	
 					try
 					{
@@ -3502,7 +3502,7 @@ public class UiInventoryManager
 						uiLeftPressed = true;
 					}
 				}
-				else if(aiAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+				else if(aiAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 				{
 					try
 					{
@@ -3584,7 +3584,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(atAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+				if(atAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 				{	
 					try
 					{
@@ -3632,7 +3632,7 @@ public class UiInventoryManager
 						uiLeftPressed = true;
 					}
 				}
-				else if(atAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+				else if(atAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 				{
 					try
 					{
@@ -3714,7 +3714,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(aoAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(aoAnvilSlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					if(Game.mouseManager.isLeftPressed())
 					{
@@ -3841,7 +3841,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					try
 					{
@@ -3854,7 +3854,7 @@ public class UiInventoryManager
 								toolInventorySlot.setItem(inventoryTool); 
 								uiLeftPressed = true;
 							}
-							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 							{
 								inventoryTool = inventoryItemHolded;
 								inventoryItemHolded = toolInventorySlot.getItem();
@@ -3960,7 +3960,7 @@ public class UiInventoryManager
 					
 					if(!uiLeftPressed && !uiRightPressed)
 					{
-						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isLeftPressed())
+						if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isLeftPressed())
 						{	
 							try
 							{
@@ -4008,7 +4008,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(iInventorySlots[i][j].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -4094,7 +4094,7 @@ public class UiInventoryManager
 				
 				if(!uiLeftPressed && !uiRightPressed)
 				{
-					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+					if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 					{	
 						if(Game.mouseManager.isLeftPressed())
 						{
@@ -4144,7 +4144,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(hInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -4230,7 +4230,7 @@ public class UiInventoryManager
 				
 				if(!uiLeftPressed && !uiRightPressed)
 				{
-					if(chestInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+					if(chestInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 					{	
 						if(Game.mouseManager.isLeftPressed())
 						{
@@ -4280,7 +4280,7 @@ public class UiInventoryManager
 								uiLeftPressed = true;
 							}
 						}
-						else if(chestInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+						else if(chestInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 						{
 							try
 							{
@@ -4364,7 +4364,7 @@ public class UiInventoryManager
 			
 			if(!uiLeftPressed && !uiRightPressed)
 			{
-				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()))
+				if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
 				{	
 					try
 					{
@@ -4377,7 +4377,7 @@ public class UiInventoryManager
 								toolInventorySlot.setItem(inventoryTool); 
 								uiLeftPressed = true;
 							}
-							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY()) && Game.mouseManager.isRightPressed())
+							else if(toolInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
 							{
 								inventoryTool = inventoryItemHolded;
 								inventoryItemHolded = toolInventorySlot.getItem();
@@ -4578,14 +4578,14 @@ public class UiInventoryManager
 			{
 				if(item.getCount() != 1)
 				{
-					g.drawImage(numHotBar[item.getCount()], x + 32, y + 32, 32, 32, null);	
+					g.drawImage(numHotBar[item.getCount()], x + 17, y + 16, 64, 64, null);	
 				}
 			}
 		}
 		else
 		{
-			g.drawImage(numHotBar[1], x + 22, y + 32, 32, 32, null);
-			g.drawImage(numHotBar[item.getCount() - 10], x + 32, y + 32, 32, 32, null);
+			g.drawImage(numHotBar[1], x + 10, y + 16, 64, 64, null);
+			g.drawImage(numHotBar[item.getCount() - 10], x + 17, y + 16, 64, 64, null);
 		}
 	}
 	

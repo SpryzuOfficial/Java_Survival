@@ -1,6 +1,13 @@
 package Game.ui.utils;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 import Game.Items.Item;
+import Game.engine.gfx.Assets;
+import Game.ui.UiManager;
 
 public class InventorySlot 
 {
@@ -19,13 +26,56 @@ public class InventorySlot
 		this.item = item;
 	}
 	
-	public boolean mouseCollision(int mouseX, int mouseY)
+	public boolean mouseCollision(int mouseX, int mouseY, Graphics g)
 	{
-		if(mouseX >= x &&
-		   mouseX <= x + width &&
-		   mouseY >= y &&
-		   mouseY <= y + height)
+		if(mouseX >= x + 12 &&
+		   mouseX <= x + 12 + width - 24 &&
+		   mouseY >= y + 14 &&
+		   mouseY <= y + 14 + height - 26)
 		{
+			if(item != null)
+			{
+				ArrayList<BufferedImage> string = UiManager.stringToImage(item.toString());
+				
+				//g.setColor(Color.lightGray);
+				//g.fillRect(mouseX + 15, mouseY - 40, string.size() * 16, 40);
+				//g.drawImage(Assets.nameFrameF, mouseX + 16, mouseY - 35, 15, 15, null);
+				//g.drawImage(Assets.nameFrameI, mouseX + 16*2, mouseY - 35, 7, 15, null);
+				//g.drawImage(Assets.nameFrameII, mouseX + 16*3, mouseY - 35, 9, 15, null);
+				//g.drawImage(Assets.nameFrameE, mouseX + 16*4, mouseY - 35, 15, 15, null);
+				
+				for(int i = 0; i < string.size(); i++)
+				{
+					if(i == 0)
+					{
+						g.drawImage(Assets.nameFrameF, mouseX + 10, mouseY - 10, 15, 15, null);
+					}
+					else if(i == (string.size() - 2))
+					{
+						g.drawImage(Assets.nameFrameII, mouseX + 25 + ((string.size() - 3) * 7), mouseY - 10, 9, 15, null);
+					}
+					else if(i == (string.size() - 1))
+					{
+						g.drawImage(Assets.nameFrameE, mouseX + 25 + ((string.size() - 3) * 7) + 9, mouseY - 10, 15, 15, null);
+					}
+					else
+					{
+						g.drawImage(Assets.nameFrameI, mouseX + 18 + (i * 7), mouseY - 10, 7, 15, null);
+					}
+				}
+				
+				for(int i = 0; i < string.size(); i++)
+				{
+					if(string.get(i) == null)
+					{
+						continue;
+					}
+					else
+					{
+						g.drawImage(string.get(i), mouseX + ((i+1) * 7), mouseY - 18, 32, 32, null);
+					}
+				}
+			}
 			return true;
 		}
 		else

@@ -34,4 +34,10 @@ public class Stone extends Item
 		
 		return true;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Stone";
+	}
 }

@@ -8,4 +8,10 @@ public class Axe extends Tool
 	{
 		super(Assets.axe, x, y, 3, 1, 1, 15);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Axe";
+	}
 }

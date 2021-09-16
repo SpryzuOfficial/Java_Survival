@@ -36,4 +36,10 @@ public class PolishedBasalt extends Item
 		
 		return true;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Polished Basalt";
+	}
 }

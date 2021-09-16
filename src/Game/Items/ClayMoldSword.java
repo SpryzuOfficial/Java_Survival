@@ -8,4 +8,10 @@ public class ClayMoldSword extends Item
 	{
 		super(Assets.clayMoldSword, count, x, y, 1, 1, 1, true, 1, 0);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Clay Mold Sword";
+	}
 }

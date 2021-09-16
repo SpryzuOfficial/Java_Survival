@@ -8,4 +8,10 @@ public class SheepMeat extends Food
 	{
 		super(Assets.sheepMeat, count, x, y, 5, null);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Sheep Meat";
+	}
 }

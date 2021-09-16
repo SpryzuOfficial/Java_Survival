@@ -61,7 +61,7 @@ public class TileManager
 									}
 								}
 								
-								if(band)
+								if(band || band2)
 								{
 									rightPress = true;
 									

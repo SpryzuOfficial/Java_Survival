@@ -8,4 +8,10 @@ public class IronPickaxe extends Tool
 	{
 		super(Assets.ironPickaxe, x, y, 1, 7, 1, 40);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Iron Pickaxe";
+	}
 }

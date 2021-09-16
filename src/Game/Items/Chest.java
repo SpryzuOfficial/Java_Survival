@@ -36,4 +36,10 @@ public class Chest extends Item
 		
 		return true;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Chest";
+	}
 }

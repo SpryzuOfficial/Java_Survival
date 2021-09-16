@@ -8,4 +8,10 @@ public class WoodAxeTemplate extends Item
 	{
 		super(Assets.woodAxeTemplate, count, x, y, 1, 1, 1, true, 1, 480);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Wood Axe";
+	}
 }

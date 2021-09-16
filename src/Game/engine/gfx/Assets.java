@@ -1,10 +1,13 @@
 package Game.engine.gfx;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class Assets 
 {
 	private static final int WIDTH = 32, HEIGHT = 32;
+	
+	public static ArrayList<BufferedImage> font = new ArrayList<BufferedImage>();
 	
 	public static BufferedImage player, pointer, cow, player_water;
 	
@@ -12,6 +15,8 @@ public class Assets
 	
 	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE, plant, mushroomRedE, mushroomBlueE,
 	chestE;
+	
+	public static BufferedImage nameFrameF, nameFrameI, nameFrameII, nameFrameE;
 	
 	public static BufferedImage hotbar, hotbarSelected, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
 	
@@ -23,7 +28,7 @@ public class Assets
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer, ironSword, ironPickaxe, ironAxe;
 	
-	public static BufferedImage inventory, craftingtable, ovenUI, anvilUI, chestUI;
+	public static BufferedImage inventory, craftingtable, ovenUI, anvilUI, chestUI, nameFrame;
 	
 	public static void init()
 	{
@@ -32,12 +37,38 @@ public class Assets
 		SpriteSheet tilesSESheet = new SpriteSheet(ImageLoader.loadImage("/textures/tilesStaticEntities_sheet.png"));
 		SpriteSheet entitiesSheet = new SpriteSheet(ImageLoader.loadImage("/textures/entities_sheet.png"));
 		SpriteSheet itemsSheet = new SpriteSheet(ImageLoader.loadImage("/textures/items_sheet.png"));
+		SpriteSheet fontSheet = new SpriteSheet(ImageLoader.loadImage("/textures/font.png"));
+		SpriteSheet nameFrame = new SpriteSheet(ImageLoader.loadImage("/textures/name_frame3.png"));
 		
 		inventory = ImageLoader.loadImage("/textures/inventory_sheet.png");
 		craftingtable = ImageLoader.loadImage("/textures/craftingTable_sheet.png");
 		ovenUI = ImageLoader.loadImage("/textures/oven_sheet.png");
 		anvilUI = ImageLoader.loadImage("/textures/anvil_sheet.png");
 		chestUI = ImageLoader.loadImage("/textures/chest_sheet.png");
+		
+		//Font
+		int x = 0;
+		int y = 0;
+		for(int i = (int) "A".charAt(0); i < (int) "Z".charAt(0); i++)
+		{
+			font.add(fontSheet.crop(WIDTH * x, HEIGHT * y, WIDTH, HEIGHT));
+			
+			if(x == 7)
+			{
+				y++;
+				x = 0;
+			}
+			else
+			{
+				x++;
+			}
+		}
+		
+		//Name Frame
+		nameFrameF = nameFrame.crop(0, 0, 15, 15);
+		nameFrameI = nameFrame.crop(16, 0, 7, 15);
+		nameFrameII = nameFrame.crop(24, 0, 9, 15);
+		nameFrameE = nameFrame.crop(34, 0, 15, 15);
 		
 		//Tiles
 		grass = tilesSESheet.crop(0, 0, WIDTH, HEIGHT);
@@ -72,16 +103,16 @@ public class Assets
 		//Items
 		hotbar = itemsSheet.crop(0, 0, WIDTH, HEIGHT);
 		hotbarSelected = itemsSheet.crop(WIDTH, 0, WIDTH, HEIGHT);
-		num0 = itemsSheet.crop(WIDTH * 11, 0, WIDTH, HEIGHT);
-		num1 = itemsSheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
-		num2 = itemsSheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
-		num3 = itemsSheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
-		num4 = itemsSheet.crop(WIDTH * 5, 0, WIDTH, HEIGHT);
-		num5 = itemsSheet.crop(WIDTH * 6, 0, WIDTH, HEIGHT);
-		num6 = itemsSheet.crop(WIDTH * 7, 0, WIDTH, HEIGHT);
-		num7 = itemsSheet.crop(WIDTH * 8, 0, WIDTH, HEIGHT);
-		num8 = itemsSheet.crop(WIDTH * 9, 0, WIDTH, HEIGHT);
-		num9 = itemsSheet.crop(WIDTH * 10, 0, WIDTH, HEIGHT);
+		num0 = fontSheet.crop(WIDTH * 3, HEIGHT * 4, WIDTH, HEIGHT);
+		num1 = fontSheet.crop(WIDTH * 2, HEIGHT * 3, WIDTH, HEIGHT);
+		num2 = fontSheet.crop(WIDTH * 3, HEIGHT * 3, WIDTH, HEIGHT);
+		num3 = fontSheet.crop(WIDTH * 4, HEIGHT * 3, WIDTH, HEIGHT);
+		num4 = fontSheet.crop(WIDTH * 5, HEIGHT * 3, WIDTH, HEIGHT);
+		num5 = fontSheet.crop(WIDTH * 6, HEIGHT * 3, WIDTH, HEIGHT);
+		num6 = fontSheet.crop(WIDTH * 7, HEIGHT * 3, WIDTH, HEIGHT);
+		num7 = fontSheet.crop(0, HEIGHT * 4, WIDTH, HEIGHT);
+		num8 = fontSheet.crop(WIDTH, HEIGHT * 4, WIDTH, HEIGHT);
+		num9 = fontSheet.crop(WIDTH * 2, HEIGHT * 4, WIDTH, HEIGHT);
 		wood = itemsSheet.crop(WIDTH * 12, 0, WIDTH, HEIGHT);
 		stone = itemsSheet.crop(WIDTH * 13, 0, WIDTH, HEIGHT);
 		wool = itemsSheet.crop(WIDTH * 14, 0, WIDTH, HEIGHT);

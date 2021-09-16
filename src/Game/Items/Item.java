@@ -184,4 +184,10 @@ public class Item implements Cloneable
 	{
 		return nextItem;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "";
+	}
 }

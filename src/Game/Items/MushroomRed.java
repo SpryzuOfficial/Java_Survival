@@ -8,4 +8,10 @@ public class MushroomRed extends Item
 	{
 		super(Assets.mushroomRed, count, x, y, 1, 1, 1, true, -1, 0);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Red Mushroom";
+	}
 }

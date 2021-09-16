@@ -8,4 +8,10 @@ public class Herbs extends Item
 	{
 		super(Assets.herbs, count, x, y, 1, 1, 1, true, -1, 0);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Herbs";
+	}
 }

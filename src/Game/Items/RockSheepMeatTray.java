@@ -29,4 +29,10 @@ public class RockSheepMeatTray extends Item
 		
 		return true;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Rock Tray Sheep Meat";
+	}
 }

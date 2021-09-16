@@ -12,7 +12,7 @@ import Game.ui.UiInventoryManager;
 import Game.ui.UiManager;
 import Game.engine.gfx.*;
 
-public class Game implements Runnable 
+public class Game implements Runnable
 {
 	//FINALS
 	private static final int TVSWIDTH = 61952, TVSHEIGHT = 61952;

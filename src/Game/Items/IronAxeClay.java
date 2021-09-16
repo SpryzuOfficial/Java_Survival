@@ -8,4 +8,10 @@ public class IronAxeClay extends Item
 	{
 		super(Assets.ironAxeClay, count, x, y, 1, 1, 1, true, 1, 0);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Iron Axe in Brick";
+	}
 }

@@ -8,4 +8,10 @@ public class RockPotHerb extends Item
 	{
 		super(Assets.rockPotHerb, count, x, y, 1, 1, 1, false, 3, 0, new RockPot(1, 0, 576));
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Rock Pot Herbs";
+	}
 }
