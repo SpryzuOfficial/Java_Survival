@@ -66,8 +66,7 @@ public class GenerateWorld
 			{
 				for(int j = 0; j < 968; j++)
 				{
-					double blue = bluenoise.noise(50*i, 50*j);
-					blueNoise[i][j] = blue;
+					blueNoise[i][j] = bluenoise.noise(50*i, 50*j);
 				}
 			}
 			
@@ -86,7 +85,7 @@ public class GenerateWorld
 					worldNoises[i][j] = v;
 					worldMoisture[i][j] = moisture;
 					
-					if((i >= 135 && j >= 135) && (i <= 840 && j <= 840))
+					if((i >= 71 && j >= 71) && (i <= 904 && j <= 904))
 					{
 						if(v < 0.1)
 						{
@@ -160,7 +159,7 @@ public class GenerateWorld
 							}
 							else if(moisture < 0.46)
 							{
-								if(generateEntitiesByR(i, j, 4) && !istickocuped)
+								if(generateEntitiesByR(i, j, 3) && !istickocuped)
 								{
 									istickocuped = true;
 									sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
@@ -172,7 +171,7 @@ public class GenerateWorld
 							}
 							else if(moisture < 0.7)
 							{
-								if(generateEntitiesByR(i, j, 8) && !istickocuped)
+								if(generateEntitiesByR(i, j, 9) && !istickocuped)
 								{
 									istickocuped = true;
 									sEntities.add(new Plant(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
@@ -180,6 +179,13 @@ public class GenerateWorld
 								}
 								
 								if(generateEntitiesByR(i, j, 7) && !istickocuped)
+								{
+									istickocuped = true;
+									sEntities.add(new FruitBush(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+									SESIZE++;
+								}
+								
+								if(generateEntitiesByR(i, j, 6) && !istickocuped)
 								{
 									istickocuped = true;
 									animals.add(new Sheep(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
@@ -205,24 +211,24 @@ public class GenerateWorld
 							}
 							else
 							{
-								if(generateEntitiesByR(i, j, 3) && !istickocuped)
+								if(generateEntitiesByR(i, j, 5) && !istickocuped)
 								{
 									istickocuped = true;
-									sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+									sEntities.add(new IronOreE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
 									SESIZE++;
 								}
 								
-								if(generateEntitiesByR(i, j, 2) && !istickocuped)
+								if(generateEntitiesByR(i, j, 4) && !istickocuped)
 								{
 									istickocuped = true;
 									sEntities.add(new BasaltE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
 									SESIZE++;
 								}
 								
-								if(generateEntitiesByR(i, j, 2) && !istickocuped)
+								if(generateEntitiesByR(i, j, 3) && !istickocuped)
 								{
 									istickocuped = true;
-									sEntities.add(new IronOreE(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+									sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
 									SESIZE++;
 								}
 								
@@ -442,7 +448,7 @@ public class GenerateWorld
 	
 	public boolean generateEntitiesByR(int i, int j, int R)
 	{
-		if(i != 479 && j != 479)
+		if(i != 484 || j != 484)
 		{
 			double max = 0;
 			for (int y = i - R; y <= i + R; y++) 
@@ -460,7 +466,7 @@ public class GenerateWorld
 				}
 			}
 			
-			if (blueNoise[i][j] == max) 
+			if (blueNoise[i][j] == max)
 			{
 				return true;
 		    }

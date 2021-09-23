@@ -3,6 +3,8 @@ package Game.engine;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import Game.engine.input.*;
 import Game.entities.*;
@@ -119,18 +121,18 @@ public class Game implements Runnable
 					if(!Game.keyManager.shift)
 					{
 						player.setStaminaPerF(-0.5);
-						player.setFoodPerF(0.005);
+						player.setFoodPerF(0.004);
 					}
 					else
 					{
 						player.setStaminaPerF(0.65);
-						player.setFoodPerF(0.007);
+						player.setFoodPerF(0.006);
 					}
 				}
 				else
 				{						
 					player.setStaminaPerF(-0.6);
-					player.setFoodPerF(0.004);
+					player.setFoodPerF(0.003);
 				}
 			}
 			
@@ -235,7 +237,7 @@ public class Game implements Runnable
 		g.setColor(skyColor);
 		g.fillRect(0, 0, width, height);
 		
-		if(tickC == 120)
+		if(tickC == 240)
 		{
 			if(isDay)
 			{
@@ -269,10 +271,19 @@ public class Game implements Runnable
 		
 		///*
 		g.setColor(Color.LIGHT_GRAY);
-		g.fillRect(23, 2, 210, 162);
+		g.fillRect(23, 1, 210, 163);
 		
 		g.setColor(Color.BLACK);
-		g.drawChars("Life".toCharArray(), 0, 4, 32, 16);
+		//g.drawChars("Life".toCharArray(), 0, 4, 32, 16);
+		
+		int initialX = 1;
+		int initialY = -17;
+		ArrayList<BufferedImage> word =  UiManager.stringToImage("Life");
+		
+		for(int i = 0; i < word.size(); i++)
+		{
+			g.drawImage(word.get(i), initialX + (i * 16), initialY, 64, 64, null);
+		}
 		
 		g.setColor(Color.WHITE);
 		g.fillRect(27, 27, 202, 26);
@@ -284,7 +295,16 @@ public class Game implements Runnable
 		g.fillRect(32, 32, (int) (192 * (player.getLife() / 100f)), 16);
 		
 		g.setColor(Color.BLACK);
-		g.drawChars("Food".toCharArray(), 0, 4, 32, 68);
+		//g.drawChars("Food".toCharArray(), 0, 4, 32, 68);
+		
+		initialX = 1;
+		initialY = 35;
+		word =  UiManager.stringToImage("Food");
+		
+		for(int i = 0; i < word.size(); i++)
+		{
+			g.drawImage(word.get(i), initialX + (i * 16), initialY, 64, 64, null);
+		}
 		
 		g.setColor(Color.WHITE);
 		g.fillRect(27, 79, 202, 26);
@@ -296,7 +316,16 @@ public class Game implements Runnable
 		g.fillRect(32, 84, (int) (192 * (player.getFood() / 100f)), 16);
 		
 		g.setColor(Color.BLACK);
-		g.drawChars("Stamina".toCharArray(), 0, 7, 32, 120);
+		//g.drawChars("Stamina".toCharArray(), 0, 7, 32, 120);
+		
+		initialX = 1;
+		initialY = 87;
+		word =  UiManager.stringToImage("Stamina");
+		
+		for(int i = 0; i < word.size(); i++)
+		{
+			g.drawImage(word.get(i), initialX + (i * 16), initialY, 64, 64, null);
+		}
 		
 		g.setColor(Color.WHITE);
 		g.fillRect(27, 131, 202, 26);
@@ -308,16 +337,83 @@ public class Game implements Runnable
 		g.fillRect(32, 136, (int) (192 * (player.getStamina() / 100f)), 16);
 		
 		
-		g.setColor(Color.BLACK);
+		g.setColor(Color.GRAY);
 		g.fillRect(240, 2, 128, 24);
 		
 		g.setColor(Color.WHITE);
-		g.drawChars("X".toCharArray(), 0, 1, 256, 18);
-		g.drawChars(String.valueOf(player.getVx() / 64).toCharArray(), 0, String.valueOf(player.getVx() / 64).toCharArray().length, 262, 18);
+		//g.drawChars("X".toCharArray(), 0, 1, 256, 18);
+		
+		initialX = 220;
+		initialY = -17;
+		word =  UiManager.stringToImage("X");
+		
+		for(int i = 0; i < word.size(); i++)
+		{
+			g.drawImage(word.get(i), initialX + (i * 16), initialY, 64, 64, null);
+		}
+		
+		//g.drawChars(String.valueOf(player.getVx() / 64).toCharArray(), 0, String.valueOf(player.getVx() / 64).toCharArray().length, 262, 18);
+		
+		initialX = 236;
+		initialY = -17;
+		ArrayList<BufferedImage> numbers =  UiManager.intToImage(player.getVx() / 64);
+		
+		for(int i = 0; i < numbers.size(); i++)
+		{
+			g.drawImage(numbers.get(i), initialX + (i * 8), initialY, 64, 64, null);
+		}
 		
 		g.setColor(Color.WHITE);
-		g.drawChars("Y".toCharArray(), 0, 1, 288, 18);
-		g.drawChars(String.valueOf(player.getVy() / 64).toCharArray(), 0, String.valueOf(player.getVy() / 64).toCharArray().length, 294, 18);
+		//g.drawChars("Y".toCharArray(), 0, 1, 288, 18);
+		initialX = 270;
+		initialY = -17;
+		word =  UiManager.stringToImage("Y");
+		
+		for(int i = 0; i < word.size(); i++)
+		{
+			g.drawImage(word.get(i), initialX + (i * 16), initialY, 64, 64, null);
+		}
+		
+		//g.drawChars(String.valueOf(player.getVy() / 64).toCharArray(), 0, String.valueOf(player.getVy() / 64).toCharArray().length, 294, 18);
+		
+		initialX = 286;
+		initialY = -17;
+		numbers =  UiManager.intToImage(player.getVy() / 64);
+		
+		for(int i = 0; i < numbers.size(); i++)
+		{
+			g.drawImage(numbers.get(i), initialX + (i * 8), initialY, 64, 64, null);
+		}
+		
+		g.drawImage(Assets.pride, 656, 16, 32, 32, null);
+		
+		if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
+		{
+			String itemName = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].toString();
+			
+			initialX = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].getX() - 16;
+			initialY = 540;
+			word =  UiManager.stringToImage(itemName);
+			
+			for(int i = 0; i < word.size(); i++)
+			{
+				g.drawImage(word.get(i), initialX + (i * 16), initialY, 64, 64, null);
+			}
+		}
+		
+		if(UiInventoryManager.inventoryTool != null)
+		{
+			String itemName = UiInventoryManager.inventoryTool.toString();
+			
+			initialX = UiInventoryManager.inventoryTool.getX() - 32;
+			initialY = 540;
+			word =  UiManager.stringToImage(itemName);
+			
+			for(int i = 0; i < word.size(); i++)
+			{
+				g.drawImage(word.get(i), initialX + (i * 16), initialY, 64, 64, null);
+			}
+		}
 		
 		//*/
 		

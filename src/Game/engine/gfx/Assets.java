@@ -14,7 +14,7 @@ public class Assets
 	public static BufferedImage dirt, grass, sand, water, rocks, magma;
 	
 	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE, plant, mushroomRedE, mushroomBlueE,
-	chestE;
+	chestE, fruitBush, bush;
 	
 	public static BufferedImage nameFrameF, nameFrameI, nameFrameII, nameFrameE;
 	
@@ -24,11 +24,11 @@ public class Assets
 	clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, sheepRawMeat, sheepMeat, 
 	rockFoodTray, rockSheepMeatTray, rockPot, rockPotWater, herbs, woodPot, woodPotHerb, rockPotHerb, mushroomRed, rockPotMushroomRed, 
 	woodPotMushroomRed, mushroomBlue, rockPotMushroomBlue, woodPotMushroomBlue, woodPickaxeTemplate, clayMoldPickaxe, ironPickaxeClay,
-	woodAxeTemplate, clayMoldAxe, ironAxeClay, chest;
+	woodAxeTemplate, clayMoldAxe, ironAxeClay, chest, fruit, rootenFruit;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer, ironSword, ironPickaxe, ironAxe;
 	
-	public static BufferedImage inventory, craftingtable, ovenUI, anvilUI, chestUI, nameFrame;
+	public static BufferedImage inventory, craftingtable, ovenUI, anvilUI, chestUI, nameFrame, pride;
 	
 	public static void init()
 	{
@@ -45,6 +45,7 @@ public class Assets
 		ovenUI = ImageLoader.loadImage("/textures/oven_sheet.png");
 		anvilUI = ImageLoader.loadImage("/textures/anvil_sheet.png");
 		chestUI = ImageLoader.loadImage("/textures/chest_sheet.png");
+		pride = ImageLoader.loadImage("/textures/pride.png");
 		
 		//Font
 		int x = 0;
@@ -93,6 +94,8 @@ public class Assets
 		mushroomRedE = tilesSESheet.crop(WIDTH * 15, 0, WIDTH, HEIGHT);
 		mushroomBlueE = tilesSESheet.crop(WIDTH * 4, HEIGHT, WIDTH, HEIGHT);
 		chestE = tilesSESheet.crop(WIDTH * 6, HEIGHT, WIDTH, HEIGHT);
+		fruitBush = tilesSESheet.crop(WIDTH * 7, HEIGHT, WIDTH, HEIGHT);
+		bush = tilesSESheet.crop(WIDTH * 8, HEIGHT, WIDTH, HEIGHT);
 		
 		//Entities
 		player = entitiesSheet.crop(0, 0, WIDTH, HEIGHT);
@@ -167,5 +170,7 @@ public class Assets
 		clayMoldAxe = itemsSheet.crop(WIDTH * 14, HEIGHT * 3, WIDTH, HEIGHT);
 		ironAxeClay = itemsSheet.crop(WIDTH * 15, HEIGHT * 3, WIDTH, HEIGHT);
 		chest = itemsSheet.crop(WIDTH, HEIGHT * 4, WIDTH, HEIGHT);
+		fruit = itemsSheet.crop(WIDTH * 2, HEIGHT * 4, WIDTH, HEIGHT);
+		rootenFruit = itemsSheet.crop(WIDTH * 3, HEIGHT * 4, WIDTH, HEIGHT);
 	}
 }

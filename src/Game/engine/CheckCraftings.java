@@ -1861,21 +1861,21 @@ public class CheckCraftings
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {null, null, null},
-														   			        {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)},
+														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 																		  },
 															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)}
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
-														   			        {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)},
+														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
 															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)}
 																		  ),
 													
 													new CraftingItemsSlots(
-															 new Item[][] { {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)}, 
+															 new Item[][] { {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)}, 
 														   			        {null, null, null},
 														   			        {null, null, null},
 																		  },
@@ -1885,21 +1885,21 @@ public class CheckCraftings
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {null, null, null},
-														   			        {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)},
+														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 																		  },
 															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)}
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
-														   			        {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)},
+														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
 															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)}
 																		  ),
 													
 													new CraftingItemsSlots(
-															 new Item[][] { {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)}, 
+															 new Item[][] { {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)}, 
 														   			        {null, null, null},
 														   			        {null, null, null},
 																		  },

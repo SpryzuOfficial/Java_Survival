@@ -2,6 +2,7 @@ package Game.entities;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Random;
 
 import Game.Items.Item;
 import Game.engine.Game;
@@ -111,12 +112,60 @@ public class StaticEntitiesManager
 					
 					if(Game.mouseManager.isLeftPressed() && entity.isMining() && destructionTimer >= entity.getMiningTime())
 					{
-						for (int j = 0; j < entity.getItems().size(); j++)
+						Random r = new Random();
+						if(entity.getProbs().size() != 0)
 						{
-							if(entity.getItems().get(j) != null)
+							Double v = r.nextDouble();
+						
+							for (int j = 0; j < entity.getItems().size(); j++)
 							{
-								UiInventoryManager.addItem(entity.getItems().get(j));
+								if((j + 1) < entity.getItems().size())
+								{
+									if(v > entity.getProbs().get(j) && v < entity.getProbs().get(j + 1))
+									{
+										if(entity.getItems().get(j) != null)
+										{
+											UiInventoryManager.addItem(entity.getItems().get(j));
+										}
+										break;
+									}
+									else
+									{
+										if(entity.getItems().get(j + 1) != null)
+										{
+											UiInventoryManager.addItem(entity.getItems().get(j + 1));
+										}
+										break;
+									}
+								}
+								else
+								{
+									if(v > entity.getProbs().get(j))
+									{
+										if(entity.getItems().get(j) != null)
+										{
+											UiInventoryManager.addItem(entity.getItems().get(j));
+										}
+										break;
+									}
+								}
 							}
+						}
+						else
+						{
+							for (int j = 0; j < entity.getItems().size(); j++)
+							{
+								if(entity.getItems().get(j) != null)
+								{
+									UiInventoryManager.addItem(entity.getItems().get(j));
+								}
+							}
+						}
+						
+						if(entity.getEntityReplace() != null)
+						{
+							Game.generateWorld.getSEntities().add(entity.getEntityReplace());
+							Game.generateWorld.SESIZE++;
 						}
 						
 						Game.generateWorld.getSEntities().remove((int) index.get(i));

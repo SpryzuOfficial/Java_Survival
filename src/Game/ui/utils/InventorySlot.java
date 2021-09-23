@@ -37,13 +37,6 @@ public class InventorySlot
 			{
 				ArrayList<BufferedImage> string = UiManager.stringToImage(item.toString());
 				
-				//g.setColor(Color.lightGray);
-				//g.fillRect(mouseX + 15, mouseY - 40, string.size() * 16, 40);
-				//g.drawImage(Assets.nameFrameF, mouseX + 16, mouseY - 35, 15, 15, null);
-				//g.drawImage(Assets.nameFrameI, mouseX + 16*2, mouseY - 35, 7, 15, null);
-				//g.drawImage(Assets.nameFrameII, mouseX + 16*3, mouseY - 35, 9, 15, null);
-				//g.drawImage(Assets.nameFrameE, mouseX + 16*4, mouseY - 35, 15, 15, null);
-				
 				for(int i = 0; i < string.size(); i++)
 				{
 					if(i == 0)

@@ -3,6 +3,7 @@ package Game.ui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import Game.Items.*;
 import Game.engine.CheckAnvil;
@@ -344,6 +345,16 @@ public class UiInventoryManager
 		if(UiManager.uiImage == Assets.inventory)
 		{
 			g.drawImage(UiManager.uiImage, 0, 64, 704, 576, null);
+			
+			int initialX = 20;
+			int initialY = 57;
+			ArrayList<BufferedImage> word =  UiManager.stringToImage("Inventory");
+			
+			for(int i = 0; i < word.size(); i++)
+			{
+				g.drawImage(word.get(i), initialX + (i * 32), initialY, 128, 128, null);
+			}
+			
 			g.drawImage(Assets.player, 160, 160, 64, 64, null);
 			
 			for(int i = 0; i < ISIZE; i++)
@@ -1285,6 +1296,15 @@ public class UiInventoryManager
 		{
 			g.drawImage(UiManager.uiImage, 0, 64, 704, 576, null);
 			
+			int initialX = 20;
+			int initialY = 57;
+			ArrayList<BufferedImage> word =  UiManager.stringToImage("Table");
+			
+			for(int i = 0; i < word.size(); i++)
+			{
+				g.drawImage(word.get(i), initialX + (i * 32), initialY, 128, 128, null);
+			}
+			
 			for(int i = 0; i < ISIZE; i++)
 			{
 				if(itemsHotbar[i] != null)
@@ -2172,6 +2192,15 @@ public class UiInventoryManager
 			
 			g.drawImage(UiManager.uiImage, 0, 64, 704, 576, null);
 			
+			int initialX = 20;
+			int initialY = 57;
+			ArrayList<BufferedImage> word =  UiManager.stringToImage("Oven");
+			
+			for(int i = 0; i < word.size(); i++)
+			{
+				g.drawImage(word.get(i), initialX + (i * 32), initialY, 128, 128, null);
+			}
+			
 			for(int i = 0; i < ISIZE; i++)
 			{
 				if(itemsHotbar[i] != null)
@@ -2994,6 +3023,15 @@ public class UiInventoryManager
 		else if(UiManager.uiImage == Assets.anvilUI)
 		{
 			g.drawImage(UiManager.uiImage, 0, 64, 704, 576, null);
+			
+			int initialX = 20;
+			int initialY = 57;
+			ArrayList<BufferedImage> word =  UiManager.stringToImage("Anvil");
+			
+			for(int i = 0; i < word.size(); i++)
+			{
+				g.drawImage(word.get(i), initialX + (i * 32), initialY, 128, 128, null);
+			}
 			
 			for(int i = 0; i < ISIZE; i++)
 			{
@@ -3916,6 +3954,15 @@ public class UiInventoryManager
 			{ }
 			
 			g.drawImage(UiManager.uiImage, 0, 64, 704, 576, null);
+			
+			int initialX = 20;
+			int initialY = 57;
+			ArrayList<BufferedImage> word =  UiManager.stringToImage("Chest");
+			
+			for(int i = 0; i < word.size(); i++)
+			{
+				g.drawImage(word.get(i), initialX + (i * 32), initialY, 128, 128, null);
+			}
 			
 			for(int i = 0; i < ISIZE; i++)
 			{

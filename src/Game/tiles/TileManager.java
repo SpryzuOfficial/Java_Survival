@@ -20,10 +20,10 @@ public class TileManager
 	{
 		Tile[][] tiles = Game.generateWorld.getTiles();
 		
-		tileY1 = (int) (Game.virtualSpace.getY() / 64) - 128;
-	 	tileX1 = (int) (Game.virtualSpace.getX() / 64) - 128;
-	 	tileY2 = (int) (Game.virtualSpace.getY() / 64) + 128;
-	 	tileX2 = (int) (Game.virtualSpace.getX() / 64) + 128;
+		tileY1 = (int) (Game.virtualSpace.getY() / 64) - 64;
+	 	tileX1 = (int) (Game.virtualSpace.getX() / 64) - 64;
+	 	tileY2 = (int) (Game.virtualSpace.getY() / 64) + 64;
+	 	tileX2 = (int) (Game.virtualSpace.getX() / 64) + 64;
 	 	
 		for(y = tileY1;  y < tileY2; y++)
 		{

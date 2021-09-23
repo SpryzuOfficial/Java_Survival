@@ -9,6 +9,8 @@ import Game.Items.Item;
 public class StaticEntity extends Entity
 {
 	protected ArrayList<Item> items;
+	protected ArrayList<Double> probs;
+	protected StaticEntity entityReplace;
 	protected boolean isMining;
 	protected int miningTime;
 	protected int pointerOffx;
@@ -24,6 +26,7 @@ public class StaticEntity extends Entity
 		this.pointerOffx = pointerOffx;
 		this.pointerOffy = pointerOffy;
 		this.items = new ArrayList<Item>();
+		this.probs = new ArrayList<Double>();
 		this.type = type;
 	}
 	
@@ -74,6 +77,16 @@ public class StaticEntity extends Entity
 	{
 		this.items = items;
 	}
+	
+	public ArrayList<Double> getProbs() 
+	{
+		return probs;
+	}
+
+	public void setProbs(ArrayList<Double> probs) 
+	{
+		this.probs = probs;
+	}
 
 	public int getPointerOffx() 
 	{
@@ -103,5 +116,15 @@ public class StaticEntity extends Entity
 	public void setType(int type) 
 	{
 		this.type = type;
+	}
+
+	public StaticEntity getEntityReplace() 
+	{
+		return entityReplace;
+	}
+
+	public void setEntityReplace(StaticEntity entityReplace) 
+	{
+		this.entityReplace = entityReplace;
 	}
 }

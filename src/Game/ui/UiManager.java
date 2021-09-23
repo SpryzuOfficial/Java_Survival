@@ -8,6 +8,7 @@ import Game.engine.gfx.Assets;
 
 public class UiManager
 {
+	public static BufferedImage[] numbers = new BufferedImage[] {Assets.num0, Assets.num1, Assets.num2, Assets.num3, Assets.num4, Assets.num5, Assets.num6, Assets.num7, Assets.num8, Assets.num9};
 	public static BufferedImage uiImage;
 	public static boolean ePressed;
 	
@@ -78,6 +79,20 @@ public class UiManager
 		}
 		
 		return imageString;
+	}
+	
+	public static ArrayList<BufferedImage> intToImage(int number)
+	{
+		ArrayList<BufferedImage> imageInt = new ArrayList<BufferedImage>();
+		
+		char[] chars = String.valueOf(number).toCharArray();
+		
+		for(int i = 0; i < chars.length; i++)
+		{
+			imageInt.add(numbers[Integer.parseInt(String.valueOf(chars[i]))]);
+		}
+		
+		return imageInt;
 	}
 }
 
