@@ -158,7 +158,7 @@ public class Sheep extends Animal
 						
 					case 270:
 	
-						Vx += -1 * speed;						
+						Vx += -1 * speed;
 						
 						break;
 				}

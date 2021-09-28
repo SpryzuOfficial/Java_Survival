@@ -185,18 +185,23 @@ public class GenerateWorld
 									SESIZE++;
 								}
 								
-								if(generateEntitiesByR(i, j, 6) && !istickocuped)
-								{
-									istickocuped = true;
-									animals.add(new Sheep(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
-									ASIZE++;
-								}
-								
 								if(generateEntitiesByR(i, j, 5) && !istickocuped)
 								{
 									istickocuped = true;
 									sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
 									SESIZE++;
+								}
+								
+								if(generateEntitiesByR(i, j, 4) && !istickocuped)
+								{
+									istickocuped = true;
+									animals.add(new Sheep(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+									ASIZE++;
+									tilesFile.write("X");
+								}
+								else
+								{
+									tilesFile.write("+");
 								}
 								
 								if(generateEntitiesByR(i, j, 2) && !istickocuped)
@@ -207,7 +212,7 @@ public class GenerateWorld
 								}
 								
 								tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-								tilesFile.write("+");
+								
 							}
 							else
 							{
@@ -466,7 +471,7 @@ public class GenerateWorld
 				}
 			}
 			
-			if (blueNoise[i][j] == max)
+			if (Math.abs(blueNoise[i][j] - max) < (max * Math.random() * 0.03))
 			{
 				return true;
 		    }

@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import Game.engine.Game;
+import Game.entities.AnimalsManager;
 import Game.entities.StaticEntitiesManager;
 
 public class Item implements Cloneable
@@ -88,6 +89,24 @@ public class Item implements Cloneable
 		}
 		
 		StaticEntitiesManager.framesLastUpdate = 0;
+	}
+	
+	public void refreshAnimals()
+	{
+		AnimalsManager.index = new ArrayList<Integer>();
+		for(int i = 0; i < Game.generateWorld.ASIZE; i++)
+		{
+			double c = Math.sqrt(Math.pow(Math.abs(Game.generateWorld.getAnimals().get(i).getVx() - Game.virtualSpace.getX()), 2) + Math.pow(Math.abs(Game.generateWorld.getAnimals().get(i).getVx() - Game.virtualSpace.getX()), 2));
+			
+			c /= 64;
+			
+			if(c < 32)
+			{
+				AnimalsManager.index.add(i);
+			}
+		}
+		
+		AnimalsManager.framesLastUpdate = 0;
 	}
 	
 	public int getCount() 

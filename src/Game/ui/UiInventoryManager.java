@@ -258,7 +258,8 @@ public class UiInventoryManager
 				//addItem(new RockPotWater(1, 0, 576));
 				//addItem(new SheepMeat(1, 0, 576));
 				//addItem(new RockSheepMeatTray(1, 0, 576));
-				addItem(new IronOre(12, 0, 576));
+				//addItem(new IronOre(12, 0, 576));
+				addItem(new SheepSpawn(1, 0, 576));
 				addItem(new Clay(12, 0, 576));
 				addItem(new WoodPlank(12, 0, 576));
 				addItem(new IronBasaltTray(1, 0, 576));

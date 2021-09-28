@@ -188,7 +188,7 @@ public class Game implements Runnable
  		if(UiManager.uiImage == null)
 	 	{
  			StaticEntitiesManager.tick();
-			UiInventoryManager.tick();
+ 			UiInventoryManager.tick();
 			
 			pointer.setX(pointerX);
 			pointer.setY(pointerY);

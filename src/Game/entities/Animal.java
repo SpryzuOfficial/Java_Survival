@@ -20,6 +20,8 @@ public class Animal extends Entity
 	protected int type;
 	protected int damage;
 	
+	protected int lastX, lastY;
+	
 	public Animal(BufferedImage texture, int x, int y, int Vx, int Vy, int speed, int topLife)
 	{
 		super(texture, x, y, Vx, Vy, 64, 64, speed);
@@ -34,6 +36,8 @@ public class Animal extends Entity
 		this.topLife = topLife;
 		this.life = topLife;
 		this.type = 2;
+		this.lastX = Vx;
+		this.lastY = Vy;
 	}
 	
 	@Override
@@ -110,5 +114,25 @@ public class Animal extends Entity
 	public void setItems(ArrayList<Item> items) 
 	{
 		this.items = items;
+	}
+
+	public int getLastX() 
+	{
+		return lastX;
+	}
+
+	public void setLastX(int lastX) 
+	{
+		this.lastX = lastX;
+	}
+
+	public int getLastY() 
+	{
+		return lastY;
+	}
+
+	public void setLastY(int lastY) 
+	{
+		this.lastY = lastY;
 	}
 }

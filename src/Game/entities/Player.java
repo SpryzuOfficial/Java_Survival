@@ -46,19 +46,19 @@ public class Player extends Entity
 		Vx = (((virtualSpace.getWidth() / 2) - (width / 2)) + virtualSpace.getX());
 		Vy = (((virtualSpace.getHeight() / 2) - (height / 2)) + virtualSpace.getY());
 		
-		for(int i = 0; i < Game.generateWorld.ASIZE; i++)
+		for(int i = 0; i < AnimalsManager.index.size(); i++)
 		{
-			if((this.getVx() + 20) + (this.getWidth() - 40) > Game.generateWorld.getAnimals().get(i).getVx() && (this.getVx() + 20) < Game.generateWorld.getAnimals().get(i).getVx() + Game.generateWorld.getAnimals().get(i).getWidth()
-			   && (this.getVy() + 32) + (this.getHeight() / 2) > Game.generateWorld.getAnimals().get(i).getVy() && (this.getVy() + 32) < Game.generateWorld.getAnimals().get(i).getVy() + Game.generateWorld.getAnimals().get(i).getHeight())
+			if((this.getVx() + 20) + (this.getWidth() - 40) > Game.generateWorld.getAnimals().get(AnimalsManager.index.get(i)).getVx() && (this.getVx() + 20) < Game.generateWorld.getAnimals().get(AnimalsManager.index.get(i)).getVx() + Game.generateWorld.getAnimals().get(AnimalsManager.index.get(i)).getWidth()
+			   && (this.getVy() + 32) + (this.getHeight() / 2) > Game.generateWorld.getAnimals().get(AnimalsManager.index.get(i)).getVy() && (this.getVy() + 32) < Game.generateWorld.getAnimals().get(AnimalsManager.index.get(i)).getVy() + Game.generateWorld.getAnimals().get(AnimalsManager.index.get(i)).getHeight())
 			{
 				Game.colliding = true;
 			}
 		}
 		
-		for(int i = 0; i < Game.generateWorld.SESIZE; i++)
+		for(int i = 0; i < StaticEntitiesManager.index.size(); i++)
 		{
-			if((this.getVx() + 20) + (this.getWidth() - 40) > Game.generateWorld.getSEntities().get(i).getVx() && (this.getVx() + 20) < Game.generateWorld.getSEntities().get(i).getVx() + Game.generateWorld.getSEntities().get(i).getWidth()
-			   && (this.getVy() + 32) + ((this.getHeight() / 2) - 20) > Game.generateWorld.getSEntities().get(i).getVy() && (this.getVy() + 32) < Game.generateWorld.getSEntities().get(i).getVy() + Game.generateWorld.getSEntities().get(i).getHeight())
+			if((this.getVx() + 20) + (this.getWidth() - 40) > Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(i)).getVx() && (this.getVx() + 20) < Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(i)).getVx() + Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(i)).getWidth()
+			   && (this.getVy() + 32) + ((this.getHeight() / 2) - 20) > Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(i)).getVy() && (this.getVy() + 32) < Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(i)).getVy() + Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(i)).getHeight())
 			{
 				Game.colliding = true;
 			}

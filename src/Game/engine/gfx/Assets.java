@@ -24,7 +24,7 @@ public class Assets
 	clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, sheepRawMeat, sheepMeat, 
 	rockFoodTray, rockSheepMeatTray, rockPot, rockPotWater, herbs, woodPot, woodPotHerb, rockPotHerb, mushroomRed, rockPotMushroomRed, 
 	woodPotMushroomRed, mushroomBlue, rockPotMushroomBlue, woodPotMushroomBlue, woodPickaxeTemplate, clayMoldPickaxe, ironPickaxeClay,
-	woodAxeTemplate, clayMoldAxe, ironAxeClay, chest, fruit, rootenFruit;
+	woodAxeTemplate, clayMoldAxe, ironAxeClay, chest, fruit, rootenFruit, sheepSpawn;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer, ironSword, ironPickaxe, ironAxe;
 	
@@ -172,5 +172,6 @@ public class Assets
 		chest = itemsSheet.crop(WIDTH, HEIGHT * 4, WIDTH, HEIGHT);
 		fruit = itemsSheet.crop(WIDTH * 2, HEIGHT * 4, WIDTH, HEIGHT);
 		rootenFruit = itemsSheet.crop(WIDTH * 3, HEIGHT * 4, WIDTH, HEIGHT);
+		sheepSpawn = itemsSheet.crop(WIDTH * 8, HEIGHT * 4, WIDTH, HEIGHT);
 	}
 }
