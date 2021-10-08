@@ -20,6 +20,7 @@ public class Item implements Cloneable
 	protected int life;
 	protected double ovenValue;
 	protected Item nextItem;
+	protected int costumeId = -1;
 	
 	public Item(BufferedImage texture, int count, int x, int y, int miningValue1, int miningValue2, int miningValue3, boolean isStack, int topLife, double ovenValue)
 	{
@@ -204,6 +205,16 @@ public class Item implements Cloneable
 		return nextItem;
 	}
 	
+	public int getCostumeId() 
+	{
+		return costumeId;
+	}
+
+	public void setCostumeId(int costumeId) 
+	{
+		this.costumeId = costumeId;
+	}
+
 	@Override
 	public String toString()
 	{

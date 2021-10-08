@@ -9,7 +9,7 @@ public class Assets
 	
 	public static ArrayList<BufferedImage> font = new ArrayList<BufferedImage>();
 	
-	public static BufferedImage player, pointer, cow, player_water;
+	public static BufferedImage player, pointer, cow, player_water, player_leatherVest, player_leatherHat;
 	
 	public static BufferedImage dirt, grass, sand, water, rocks, magma;
 	
@@ -24,7 +24,7 @@ public class Assets
 	clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, sheepRawMeat, sheepMeat, 
 	rockFoodTray, rockSheepMeatTray, rockPot, rockPotWater, herbs, woodPot, woodPotHerb, rockPotHerb, mushroomRed, rockPotMushroomRed, 
 	woodPotMushroomRed, mushroomBlue, rockPotMushroomBlue, woodPotMushroomBlue, woodPickaxeTemplate, clayMoldPickaxe, ironPickaxeClay,
-	woodAxeTemplate, clayMoldAxe, ironAxeClay, chest, fruit, rootenFruit, sheepSpawn;
+	woodAxeTemplate, clayMoldAxe, ironAxeClay, chest, fruit, rootenFruit, sheepSpawn, needle, leather, leatherVest, leatherHat;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer, ironSword, ironPickaxe, ironAxe;
 	
@@ -102,6 +102,8 @@ public class Assets
 		pointer = entitiesSheet.crop(WIDTH, 0, WIDTH, HEIGHT);
 		cow = entitiesSheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
 		player_water = entitiesSheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
+		player_leatherVest = entitiesSheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
+		player_leatherHat = entitiesSheet.crop(WIDTH * 5, 0, WIDTH, HEIGHT);
 		
 		//Items
 		hotbar = itemsSheet.crop(0, 0, WIDTH, HEIGHT);
@@ -172,6 +174,10 @@ public class Assets
 		chest = itemsSheet.crop(WIDTH, HEIGHT * 4, WIDTH, HEIGHT);
 		fruit = itemsSheet.crop(WIDTH * 2, HEIGHT * 4, WIDTH, HEIGHT);
 		rootenFruit = itemsSheet.crop(WIDTH * 3, HEIGHT * 4, WIDTH, HEIGHT);
+		needle = itemsSheet.crop(WIDTH * 4, HEIGHT * 4, WIDTH, HEIGHT);
+		leather = itemsSheet.crop(WIDTH * 5, HEIGHT * 4, WIDTH, HEIGHT);
+		leatherVest = itemsSheet.crop(WIDTH * 6, HEIGHT * 4, WIDTH, HEIGHT);
+		leatherHat = itemsSheet.crop(WIDTH * 7, HEIGHT * 4, WIDTH, HEIGHT);
 		sheepSpawn = itemsSheet.crop(WIDTH * 8, HEIGHT * 4, WIDTH, HEIGHT);
 	}
 }

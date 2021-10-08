@@ -77,7 +77,7 @@ public class GenerateWorld
 					double v = noise.noise(i/3, j/3);
 					double moisture = noiseMoisture.noise(i/6, j/6);
 					
-					if(v > 0.55)
+					if(v > 0.6)
 					{
 						v = 0.0;
 					}
@@ -213,6 +213,26 @@ public class GenerateWorld
 								
 								tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 								
+							}
+							else if(moisture < 0.72)
+							{
+								tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+								tilesFile.write("^");
+							}
+							else if(moisture < 0.76)
+							{
+								tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+								tilesFile.write("-");
+							}
+							else if(moisture < 0.77)
+							{
+								tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+								tilesFile.write("W");
+							}
+							else if(moisture < 0.85)
+							{
+								tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+								tilesFile.write("_");
 							}
 							else
 							{

@@ -12,6 +12,7 @@ public class Sheep extends Animal
 		
 		this.items.add(new Wool(1, 0, 576));
 		this.items.add(new SheepRawMeat(1, 0, 576));
+		this.items.add(new Leather(2, 0, 576));
 	}
 	
 	@Override

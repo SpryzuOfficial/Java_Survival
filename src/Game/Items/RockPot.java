@@ -14,7 +14,7 @@ public class RockPot extends Item
 	@Override
 	public boolean use()
 	{
-		if(Game.player.getPlayerExtraLayer() == Assets.player_water)
+		if(Game.player.getPlayerExtraLayers().contains(Assets.player_water))
 		{
 			UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] = null;
 			UiInventoryManager.hInventorySlots[UiInventoryManager.hotbarSelected - 3].setItem(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3]);

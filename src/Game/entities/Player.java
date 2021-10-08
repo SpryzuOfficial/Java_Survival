@@ -2,6 +2,7 @@ package Game.entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import Game.engine.Game;
 import Game.engine.gfx.Assets;
@@ -9,8 +10,8 @@ import Game.ui.UiInventoryManager;
 
 public class Player extends Entity
 {
-	private BufferedImage[] playerExtraLayers = new BufferedImage[] {Assets.player_water};
-	private BufferedImage playerExtraLayer;
+	private BufferedImage[] playerExtraLayers = new BufferedImage[] {Assets.player_water, Assets.player_leatherVest, Assets.player_leatherHat};
+	private ArrayList<BufferedImage> playerExtraLayersW = new ArrayList<BufferedImage>();
 	private double life = 100;
 	private double food = 100;
 	private double stamina = 100;
@@ -78,7 +79,11 @@ public class Player extends Entity
 		{
 			g.drawImage(UiInventoryManager.inventoryTool.getTexture(), x - 36, y, 64, 64, null);
 		}
-		g.drawImage(playerExtraLayer, x, y, width, height, null);
+		
+		for(int i = 0; i < playerExtraLayersW.size(); i++)
+		{
+			g.drawImage(playerExtraLayersW.get(i), x, y, width, height, null);
+		}
 	}
 	
 	public BufferedImage[] getExtraLayers()
@@ -86,16 +91,19 @@ public class Player extends Entity
 		return playerExtraLayers;
 	}
 	
-	public void setExtraLayer(int i)
+	public void addExtraLayer(int i)
 	{
-		if(i == -1) 
+		if(playerExtraLayersW.contains(playerExtraLayers[i]))
 		{
-			playerExtraLayer = null;
+			return;
 		}
-		else
-		{
-			playerExtraLayer = playerExtraLayers[i];
-		}
+		
+		playerExtraLayersW.add(playerExtraLayers[i]);
+	}
+	
+	public void removeExtraLayer(BufferedImage img)
+	{
+		playerExtraLayersW.remove(img);
 	}
 
 	public double getLife() 
@@ -158,8 +166,8 @@ public class Player extends Entity
 		this.lifePerF = lifePerF;
 	}
 
-	public BufferedImage getPlayerExtraLayer() 
+	public ArrayList getPlayerExtraLayers() 
 	{
-		return playerExtraLayer;
+		return playerExtraLayersW;
 	}
 }

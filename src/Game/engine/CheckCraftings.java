@@ -412,6 +412,22 @@ public class CheckCraftings
 																		  )
 												};
 	
+	private CraftingItemsSlots[] needleRecipes = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Wood(1, 0, 576)}, 
+														   			        {null,  new Stone(1, 0, 576)}
+																		  },
+														 			      new Item[] {new Sandpaper(0, 576)} 
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Wood(1, 0, 576), null}, 
+														   			        {new Stone(1, 0, 576), null}
+																		  },
+															        	  new Item[] {new Sandpaper(0, 576)}   
+																		  )
+												};
+	
 	private CraftingItemsSlots[] stringRecipesTable = { 
 													new CraftingItemsSlots(
 															 new Item[][] { {new Wool(1, 0, 576), null, null}, 
@@ -3212,6 +3228,155 @@ public class CheckCraftings
 																		  )
 												};
 	
+	private CraftingItemsSlots[] needleRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new Wood(1, 0, 576)},
+														   			        {null, null, new Stone(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new Wood(1, 0, 576), null},
+														   			        {null, new Stone(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Wood(1, 0, 576), null, null},
+														   			        {new Stone(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new Wood(1, 0, 576)}, 
+														   			        {null, null, new Stone(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Wood(1, 0, 576), null}, 
+														   			        {null, new Stone(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Wood(1, 0, 576), null, null}, 
+														   			        {new Stone(1, 0, 576), null, null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), null}
+																		  ),
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, null, new Wood(1, 0, 576)},
+														   			        {null, null, new Stone(1, 0, 576)},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new Wood(1, 0, 576), null},
+														   			        {null, new Stone(1, 0, 576), null},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Wood(1, 0, 576), null, null},
+														   			        {new Stone(1, 0, 576), null, null},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, new Wood(1, 0, 576)}, 
+														   			        {null, null, new Stone(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Wood(1, 0, 576), null}, 
+														   			        {null, new Stone(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Wood(1, 0, 576), null, null}, 
+														   			        {new Stone(1, 0, 576), null, null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {null, new Sandpaper(0, 576)}
+																		  )
+												};
+	
+	private CraftingItemsSlots[] leatherVestRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {new Leather(1, 0, 576), null, new Leather(1, 0, 576)}, 
+														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
+														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Leather(1, 0, 576), null, new Leather(1, 0, 576)}, 
+														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
+														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
+																		  },
+															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)}
+																		  )
+												};
+	
+	private CraftingItemsSlots[] leatherHatRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Leather(1, 0, 576), new Leather(1, 0, 576), new Leather(1, 0, 576)},
+														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Leather(1, 0, 576), new Leather(1, 0, 576), new Leather(1, 0, 576)}, 
+														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Leather(1, 0, 576), new Leather(1, 0, 576), new Leather(1, 0, 576)},
+														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
+																		  },
+															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)}
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Leather(1, 0, 576), new Leather(1, 0, 576), new Leather(1, 0, 576)}, 
+														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)}
+																		  ),
+												};
+	
 	public Item checkCrafting(Item[][] craftingItems, Item[] tools)
 	{
 		if(updateCrafting(craftingItems, tools, stringRecipes))
@@ -3307,6 +3472,11 @@ public class CheckCraftings
 		if(updateCrafting(craftingItems, tools, clayMoldAxeRecipes))
 		{
 			return new ClayMoldAxe(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, needleRecipes))
+		{
+			return new Needle(1, 0, 576);
 		}
 		
 		return null;
@@ -3462,6 +3632,21 @@ public class CheckCraftings
 		if(updateCrafting(craftingItems, tools, chestRecipesTable))
 		{
 			return new Chest(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, needleRecipesTable))
+		{
+			return new Needle(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, leatherVestRecipesTable))
+		{
+			return new LeatherVest(1, 0, 576);
+		}
+		
+		if(updateCrafting(craftingItems, tools, leatherHatRecipesTable))
+		{
+			return new LeatherHat(1, 0, 576);
 		}
 		
 		return null;

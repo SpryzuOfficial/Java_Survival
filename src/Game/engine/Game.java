@@ -195,6 +195,14 @@ public class Game implements Runnable
 			
 			colliding = false;
 	 	}
+ 		
+ 		for(int i = 0; i < 2; i++)
+		{
+			if(UiInventoryManager.itemsClothes[i] != null)
+			{
+				player.addExtraLayer(UiInventoryManager.itemsClothes[i].getCostumeId());
+			}
+		}
  	}
 	
 	private void render()

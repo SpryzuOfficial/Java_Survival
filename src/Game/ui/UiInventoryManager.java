@@ -23,6 +23,7 @@ public class UiInventoryManager
 	private static Item inventoryItemHolded;
 	public static Item[] itemsHotbar;
 	private static Item[][] itemsInventory;
+	public static Item[] itemsClothes;
 	private static Item[][] itemsCrafting;
 	private static Item[][] itemsCraftingTable;
 	private static Item itemCraftingTool;
@@ -41,6 +42,7 @@ public class UiInventoryManager
 	public static Item inventoryTool;
 	public static InventorySlot[] hInventorySlots;
 	private static InventorySlot[][] iInventorySlots;
+	private static InventorySlot[] ciInventorySlots;
 	private static InventorySlot[][] cInventorySlots;
 	private static InventorySlot[][] cTableSlots;
 	private static InventorySlot ctInventorySlot;
@@ -81,11 +83,13 @@ public class UiInventoryManager
 	{
 		itemsHotbar = new Item[ISIZE];
 		itemsInventory = new Item[2][ISIZE];
+		itemsClothes = new Item[2];
 		itemsCrafting = new Item[2][2];
 		itemsCraftingTable = new Item[3][3];
 		itemsCraftingToolsTable = new Item[2];
 		itemsChest = new Item[8];
 		iInventorySlots = new InventorySlot[2][ISIZE];
+		ciInventorySlots = new InventorySlot[2];
 		hInventorySlots = new InventorySlot[ISIZE];
 		cInventorySlots = new InventorySlot[2][2];
 		cTableSlots = new InventorySlot[3][3];
@@ -105,6 +109,11 @@ public class UiInventoryManager
 			{
 				iInventorySlots[i][j] = new InventorySlot((3 + j) * 64, (5 + i) * 64, 64, 64, itemsInventory[i][j]);
 			}
+		}
+		
+		for(int i = 0; i < 2; i++)
+		{
+			ciInventorySlots[i] = new InventorySlot(256, (2 + i) * 64, 64, 64, itemsClothes[i]);
 		}
 		
 		for(int i = 0; i < ISIZE; i++)
@@ -260,9 +269,11 @@ public class UiInventoryManager
 				//addItem(new RockSheepMeatTray(1, 0, 576));
 				//addItem(new IronOre(12, 0, 576));
 				addItem(new SheepSpawn(1, 0, 576));
-				addItem(new Clay(12, 0, 576));
-				addItem(new WoodPlank(12, 0, 576));
-				addItem(new IronBasaltTray(1, 0, 576));
+				//addItem(new Clay(12, 0, 576));
+				//addItem(new WoodPlank(12, 0, 576));
+				//addItem(new IronBasaltTray(1, 0, 576));
+				addItem(new LeatherHat(1, 0, 576));
+				addItem(new LeatherVest(1, 0, 576));
 				cPressed = true;
 			}
 		}
@@ -374,6 +385,15 @@ public class UiInventoryManager
 					{
 						renderItem(g, itemsInventory[i][j], iInventorySlots[i][j].getX(), iInventorySlots[i][j].getY());
 					}
+				}
+			}
+			
+			for(int i = 0; i < 2; i++)
+			{
+				if(itemsClothes[i] != null)
+				{
+					renderItem(g, itemsClothes[i], ciInventorySlots[i].getX(), ciInventorySlots[i].getY());
+					g.drawImage(Game.player.getExtraLayers()[itemsClothes[i].getCostumeId()], 160, 160, 64, 64, null);
 				}
 			}
 			
@@ -540,6 +560,153 @@ public class UiInventoryManager
 						{
 							uiRightPressed = false;
 						}
+					}
+				}
+			}
+			
+			for(int i = 0; i < 2; i++)
+			{
+				if(inventoryItemHolded != null)
+				{
+					inventoryItemHolded.setX(ciInventorySlots[i].getX());
+				}
+				
+				if(!uiLeftPressed && !uiRightPressed)
+				{
+					if(ciInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
+					{	
+						if(Game.mouseManager.isLeftPressed())
+						{
+							try
+							{
+								if(inventoryItemHolded.getCostumeId() != -1)
+								{
+									if(itemsClothes[i].getClass() == inventoryItemHolded.getClass())
+									{
+										if(itemsClothes[i].getCount() < 12 && itemsClothes[i].isStack())
+										{
+											if(itemsClothes[i].getCount() + inventoryItemHolded.getCount() <= 12)
+											{
+												itemsClothes[i].setCount(itemsClothes[i].getCount() + inventoryItemHolded.getCount());
+												inventoryItemHolded = null;
+												ciInventorySlots[i].setItem(itemsClothes[i]);
+												uiLeftPressed = true;
+											}
+											else
+											{
+												int x;
+												int xTop = 12 - itemsClothes[i].getCount();
+												
+												for(x = 0; x < xTop; x++)
+												{
+													itemsClothes[i].setCount(itemsClothes[i].getCount() + 1);
+												}
+												
+												inventoryItemHolded.setCount(inventoryItemHolded.getCount() - x);
+												ciInventorySlots[i].setItem(itemsClothes[i]);
+												uiLeftPressed = true;
+											}
+										}
+										else
+										{
+											throw new Exception();
+										}
+									}
+									else
+									{
+										throw new Exception();
+									}
+								}
+							}
+							catch(Exception e)
+							{ 
+								if(itemsClothes[i] != null)
+								{
+									Game.player.removeExtraLayer(Game.player.getExtraLayers()[itemsClothes[i].getCostumeId()]);
+								}
+								
+								itemsClothes[i] = inventoryItemHolded;
+								inventoryItemHolded = ciInventorySlots[i].getItem();
+								ciInventorySlots[i].setItem(itemsClothes[i]); 
+								uiLeftPressed = true;
+							}
+						}
+						else if(ciInventorySlots[i].mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
+						{
+							try
+							{
+								if(inventoryItemHolded.getCostumeId() != -1)
+								{
+									if(inventoryItemHolded == null)
+									{
+										inventoryItemHolded = ciInventorySlots[i].getItem().clone();
+										inventoryItemHolded.setCount((itemsClothes[i].getCount() / 2) + (itemsClothes[i].getCount() % 2));
+										itemsClothes[i].setCount((itemsClothes[i].getCount() / 2));
+										
+										if(itemsClothes[i].getCount() == 0)
+										{
+											itemsClothes[i] = null;
+										}
+										
+										ciInventorySlots[i].setItem(itemsClothes[i]); 
+										uiRightPressed = true;
+									}
+									else if(itemsClothes[i].getClass() == inventoryItemHolded.getClass() && itemsClothes[i].isStack())
+									{
+										if((inventoryItemHolded.getCount() - 1) > 0)
+										{
+											itemsClothes[i].setCount(itemsClothes[i].getCount() + 1);
+											inventoryItemHolded.setCount(inventoryItemHolded.getCount() - 1);
+											ciInventorySlots[i].setItem(itemsClothes[i]); 
+											uiRightPressed = true;
+										}
+										else
+										{
+											itemsClothes[i].setCount(itemsClothes[i].getCount() + 1);
+											inventoryItemHolded = null;
+											ciInventorySlots[i].setItem(itemsClothes[i]); 
+											uiRightPressed = true;
+										}
+									}
+								}
+							}	
+							catch(Exception e)
+							{ 
+								try
+								{
+									if((inventoryItemHolded.getCount() - 1) > 0)
+									{
+										itemsClothes[i] = inventoryItemHolded.clone();
+										itemsClothes[i].setCount(0);
+										itemsClothes[i].setCount(itemsClothes[i].getCount() + 1);
+										inventoryItemHolded.setCount(inventoryItemHolded.getCount() - 1);
+										ciInventorySlots[i].setItem(itemsClothes[i]); 
+										uiRightPressed = true;
+									}
+									else
+									{
+										itemsClothes[i] = inventoryItemHolded.clone();
+										inventoryItemHolded = null;
+										ciInventorySlots[i].setItem(itemsClothes[i]); 
+										uiRightPressed = true;
+									}
+								}
+								catch(Exception ex)
+								{ }
+							}
+						}
+					}
+				}
+				else
+				{
+					if(!Game.mouseManager.isLeftPressed())
+					{
+						uiLeftPressed = false;
+					}
+					
+					if(!Game.mouseManager.isRightPressed())
+					{
+						uiRightPressed = false;
 					}
 				}
 			}

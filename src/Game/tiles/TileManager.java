@@ -3,6 +3,7 @@ package Game.tiles;
 import java.awt.Graphics;
 
 import Game.engine.Game;
+import Game.engine.gfx.Assets;
 import Game.ui.UiInventoryManager;
 
 public class TileManager 
@@ -103,11 +104,11 @@ public class TileManager
 					{
 						if(tiles[y][x] instanceof Water)
 						{
-							Game.player.setExtraLayer(0);
+							Game.player.addExtraLayer(0);
 						}
 						else
 						{
-							Game.player.setExtraLayer(-1);
+							Game.player.removeExtraLayer(Assets.player_water);
 						}
 					}
 				}
