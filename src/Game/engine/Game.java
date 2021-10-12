@@ -121,18 +121,18 @@ public class Game implements Runnable
 					if(!Game.keyManager.shift)
 					{
 						player.setStaminaPerF(-0.5);
-						player.setFoodPerF(0.004);
+						player.setFoodPerF(0.003);
 					}
 					else
 					{
 						player.setStaminaPerF(0.65);
-						player.setFoodPerF(0.006);
+						player.setFoodPerF(0.004);
 					}
 				}
 				else
 				{						
 					player.setStaminaPerF(-0.6);
-					player.setFoodPerF(0.003);
+					player.setFoodPerF(0.002);
 				}
 			}
 			

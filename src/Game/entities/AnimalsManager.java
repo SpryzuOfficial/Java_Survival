@@ -63,8 +63,11 @@ public class AnimalsManager
 			boolean animalCol = false;
 			for(int j = 0; j < StaticEntitiesManager.index.size(); j++)
 			{
-				if(animal.getVx() + animal.getWidth() > Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getVx() && animal.getVx() < Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getVx() + Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getWidth()
+				if((animal.getVx() + animal.getWidth() > Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getVx() && animal.getVx() < Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getVx() + Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getWidth()
 				   && animal.getVy() + animal.getHeight() > Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getVy() && animal.getVy() < Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getVy() + Game.generateWorld.getSEntities().get(StaticEntitiesManager.index.get(j)).getHeight())
+				   || 
+				   (animal.getVx() + animal.getWidth() > Game.player.getVx() && animal.getVx() < Game.player.getVx() + Game.player.getWidth()
+				   && animal.getVy() + animal.getHeight() > Game.player.getVy() && animal.getVy() < Game.player.getVy() + Game.player.getHeight()))
 				{
 					animalCol = true;
 					animal.setVx(animal.getLastX());

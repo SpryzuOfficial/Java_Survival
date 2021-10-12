@@ -24,6 +24,7 @@ public class UiInventoryManager
 	public static Item[] itemsHotbar;
 	private static Item[][] itemsInventory;
 	public static Item[] itemsClothes;
+	private static Item itemCraftingCheck;
 	private static Item[][] itemsCrafting;
 	private static Item[][] itemsCraftingTable;
 	private static Item itemCraftingTool;
@@ -43,6 +44,7 @@ public class UiInventoryManager
 	public static InventorySlot[] hInventorySlots;
 	private static InventorySlot[][] iInventorySlots;
 	private static InventorySlot[] ciInventorySlots;
+	private static InventorySlot iccInventorySlot;
 	private static InventorySlot[][] cInventorySlots;
 	private static InventorySlot[][] cTableSlots;
 	private static InventorySlot ctInventorySlot;
@@ -113,7 +115,7 @@ public class UiInventoryManager
 		
 		for(int i = 0; i < 2; i++)
 		{
-			ciInventorySlots[i] = new InventorySlot(256, (2 + i) * 64, 64, 64, itemsClothes[i]);
+			ciInventorySlots[i] = new InventorySlot(64, (2 + i) * 64, 64, 64, itemsClothes[i]);
 		}
 		
 		for(int i = 0; i < ISIZE; i++)
@@ -151,6 +153,8 @@ public class UiInventoryManager
 		{
 			chestInventorySlots[i] = new InventorySlot((4 + (i - 5)) * 64, 256, 64, 64, itemsChest[i]);
 		}
+		
+		iccInventorySlot = new InventorySlot(192, 128, 64, 64, itemCraftingCheck);
 		
 		ctInventorySlot = new InventorySlot(576, 128, 64, 64, itemCraftingTool);
 		
@@ -367,7 +371,7 @@ public class UiInventoryManager
 				g.drawImage(word.get(i), initialX + (i * 32), initialY, 128, 128, null);
 			}
 			
-			g.drawImage(Assets.player, 160, 160, 64, 64, null);
+			g.drawImage(Assets.player, 128, 160, 64, 64, null);
 			
 			for(int i = 0; i < ISIZE; i++)
 			{
@@ -393,7 +397,7 @@ public class UiInventoryManager
 				if(itemsClothes[i] != null)
 				{
 					renderItem(g, itemsClothes[i], ciInventorySlots[i].getX(), ciInventorySlots[i].getY());
-					g.drawImage(Game.player.getExtraLayers()[itemsClothes[i].getCostumeId()], 160, 160, 64, 64, null);
+					g.drawImage(Game.player.getExtraLayers()[itemsClothes[i].getCostumeId()], 128, 160, 64, 64, null);
 				}
 			}
 			
@@ -406,6 +410,11 @@ public class UiInventoryManager
 						renderItem(g, itemsCrafting[i][j], cInventorySlots[i][j].getX(), cInventorySlots[i][j].getY());
 					}
 				}
+			}
+			
+			if(itemCraftingCheck != null)
+			{
+				renderItem(g, itemCraftingCheck, iccInventorySlot.getX(), iccInventorySlot.getY());
 			}
 			
 			if(itemCraftingTool != null)
@@ -581,40 +590,43 @@ public class UiInventoryManager
 							{
 								if(inventoryItemHolded.getCostumeId() != -1)
 								{
-									if(itemsClothes[i].getClass() == inventoryItemHolded.getClass())
+									if((i % 2 == 0 && inventoryItemHolded.getCostumeId() % 2 == 0) || (i % 2 != 0 && inventoryItemHolded.getCostumeId() % 2 != 0))
 									{
-										if(itemsClothes[i].getCount() < 12 && itemsClothes[i].isStack())
+										if(itemsClothes[i].getClass() == inventoryItemHolded.getClass())
 										{
-											if(itemsClothes[i].getCount() + inventoryItemHolded.getCount() <= 12)
+											if(itemsClothes[i].getCount() < 12 && itemsClothes[i].isStack())
 											{
-												itemsClothes[i].setCount(itemsClothes[i].getCount() + inventoryItemHolded.getCount());
-												inventoryItemHolded = null;
-												ciInventorySlots[i].setItem(itemsClothes[i]);
-												uiLeftPressed = true;
+												if(itemsClothes[i].getCount() + inventoryItemHolded.getCount() <= 12)
+												{
+													itemsClothes[i].setCount(itemsClothes[i].getCount() + inventoryItemHolded.getCount());
+													inventoryItemHolded = null;
+													ciInventorySlots[i].setItem(itemsClothes[i]);
+													uiLeftPressed = true;
+												}
+												else
+												{
+													int x;
+													int xTop = 12 - itemsClothes[i].getCount();
+													
+													for(x = 0; x < xTop; x++)
+													{
+														itemsClothes[i].setCount(itemsClothes[i].getCount() + 1);
+													}
+													
+													inventoryItemHolded.setCount(inventoryItemHolded.getCount() - x);
+													ciInventorySlots[i].setItem(itemsClothes[i]);
+													uiLeftPressed = true;
+												}
 											}
 											else
 											{
-												int x;
-												int xTop = 12 - itemsClothes[i].getCount();
-												
-												for(x = 0; x < xTop; x++)
-												{
-													itemsClothes[i].setCount(itemsClothes[i].getCount() + 1);
-												}
-												
-												inventoryItemHolded.setCount(inventoryItemHolded.getCount() - x);
-												ciInventorySlots[i].setItem(itemsClothes[i]);
-												uiLeftPressed = true;
+												throw new Exception();
 											}
 										}
 										else
 										{
 											throw new Exception();
 										}
-									}
-									else
-									{
-										throw new Exception();
 									}
 								}
 							}
@@ -708,6 +720,140 @@ public class UiInventoryManager
 					{
 						uiRightPressed = false;
 					}
+				}
+			}
+			
+			if(inventoryItemHolded != null)
+			{
+				inventoryItemHolded.setX(iccInventorySlot.getX());
+			}
+			
+			if(!uiLeftPressed && !uiRightPressed)
+			{
+				if(iccInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g))
+				{	
+					if(Game.mouseManager.isLeftPressed())
+					{
+						try
+						{
+							if(itemCraftingCheck.getClass() == inventoryItemHolded.getClass())
+							{
+								if(itemCraftingCheck.getCount() < 12 && itemCraftingCheck.isStack())
+								{
+									if(itemCraftingCheck.getCount() + inventoryItemHolded.getCount() <= 12)
+									{
+										itemCraftingCheck.setCount(itemCraftingCheck.getCount() + inventoryItemHolded.getCount());
+										inventoryItemHolded = null;
+										iccInventorySlot.setItem(itemCraftingCheck);
+										uiLeftPressed = true;
+									}
+									else
+									{
+										int x;
+										int xTop = 12 - itemCraftingCheck.getCount();
+										
+										for(x = 0; x < xTop; x++)
+										{
+											itemCraftingCheck.setCount(itemCraftingCheck.getCount() + 1);
+										}
+										
+										inventoryItemHolded.setCount(inventoryItemHolded.getCount() - x);
+										iccInventorySlot.setItem(itemCraftingCheck);
+										uiLeftPressed = true;
+									}
+								}
+								else
+								{
+									throw new Exception();
+								}
+							}
+							else
+							{
+								throw new Exception();
+							}
+						}
+						catch(Exception e)
+						{
+							
+							itemCraftingCheck = inventoryItemHolded;
+							inventoryItemHolded = iccInventorySlot.getItem();
+							iccInventorySlot.setItem(itemCraftingCheck); 
+							uiLeftPressed = true;
+						}
+					}
+					else if(iccInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
+					{
+						try
+						{
+							if(inventoryItemHolded == null)
+							{
+								inventoryItemHolded = iccInventorySlot.getItem().clone();
+								inventoryItemHolded.setCount((itemCraftingCheck.getCount() / 2) + (itemCraftingCheck.getCount() % 2));
+								itemCraftingCheck.setCount((itemCraftingCheck.getCount() / 2));
+								
+								if(itemCraftingCheck.getCount() == 0)
+								{
+									itemCraftingCheck = null;
+								}
+								
+								iccInventorySlot.setItem(itemCraftingCheck); 
+								uiRightPressed = true;
+							}
+							else if(itemCraftingCheck.getClass() == inventoryItemHolded.getClass() && itemCraftingCheck.isStack())
+							{
+								if((inventoryItemHolded.getCount() - 1) > 0)
+								{
+									itemCraftingCheck.setCount(itemCraftingCheck.getCount() + 1);
+									inventoryItemHolded.setCount(inventoryItemHolded.getCount() - 1);
+									iccInventorySlot.setItem(itemCraftingCheck); 
+									uiRightPressed = true;
+								}
+								else
+								{
+									itemCraftingCheck.setCount(itemCraftingCheck.getCount() + 1);
+									inventoryItemHolded = null;
+									iccInventorySlot.setItem(itemCraftingCheck); 
+									uiRightPressed = true;
+								}
+							}
+						}	
+						catch(Exception e)
+						{ 
+							try
+							{
+								if((inventoryItemHolded.getCount() - 1) > 0)
+								{
+									itemCraftingCheck = inventoryItemHolded.clone();
+									itemCraftingCheck.setCount(0);
+									itemCraftingCheck.setCount(itemCraftingCheck.getCount() + 1);
+									inventoryItemHolded.setCount(inventoryItemHolded.getCount() - 1);
+									iccInventorySlot.setItem(itemCraftingCheck); 
+									uiRightPressed = true;
+								}
+								else
+								{
+									itemCraftingCheck = inventoryItemHolded.clone();
+									inventoryItemHolded = null;
+									iccInventorySlot.setItem(itemCraftingCheck); 
+									uiRightPressed = true;
+								}
+							}
+							catch(Exception ex)
+							{ }
+						}
+					}
+				}
+			}
+			else
+			{
+				if(!Game.mouseManager.isLeftPressed())
+				{
+					uiLeftPressed = false;
+				}
+				
+				if(!Game.mouseManager.isRightPressed())
+				{
+					uiRightPressed = false;
 				}
 			}
 			
@@ -1316,10 +1462,20 @@ public class UiInventoryManager
 						}
 						catch(Exception e)
 						{ 
-							inventoryTrashCan = inventoryItemHolded;
-							inventoryItemHolded = tInventorySlot.getItem();
-							tInventorySlot.setItem(inventoryTrashCan); 
-							uiLeftPressed = true;
+							if(inventoryItemHolded != null)
+							{
+								inventoryTrashCan = inventoryItemHolded;
+								inventoryItemHolded = null;
+								tInventorySlot.setItem(inventoryTrashCan); 
+								uiLeftPressed = true;
+							}
+							else
+							{
+								inventoryItemHolded = inventoryTrashCan;
+								inventoryTrashCan = null;
+								tInventorySlot.setItem(inventoryTrashCan); 
+								uiLeftPressed = true;
+							}
 						}
 					}
 					else if(tInventorySlot.mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g) && Game.mouseManager.isRightPressed())
@@ -4639,11 +4795,13 @@ public class UiInventoryManager
 				inventoryItemHolded = null;
 			}
 			
+			/*
 			if(inventoryTrashCan != null)
 			{
 				inventoryTrashCan = null;
 				tInventorySlot.setItem(inventoryTrashCan);
 			}
+			*/
 			
 			if(chest != null)
 			{
