@@ -4,11 +4,13 @@ public class CraftingItemsSlots
 {
 	private Item[][] item;
 	private Item[] tools;
+	private Item target;
 	
-	public CraftingItemsSlots(Item[][] item, Item[] tools)
+	public CraftingItemsSlots(Item[][] item, Item[] tools, Item target)
 	{
 		this.item = item;
 		this.tools = tools;
+		this.target = target;
 	}
 
 	public Item getItem(int y, int x) 
@@ -24,5 +26,15 @@ public class CraftingItemsSlots
 	public Item[] getTools()
 	{
 		return tools;
+	}
+
+	public Item getTarget()
+	{
+		return target;
+	}
+
+	public void setTarget(Item target) 
+	{
+		this.target = target;
 	}
 }

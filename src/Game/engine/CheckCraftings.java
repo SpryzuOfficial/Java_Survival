@@ -1,5 +1,7 @@
 package Game.engine;
 
+import java.util.ArrayList;
+
 import Game.Items.*;
 
 public class CheckCraftings 
@@ -9,28 +11,32 @@ public class CheckCraftings
 															 new Item[][] { {new Wool(1, 0, 576), null}, 
 														   			        {null, 				  null}
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new Wool(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-															 			  new Item[] {null}	 
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)	 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null,                null}, 
 														   			        {new Wool(1, 0, 576), null}
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new Wool(1, 0, 576)}
 																		  },
-															 			  new Item[] {null} 
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576) 
 																		  )
 												};
 	
@@ -39,14 +45,16 @@ public class CheckCraftings
 															 new Item[][] { {new Stone(1, 0, 576), null}, 
 														   			        {new Wood(1, 0, 576),  null}
 																		  },
-												 			  			  new Item[] {new StringItem(1, 0, 576)}
+												 			  			  new Item[] {new StringItem(1, 0, 576)},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new Stone(1, 0, 576)}, 
 														   			        {null, new Wood(1, 0, 576)}
 																		  },
-														 				  new Item[] {new StringItem(1, 0, 576)}  
+														 				  new Item[] {new StringItem(1, 0, 576)},
+															 			  new Sandpaper(0, 576) 
 																		  )
 													};
 	
@@ -55,14 +63,16 @@ public class CheckCraftings
 															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
 														   			        {new Stone(1, 0, 576),  new Wood(1, 0, 576)}
 																		  },
-														 				  new Item[] {new Sandpaper(0, 576)} 
+														 				  new Item[] {new Sandpaper(0, 576)},
+															 			  new Axe(0, 576) 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
 														   			        {new Wood(1, 0, 576), new Stone(1, 0, 576)}
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576)}   
+															 			  new Item[] {new Sandpaper(0, 576)},
+															 			  new Axe(0, 576)   
 																		  )
 													};
 	
@@ -71,14 +81,16 @@ public class CheckCraftings
 															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
 														   			        {null,  new Wood(1, 0, 576)}
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576)} 
+															 			  new Item[] {new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576) 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
 														   			        {new Wood(1, 0, 576), null}
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576)}   
+															 			  new Item[] {new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)   
 																		  )
 													};
 	
@@ -87,14 +99,16 @@ public class CheckCraftings
 															 new Item[][] { {null, new Stone(1, 0, 576)}, 
 														   			        {null,  new Wood(1, 0, 576)}
 																		  },
-														 			      new Item[] {new Sandpaper(0, 576)} 
+														 			      new Item[] {new Sandpaper(0, 576)},
+															 			  new Knife(0, 576) 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {new Stone(1, 0, 576), null}, 
 														   			        {new Wood(1, 0, 576), null}
 																		  },
-															        	  new Item[] {new Sandpaper(0, 576)}   
+															        	  new Item[] {new Sandpaper(0, 576)},
+															 			  new Knife(0, 576)   
 																		  )
 													};
 	
@@ -103,14 +117,16 @@ public class CheckCraftings
 															 new Item[][] { {new Stone(1, 0, 576),  new Stone(1, 0, 576)}, 
 														   			        {null,  new Wood(1, 0, 576)}
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576)}
+															 			  new Item[] {new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
 														   			        {new Wood(1, 0, 576), null}
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576)}
+															 			  new Item[] {new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  )
 													};
 	
@@ -119,28 +135,32 @@ public class CheckCraftings
 															 new Item[][] { {new Wood(1, 0, 576), null}, 
 														   			        {null, 				  null}
 																		  },
-															              new Item[] {new Sandpaper(0, 576)}
+															              new Item[] {new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new Wood(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-												              			  new Item[] {new Sandpaper(0, 576)}	 
+												              			  new Item[] {new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)	 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null,                null}, 
 														   			        {new Wood(1, 0, 576), null}
 																		  },
-												              			  new Item[] {new Sandpaper(0, 576)}
+												              			  new Item[] {new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new Wood(1, 0, 576)}
 																		  },
-												              			  new Item[] {new Sandpaper(0, 576)} 
+												              			  new Item[] {new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  )
 												};
 	
@@ -149,28 +169,32 @@ public class CheckCraftings
 															 new Item[][] { {null, null}, 
 														   			        {new Stone(1, 0, 576),  null}
 																		  },
-												              		      new Item[] {new Sandpaper(0, 576)}
+												              		      new Item[] {new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new Stone(1, 0, 576)}
 																		  },
-												              			  new Item[] {new Sandpaper(0, 576)}
+												              			  new Item[] {new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {new Stone(1, 0, 576), null}, 
 														   			        {null, null}
 																		  },
-											              				  new Item[] {new Sandpaper(0, 576)}
+											              				  new Item[] {new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new Stone(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-											              				  new Item[] {new Sandpaper(0, 576)} 
+											              				  new Item[] {new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576) 
 																		  )
 												};
 	private CraftingItemsSlots[] tableRecipes = { 
@@ -178,7 +202,8 @@ public class CheckCraftings
 															 new Item[][] { {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)}, 
 														   			        {new Wood(1, 0, 576),  new Wood(1, 0, 576)}
 																		  },
-												              			  new Item[] {new Hammer(0, 576)}
+												              			  new Item[] {new Hammer(0, 576)},
+															 			  new Table(1, 0, 576)
 																		  )
 												};
 	
@@ -187,7 +212,8 @@ public class CheckCraftings
 															 new Item[][] { {new Basalt(1, 0, 576), new Basalt(1, 0, 576)}, 
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576)}
 																		  },
-												              			  new Item[] {new Sandpaper(0, 576)}
+												              			  new Item[] {new Sandpaper(0, 576)},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  )
 												};
 	
@@ -196,14 +222,16 @@ public class CheckCraftings
 															 new Item[][] { {new Wood(1, 0, 576), null}, 
 														   			        {new Wood(1, 0, 576),  null}
 																		  },
-												 			  			  new Item[] {new Sandpaper(0, 576)}
+												 			  			  new Item[] {new Sandpaper(0, 576)},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new Wood(1, 0, 576)}, 
 														   			        {null, new Wood(1, 0, 576)}
 																		  },
-														 				  new Item[] {new Sandpaper(0, 576)}  
+														 				  new Item[] {new Sandpaper(0, 576)},
+															 			  new Stick(1, 0, 576)  
 																		  )
 													};
 	
@@ -212,7 +240,8 @@ public class CheckCraftings
 															 new Item[][] { {new Clay(1, 0, 576), new Clay(1, 0, 576)}, 
 														   			        {new Clay(1, 0, 576), new Clay(1, 0, 576)}
 																		  },
-												              			  new Item[] {new Stick(1, 0, 576)}
+												              			  new Item[] {new Stick(1, 0, 576)},
+															 			  new ClayMold(1, 0, 576)
 																		  )
 												};
 	
@@ -221,14 +250,16 @@ public class CheckCraftings
 															 new Item[][] { {new PolishedBasalt(1, 0, 576),  new PolishedBasalt(1, 0, 576)}, 
 														   			        {null,  new Wood(1, 0, 576)}
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576)}
+															 			  new Item[] {new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)}, 
 														   			        {new Wood(1, 0, 576), null}
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576)}
+															 			  new Item[] {new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  )
 													};
 	
@@ -237,28 +268,32 @@ public class CheckCraftings
 															 new Item[][] { {new ClayMold(1, 0, 576), null}, 
 														   			        {null, 				  null}
 																		  },
-															              new Item[] {new WoodSwordTemplate(1, 0, 576)}
+															              new Item[] {new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new ClayMold(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-												              			  new Item[] {new WoodSwordTemplate(1, 0, 576)}	 
+												              			  new Item[] {new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)	 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null,                null}, 
 														   			        {new ClayMold(1, 0, 576), null}
 																		  },
-												              			  new Item[] {new WoodSwordTemplate(1, 0, 576)}
+												              			  new Item[] {new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new ClayMold(1, 0, 576)}
 																		  },
-												              			  new Item[] {new WoodSwordTemplate(1, 0, 576)} 
+												              			  new Item[] {new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576) 
 																		  )
 												};
 	
@@ -267,28 +302,32 @@ public class CheckCraftings
 															 new Item[][] { {new WoodPot(1, 0, 576), null}, 
 														   			        {null, 				  null}
 																		  },
-															              new Item[] {new RockPotHerb(1, 0, 576)}
+															              new Item[] {new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new WoodPot(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-												              			  new Item[] {new RockPotHerb(1, 0, 576)}	 
+												              			  new Item[] {new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)	 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null,                null}, 
 														   			        {new WoodPot(1, 0, 576), null}
 																		  },
-												              			  new Item[] {new RockPotHerb(1, 0, 576)}
+												              			  new Item[] {new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new WoodPot(1, 0, 576)}
 																		  },
-												              			  new Item[] {new RockPotHerb(1, 0, 576)} 
+												              			  new Item[] {new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576) 
 																		  )
 												};
 	
@@ -297,28 +336,32 @@ public class CheckCraftings
 															 new Item[][] { {new WoodPot(1, 0, 576), null}, 
 														   			        {null, 				  null}
 																		  },
-															              new Item[] {new RockPotMushroomRed(1, 0, 576)}
+															              new Item[] {new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new WoodPot(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)}	 
+												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)	 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null,                null}, 
 														   			        {new WoodPot(1, 0, 576), null}
 																		  },
-												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)}
+												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new WoodPot(1, 0, 576)}
 																		  },
-												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)} 
+												              			  new Item[] {new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576) 
 																		  )
 												};
 	
@@ -327,28 +370,32 @@ public class CheckCraftings
 															 new Item[][] { {new WoodPot(1, 0, 576), null}, 
 														   			        {null, 				  null}
 																		  },
-															              new Item[] {new RockPotMushroomBlue(1, 0, 576)}
+															              new Item[] {new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new WoodPot(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)}	 
+												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)	 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null,                null}, 
 														   			        {new WoodPot(1, 0, 576), null}
 																		  },
-												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)}
+												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new WoodPot(1, 0, 576)}
 																		  },
-												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)} 
+												              			  new Item[] {new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576) 
 																		  )
 												};
 	
@@ -357,28 +404,32 @@ public class CheckCraftings
 															 new Item[][] { {new ClayMold(1, 0, 576), null}, 
 														   			        {null, 				  null}
 																		  },
-															              new Item[] {new WoodPickaxeTemplate(1, 0, 576)}
+															              new Item[] {new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new ClayMold(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)}	 
+												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)	 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null,                null}, 
 														   			        {new ClayMold(1, 0, 576), null}
 																		  },
-												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)}
+												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new ClayMold(1, 0, 576)}
 																		  },
-												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)} 
+												              			  new Item[] {new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  )
 												};
 	
@@ -387,28 +438,32 @@ public class CheckCraftings
 															 new Item[][] { {new ClayMold(1, 0, 576), null}, 
 														   			        {null, 				  null}
 																		  },
-															              new Item[] {new WoodAxeTemplate(1, 0, 576)}
+															              new Item[] {new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, new ClayMold(1, 0, 576)}, 
 														   			        {null, null}
 																		  },
-												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)}	 
+												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)	 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null,                null}, 
 														   			        {new ClayMold(1, 0, 576), null}
 																		  },
-												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)}
+												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null}, 
 														   			        {null, new ClayMold(1, 0, 576)}
 																		  },
-												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)} 
+												              			  new Item[] {new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576) 
 																		  )
 												};
 	
@@ -417,16 +472,23 @@ public class CheckCraftings
 															 new Item[][] { {null, new Wood(1, 0, 576)}, 
 														   			        {null,  new Stone(1, 0, 576)}
 																		  },
-														 			      new Item[] {new Sandpaper(0, 576)} 
+														 			      new Item[] {new Sandpaper(0, 576)},
+															 			  new Needle(1, 0, 576) 
 																		  ),
 													
 													new CraftingItemsSlots(
 															 new Item[][] { {new Wood(1, 0, 576), null}, 
 														   			        {new Stone(1, 0, 576), null}
 																		  },
-															        	  new Item[] {new Sandpaper(0, 576)}   
+															        	  new Item[] {new Sandpaper(0, 576)},
+															 			  new Needle(1, 0, 576)   
 																		  )
 												};
+	
+	public CraftingItemsSlots[][] recipes4 = new CraftingItemsSlots[][] {stringRecipes, sandpaperRecipes, axeRecipes, pickaxeRecipes, knifeRecipes, 
+		hammerRecipes, woodTableRecipes, nailsRecipes, tableRecipes, polishedBasaltRecipes, stickRecipes, clayMoldRecipes, basaltHammerRecipes,
+		clayMoldSwordRecipes, woodPotHerbRecipes, woodPotMushroomRedRecipes, woodPotMushroomBlueRecipes, clayMoldPickaxeRecipes, clayMoldAxeRecipes,
+		needleRecipes};
 	
 	private CraftingItemsSlots[] stringRecipesTable = { 
 													new CraftingItemsSlots(
@@ -434,7 +496,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -442,7 +505,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -450,7 +514,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -458,7 +523,8 @@ public class CheckCraftings
 														   			        {new Wool(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -466,7 +532,8 @@ public class CheckCraftings
 														   			        {null, new Wool(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -474,7 +541,8 @@ public class CheckCraftings
 														   			        {null, null, new Wool(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -482,7 +550,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Wool(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -490,7 +559,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new Wool(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -498,7 +568,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new Wool(1, 0, 576)},
 																		  },
-															 			  new Item[] {null}
+															 			  new Item[] {null},
+															 			  new StringItem(1, 0, 576)
 																		  )
 												};
 	
@@ -508,7 +579,8 @@ public class CheckCraftings
 														   			        {null, null, new Stone(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -516,7 +588,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -524,7 +597,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -532,7 +606,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -540,7 +615,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -548,14 +624,16 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {null, null, new Stone(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -563,7 +641,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -571,7 +650,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -579,7 +659,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -587,7 +668,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Sandpaper(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -595,7 +677,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Sandpaper(0, 576)
 																		  )
 												};
 	
@@ -605,7 +688,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, new Stone(1, 0, 576), new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -613,7 +697,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {new Stone(1, 0, 576), new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -621,7 +706,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -629,7 +715,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -637,7 +724,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -645,7 +733,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -653,7 +742,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, new Stone(1, 0, 576), new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -661,7 +751,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {new Stone(1, 0, 576), new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -669,7 +760,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -677,7 +769,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -685,7 +778,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Axe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -693,7 +787,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Axe(0, 576)
 																		  )
 												};
 	
@@ -703,7 +798,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -711,7 +807,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -719,7 +816,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -727,7 +825,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -735,7 +834,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -743,7 +843,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -751,7 +852,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -759,7 +861,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -767,7 +870,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -775,7 +879,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -783,7 +888,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -791,7 +897,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -799,7 +906,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -807,7 +915,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -815,7 +924,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -823,7 +933,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Pickaxe(0, 576)
 																		  )
 												};
 	
@@ -833,7 +944,8 @@ public class CheckCraftings
 														   			        {null, null, new Stone(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -841,7 +953,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -849,7 +962,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -857,7 +971,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -865,7 +980,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -873,14 +989,16 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Knife(0, 576)
 																		  ),
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {null, null, new Stone(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -888,7 +1006,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -896,7 +1015,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -904,7 +1024,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -912,7 +1033,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Knife(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -920,7 +1042,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Knife(0, 576)
 																		  )
 												};
 	
@@ -930,7 +1053,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -938,7 +1062,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -946,7 +1071,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -954,7 +1080,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -962,7 +1089,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -970,7 +1098,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -978,7 +1107,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -986,7 +1116,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -994,7 +1125,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1002,7 +1134,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1010,7 +1143,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1018,7 +1152,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1026,7 +1161,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1034,7 +1170,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1042,7 +1179,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1050,7 +1188,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new Hammer(0, 576)
 																		  )
 												};
 	
@@ -1060,7 +1199,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1068,7 +1208,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1076,7 +1217,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1084,7 +1226,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1092,7 +1235,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1100,7 +1244,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1108,7 +1253,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1116,7 +1262,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1124,7 +1271,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1132,7 +1280,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1140,7 +1289,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1148,7 +1298,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1156,7 +1307,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1164,7 +1316,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1172,7 +1325,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1180,7 +1334,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1188,7 +1343,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1196,7 +1352,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodTable(1, 0, 576)
 																		  )
 												};
 	
@@ -1206,7 +1363,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1214,7 +1372,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1222,7 +1381,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1230,7 +1390,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1238,7 +1399,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1246,7 +1408,8 @@ public class CheckCraftings
 														   			        {null, null, new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1254,7 +1417,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Stone(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1262,7 +1426,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new Stone(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1270,7 +1435,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1278,7 +1444,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1286,7 +1453,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1294,7 +1462,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1302,7 +1471,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1310,7 +1480,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1318,7 +1489,8 @@ public class CheckCraftings
 														   			        {null, null, new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1326,7 +1498,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Stone(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1334,7 +1507,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new Stone(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1342,7 +1516,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Nail(1, 0, 576)
 																		  )
 												};
 	
@@ -1352,7 +1527,8 @@ public class CheckCraftings
 														   			        {null, new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), null}
+															 			  new Item[] {new Hammer(0, 576), null},
+															 			  new Table(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1360,7 +1536,8 @@ public class CheckCraftings
 														   			        {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576), null},
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), null}
+															 			  new Item[] {new Hammer(0, 576), null},
+															 			  new Table(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1368,7 +1545,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), null}
+															 			  new Item[] {new Hammer(0, 576), null},
+															 			  new Table(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1376,7 +1554,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), null}
+															 			  new Item[] {new Hammer(0, 576), null},
+															 			  new Table(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1384,7 +1563,8 @@ public class CheckCraftings
 														   			        {null, new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Hammer(0, 576)}
+															 			  new Item[] {null, new Hammer(0, 576)},
+															 			  new Table(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1392,7 +1572,8 @@ public class CheckCraftings
 														   			        {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576), null},
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Hammer(0, 576)}
+															 			  new Item[] {null, new Hammer(0, 576)},
+															 			  new Table(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1400,7 +1581,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Hammer(0, 576)}
+															 			  new Item[] {null, new Hammer(0, 576)},
+															 			  new Table(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1408,7 +1590,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Hammer(0, 576)}
+															 			  new Item[] {null, new Hammer(0, 576)},
+															 			  new Table(1, 0, 576)
 																		  )
 												};
 	
@@ -1418,7 +1601,8 @@ public class CheckCraftings
 														   			        {null, new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)},
 														   			        {null, new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)},
+															 			  new WoodPlank(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1426,7 +1610,8 @@ public class CheckCraftings
 														   			        {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576), null},
 														   			        {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)},
+															 			  new WoodPlank(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1434,7 +1619,8 @@ public class CheckCraftings
 														   			        {null, new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)},
+															 			  new WoodPlank(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1442,7 +1628,8 @@ public class CheckCraftings
 														   			        {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)},
+															 			  new WoodPlank(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1450,7 +1637,8 @@ public class CheckCraftings
 														   			        {null, new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)},
 														   			        {null, new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)},
+															 			  new WoodPlank(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1458,7 +1646,8 @@ public class CheckCraftings
 														   			        {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576), null},
 														   			        {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)},
+															 			  new WoodPlank(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1466,7 +1655,8 @@ public class CheckCraftings
 														   			        {null, new WoodTable(1, 0, 576), new WoodTable(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)},
+															 			  new WoodPlank(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1474,7 +1664,8 @@ public class CheckCraftings
 														   			        {new WoodTable(1, 0, 576), new WoodTable(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)},
+															 			  new WoodPlank(1, 0, 576)
 																		  )
 												};
 	
@@ -1484,7 +1675,8 @@ public class CheckCraftings
 														   			        {null, new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 														   			        {null, new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1492,7 +1684,8 @@ public class CheckCraftings
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), null},
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1500,7 +1693,8 @@ public class CheckCraftings
 														   			        {null, new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1508,7 +1702,8 @@ public class CheckCraftings
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1516,7 +1711,8 @@ public class CheckCraftings
 														   			        {null, new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 														   			        {null, new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1524,7 +1720,8 @@ public class CheckCraftings
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), null},
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1532,7 +1729,8 @@ public class CheckCraftings
 														   			        {null, new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1540,7 +1738,8 @@ public class CheckCraftings
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new PolishedBasalt(1, 0, 576)
 																		  )
 												};
 	
@@ -1550,7 +1749,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, new Stone(1, 0, 576)},
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Pickaxe(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Pickaxe(0, 576), new Hammer(0, 576)},
+															 			  new Oven(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1558,7 +1758,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, new Stone(1, 0, 576)},
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Pickaxe(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Pickaxe(0, 576)},
+															 			  new Oven(1, 0, 576)
 																		  )
 												};
 	
@@ -1568,7 +1769,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Pickaxe(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Pickaxe(0, 576), new Hammer(0, 576)},
+															 			  new Anvil(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1576,7 +1778,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Pickaxe(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Pickaxe(0, 576)},
+															 			  new Anvil(1, 0, 576)
 																		  )
 												};
 	
@@ -1586,7 +1789,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1594,7 +1798,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1602,7 +1807,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1610,7 +1816,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1618,7 +1825,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1626,14 +1834,16 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1641,7 +1851,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1649,7 +1860,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1657,7 +1869,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1665,7 +1878,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Stick(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1673,7 +1887,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Stick(1, 0, 576)
 																		  )
 												};
 	
@@ -1683,7 +1898,8 @@ public class CheckCraftings
 														   			        {null, new Clay(1, 0, 576), new Clay(1, 0, 576)},
 														   			        {null, new Clay(1, 0, 576), new Clay(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Stick(1, 0, 576), null}
+															 			  new Item[] {new Stick(1, 0, 576), null},
+															 			  new ClayMold(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1691,7 +1907,8 @@ public class CheckCraftings
 														   			        {new Clay(1, 0, 576), new Clay(1, 0, 576), null},
 														   			        {new Clay(1, 0, 576), new Clay(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Stick(1, 0, 576), null}
+															 			  new Item[] {new Stick(1, 0, 576), null},
+															 			  new ClayMold(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1699,7 +1916,8 @@ public class CheckCraftings
 														   			        {null, new Clay(1, 0, 576), new Clay(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Stick(1, 0, 576), null}
+															 			  new Item[] {new Stick(1, 0, 576), null},
+															 			  new ClayMold(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1707,7 +1925,8 @@ public class CheckCraftings
 														   			        {new Clay(1, 0, 576), new Clay(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Stick(1, 0, 576), null}
+															 			  new Item[] {new Stick(1, 0, 576), null},
+															 			  new ClayMold(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1715,7 +1934,8 @@ public class CheckCraftings
 														   			        {null, new Clay(1, 0, 576), new Clay(1, 0, 576)},
 														   			        {null, new Clay(1, 0, 576), new Clay(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Stick(1, 0, 576)}
+															 			  new Item[] {null, new Stick(1, 0, 576)},
+															 			  new ClayMold(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1723,7 +1943,8 @@ public class CheckCraftings
 														   			        {new Clay(1, 0, 576), new Clay(1, 0, 576), null},
 														   			        {new Clay(1, 0, 576), new Clay(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Stick(1, 0, 576)}
+															 			  new Item[] {null, new Stick(1, 0, 576)},
+															 			  new ClayMold(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1731,7 +1952,8 @@ public class CheckCraftings
 														   			        {null, new Clay(1, 0, 576), new Clay(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Stick(1, 0, 576)}
+															 			  new Item[] {null, new Stick(1, 0, 576)},
+															 			  new ClayMold(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1739,7 +1961,8 @@ public class CheckCraftings
 														   			        {new Clay(1, 0, 576), new Clay(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Stick(1, 0, 576)}
+															 			  new Item[] {null, new Stick(1, 0, 576)},
+															 			  new ClayMold(1, 0, 576)
 																		  )
 												};
 	
@@ -1749,7 +1972,8 @@ public class CheckCraftings
 														   			        {null, new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1757,7 +1981,8 @@ public class CheckCraftings
 														   			        {null, new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1765,7 +1990,8 @@ public class CheckCraftings
 														   			        {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1773,7 +1999,8 @@ public class CheckCraftings
 														   			        {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1781,7 +2008,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1789,7 +2017,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1797,7 +2026,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1805,7 +2035,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), null}
+															 			  new Item[] {new StringItem(1, 0, 576), null},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1813,7 +2044,8 @@ public class CheckCraftings
 														   			        {null, new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)},
 														   			        {null, null, new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1821,7 +2053,8 @@ public class CheckCraftings
 														   			        {null, new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576)},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1829,7 +2062,8 @@ public class CheckCraftings
 														   			        {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), null},
 														   			        {null, new Wood(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1837,7 +2071,8 @@ public class CheckCraftings
 														   			        {new PolishedBasalt(1, 0, 576), new PolishedBasalt(1, 0, 576), null},
 														   			        {new Wood(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1845,7 +2080,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1853,7 +2089,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1861,7 +2098,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1869,7 +2107,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new StringItem(1, 0, 576)}
+															 			  new Item[] {null, new StringItem(1, 0, 576)},
+															 			  new BasaltHammer(0, 576)
 																		  )
 												};
 	
@@ -1879,7 +2118,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)},
+															 			  new BasaltTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1887,7 +2127,8 @@ public class CheckCraftings
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)},
+															 			  new BasaltTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1895,7 +2136,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)},
+															 			  new BasaltTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1903,7 +2145,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)},
+															 			  new BasaltTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1911,7 +2154,8 @@ public class CheckCraftings
 														   			        {new Basalt(1, 0, 576), new Basalt(1, 0, 576), new Basalt(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)},
+															 			  new BasaltTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1919,7 +2163,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)},
+															 			  new BasaltTray(1, 0, 576)
 																		  ),
 													
 												};
@@ -1930,7 +2175,8 @@ public class CheckCraftings
 														   			        {null, null, new Stick(1, 0, 576)},
 														   			        {null, null, new Stick(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1938,7 +2184,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), null},
 														   			        {null, new Stick(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1946,7 +2193,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), null, null},
 														   			        {new Stick(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1954,7 +2202,8 @@ public class CheckCraftings
 														   			        {null, null, new Stick(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1962,7 +2211,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1970,14 +2220,16 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {null, null, new Stick(1, 0, 576)},
 														   			        {null, null, new Stick(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1985,7 +2237,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), null},
 														   			        {null, new Stick(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -1993,7 +2246,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), null, null},
 														   			        {new Stick(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2001,7 +2255,8 @@ public class CheckCraftings
 														   			        {null, null, new Stick(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2009,7 +2264,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2017,7 +2273,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodSwordTemplate(1, 0, 576)
 																		  )
 												};
 	
@@ -2027,7 +2284,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2035,7 +2293,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2043,7 +2302,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2051,7 +2311,8 @@ public class CheckCraftings
 														   			        {new ClayMold(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2059,7 +2320,8 @@ public class CheckCraftings
 														   			        {null, new ClayMold(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2067,7 +2329,8 @@ public class CheckCraftings
 														   			        {null, null, new ClayMold(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2075,7 +2338,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new ClayMold(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2083,7 +2347,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new ClayMold(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2091,7 +2356,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new ClayMold(1, 0, 576)},
 																		  },
-															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodSwordTemplate(1, 0, 576), null},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2099,7 +2365,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2107,7 +2374,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2115,7 +2383,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2123,7 +2392,8 @@ public class CheckCraftings
 														   			        {new ClayMold(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2131,7 +2401,8 @@ public class CheckCraftings
 														   			        {null, new ClayMold(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2139,7 +2410,8 @@ public class CheckCraftings
 														   			        {null, null, new ClayMold(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2147,7 +2419,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new ClayMold(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2155,7 +2428,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new ClayMold(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2163,7 +2437,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new ClayMold(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodSwordTemplate(1, 0, 576)},
+															 			  new ClayMoldSword(1, 0, 576)
 																		  )
 												};
 	
@@ -2173,7 +2448,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new RockFoodTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2181,7 +2457,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new RockFoodTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2189,7 +2466,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new RockFoodTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2197,7 +2475,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new RockFoodTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2205,7 +2484,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new RockFoodTray(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2213,7 +2493,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new RockFoodTray(1, 0, 576)
 																		  ),
 													
 												};
@@ -2224,7 +2505,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, new Stone(1, 0, 576)},
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new RockPot(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2232,7 +2514,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new RockPot(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2240,7 +2523,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, new Stone(1, 0, 576)},
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new RockPot(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2248,7 +2532,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new RockPot(1, 0, 576)
 																		  )
 												};
 	
@@ -2258,7 +2543,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, new Wood(1, 0, 576)},
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodPot(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2266,7 +2552,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new WoodPot(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2274,7 +2561,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, new Wood(1, 0, 576)},
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodPot(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2282,7 +2570,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new WoodPot(1, 0, 576)
 																		  )
 												};
 	
@@ -2292,7 +2581,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2300,7 +2590,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2308,7 +2599,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2316,7 +2608,8 @@ public class CheckCraftings
 														   			        {new WoodPot(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2324,7 +2617,8 @@ public class CheckCraftings
 														   			        {null, new WoodPot(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2332,7 +2626,8 @@ public class CheckCraftings
 														   			        {null, null, new WoodPot(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2340,7 +2635,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new WoodPot(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2348,7 +2644,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new WoodPot(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2356,7 +2653,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new WoodPot(1, 0, 576)},
 																		  },
-															 			  new Item[] {new RockPotHerb(1, 0, 576), null}
+															 			  new Item[] {new RockPotHerb(1, 0, 576), null},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2364,7 +2662,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2372,7 +2671,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2380,7 +2680,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2388,7 +2689,8 @@ public class CheckCraftings
 														   			        {new WoodPot(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2396,7 +2698,8 @@ public class CheckCraftings
 														   			        {null, new WoodPot(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2404,7 +2707,8 @@ public class CheckCraftings
 														   			        {null, null, new WoodPot(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2412,7 +2716,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new WoodPot(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2420,7 +2725,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new WoodPot(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2428,7 +2734,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new WoodPot(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new RockPotHerb(1, 0, 576)}
+															 			  new Item[] {null, new RockPotHerb(1, 0, 576)},
+															 			  new WoodPotHerb(1, 0, 576)
 																		  )
 												};
 	
@@ -2438,7 +2745,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2446,7 +2754,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2454,7 +2763,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2462,7 +2772,8 @@ public class CheckCraftings
 														   			        {new WoodPot(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2470,7 +2781,8 @@ public class CheckCraftings
 														   			        {null, new WoodPot(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2478,7 +2790,8 @@ public class CheckCraftings
 														   			        {null, null, new WoodPot(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2486,7 +2799,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new WoodPot(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2494,7 +2808,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new WoodPot(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2502,7 +2817,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new WoodPot(1, 0, 576)},
 																		  },
-															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomRed(1, 0, 576), null},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2510,7 +2826,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2518,7 +2835,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2526,7 +2844,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2534,7 +2853,8 @@ public class CheckCraftings
 														   			        {new WoodPot(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2542,7 +2862,8 @@ public class CheckCraftings
 														   			        {null, new WoodPot(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2550,7 +2871,8 @@ public class CheckCraftings
 														   			        {null, null, new WoodPot(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2558,7 +2880,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new WoodPot(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2566,7 +2889,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new WoodPot(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2574,7 +2898,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new WoodPot(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomRed(1, 0, 576)},
+															 			  new WoodPotMushroomRed(1, 0, 576)
 																		  )
 												};
 	
@@ -2584,7 +2909,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2592,7 +2918,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2600,7 +2927,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2608,7 +2936,8 @@ public class CheckCraftings
 														   			        {new WoodPot(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2616,7 +2945,8 @@ public class CheckCraftings
 														   			        {null, new WoodPot(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2624,7 +2954,8 @@ public class CheckCraftings
 														   			        {null, null, new WoodPot(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2632,7 +2963,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new WoodPot(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2640,7 +2972,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new WoodPot(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2648,7 +2981,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new WoodPot(1, 0, 576)},
 																		  },
-															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null}
+															 			  new Item[] {new RockPotMushroomBlue(1, 0, 576), null},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2656,7 +2990,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2664,7 +2999,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2672,7 +3008,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2680,7 +3017,8 @@ public class CheckCraftings
 														   			        {new WoodPot(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2688,7 +3026,8 @@ public class CheckCraftings
 														   			        {null, new WoodPot(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2696,7 +3035,8 @@ public class CheckCraftings
 														   			        {null, null, new WoodPot(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2704,7 +3044,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new WoodPot(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2712,7 +3053,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new WoodPot(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2720,7 +3062,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new WoodPot(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)}
+															 			  new Item[] {null, new RockPotMushroomBlue(1, 0, 576)},
+															 			  new WoodPotMushroomBlue(1, 0, 576)
 																		  )
 												};
 	
@@ -2730,7 +3073,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), new Stick(1, 0, 576)},
 														   			        {null, null, new Stick(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2738,7 +3082,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), new Stick(1, 0, 576)},
 														   			        {null, new Stick(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2746,7 +3091,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), null},
 														   			        {null, new Stick(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2754,7 +3100,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), null},
 														   			        {new Stick(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2762,7 +3109,8 @@ public class CheckCraftings
 														   			        {null, null, new Stick(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2770,7 +3118,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2778,7 +3127,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2786,14 +3136,16 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {null, new Stick(1, 0, 576), new Stick(1, 0, 576)},
 														   			        {null, null, new Stick(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2801,7 +3153,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), new Stick(1, 0, 576)},
 														   			        {null, new Stick(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2809,7 +3162,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), null},
 														   			        {null, new Stick(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2817,7 +3171,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), null},
 														   			        {new Stick(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2825,7 +3180,8 @@ public class CheckCraftings
 														   			        {null, null, new Stick(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2833,7 +3189,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2841,7 +3198,8 @@ public class CheckCraftings
 														   			        {null, new Stick(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2849,7 +3207,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodPickaxeTemplate(1, 0, 576)
 																		  )
 												};
 	
@@ -2859,7 +3218,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2867,7 +3227,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2875,7 +3236,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2883,7 +3245,8 @@ public class CheckCraftings
 														   			        {new ClayMold(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2891,7 +3254,8 @@ public class CheckCraftings
 														   			        {null, new ClayMold(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2899,7 +3263,8 @@ public class CheckCraftings
 														   			        {null, null, new ClayMold(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2907,7 +3272,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new ClayMold(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2915,7 +3281,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new ClayMold(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2923,7 +3290,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new ClayMold(1, 0, 576)},
 																		  },
-															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodPickaxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2931,7 +3299,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2939,7 +3308,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2947,7 +3317,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2955,7 +3326,8 @@ public class CheckCraftings
 														   			        {new ClayMold(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2963,7 +3335,8 @@ public class CheckCraftings
 														   			        {null, new ClayMold(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2971,7 +3344,8 @@ public class CheckCraftings
 														   			        {null, null, new ClayMold(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2979,7 +3353,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new ClayMold(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2987,7 +3362,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new ClayMold(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -2995,7 +3371,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new ClayMold(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodPickaxeTemplate(1, 0, 576)},
+															 			  new ClayMoldPickaxe(1, 0, 576)
 																		  )
 												};
 	
@@ -3005,7 +3382,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)},
 														   			        {null, null, new Stick(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodAxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3013,7 +3391,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)},
 														   			        {new Stick(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodAxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3021,7 +3400,8 @@ public class CheckCraftings
 														   			        {null, null, new Stick(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodAxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3029,14 +3409,16 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Knife(0, 576)},
+															 			  new WoodAxeTemplate(1, 0, 576)
 																		  ),
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)},
 														   			        {null, null, new Stick(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodAxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3044,7 +3426,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), new Stick(1, 0, 576), new Stick(1, 0, 576)},
 														   			        {new Stick(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodAxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3052,7 +3435,8 @@ public class CheckCraftings
 														   			        {null, null, new Stick(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodAxeTemplate(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3060,7 +3444,8 @@ public class CheckCraftings
 														   			        {new Stick(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Knife(0, 576), new Hammer(0, 576)},
+															 			  new WoodAxeTemplate(1, 0, 576)
 																		  )
 												};
 	
@@ -3070,7 +3455,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3078,7 +3464,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3086,7 +3473,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3094,7 +3482,8 @@ public class CheckCraftings
 														   			        {new ClayMold(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3102,7 +3491,8 @@ public class CheckCraftings
 														   			        {null, new ClayMold(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3110,7 +3500,8 @@ public class CheckCraftings
 														   			        {null, null, new ClayMold(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3118,7 +3509,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new ClayMold(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3126,7 +3518,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new ClayMold(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3134,7 +3527,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new ClayMold(1, 0, 576)},
 																		  },
-															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null}
+															 			  new Item[] {new WoodAxeTemplate(1, 0, 576), null},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3142,7 +3536,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3150,7 +3545,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3158,7 +3554,8 @@ public class CheckCraftings
 														   			        {null, 				  null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3166,7 +3563,8 @@ public class CheckCraftings
 														   			        {new ClayMold(1, 0, 576),null, null},
 														   			        {null, 				  null, null},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3174,7 +3572,8 @@ public class CheckCraftings
 														   			        {null, new ClayMold(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3182,7 +3581,8 @@ public class CheckCraftings
 														   			        {null, null, new ClayMold(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3190,7 +3590,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {new ClayMold(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3198,7 +3599,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, new ClayMold(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3206,7 +3608,8 @@ public class CheckCraftings
 														   			        {null, null, null},
 														   			        {null, null, new ClayMold(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)}
+															 			  new Item[] {null, new WoodAxeTemplate(1, 0, 576)},
+															 			  new ClayMoldAxe(1, 0, 576)
 																		  )
 												};
 	
@@ -3216,7 +3619,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), new Iron(1, 0, 576), new Wood(1, 0, 576)},
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)}
+															 			  new Item[] {new Hammer(0, 576), new Nail(1, 0, 576)},
+															 			  new Chest(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3224,7 +3628,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), new Iron(1, 0, 576), new Wood(1, 0, 576)},
 														   			        {new Wood(1, 0, 576), new Wood(1, 0, 576), new Wood(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)}
+															 			  new Item[] {new Nail(1, 0, 576), new Hammer(0, 576)},
+															 			  new Chest(1, 0, 576)
 																		  )
 												};
 	
@@ -3234,7 +3639,8 @@ public class CheckCraftings
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3242,7 +3648,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, new Stone(1, 0, 576), null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3250,7 +3657,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {new Stone(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3258,7 +3666,8 @@ public class CheckCraftings
 														   			        {null, null, new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3266,7 +3675,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3274,14 +3684,16 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Sandpaper(0, 576), null}
+															 			  new Item[] {new Sandpaper(0, 576), null},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													new CraftingItemsSlots(
 															 new Item[][] { {null, null, null}, 
 														   			        {null, null, new Wood(1, 0, 576)},
 														   			        {null, null, new Stone(1, 0, 576)},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3289,7 +3701,8 @@ public class CheckCraftings
 														   			        {null, new Wood(1, 0, 576), null},
 														   			        {null, new Stone(1, 0, 576), null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3297,7 +3710,8 @@ public class CheckCraftings
 														   			        {new Wood(1, 0, 576), null, null},
 														   			        {new Stone(1, 0, 576), null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3305,7 +3719,8 @@ public class CheckCraftings
 														   			        {null, null, new Stone(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3313,7 +3728,8 @@ public class CheckCraftings
 														   			        {null, new Stone(1, 0, 576), null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Needle(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3321,7 +3737,8 @@ public class CheckCraftings
 														   			        {new Stone(1, 0, 576), null, null},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {null, new Sandpaper(0, 576)}
+															 			  new Item[] {null, new Sandpaper(0, 576)},
+															 			  new Needle(1, 0, 576)
 																		  )
 												};
 	
@@ -3331,7 +3748,8 @@ public class CheckCraftings
 														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
 														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)}
+															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)},
+															 			  new LeatherVest(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3339,7 +3757,8 @@ public class CheckCraftings
 														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
 														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)}
+															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)},
+															 			  new LeatherVest(1, 0, 576)
 																		  )
 												};
 	
@@ -3349,7 +3768,8 @@ public class CheckCraftings
 														   			        {new Leather(1, 0, 576), new Leather(1, 0, 576), new Leather(1, 0, 576)},
 														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
 																		  },
-															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)}
+															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)},
+															 			  new LeatherHat(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3357,7 +3777,8 @@ public class CheckCraftings
 														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)}
+															 			  new Item[] {new Needle(1, 0, 576), new StringItem(1, 0, 576)},
+															 			  new LeatherHat(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3365,7 +3786,8 @@ public class CheckCraftings
 														   			        {new Leather(1, 0, 576), new Leather(1, 0, 576), new Leather(1, 0, 576)},
 														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)}
+															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)},
+															 			  new LeatherHat(1, 0, 576)
 																		  ),
 													
 													new CraftingItemsSlots(
@@ -3373,110 +3795,19 @@ public class CheckCraftings
 														   			        {new Leather(1, 0, 576), null, new Leather(1, 0, 576)},
 														   			        {null, null, null},
 																		  },
-															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)}
+															 			  new Item[] {new StringItem(1, 0, 576), new Needle(1, 0, 576)},
+															 			  new LeatherHat(1, 0, 576)
 																		  ),
 												};
 	
 	public Item checkCrafting(Item[][] craftingItems, Item[] tools)
-	{
-		if(updateCrafting(craftingItems, tools, stringRecipes))
+	{	
+		for(int i = 0; i < recipes4.length; i++)
 		{
-			return new StringItem(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, sandpaperRecipes))
-		{
-			return new Sandpaper(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, axeRecipes))
-		{
-			return new Axe(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, pickaxeRecipes))
-		{
-			return new Pickaxe(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, knifeRecipes))
-		{
-			return new Knife(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, hammerRecipes))
-		{
-			return new Hammer(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodTableRecipes))
-		{
-			return new WoodTable(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, nailsRecipes))
-		{
-			return new Nail(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, tableRecipes))
-		{
-			return new Table(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, polishedBasaltRecipes))
-		{
-			return new PolishedBasalt(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, stickRecipes))
-		{
-			return new Stick(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, clayMoldRecipes))
-		{
-			return new ClayMold(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, basaltHammerRecipes))
-		{
-			return new BasaltHammer(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, clayMoldSwordRecipes))
-		{
-			return new ClayMoldSword(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodPotHerbRecipes))
-		{
-			return new WoodPotHerb(1, 0, 576);
-		}
-
-		if(updateCrafting(craftingItems, tools, woodPotMushroomRedRecipes))
-		{
-			return new WoodPotMushroomRed(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodPotMushroomBlueRecipes))
-		{
-			return new WoodPotMushroomBlue(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, clayMoldPickaxeRecipes))
-		{
-			return new ClayMoldPickaxe(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, clayMoldAxeRecipes))
-		{
-			return new ClayMoldAxe(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, needleRecipes))
-		{
-			return new Needle(1, 0, 576);
+			if(updateCrafting(craftingItems, tools, recipes4[i]))
+			{
+				return recipes4[i][0].getTarget();
+			}
 		}
 		
 		return null;
@@ -3650,6 +3981,53 @@ public class CheckCraftings
 		}
 		
 		return null;
+	}
+	
+	public ArrayList<Item> itemOnCraftings4(Item item)
+	{
+		ArrayList<Item> items = new ArrayList<Item>();
+		
+		boolean isbreak = false;
+		
+		for(int i = 0; i < recipes4.length; i++)
+		{
+			for(int j = 0; j < recipes4[i].length; j++)
+			{
+				for(int y = 0; y < 2; y++)
+				{
+					for(int x = 0; x < 2; x++)
+					{
+						if(recipes4[i][j].getItem(y, x) != null)
+						{	
+							if(recipes4[i][j].getItem(y, x).getClass() == item.getClass())
+							{
+								items.add(recipes4[i][j].getTarget());
+								
+								isbreak = true;
+								break;
+							}
+						}
+					}
+					
+					if(isbreak)
+					{
+						break;
+					}
+				}
+				
+				if(isbreak)
+				{
+					break;
+				}
+			}
+			
+			if(isbreak)
+			{
+				isbreak = false;
+			}
+		}
+		
+		return items;
 	}
 	
 	public boolean updateCrafting(Item[][] craftingItems, Item[] tools, CraftingItemsSlots[] recipes)

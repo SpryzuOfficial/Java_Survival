@@ -723,6 +723,15 @@ public class UiInventoryManager
 				}
 			}
 			
+			if(itemCraftingCheck != null)
+			{
+				ArrayList<Item> items = checkCraftings.itemOnCraftings4(itemCraftingCheck);
+				for(int i = 0; i < items.size(); i++)
+				{
+					System.out.println(items.get(i).toString());
+				}
+			}
+			
 			if(inventoryItemHolded != null)
 			{
 				inventoryItemHolded.setX(iccInventorySlot.getX());
