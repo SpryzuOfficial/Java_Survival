@@ -3800,14 +3800,28 @@ public class CheckCraftings
 																		  ),
 												};
 	
+	public CraftingItemsSlots[][] recipes9 = new CraftingItemsSlots[][] {stringRecipesTable, sandpaperRecipesTable, axeRecipesTable, pickaxeRecipesTable,
+		knifeRecipesTable, hammerRecipesTable, woodTableRecipesTable, nailsRecipesTable, tableRecipesTable, woodPlankRecipesTable, polishedBasaltRecipesTable,
+		ovenRecipesTable, anvilRecipesTable, stickRecipesTable, clayMoldRecipesTable, basaltHammerRecipesTable, basaltTrayRecipesTable, woodSwordTemplateRecipesTable,
+		clayMoldSwordRecipesTable, rockFoodTrayRecipesTable, rockPotRecipesTable, woodPotRecipesTable, woodPotHerbRecipesTable, woodPotMushroomRedRecipesTable, woodPotMushroomBlueRecipesTable,
+		woodPickaxeTemplateRecipesTable, clayMoldPickaxeRecipesTable, woodAxeTemplateRecipesTable, clayMoldAxeRecipesTable, chestRecipesTable, needleRecipesTable, 
+		leatherVestRecipesTable, leatherHatRecipesTable};
+	
 	public Item checkCrafting(Item[][] craftingItems, Item[] tools)
 	{	
-		for(int i = 0; i < recipes4.length; i++)
+		try 
 		{
-			if(updateCrafting(craftingItems, tools, recipes4[i]))
+			for(int i = 0; i < recipes4.length; i++)
 			{
-				return recipes4[i][0].getTarget();
+				if(updateCrafting(craftingItems, tools, recipes4[i]))
+				{
+					return recipes4[i][0].getTarget().clone();
+				}
 			}
+		}
+		catch(Exception e) 
+		{
+			
 		}
 		
 		return null;
@@ -3815,177 +3829,27 @@ public class CheckCraftings
 	
 	public Item checkCraftingTable(Item[][] craftingItems, Item[] tools)
 	{
-		if(updateCrafting(craftingItems, tools, stringRecipesTable))
+		try 
 		{
-			return new StringItem(1, 0, 576);
+			for(int i = 0; i < recipes9.length; i++)
+			{
+				if(updateCrafting(craftingItems, tools, recipes9[i]))
+				{
+					return recipes9[i][0].getTarget().clone();
+				}
+			}
 		}
-		
-		if(updateCrafting(craftingItems, tools, sandpaperRecipesTable))
+		catch(Exception e) 
 		{
-			return new Sandpaper(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, axeRecipesTable))
-		{
-			return new Axe(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, pickaxeRecipesTable))
-		{
-			return new Pickaxe(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, knifeRecipesTable))
-		{
-			return new Knife(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, hammerRecipesTable))
-		{
-			return new Hammer(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodTableRecipesTable))
-		{
-			return new WoodTable(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, nailsRecipesTable))
-		{
-			return new Nail(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, tableRecipesTable))
-		{
-			return new Table(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodPlankRecipesTable))
-		{
-			return new WoodPlank(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, polishedBasaltRecipesTable))
-		{
-			return new PolishedBasalt(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, ovenRecipesTable))
-		{
-			return new Oven(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, anvilRecipesTable))
-		{
-			return new Anvil(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, stickRecipesTable))
-		{
-			return new Stick(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, clayMoldRecipesTable))
-		{
-			return new ClayMold(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, basaltHammerRecipesTable))
-		{
-			return new BasaltHammer(0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, basaltTrayRecipesTable))
-		{
-			return new BasaltTray(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodSwordTemplateRecipesTable))
-		{
-			return new WoodSwordTemplate(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, clayMoldSwordRecipesTable))
-		{
-			return new ClayMoldSword(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, rockFoodTrayRecipesTable))
-		{
-			return new RockFoodTray(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, rockPotRecipesTable))
-		{
-			return new RockPot(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodPotRecipesTable))
-		{
-			return new WoodPot(4, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodPotHerbRecipesTable))
-		{
-			return new WoodPotHerb(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodPotMushroomRedRecipesTable))
-		{
-			return new WoodPotMushroomRed(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodPotMushroomBlueRecipesTable))
-		{
-			return new WoodPotMushroomBlue(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodPickaxeTemplateRecipesTable))
-		{
-			return new WoodPickaxeTemplate(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, clayMoldPickaxeRecipesTable))
-		{
-			return new ClayMoldPickaxe(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, woodAxeTemplateRecipesTable))
-		{
-			return new WoodAxeTemplate(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, clayMoldAxeRecipesTable))
-		{
-			return new ClayMoldAxe(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, chestRecipesTable))
-		{
-			return new Chest(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, needleRecipesTable))
-		{
-			return new Needle(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, leatherVestRecipesTable))
-		{
-			return new LeatherVest(1, 0, 576);
-		}
-		
-		if(updateCrafting(craftingItems, tools, leatherHatRecipesTable))
-		{
-			return new LeatherHat(1, 0, 576);
+			
 		}
 		
 		return null;
 	}
 	
-	public ArrayList<Item> itemOnCraftings4(Item item)
+	public ArrayList<CraftingItemsSlots> itemOnCraftings4(Item item)
 	{
-		ArrayList<Item> items = new ArrayList<Item>();
+		ArrayList<CraftingItemsSlots> items = new ArrayList<CraftingItemsSlots>();
 		
 		boolean isbreak = false;
 		
@@ -4001,10 +3865,31 @@ public class CheckCraftings
 						{	
 							if(recipes4[i][j].getItem(y, x).getClass() == item.getClass())
 							{
-								items.add(recipes4[i][j].getTarget());
+								items.add(recipes4[i][j]);
 								
 								isbreak = true;
 								break;
+							}
+							else
+							{
+								for(int k = 0; k < recipes4[i][j].getTools().length; k++)
+								{
+									if(recipes4[i][j].getTool(k) != null)
+									{
+										if(recipes4[i][j].getTool(k).getClass() == item.getClass())
+										{
+											items.add(recipes4[i][j]);
+											
+											isbreak = true;
+											break;
+										}
+									}
+								}
+								
+								if(isbreak)
+								{
+									break;
+								}
 							}
 						}
 					}

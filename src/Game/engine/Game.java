@@ -21,7 +21,7 @@ public class Game implements Runnable
 	private static final int TAWIDTH = TVSWIDTH / 64, TAHEIGHT = TVSHEIGHT / 64;
 	private static final int VSWIDTH = 704, VSHEIGHT = 704; 
 	
-	private Display display;
+	public static Display display;
 	public static int width, height;
 	public static String title;
 	
@@ -79,6 +79,7 @@ public class Game implements Runnable
 		display.getFrame().addMouseMotionListener(mouseManager);
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
+		display.getCanvas().addMouseWheelListener(mouseManager);
 		
 		Assets.init();
 		UiInventoryManager.init();

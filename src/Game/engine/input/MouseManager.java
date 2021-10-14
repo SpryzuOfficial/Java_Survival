@@ -3,8 +3,12 @@ package Game.engine.input;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
-public class MouseManager implements MouseListener, MouseMotionListener 
+import Game.ui.UiInventoryManager;
+
+public class MouseManager implements MouseListener, MouseMotionListener, MouseWheelListener
 {
 	private boolean leftPressed, rightPressed;
 	private int mouseX, mouseY;
@@ -37,7 +41,7 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	}
 	
 	// Implemented methods
-	
+
 	@Override
 	public void mousePressed(MouseEvent e) 
 	{
@@ -61,6 +65,19 @@ public class MouseManager implements MouseListener, MouseMotionListener
 		else if(e.getButton() == MouseEvent.BUTTON3)
 		{
 			rightPressed = false;
+		}
+	}
+	
+	@Override
+	public void mouseWheelMoved(MouseWheelEvent e)
+	{
+		if(e.getWheelRotation() < 0)
+		{
+			UiInventoryManager.itemInitialY += 5;
+		}
+		else
+		{
+			UiInventoryManager.itemInitialY -= 5;
 		}
 	}
 
@@ -92,7 +109,6 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	@Override
 	public void mouseExited(MouseEvent e) 
 	{
-		
 		
 	}
 }

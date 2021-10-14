@@ -28,10 +28,10 @@ public class InventorySlot
 	
 	public boolean mouseCollision(int mouseX, int mouseY, Graphics g)
 	{
-		if(mouseX >= x + 12 &&
-		   mouseX <= x + 12 + width - 24 &&
-		   mouseY >= y + 14 &&
-		   mouseY <= y + 14 + height - 26)
+		if(mouseX >= x + (12 / (64 / this.width)) &&
+		   mouseX <= x + (12 / (64 / this.width)) + width - (24 / (64 / this.width)) &&
+		   mouseY >= y + (14 / (64 / this.height)) &&
+		   mouseY <= y + (14 / (64 / this.height)) + height - (26 / (64 / this.height)))
 		{
 			if(item != null)
 			{
