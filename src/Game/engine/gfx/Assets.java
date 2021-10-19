@@ -28,7 +28,8 @@ public class Assets
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer, ironSword, ironPickaxe, ironAxe;
 	
-	public static BufferedImage inventory, craftingtable, ovenUI, anvilUI, chestUI, nameFrame, pride, craftingOSlot, scroll, craftingM4;
+	public static BufferedImage inventory, craftingtable, ovenUI, anvilUI, chestUI, nameFrame, pride, craftingOSlot, scroll, craftingM4, craftingM9, 
+	lineScreen, ovenM3;
 	
 	public static void init()
 	{
@@ -49,6 +50,9 @@ public class Assets
 		craftingOSlot = ImageLoader.loadImage("/textures/craftingSlot.png");
 		scroll = ImageLoader.loadImage("/textures/scroll.png");
 		craftingM4 = ImageLoader.loadImage("/textures/craftingM4.png");
+		craftingM9 = ImageLoader.loadImage("/textures/craftingM9.png");
+		lineScreen = ImageLoader.loadImage("/textures/lineScreen.png");
+		ovenM3 = ImageLoader.loadImage("/textures/ovenM3.png");
 		
 		//Font
 		int x = 0;

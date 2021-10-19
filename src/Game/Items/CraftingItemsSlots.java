@@ -32,9 +32,4 @@ public class CraftingItemsSlots
 	{
 		return target;
 	}
-
-	public void setTarget(Item target) 
-	{
-		this.target = target;
-	}
 }

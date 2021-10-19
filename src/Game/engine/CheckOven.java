@@ -1,90 +1,80 @@
 package Game.engine;
 
+import java.util.ArrayList;
+
 import Game.Items.*;
-import Game.Items.OvenItemSlots;
 
 public class CheckOven 
 {
-	private OvenItemSlots ironRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new BasaltTray(1, 0, 576)});
+	private OvenItemSlots ironRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new BasaltTray(1, 0, 576)}, new IronBasaltTray(1, 0, 576));
 	
-	private OvenItemSlots ironSwordClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldSword(1, 0, 576)});
+	private OvenItemSlots ironSwordClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldSword(1, 0, 576)}, new IronSwordClay(1, 0, 576));
 	
-	private OvenItemSlots ironOreSwordClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldSword(1, 0, 576)});
+	private OvenItemSlots ironOreSwordClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldSword(1, 0, 576)}, new IronSwordClay(1, 0, 576));
 	
-	private OvenItemSlots sheepMeatRecipe = new OvenItemSlots(new SheepRawMeat(1, 0, 576), new Item[] {new RockFoodTray(1, 0, 576)});
+	private OvenItemSlots sheepMeatRecipe = new OvenItemSlots(new SheepRawMeat(1, 0, 576), new Item[] {new RockFoodTray(1, 0, 576)}, new RockSheepMeatTray(1, 0, 576));
 	
-	private OvenItemSlots herbRecipe = new OvenItemSlots(new Herbs(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)});
+	private OvenItemSlots herbRecipe = new OvenItemSlots(new Herbs(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)}, new RockPotHerb(1, 0, 576));
 	
-	private OvenItemSlots mushroomRedRecipe = new OvenItemSlots(new MushroomRed(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)});
+	private OvenItemSlots mushroomRedRecipe = new OvenItemSlots(new MushroomRed(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)}, new RockPotMushroomRed(1, 0, 576));
 	
-	private OvenItemSlots mushroomBlueRecipe = new OvenItemSlots(new MushroomBlue(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)});
+	private OvenItemSlots mushroomBlueRecipe = new OvenItemSlots(new MushroomBlue(1, 0, 576), new Item[] {new RockPotWater(1, 0, 576)}, new RockPotMushroomBlue(1, 0, 576));
 	
-	private OvenItemSlots ironPickaxeClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldPickaxe(1, 0, 576)});
+	private OvenItemSlots ironPickaxeClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldPickaxe(1, 0, 576)}, new IronPickaxeClay(1, 0, 576));
 	
-	private OvenItemSlots ironOrePickaxeClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldPickaxe(1, 0, 576)});
+	private OvenItemSlots ironOrePickaxeClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldPickaxe(1, 0, 576)}, new IronPickaxeClay(1, 0, 576));
 	
-	private OvenItemSlots ironAxeClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldAxe(1, 0, 576)});
+	private OvenItemSlots ironAxeClayRecipe = new OvenItemSlots(new Iron(1, 0, 576), new Item[] {new ClayMoldAxe(1, 0, 576)}, new IronAxeClay(1, 0, 576));
 	
-	private OvenItemSlots ironOreAxeClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldAxe(1, 0, 576)});
+	private OvenItemSlots ironOreAxeClayRecipe = new OvenItemSlots(new IronOre(1, 0, 576), new Item[] {new ClayMoldAxe(1, 0, 576)}, new IronAxeClay(1, 0, 576));
+	
+	public OvenItemSlots[] recipes = new OvenItemSlots[] {ironRecipe, ironSwordClayRecipe, ironOreSwordClayRecipe, sheepMeatRecipe,
+			herbRecipe, mushroomRedRecipe, mushroomBlueRecipe, ironPickaxeClayRecipe, ironOrePickaxeClayRecipe, ironAxeClayRecipe,
+			ironOreAxeClayRecipe};
 	
 	public Item checkOven(Item input, Item tray)
 	{
-		if(updateOven(input, tray, ironRecipe))
+		try
 		{
-			return new IronBasaltTray(1, 0, 576);
+			for(int i = 0; i < recipes.length; i++)
+			{
+				if(updateOven(input, tray, recipes[i]))
+				{
+					return recipes[i].getTarget().clone();
+				}
+			}
 		}
-		
-		if(updateOven(input, tray, ironSwordClayRecipe))
+		catch (Exception e) 
 		{
-			return new IronSwordClay(1, 0, 576);
-		}
 		
-		if(updateOven(input, tray, ironOreSwordClayRecipe))
-		{
-			return new IronSwordClay(1, 0, 576);
-		}
-		
-		if(updateOven(input, tray, sheepMeatRecipe))
-		{
-			return new RockSheepMeatTray(1, 0, 576);
-		}
-		
-		if(updateOven(input, tray, herbRecipe))
-		{
-			return new RockPotHerb(1, 0, 576);
-		}
-		
-		if(updateOven(input, tray, mushroomRedRecipe))
-		{
-			return new RockPotMushroomRed(1, 0, 576);
-		}
-		
-		if(updateOven(input, tray, mushroomBlueRecipe))
-		{
-			return new RockPotMushroomBlue(1, 0, 576);
-		}
-		
-		if(updateOven(input, tray, ironPickaxeClayRecipe))
-		{
-			return new IronPickaxeClay(1, 0, 576);
-		}
-		
-		if(updateOven(input, tray, ironOrePickaxeClayRecipe))
-		{
-			return new IronPickaxeClay(1, 0, 576);
-		}
-		
-		if(updateOven(input, tray, ironAxeClayRecipe))
-		{
-			return new IronAxeClay(1, 0, 576);
-		}
-		
-		if(updateOven(input, tray, ironOreAxeClayRecipe))
-		{
-			return new IronAxeClay(1, 0, 576);
 		}
 		
 		return null;
+	}
+	
+	public ArrayList<OvenItemSlots> itemOnOvensRecipes(Item item)
+	{
+		ArrayList<OvenItemSlots> items = new ArrayList<OvenItemSlots>();
+		
+		for(int i = 0; i < recipes.length; i++)
+		{
+			if(recipes[i].getInput().getClass() == item.getClass())
+			{
+				items.add(recipes[i]);
+				continue;
+			}
+			
+			for(int j = 0; j < recipes[i].getTrays().length; j++)
+			{
+				if(recipes[i].getTray(j).getClass() == item.getClass())
+				{
+					items.add(recipes[i]);
+					break;
+				}
+			}
+		}
+		
+		return items;
 	}
 	
 	private boolean updateOven(Item input, Item tray, OvenItemSlots recipes)

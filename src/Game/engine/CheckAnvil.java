@@ -1,38 +1,34 @@
 package Game.engine;
 
-import Game.Items.AnvilItemSlots;
 import Game.Items.*;
 
 public class CheckAnvil
 {
-	private AnvilItemSlots ironRecipe = new AnvilItemSlots(new IronBasaltTray(1, 0, 576), new BasaltHammer(0, 576));
+	private AnvilItemSlots ironRecipe = new AnvilItemSlots(new IronBasaltTray(1, 0, 576), new BasaltHammer(0, 576), new Iron(1, 0, 576));
 	
-	private AnvilItemSlots ironSwordRecipe = new AnvilItemSlots(new IronSwordClay(1, 0, 576), new BasaltHammer(0, 576));
+	private AnvilItemSlots ironSwordRecipe = new AnvilItemSlots(new IronSwordClay(1, 0, 576), new BasaltHammer(0, 576), new IronSword(0, 576));
 	
-	private AnvilItemSlots ironPickaxeRecipe = new AnvilItemSlots(new IronPickaxeClay(1, 0, 576), new BasaltHammer(0, 576));
+	private AnvilItemSlots ironPickaxeRecipe = new AnvilItemSlots(new IronPickaxeClay(1, 0, 576), new BasaltHammer(0, 576), new IronPickaxe(0, 576));
 	
-	private AnvilItemSlots ironAxeRecipe = new AnvilItemSlots(new IronAxeClay(1, 0, 576), new BasaltHammer(0, 576));
+	private AnvilItemSlots ironAxeRecipe = new AnvilItemSlots(new IronAxeClay(1, 0, 576), new BasaltHammer(0, 576), new IronAxe(0, 576));
+	
+	public AnvilItemSlots[] recipes = new AnvilItemSlots[] {ironRecipe, ironSwordRecipe, ironPickaxeRecipe, ironAxeRecipe};
 	
 	public Item checkAnvil(Item input, Item tool)
 	{
-		if(updateAnvil(input, tool, ironRecipe))
+		try
 		{
-			return new Iron(1, 0, 576);
+			for(int i = 0; i < recipes.length; i++)
+			{
+				if(updateAnvil(input, tool, recipes[i]))
+				{
+					return recipes[i].getTarget().clone();
+				}
+			}
 		}
-		
-		if(updateAnvil(input, tool, ironSwordRecipe))
+		catch (Exception e) 
 		{
-			return new IronSword(0, 576);
-		}
 		
-		if(updateAnvil(input, tool, ironPickaxeRecipe))
-		{
-			return new IronPickaxe(0, 576);
-		}
-		
-		if(updateAnvil(input, tool, ironAxeRecipe))
-		{
-			return new IronAxe(0, 576);
 		}
 		
 		return null;

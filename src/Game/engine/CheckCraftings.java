@@ -3915,6 +3915,74 @@ public class CheckCraftings
 		return items;
 	}
 	
+	public ArrayList<CraftingItemsSlots> itemOnCraftings9(Item item)
+	{
+		ArrayList<CraftingItemsSlots> items = new ArrayList<CraftingItemsSlots>();
+		
+		boolean isbreak = false;
+		
+		for(int i = 0; i < recipes9.length; i++)
+		{
+			for(int j = 0; j < recipes9[i].length; j++)
+			{
+				for(int y = 0; y < 3; y++)
+				{
+					for(int x = 0; x < 3; x++)
+					{
+						if(recipes9[i][j].getItem(y, x) != null)
+						{	
+							if(recipes9[i][j].getItem(y, x).getClass() == item.getClass())
+							{
+								items.add(recipes9[i][j]);
+								
+								isbreak = true;
+								break;
+							}
+							else
+							{
+								for(int k = 0; k < recipes9[i][j].getTools().length; k++)
+								{
+									if(recipes9[i][j].getTool(k) != null)
+									{
+										if(recipes9[i][j].getTool(k).getClass() == item.getClass())
+										{
+											items.add(recipes9[i][j]);
+											
+											isbreak = true;
+											break;
+										}
+									}
+								}
+								
+								if(isbreak)
+								{
+									break;
+								}
+							}
+						}
+					}
+					
+					if(isbreak)
+					{
+						break;
+					}
+				}
+				
+				if(isbreak)
+				{
+					break;
+				}
+			}
+			
+			if(isbreak)
+			{
+				isbreak = false;
+			}
+		}
+		
+		return items;
+	}
+	
 	public boolean updateCrafting(Item[][] craftingItems, Item[] tools, CraftingItemsSlots[] recipes)
 	{
 		boolean band = true;
