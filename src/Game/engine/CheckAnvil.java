@@ -1,5 +1,7 @@
 package Game.engine;
 
+import java.util.ArrayList;
+
 import Game.Items.*;
 
 public class CheckAnvil
@@ -32,6 +34,28 @@ public class CheckAnvil
 		}
 		
 		return null;
+	}
+	
+	public ArrayList<AnvilItemSlots> itemOnAnvilsRecipes(Item item)
+	{
+		ArrayList<AnvilItemSlots> items = new ArrayList<AnvilItemSlots>();
+		
+		for(int i = 0; i < recipes.length; i++)
+		{
+			if(recipes[i].getInput().getClass() == item.getClass())
+			{
+				items.add(recipes[i]);
+				continue;
+			}
+			
+			if(recipes[i].getTool().getClass() == item.getClass())
+			{
+				items.add(recipes[i]);
+				continue;
+			}
+		}
+		
+		return items;
 	}
 	
 	public boolean updateAnvil(Item input, Item tool, AnvilItemSlots recipe)
