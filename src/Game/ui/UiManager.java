@@ -11,6 +11,7 @@ public class UiManager
 	public static BufferedImage[] numbers = new BufferedImage[] {Assets.num0, Assets.num1, Assets.num2, Assets.num3, Assets.num4, Assets.num5, Assets.num6, Assets.num7, Assets.num8, Assets.num9};
 	public static BufferedImage uiImage;
 	public static boolean ePressed;
+	public static boolean pPressed;
 	
 	public UiManager() 
 	{ 
@@ -38,8 +39,21 @@ public class UiManager
 			 			ePressed = false;
 			 		}
 			 	}
+				
+				if(Game.keyManager.p)
+				{
+					if(!pPressed)
+					{
+						uiImage = Assets.pause;
+						pPressed = true;
+					}
+				}
+				else if(pPressed)
+				{
+					pPressed = false;
+				}
 			}
-			else
+			else if(uiImage != Assets.pause)
 			{
 				if(Game.keyManager.e)
 				{
@@ -55,6 +69,21 @@ public class UiManager
 					{
 						ePressed = false;
 					}
+				}
+			}
+			else if(uiImage == Assets.pause)
+			{
+				if(Game.keyManager.p)
+				{
+					if(!pPressed)
+					{
+						uiImage = null;
+						pPressed = true;
+					}
+				}
+				else if(pPressed)
+				{
+					pPressed = false;
 				}
 			}
 		}

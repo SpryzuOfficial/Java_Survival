@@ -30,7 +30,7 @@ public class Player extends Entity
 	{
 		if(Game.keyManager.shift)
 		{
-			if(stamina > 0)
+			if(stamina > -10)
 			{
 				virtualSpace.setSpeed(6);
 			}

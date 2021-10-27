@@ -139,53 +139,89 @@ public class Game implements Runnable
 			
 		}
 	 	
-	 	if(player.getFood() > 0)
+	 	if(UiManager.uiImage != Assets.pause)
 	 	{
-	 		player.setFood(player.getFood() - player.getFoodPerF());
-	 		player.setLifePerF(0.0);
-	 	}
-	 	else
-	 	{
-	 		player.setFood(0);
-	 		player.setLifePerF(0.01);
-	 	}
+		 	if(player.getFood() > 0)
+		 	{
+		 		player.setFood(player.getFood() - player.getFoodPerF());
+		 		player.setLifePerF(0.0);
+		 	}
+		 	else
+		 	{
+		 		player.setFood(0);
+		 		player.setLifePerF(0.01);
+		 	}
+		 	
+		 	if(player.getLife() > 0)
+		 	{
+		 		player.setLife(player.getLife() - player.getLifePerF());
+		 	}
+		 	else
+		 	{
+		 		player.setLife(0);
+		 	}
+		 	
+		 	player.setStamina(player.getStamina() - player.getStaminaPerF());
+		 	
+		 	if(player.getStamina() > 100)
+		 	{
+		 		player.setStamina(100);
+		 	}
+		 	
+		 	if(player.getStamina() < 0)
+		 	{
+		 		player.setStamina(0);
+		 	}
+		 	
+		 	if(UiManager.uiImage == null)
+		 	{
+		 		TileManager.tick();
+		 	}
+		 	
+			AnimalsManager.tick();
 	 	
-	 	if(player.getLife() > 0)
-	 	{
-	 		player.setLife(player.getLife() - player.getLifePerF());
-	 	}
-	 	else
-	 	{
-	 		player.setLife(0);
-	 	}
-	 	
-	 	player.setStamina(player.getStamina() - player.getStaminaPerF());
-	 	
-	 	if(player.getStamina() > 100)
-	 	{
-	 		player.setStamina(100);
-	 	}
-	 	
-	 	if(player.getStamina() < 0)
-	 	{
-	 		player.setStamina(0);
-	 	}
-	 	
-	 	if(UiManager.uiImage == null)
-	 	{
-	 		TileManager.tick();
-	 	}
-	 	
- 		AnimalsManager.tick();
  		
- 		if(UiManager.uiImage != null)
- 		{
-	 		for(int i = 0; i < generateWorld.getOvens().size(); i++)
+	 		if(UiManager.uiImage != null)
 	 		{
-	 			generateWorld.getFromOven(i).tick();
+		 		for(int i = 0; i < generateWorld.getOvens().size(); i++)
+		 		{
+		 			generateWorld.getFromOven(i).tick();
+		 		}
 	 		}
- 		}
- 		
+	 		
+	 		if(tickC == 240)
+			{
+				if(isDay)
+				{
+					if(alpha == 220)
+					{
+						isDay = false;
+					}
+					else
+					{
+						alpha++;
+					}
+				}
+				else
+				{
+					if(alpha == 0)
+					{
+						isDay = true;
+					}
+					else
+					{
+						alpha--;
+					}
+				}
+				
+				tickC = 0;
+			}
+			else
+			{
+				tickC++;
+			}
+	 	}
+	 	
  		if(UiManager.uiImage == null)
 	 	{
  			StaticEntitiesManager.tick();
@@ -245,38 +281,6 @@ public class Game implements Runnable
 		Color skyColor = new Color(68, 51, 85, alpha);
 		g.setColor(skyColor);
 		g.fillRect(0, 0, width, height);
-		
-		if(tickC == 240)
-		{
-			if(isDay)
-			{
-				if(alpha == 220)
-				{
-					isDay = false;
-				}
-				else
-				{
-					alpha++;
-				}
-			}
-			else
-			{
-				if(alpha == 0)
-				{
-					isDay = true;
-				}
-				else
-				{
-					alpha--;
-				}
-			}
-			
-			tickC = 0;
-		}
-		else
-		{
-			tickC++;
-		}
 		
 		///*
 		g.setColor(Color.LIGHT_GRAY);

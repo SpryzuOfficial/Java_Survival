@@ -7,7 +7,7 @@ public class KeyManager implements KeyListener
 {
 	
 	private boolean[] keys;
-	public boolean up, down, left, right, num1, num2, num3, num4, num5, e, shift, f, c;
+	public boolean up, down, left, right, num1, num2, num3, num4, num5, e, shift, f, c, p;
 	
 	public KeyManager()
 	{
@@ -29,6 +29,7 @@ public class KeyManager implements KeyListener
 		shift = keys[KeyEvent.VK_SHIFT];
 		f = keys[KeyEvent.VK_F];
 		c = keys[KeyEvent.VK_C];
+		p = keys[KeyEvent.VK_ESCAPE];
 	}
 
 	@Override

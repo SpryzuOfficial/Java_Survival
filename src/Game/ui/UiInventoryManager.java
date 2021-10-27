@@ -266,6 +266,7 @@ public class UiInventoryManager
 		{
 			if(!cPressed)
 			{
+				///*
 				//Game.player.setFood(0);
 				addItem(new Pickaxe(0, 576));
 				addItem(new Axe(0, 576));
@@ -295,7 +296,9 @@ public class UiInventoryManager
 				//addItem(new IronBasaltTray(1, 0, 576));
 				//addItem(new LeatherHat(1, 0, 576));
 				//addItem(new LeatherVest(1, 0, 576));
+				//*/
 				cPressed = true;
+				
 			}
 		}
 		else if(cPressed)
@@ -5846,6 +5849,19 @@ public class UiInventoryManager
 			if(inventoryItemHolded != null)
 			{
 				renderItem(g, inventoryItemHolded, Game.mouseManager.getMouseX() - 32, Game.mouseManager.getMouseY() - 32);
+			}
+		}
+		else if(UiManager.uiImage == Assets.pause)
+		{
+			g.drawImage(UiManager.uiImage, 0, 64, 704, 576, null);
+			
+			int initialX = 80;
+			int initialY = 115;
+			ArrayList<BufferedImage> word =  UiManager.stringToImage("Pause");
+			
+			for(int i = 0; i < word.size(); i++)
+			{
+				g.drawImage(word.get(i), initialX + (i * 32), initialY, 128, 128, null);
 			}
 		}
 		else
