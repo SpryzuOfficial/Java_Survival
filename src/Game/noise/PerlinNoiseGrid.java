@@ -7,12 +7,13 @@ import java.util.Random;
 public class PerlinNoiseGrid 
 {
     public static GradientType gtype = GradientType.CROSS;
-    static Random rand = new Random();
+    static Random rand;
 
     public GradientPoint topleft, topright, bottomleft, bottomright;
 
-    public PerlinNoiseGrid() 
+    public PerlinNoiseGrid(int seed) 
     {
+    	rand = new Random(seed);
         init();
     }
     public void genGradientVectors() 

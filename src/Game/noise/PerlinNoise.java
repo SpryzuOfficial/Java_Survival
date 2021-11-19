@@ -1,7 +1,12 @@
 package Game.noise;
 
+import java.util.Random;
+
 public class PerlinNoise
 {
+	private Random random;
+	private int seed;
+	
 	public void setGradient(GradientType type) 
 	{
         PerlinNoiseGrid.gtype = type;
@@ -16,8 +21,10 @@ public class PerlinNoise
 
     private PerlinNoiseGrid[][] table;
 
-    public PerlinNoise() 
+    public PerlinNoise(int seed) 
     {
+    	this.seed = seed;
+    	this.random = new Random(seed);
         wDim = width/wgrids;
         hDim = height/hgrids;
         init();
@@ -95,7 +102,7 @@ public class PerlinNoise
         {
             for(int j = 0 ; j < table[0].length; j++)
             {
-                table[i][j] = new PerlinNoiseGrid();
+                table[i][j] = new PerlinNoiseGrid(this.random.nextInt());
             }
         }
     }

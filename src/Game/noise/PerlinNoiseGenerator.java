@@ -93,7 +93,7 @@ public class PerlinNoiseGenerator
             p_imp[j] = k;
         }
 
-        initPerlin1();
+        initPerlin1(rand);
     }
 
     /**
@@ -593,7 +593,7 @@ public class PerlinNoiseGenerator
     /**
      * Initialise the lookup arrays used by Perlin 1 function.
      */
-    private void initPerlin1()
+    private void initPerlin1(Random rand)
     {
         p = new int[B + B + 2];
         g3 = new float[B + B + 2][3];
@@ -604,22 +604,22 @@ public class PerlinNoiseGenerator
         for(i = 0; i < B; i++)
         {
             p[i] = i;
-
-            g1[i] = (float)(((Math.random() * Integer.MAX_VALUE) % (B + B)) - B) / B;
-
+            
+            g1[i] = (float)(((rand.nextDouble() * Integer.MAX_VALUE) % (B + B)) - B) / B;
+            
             for(j = 0; j < 2; j++)
-                g2[i][j] = (float)(((Math.random() * Integer.MAX_VALUE) % (B + B)) - B) / B;
+                g2[i][j] = (float)(((rand.nextDouble() * Integer.MAX_VALUE) % (B + B)) - B) / B;
             normalize2(g2[i]);
 
             for(j = 0; j < 3; j++)
-                g3[i][j] = (float)(((Math.random() * Integer.MAX_VALUE) % (B + B)) - B) / B;
+                g3[i][j] = (float)(((rand.nextDouble() * Integer.MAX_VALUE) % (B + B)) - B) / B;
             normalize3(g3[i]);
         }
 
         while(--i > 0)
         {
             k = p[i];
-            j = (int)((Math.random() * Integer.MAX_VALUE) % B);
+            j = (int)((rand.nextDouble() * Integer.MAX_VALUE) % B);
             p[i] = p[j];
             p[j] = k;
         }

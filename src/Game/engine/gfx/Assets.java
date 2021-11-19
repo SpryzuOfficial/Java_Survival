@@ -14,7 +14,7 @@ public class Assets
 	public static BufferedImage dirt, grass, sand, water, rocks, magma;
 	
 	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE, plant, mushroomRedE, mushroomBlueE,
-	chestE, fruitBush, bush;
+	chestE, fruitBush, bush, superRock;
 	
 	public static BufferedImage nameFrameF, nameFrameI, nameFrameII, nameFrameE;
 	
@@ -105,6 +105,7 @@ public class Assets
 		chestE = tilesSESheet.crop(WIDTH * 6, HEIGHT, WIDTH, HEIGHT);
 		fruitBush = tilesSESheet.crop(WIDTH * 7, HEIGHT, WIDTH, HEIGHT);
 		bush = tilesSESheet.crop(WIDTH * 8, HEIGHT, WIDTH, HEIGHT);
+		superRock = tilesSESheet.crop(WIDTH * 9, HEIGHT, WIDTH, HEIGHT);
 		
 		//Entities
 		player = entitiesSheet.crop(0, 0, WIDTH, HEIGHT);

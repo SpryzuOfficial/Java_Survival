@@ -11,7 +11,6 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
-import Game.biomes.*;
 import Game.entities.*;
 import Game.noise.PerlinNoise;
 import Game.noise.PerlinNoiseGenerator;
@@ -33,13 +32,9 @@ public class GenerateWorld
 	public Double[][] blueNoise;
 	public int[][] temperature;
 	
-	//Biomes
-	private Forest forest;
-	private WetForest wetForest;
-	private Ocean ocean;
-	private Desert desert;
-	
 	private boolean istickocuped = false;
+	
+	private Random random_blue;
 	
 	public GenerateWorld(int W, int H)
 	{
@@ -53,18 +48,19 @@ public class GenerateWorld
 		worldMoisture = new Double[968][968];
 		blueNoise = new Double[968][968];
 		temperature = new int[968][968];
-		
-		this.forest = new Forest();
-		this.wetForest = new WetForest();
-		this.ocean = new Ocean();
-		this.desert = new Desert(); 
 	}
 	
 	public void generate()
 	{
-		PerlinNoiseGenerator noise = new PerlinNoiseGenerator();
-		PerlinNoiseGenerator noiseMoisture = new PerlinNoiseGenerator();
-		PerlinNoise bluenoise = new PerlinNoise();
+		int seed = new Random().nextInt();
+		//int seed = 666;
+		
+		System.out.println(seed);
+		
+		random_blue = new Random(seed);
+		PerlinNoiseGenerator noise = new PerlinNoiseGenerator(seed);
+		PerlinNoiseGenerator noiseMoisture = new PerlinNoiseGenerator(seed);
+		PerlinNoise bluenoise = new PerlinNoise(seed);
 		
 		try
 		{
@@ -72,19 +68,64 @@ public class GenerateWorld
 			FileWriter chunksValues = new FileWriter("chunksV.txt");
 			FileWriter chunksMoisture = new FileWriter("chunksM.txt");
 			FileWriter tilesFile = new FileWriter("tiles.txt");
+			FileWriter blueNoiseFile = new FileWriter("blue.txt");
 			
 			for(int i = 0; i < 968; i++)
 			{
 				for(int j = 0; j < 968; j++)
 				{
-					blueNoise[i][j] = bluenoise.noise(50*i, 50*j);
+					blueNoise[i][j] = bluenoise.noise(50 * i, 50 * j);
+					double b = blueNoise[i][j];
+					
+					if(b < 0.1)
+					{
+						blueNoiseFile.write("/");
+					}
+					else if(b < 0.2)
+					{
+						blueNoiseFile.write("1");
+					}
+					else if(b < 0.3)
+					{
+						blueNoiseFile.write("2");
+					}
+					else if(b < 0.4)
+					{
+						blueNoiseFile.write("3");
+					}
+					else if(b < 0.5)
+					{
+						blueNoiseFile.write("4");
+					}
+					else if(b < 0.6)
+					{
+						blueNoiseFile.write("5");
+					}
+					else if(b < 0.7)
+					{
+						blueNoiseFile.write("6");
+					}
+					else if(b < 0.8)
+					{
+						blueNoiseFile.write("7");
+					}
+					else if(b < 0.9)
+					{
+						blueNoiseFile.write("8");
+					}
+					else
+					{
+						blueNoiseFile.write("9");
+					}
 				}
+				blueNoiseFile.write("\n");
 			}
+			blueNoiseFile.close();
 			
-			int px[], py[], cells = 20, size = 968;
+			int px[], py[], cells = 40, size = 968;
 			int color[];
 			int n = 0;
-			Random rand = new Random();
+			Random rand = new Random(seed);
 			BufferedImage I = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
 			px = new int[cells];
 			py = new int[cells];
@@ -94,7 +135,7 @@ public class GenerateWorld
 			{
 				px[k] = rand.nextInt(size);
 				py[k] = rand.nextInt(size);
-				color[k] = rand.nextInt(100);
+				color[k] = (int)((k / (float) cells) * 100);
 			}
 			
 			for (int x = 0; x < size; x++) 
@@ -142,10 +183,21 @@ public class GenerateWorld
 				}
 			}
 			
+			/*
 			for(int k = 0; k < cells; k++)
 			{
 				System.out.println(color[k]);
 			}
+			
+			System.out.println("---");
+			
+			for(int k = 0; k < cells; k++)
+			{
+				System.out.println(px[k]);
+			}
+			
+			System.out.println("---");
+			*/
 			
 			Graphics2D g = I.createGraphics();
 			g.setColor(Color.BLACK);
@@ -163,22 +215,20 @@ public class GenerateWorld
 					double v = noise.turbulence2(i/120.6f, j/120.6f, 18.3f);
 					//double moisture = noiseMoisture.turbulence2(i*0.002f, j*0.002f, 0.38f);
 					
-					float c = 0.5f;
-					float f = 0.6f;
+					float c = 0.36f;
+					float f = 0.88f;
 					
-					float a = 0.4f;
+					float a = 0.35f;
 					
-					float[] w = new float[] {0.99f, 0.995f, 1f, 1.05f, 1.01f, 1.015f, 1.02f, 1.025f};
+					float[] w = new float[] {1f, 1f, 1f, 1f, 1f, 1f};
 					
-					double moisture = (w[0] * (noiseMoisture.turbulence2( 0.014f * i,  0.01f * j, a)/f + c)
-					           + w[1] * (noiseMoisture.turbulence2( 0.012f * i,  0.002f * j, a)/f + c)
-					           + w[2] * (noiseMoisture.turbulence2( 0.010f * i,  0.004f * j, a)/f + c)
-					           + w[3] * (noiseMoisture.turbulence2( 0.008f * i,  0.006f * j, a)/f + c)
-					           + w[4] * (noiseMoisture.turbulence2(0.006f * i, 0.008f * j, a)/f + c)
-					           + w[5] * (noiseMoisture.turbulence2(0.004f * i, 0.010f * j, a)/f + c)
-					           + w[6] * (noiseMoisture.turbulence2(0.002f * i, 0.012f * j, a)/f + c)
-					           + w[7] * (noiseMoisture.turbulence2(0.01f * i, 0.014f * j, a)/f + c));
-					moisture /= (w[0] + w[1] + w[2] + w[3] + w[4] + w[5] + w[6] + w[7]);
+					double moisture = (w[0] * (noiseMoisture.turbulence2( 0.001f * i,  0.001f * j, a)/f + c)
+					           + w[1] * (noiseMoisture.turbulence2( 0.002f * i,  0.002f * j, a)/f + c)
+					           + w[2] * (noiseMoisture.turbulence2( 0.004f * i,  0.004f * j, a)/f + c)
+					           + w[3] * (noiseMoisture.turbulence2( 0.008f * i,  0.008f * j, a)/f + c)
+					           + w[4] * (noiseMoisture.turbulence2(0.016f * i, 0.016f * j, a)/f + c)
+					           + w[5] * (noiseMoisture.turbulence2(0.032f * i, 0.032f * j, a)/f + c));
+					moisture /= (w[0] + w[1] + w[2] + w[3] + w[4] + w[5]);
 					
 					worldNoises[i][j] = v;
 					worldMoisture[i][j] = moisture;
@@ -194,94 +244,272 @@ public class GenerateWorld
 						{
 							if(temperature[i][j] == 0)
 							{
-								if(v < 0.2)
+								if(moisture < 0.4)
 								{
-									tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("^");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else if(v < 0.5)
+									{
+										generateWetForestEntities(j, i);
+										
+										tiles[i][j] = new Dirt(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("$");
+									}
+									else
+									{
+										tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("W");
+									}
 								}
-								else if(v < 0.5)
+								else if(moisture < 0.7)
 								{
-									tiles[i][j] = new Dirt(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("$");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else
+									{
+										generateForestEntities(j, i);
+										
+										tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("G");
+									}
 								}
 								else
 								{
-									tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("W");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else
+									{
+										generateRockEntities(j, i);
+										
+										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("+");
+									}
 								}
 							}
 							else if(temperature[i][j] == 1)
 							{
-								if(v < 0.2)
+								if(moisture < 0.4)
 								{
-									tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("^");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else
+									{
+										generateWetForestEntities(j, i);
+										
+										tiles[i][j] = new Dirt(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("$");
+									}
+								}
+								else if(moisture < 0.7)
+								{
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else if(v < 0.4)
+									{
+										generateForestEntities(j, i);
+										
+										tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("G");
+									}
+									else
+									{
+										generateRockEntities(j, i);
+										
+										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("+");
+									}
 								}
 								else
 								{
-									tiles[i][j] = new Dirt(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("$");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else
+									{
+										generateForestEntities(j, i);
+										
+										tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("G");
+									}
 								}
 							}
 							else if(temperature[i][j] == 2)
 							{
-								if(v < 0.2)
+								if(moisture < 0.7)
 								{
-									tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("^");
-								}
-								else if(v < 0.4)
-								{
-									tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("G");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else if(v < 0.4)
+									{
+										generateForestEntities(j, i);
+										
+										tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("G");
+									}
+									else
+									{
+										generateRockEntities(j, i);
+									
+										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("+");
+									}
 								}
 								else
 								{
-									tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("+");
+									generateDesertEntities(j, i);
+									
+									tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+									tilesFile.write("^");
 								}
 							}
 							else if(temperature[i][j] == 3)
 							{
-								if(v < 0.2)
+								if(moisture < 0.7)
 								{
-									tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("^");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else
+									{
+										generateRockEntities(j, i);
+										
+										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("+");
+									}
 								}
 								else
 								{
-									tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("+");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else if(v < 0.3)
+									{
+										generateRockEntities(j, i);
+										
+										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("+");
+									}
+									else
+									{
+										tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("*");
+									}
 								}
 							}
 							else if(temperature[i][j] == 4)
 							{
-								tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-								tilesFile.write("^");
-							}
-							else if(temperature[i][j] == 5)
-							{
-								if(v < 0.2)
+								if(moisture < 0.5)
 								{
+									generateDesertEntities(j, i);
+									
 									tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 									tilesFile.write("^");
 								}
-								else if(v < 0.3)
+								else
 								{
-									tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("+");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else
+									{
+										generateRockEntities(j, i);
+										
+										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("+");
+									}
+								}
+							}
+							else if(temperature[i][j] == 5)
+							{
+								if(moisture < 0.7)
+								{
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else if(v < 0.3)
+									{
+										generateRockEntities(j, i);
+										
+										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("+");
+									}
+									else
+									{
+										tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("*");
+									}
 								}
 								else
 								{
-									tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-									tilesFile.write("*");
+									if(v < 0.2)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else
+									{
+										tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("*");
+									}
 								}
 							}
 						}
 					}
 					else
 					{
-						sEntities.add(new Rock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
+						sEntities.add(new SuperRock(j*64, i*64, j*64 - Game.virtualSpace.getX(), i*64 - Game.virtualSpace.getY()));
 						SESIZE++;
 						
 						tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
@@ -408,8 +636,132 @@ public class GenerateWorld
 		{
 			System.err.println(e);
 		}
+	}
+	
+	private void generateForestEntities(int x, int y)
+	{
+		if(generateEntitiesByR(y, x, 9) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new Plant(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
 		
-		System.out.println(ASIZE);
+		if(generateEntitiesByR(y, x, 7) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new FruitBush(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 5) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new Rock(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 4) && !istickocuped)
+		{
+			istickocuped = true;
+			animals.add(new Sheep(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			ASIZE++;
+		}
+		if(generateEntitiesByR(y, x, 2) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new Tree(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+	}
+	
+	private void generateWetForestEntities(int x, int y)
+	{
+		if(generateEntitiesByR(y, x, 13) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new MushroomBlueE(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 9) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new MushroomRedE(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 4) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new ClayE(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 1) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new Tree(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+	}
+	
+	private void generateRockEntities(int x, int y)
+	{
+		if(generateEntitiesByR(y, x, 12) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new IronOreE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 4) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new BasaltE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 2) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new Rock((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+	}
+	
+	private void generateDesertEntities(int x, int y)
+	{
+		if(generateEntitiesByR(y, x, 17) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new IronOreE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 5) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new BasaltE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+		
+		if(generateEntitiesByR(y, x, 3) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new Rock((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
+	}
+	
+	private void generateEdgeEntities(int x, int y)
+	{
+		if(generateEntitiesByR(y, x, 4) && !istickocuped)
+		{
+			istickocuped = true;
+			sEntities.add(new Rock((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			SESIZE++;
+		}
 	}
 	
 	public Tile[][] getTiles()
@@ -482,7 +834,7 @@ public class GenerateWorld
 				}
 			}
 			
-			if (Math.abs(blueNoise[i][j] - max) < (max * Math.random() * 0.03))
+			if (Math.abs(blueNoise[i][j] - max) < (max * random_blue.nextDouble() * 0.03))
 			{
 				return true;
 		    }
@@ -495,8 +847,8 @@ public class GenerateWorld
 	{
 		double d;
 		d = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)); // Euclidian
-	//  d = Math.abs(x1 - x2) + Math.abs(y1 - y2); // Manhattan
-	//	d = Math.pow(Math.pow(Math.abs(x1 - x2), p) + Math.pow(Math.abs(y1 - y2), p), (1 / p)); // Minkovski
+	//	d = Math.abs(x1 - x2) + Math.abs(y1 - y2); // Manhattan
+	//	d = Math.pow(Math.pow(Math.abs(x1 - x2), 3) + Math.pow(Math.abs(y1 - y2), 3), (1 / 3)); // Minkovski
 	  	return d;
 	}
 }

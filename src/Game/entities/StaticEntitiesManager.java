@@ -16,7 +16,7 @@ public class StaticEntitiesManager
 	public static float destructionBarValue = 0;
 	private static int miningValue = 1;
 	
-	public static int framesLastUpdate = 320;
+	public static int framesLastUpdate = 240;
 	
 	public StaticEntitiesManager() 
 	{
@@ -25,7 +25,7 @@ public class StaticEntitiesManager
 	
 	public static void tick()
 	{	
-		if(framesLastUpdate == 320)
+		if(framesLastUpdate == 240)
 		{
 			index = new ArrayList<Integer>();
 			for(int i = 0; i < Game.generateWorld.SESIZE; i++)
@@ -34,7 +34,7 @@ public class StaticEntitiesManager
 				
 				c /= 64;
 				
-				if(c < 32)
+				if(c < 48)
 				{
 					index.add(i);
 				}
@@ -77,7 +77,7 @@ public class StaticEntitiesManager
 					}
 				}
 				
-				if(!otherEMining || i == otherEMiningId)
+				if((!otherEMining || i == otherEMiningId) && entity.getMiningTime() != 0)
 				{
 					Game.pointerX = entity.getX() + entity.getPointerOffx();	
 					Game.pointerY = entity.getY() + entity.getPointerOffy();

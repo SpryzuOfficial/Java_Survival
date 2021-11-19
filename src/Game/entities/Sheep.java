@@ -1,11 +1,16 @@
 package Game.entities;
 
+import java.util.Random;
+
 import Game.Items.*;
 import Game.engine.gfx.Assets;
 import Game.noise.PerlinNoise;
 
 public class Sheep extends Animal
 {
+	private Random rnd = new Random();
+	private int seed;
+	
 	public Sheep(int Vx, int Vy, int Gx, int Gy)
 	{
 		super(Assets.cow, Gx, Gy, Vx, Vy, 2, 10);
@@ -13,6 +18,8 @@ public class Sheep extends Animal
 		this.items.add(new Wool(1, 0, 576));
 		this.items.add(new SheepRawMeat(1, 0, 576));
 		this.items.add(new Leather(2, 0, 576));
+		
+		this.seed = rnd.nextInt();
 	}
 	
 	@Override
@@ -36,7 +43,7 @@ public class Sheep extends Animal
 			
 			if(punchedTimer > 0 && moveTimer <= 0)
 			{
-				PerlinNoise noise = new PerlinNoise();
+				PerlinNoise noise = new PerlinNoise(this.seed);
 				
 				int random = (int) (Math.random() * 10000 + 100);
 				double v = noise.noise(random*4, random*4);
@@ -75,7 +82,7 @@ public class Sheep extends Animal
 			
 			if(moveTimer <= 0 && pauseTimer <= 0 && punchedTimer <= 0)
 			{
-				PerlinNoise noise = new PerlinNoise();
+				PerlinNoise noise = new PerlinNoise(this.seed);
 				
 				int random = (int) (Math.random() * 10000 + 100);
 				double v = noise.noise(random*3, random*3);
