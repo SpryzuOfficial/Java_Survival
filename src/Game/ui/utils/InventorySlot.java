@@ -17,6 +17,8 @@ public class InventorySlot
 	private int width;
 	private int height;
 	
+	private boolean draw;
+	
 	public InventorySlot(int x, int y, int width, int height, Item item)
 	{
 		this.x = x;
@@ -24,6 +26,19 @@ public class InventorySlot
 		this.width = width;
 		this.height = height;
 		this.item = item;
+		
+		this.draw = true;
+	}
+	
+	public InventorySlot(int x, int y, int width, int height, Item item, boolean draw)
+	{
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+		this.item = item;
+		
+		this.draw = draw;
 	}
 	
 	public boolean mouseCollision(int mouseX, int mouseY, Graphics g)
@@ -33,7 +48,7 @@ public class InventorySlot
 		   mouseY >= y + (14 / (64 / this.height)) &&
 		   mouseY <= y + (14 / (64 / this.height)) + height - (26 / (64 / this.height)))
 		{
-			if(item != null)
+			if(item != null && this.draw)
 			{
 				ArrayList<BufferedImage> string = UiManager.stringToImage(item.toString());
 				

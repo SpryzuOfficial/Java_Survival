@@ -179,8 +179,8 @@ public class Game implements Runnable
 		 	}
 		 	
 			AnimalsManager.tick();
-	 	
- 		
+			ItemEntityManager.tick();
+			
 	 		if(UiManager.uiImage != null)
 	 		{
 		 		for(int i = 0; i < generateWorld.getOvens().size(); i++)
@@ -277,6 +277,8 @@ public class Game implements Runnable
 		g.fillRect(pointer.getX(), pointer.getY() - 10, (int) StaticEntitiesManager.destructionBarValue, 10);
 		
 		player.render(g);
+		
+		ItemEntityManager.render(g);
 		
 		Color skyColor = new Color(68, 51, 85, alpha);
 		g.setColor(skyColor);

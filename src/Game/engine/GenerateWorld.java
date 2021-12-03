@@ -11,6 +11,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+import Game.Items.Item;
 import Game.entities.*;
 import Game.noise.PerlinNoise;
 import Game.noise.PerlinNoiseGenerator;
@@ -26,6 +27,7 @@ public class GenerateWorld
 	private ArrayList<StaticEntity> sEntities;
 	private ArrayList<OvenE> ovens;
 	private ArrayList<ChestE> chests;
+	private ArrayList<Item> items;
 	
 	public Double[][] worldNoises;
 	public Double[][] worldMoisture;
@@ -43,6 +45,7 @@ public class GenerateWorld
 		this.animals = new ArrayList<Animal>();
 		this.ovens = new ArrayList<OvenE>();
 		this.chests = new ArrayList<ChestE>();
+		this.items = new ArrayList<Item>();
 		
 		worldNoises = new Double[968][968];
 		worldMoisture = new Double[968][968];
@@ -52,8 +55,8 @@ public class GenerateWorld
 	
 	public void generate()
 	{
-		int seed = new Random().nextInt();
-		//int seed = 666;
+		//int seed = new Random().nextInt();
+		int seed = 666;
 		
 		System.out.println(seed);
 		
@@ -812,6 +815,16 @@ public class GenerateWorld
 	public ChestE getFromChest(int i)
 	{
 		return chests.get(i);
+	}
+	
+	public ArrayList<Item> getItems()
+	{
+		return items;
+	}
+	
+	public Item getFromItem(int i)
+	{
+		return items.get(i);
 	}
 	
 	public boolean generateEntitiesByR(int i, int j, int R)

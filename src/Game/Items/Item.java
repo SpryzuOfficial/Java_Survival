@@ -12,6 +12,8 @@ public class Item implements Cloneable
 {
 	protected BufferedImage texture;
 	protected int count;
+	protected int Vx;
+	protected int Vy;
 	protected int x;
 	protected int y;
 	protected int[] miningValue = new int[3]; // Tree, Stone, Animals
@@ -138,6 +140,26 @@ public class Item implements Cloneable
 	public void setY(int y) 
 	{
 		this.y = y;
+	}
+
+	public int getVx() 
+	{
+		return Vx;
+	}
+
+	public void setVx(int vx) 
+	{
+		Vx = vx;
+	}
+
+	public int getVy() 
+	{
+		return Vy;
+	}
+
+	public void setVy(int vy) 
+	{
+		Vy = vy;
 	}
 
 	public BufferedImage getTexture() 

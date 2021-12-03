@@ -6,6 +6,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
+import Game.entities.ItemEntityManager;
 import Game.ui.UiInventoryManager;
 
 public class MouseManager implements MouseListener, MouseMotionListener, MouseWheelListener
@@ -74,10 +75,12 @@ public class MouseManager implements MouseListener, MouseMotionListener, MouseWh
 		if(e.getWheelRotation() < 0)
 		{
 			UiInventoryManager.itemInitialY += 5;
+			ItemEntityManager.scrollY += 4;
 		}
 		else
 		{
 			UiInventoryManager.itemInitialY -= 5;
+			ItemEntityManager.scrollY -= 4;
 		}
 	}
 

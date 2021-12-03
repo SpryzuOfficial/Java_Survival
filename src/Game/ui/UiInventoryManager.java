@@ -11,6 +11,7 @@ import Game.engine.CheckOven;
 import Game.engine.Game;
 import Game.engine.gfx.Assets;
 import Game.entities.ChestE;
+import Game.entities.ItemEntityManager;
 import Game.entities.OvenE;
 import Game.ui.utils.InventorySlot;
 
@@ -266,39 +267,53 @@ public class UiInventoryManager
 		{
 			if(!cPressed)
 			{
-				///*
-				//Game.player.setFood(0);
-				addItem(new Pickaxe(0, 576));
-				addItem(new Axe(0, 576));
-				addItem(new Hammer(0, 576));
-				addItem(new BasaltHammer(0, 576));
-				addItem(new Sandpaper(0, 576));
-				addItem(new Knife(0, 576));
-				addItem(new Table(1, 0, 576));
-				addItem(new Oven(1, 0, 576));
-				addItem(new Anvil(1, 0, 576));
-				addItem(new Wood(12, 0, 576));
-				addItem(new Stone(12, 0, 576));
-				addItem(new Chest(1, 0, 576));
-				addItem(new RockPotWater(1, 0, 576));
-				//addItem(new WoodPot(12, 0, 576));
-				//addItem(new RockPotHerb(1, 0, 576));
-				//addItem(new MushroomRed(1, 0, 576));
-				//addItem(new MushroomBlue(1, 0, 576));
-				//addItem(new RockPotWater(1, 0, 576));
-				//addItem(new RockPotWater(1, 0, 576));
-				//addItem(new SheepMeat(1, 0, 576));
-				//addItem(new RockSheepMeatTray(1, 0, 576));
-				//addItem(new IronOre(12, 0, 576));
-				addItem(new SheepSpawn(1, 0, 576));
-				//addItem(new Clay(12, 0, 576));
-				//addItem(new WoodPlank(12, 0, 576));
-				//addItem(new IronBasaltTray(1, 0, 576));
-				//addItem(new LeatherHat(1, 0, 576));
-				//addItem(new LeatherVest(1, 0, 576));
-				//*/
-				cPressed = true;
-				
+				if(Game.keyManager.shift)
+				{
+					Game.generateWorld.getItems().clear();
+					cPressed = true;
+				}
+				else
+				{
+					try
+					{
+						///*
+						//Game.player.setFood(0);
+						dropItem(new Pickaxe(0, 576));
+						dropItem(new Axe(0, 576));
+						dropItem(new Hammer(0, 576));
+						dropItem(new BasaltHammer(0, 576));
+						dropItem(new Sandpaper(0, 576));
+						dropItem(new Knife(0, 576));
+						dropItem(new Table(1, 0, 576));
+						dropItem(new Oven(1, 0, 576));
+						dropItem(new Anvil(1, 0, 576));
+						dropItem(new Wood(12, 0, 576));
+						dropItem(new Stone(12, 0, 576));
+						dropItem(new Chest(1, 0, 576));
+						dropItem(new RockPotWater(1, 0, 576));
+						//addItem(new WoodPot(12, 0, 576));
+						//addItem(new RockPotHerb(1, 0, 576));
+						//addItem(new MushroomRed(1, 0, 576));
+						//addItem(new MushroomBlue(1, 0, 576));
+						//addItem(new RockPotWater(1, 0, 576));
+						//addItem(new RockPotWater(1, 0, 576));
+						//addItem(new SheepMeat(1, 0, 576));
+						//addItem(new RockSheepMeatTray(1, 0, 576));
+						//addItem(new IronOre(12, 0, 576));
+						dropItem(new SheepSpawn(1, 0, 576));
+						//addItem(new Clay(12, 0, 576));
+						//addItem(new WoodPlank(12, 0, 576));
+						//addItem(new IronBasaltTray(1, 0, 576));
+						//addItem(new LeatherHat(1, 0, 576));
+						//addItem(new LeatherVest(1, 0, 576));
+						//*/
+						cPressed = true;
+					}
+					catch(Exception e)
+					{
+						System.err.println(e);
+					}
+				}
 			}
 		}
 		else if(cPressed)
@@ -853,6 +868,9 @@ public class UiInventoryManager
 						
 						if(itemSelected)
 						{
+							Color blockColor = new Color(50, 50, 50, 70);
+							g.setColor(blockColor);
+							
 							for(int y = 0; y < 2; y++)
 							{
 								for(int x = 0; x < 2; x++)
@@ -862,6 +880,7 @@ public class UiInventoryManager
 										g.drawImage(items.get(itemSelectedId).getItem(y, x).getTexture(), cInventorySlots[y][x].getX(), cInventorySlots[y][x].getY(), 64, 64, null);
 										new InventorySlot(cInventorySlots[y][x].getX(), cInventorySlots[y][x].getY(), 64, 64, items.get(itemSelectedId).getItem(y, x)).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
 									}
+									g.fillRect(cInventorySlots[y][x].getX() + 8, cInventorySlots[y][x].getY() + 8, 48, 48);
 								}
 							}
 							
@@ -871,11 +890,15 @@ public class UiInventoryManager
 								{
 									g.drawImage(items.get(itemSelectedId).getTool(k).getTexture(), ctInventorySlot.getX(), ctInventorySlot.getY(), 64, 64, null);
 									new InventorySlot(ctInventorySlot.getX(), ctInventorySlot.getY(), 64, 64, items.get(itemSelectedId).getTool(k)).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+									g.fillRect(ctInventorySlot.getX() + 8, ctInventorySlot.getY() + 8, 48, 48);
 								}
 							}
 							
+							
 							g.drawImage(items.get(itemSelectedId).getTarget().getTexture(), crInventorySlot.getX(), crInventorySlot.getY(), 64, 64, null);
 							new InventorySlot(crInventorySlot.getX(), crInventorySlot.getY(), 64, 64, items.get(itemSelectedId).getTarget()).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+							
+							g.fillRect(crInventorySlot.getX() + 8, crInventorySlot.getY() + 8, 48, 48);
 						}
 					}
 				}
@@ -1631,6 +1654,23 @@ public class UiInventoryManager
 						{ 
 							if(inventoryItemHolded != null)
 							{
+								try
+								{
+									if(inventoryTrashCan != null)
+									{
+										Item dropItem = inventoryTrashCan.clone();
+										dropItem.setX(Game.player.getX() + 64);
+										dropItem.setY(Game.player.getY());
+										dropItem.setVx(Game.player.getVx() + 64);
+										dropItem.setVy(Game.player.getVy());
+										Game.generateWorld.getItems().add(dropItem);
+									}
+								}
+								catch(Exception ex)
+								{
+									System.err.println(ex);
+								}
+								
 								inventoryTrashCan = inventoryItemHolded;
 								inventoryItemHolded = null;
 								tInventorySlot.setItem(inventoryTrashCan); 
@@ -2011,7 +2051,6 @@ public class UiInventoryManager
 				}
 				
 				ArrayList<CraftingItemsSlots> items = checkCraftings.itemOnCraftings9(itemCraftingCheckTable);
-				System.out.println(itemInitialY);
 				if(Game.mouseManager.getMouseX() >= 44 &&
 				   Game.mouseManager.getMouseX() <= 44 + 138 &&
 				   Game.mouseManager.getMouseY() >= 186 &&
@@ -2107,6 +2146,9 @@ public class UiInventoryManager
 						
 						if(itemSelected)
 						{
+							Color blockColor = new Color(50, 50, 50, 70);
+							g.setColor(blockColor);
+							
 							for(int y = 0; y < 3; y++)
 							{
 								for(int x = 0; x < 3; x++)
@@ -2116,6 +2158,7 @@ public class UiInventoryManager
 										g.drawImage(items.get(itemSelectedId).getItem(y, x).getTexture(), cTableSlots[y][x].getX(), cTableSlots[y][x].getY(), 64, 64, null);
 										new InventorySlot(cTableSlots[y][x].getX(), cTableSlots[y][x].getY(), 64, 64, items.get(itemSelectedId).getItem(y, x)).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
 									}
+									g.fillRect(cTableSlots[y][x].getX() + 8, cTableSlots[y][x].getY() + 8, 48, 48);
 								}
 							}
 							
@@ -2126,10 +2169,12 @@ public class UiInventoryManager
 									g.drawImage(items.get(itemSelectedId).getTool(k).getTexture(), ctTableSlots[k].getX(), ctTableSlots[k].getY(), 64, 64, null);
 									new InventorySlot(ctTableSlots[k].getX(), ctTableSlots[k].getY(), 64, 64, items.get(itemSelectedId).getTool(k)).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
 								}
+								g.fillRect(ctTableSlots[k].getX() + 8, ctTableSlots[k].getY() + 8, 48, 48);
 							}
 							
 							g.drawImage(items.get(itemSelectedId).getTarget().getTexture(), crTableSlot.getX(), crTableSlot.getY(), 64, 64, null);
 							new InventorySlot(crTableSlot.getX(), crTableSlot.getY(), 64, 64, items.get(itemSelectedId).getTarget()).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+							g.fillRect(crTableSlot.getX() + 8, crTableSlot.getY() + 8, 48, 48);
 						}
 					}
 				}
@@ -3317,12 +3362,16 @@ public class UiInventoryManager
 						
 						if(itemSelected)
 						{
+							Color blockColor = new Color(50, 50, 50, 70);
+							g.setColor(blockColor);
+							
 							for(int k = 0; k < items.get(itemSelectedId).getTrays().length; k++)
 							{
 								if(items.get(itemSelectedId).getTray(k) != null)
 								{
 									g.drawImage(items.get(itemSelectedId).getTray(k).getTexture(), ootOvenSlot.getX(), ootOvenSlot.getY(), 64, 64, null);
 									new InventorySlot(ootOvenSlot.getX(), ootOvenSlot.getY(), 64, 64, items.get(itemSelectedId).getTray(k)).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+									g.fillRect(ootOvenSlot.getX() + 8, ootOvenSlot.getY() + 8, 48, 48);
 								}
 							}
 							
@@ -3330,13 +3379,16 @@ public class UiInventoryManager
 							{
 								g.drawImage(items.get(itemSelectedId).getInput().getTexture(), oiOvenSlot.getX(), oiOvenSlot.getY(), 64, 64, null);
 								new InventorySlot(oiOvenSlot.getX(), oiOvenSlot.getY(), 64, 64, items.get(itemSelectedId).getInput()).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+								g.fillRect(oiOvenSlot.getX() + 8, oiOvenSlot.getY() + 8, 48, 48);
 							}
 							
 							g.drawImage(new Wood(1, 0, 0).getTexture(), ofOvenSlot.getX(), ofOvenSlot.getY(), 64, 64, null);	
 							new InventorySlot(ofOvenSlot.getX(), ofOvenSlot.getY(), 64, 64, new Wood(1, 0, 0)).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+							g.fillRect(ofOvenSlot.getX() + 8, ofOvenSlot.getY() + 8, 48, 48);
 							
 							g.drawImage(items.get(itemSelectedId).getTarget().getTexture(), ooOvenSlot.getX(), ooOvenSlot.getY(), 64, 64, null);
 							new InventorySlot(ooOvenSlot.getX(), ooOvenSlot.getY(), 64, 64, items.get(itemSelectedId).getTarget()).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+							g.fillRect(ooOvenSlot.getX() + 8, ooOvenSlot.getY() + 8, 48, 48);
 						}
 					}
 				}
@@ -4703,20 +4755,26 @@ public class UiInventoryManager
 						
 						if(itemSelected)
 						{
+							Color blockColor = new Color(50, 50, 50, 70);
+							g.setColor(blockColor);
+							
 							if(items.get(itemSelectedId).getTool() != null)
 							{
 								g.drawImage(items.get(itemSelectedId).getTool().getTexture(), atAnvilSlot.getX(), atAnvilSlot.getY(), 64, 64, null);
 								new InventorySlot(atAnvilSlot.getX(), atAnvilSlot.getY(), 64, 64, items.get(itemSelectedId).getTool()).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+								g.fillRect(atAnvilSlot.getX() + 8, atAnvilSlot.getY() + 8, 48, 48);
 							}
 							
 							if(items.get(itemSelectedId).getInput() != null)
 							{
 								g.drawImage(items.get(itemSelectedId).getInput().getTexture(), aiAnvilSlot.getX(), aiAnvilSlot.getY(), 64, 64, null);
 								new InventorySlot(aiAnvilSlot.getX(), aiAnvilSlot.getY(), 64, 64, items.get(itemSelectedId).getInput()).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+								g.fillRect(aiAnvilSlot.getX() + 8, aiAnvilSlot.getY() + 8, 48, 48);
 							}
 							
 							g.drawImage(items.get(itemSelectedId).getTarget().getTexture(), aoAnvilSlot.getX(), aoAnvilSlot.getY(), 64, 64, null);
 							new InventorySlot(aoAnvilSlot.getX(), aoAnvilSlot.getY(), 64, 64, items.get(itemSelectedId).getTarget()).mouseCollision(Game.mouseManager.getMouseX(), Game.mouseManager.getMouseY(), g);
+							g.fillRect(aoAnvilSlot.getX() + 8, aoAnvilSlot.getY() + 8, 48, 48);
 						}
 					}
 				}
@@ -5866,38 +5924,45 @@ public class UiInventoryManager
 		}
 		else
 		{
-			if(inventoryItemHolded != null)
+			try
 			{
-				addItem(inventoryItemHolded);
-				inventoryItemHolded = null;
+				if(inventoryItemHolded != null)
+				{
+					dropItem(inventoryItemHolded);
+					inventoryItemHolded = null;
+				}
+				
+				if(itemCraftingCheck != null)
+				{
+					dropItem(itemCraftingCheck);
+					itemCraftingCheck = null;
+					iccInventorySlot.setItem(itemCraftingCheck);
+				}
+				
+				if(itemCraftingCheckTable != null)
+				{
+					dropItem(itemCraftingCheckTable);
+					itemCraftingCheckTable = null;
+					iccTableSlot.setItem(itemCraftingCheckTable);
+				}
+				
+				if(itemOvenCheck != null)
+				{
+					dropItem(itemOvenCheck);
+					itemOvenCheck = null;
+					ocOvenSlot.setItem(itemOvenCheck);
+				}
+				
+				if(itemAnvilCheck != null)
+				{
+					dropItem(itemAnvilCheck);
+					itemAnvilCheck = null;
+					acAnvilSlot.setItem(itemAnvilCheck);
+				}
 			}
-			
-			if(itemCraftingCheck != null)
+			catch(Exception e)
 			{
-				addItem(itemCraftingCheck);
-				itemCraftingCheck = null;
-				iccInventorySlot.setItem(itemCraftingCheck);
-			}
-			
-			if(itemCraftingCheckTable != null)
-			{
-				addItem(itemCraftingCheckTable);
-				itemCraftingCheckTable = null;
-				iccTableSlot.setItem(itemCraftingCheckTable);
-			}
-			
-			if(itemOvenCheck != null)
-			{
-				addItem(itemOvenCheck);
-				itemOvenCheck = null;
-				ocOvenSlot.setItem(itemOvenCheck);
-			}
-			
-			if(itemAnvilCheck != null)
-			{
-				addItem(itemAnvilCheck);
-				itemAnvilCheck = null;
-				acAnvilSlot.setItem(itemAnvilCheck);
+				System.err.println(e);
 			}
 			
 			/*
@@ -5976,61 +6041,69 @@ public class UiInventoryManager
 				}
 			}
 			
-			for(int i = 0; i < 2; i++)
+			try
 			{
-				for(int j = 0; j < 2; j++)
+				for(int i = 0; i < 2; i++)
 				{
-					if(itemsCrafting[i][j] != null)
+					for(int j = 0; j < 2; j++)
 					{
-						addItem(itemsCrafting[i][j]);
-						itemsCrafting[i][j] = null;
-						cInventorySlots[i][j].setItem(itemsCrafting[i][j]); 
+						if(itemsCrafting[i][j] != null)
+						{
+							dropItem(itemsCrafting[i][j]);
+							itemsCrafting[i][j] = null;
+							cInventorySlots[i][j].setItem(itemsCrafting[i][j]); 
+						}
 					}
 				}
-			}
-			
-			for(int i = 0; i < 3; i++)
-			{
-				for(int j = 0; j < 3; j++)
+				
+				for(int i = 0; i < 3; i++)
 				{
-					if(itemsCraftingTable[i][j] != null)
+					for(int j = 0; j < 3; j++)
 					{
-						addItem(itemsCraftingTable[i][j]);
-						itemsCraftingTable[i][j] = null;
-						cTableSlots[i][j].setItem(itemsCraftingTable[i][j]); 
+						if(itemsCraftingTable[i][j] != null)
+						{
+							dropItem(itemsCraftingTable[i][j]);
+							itemsCraftingTable[i][j] = null;
+							cTableSlots[i][j].setItem(itemsCraftingTable[i][j]); 
+						}
 					}
 				}
-			}
 			
-			if(itemCraftingTool != null)
-			{
-				addItem(itemCraftingTool);
-				itemCraftingTool = null;
-				ctInventorySlot.setItem(itemCraftingTool);
-			}
 			
-			for(int i = 0; i < 2; i++)
-			{
-				if(itemsCraftingToolsTable[i] != null)
+				if(itemCraftingTool != null)
 				{
-					addItem(itemsCraftingToolsTable[i]);
-					itemsCraftingToolsTable[i] = null;
-					ctTableSlots[i].setItem(itemsCraftingToolsTable[i]);
+					dropItem(itemCraftingTool);
+					itemCraftingTool = null;
+					ctInventorySlot.setItem(itemCraftingTool);
+				}
+				
+				for(int i = 0; i < 2; i++)
+				{
+					if(itemsCraftingToolsTable[i] != null)
+					{
+						dropItem(itemsCraftingToolsTable[i]);
+						itemsCraftingToolsTable[i] = null;
+						ctTableSlots[i].setItem(itemsCraftingToolsTable[i]);
+					}
+				}
+				
+				if(itemAnvilInput != null)
+				{
+					dropItem(itemAnvilInput);
+					itemAnvilInput = null;
+					aiAnvilSlot.setItem(itemAnvilInput);
+				}
+				
+				if(itemAnvilTool != null)
+				{
+					dropItem(itemAnvilTool);
+					itemAnvilTool = null;
+					atAnvilSlot.setItem(itemAnvilTool);
 				}
 			}
-			
-			if(itemAnvilInput != null)
+			catch(Exception e)
 			{
-				addItem(itemAnvilInput);
-				itemAnvilInput = null;
-				aiAnvilSlot.setItem(itemAnvilInput);
-			}
-			
-			if(itemAnvilTool != null)
-			{
-				addItem(itemAnvilTool);
-				itemAnvilTool = null;
-				atAnvilSlot.setItem(itemAnvilTool);
+				System.err.println(e);
 			}
 			
 			oven = null;
@@ -6067,11 +6140,11 @@ public class UiInventoryManager
 		}
 	}
 	
-	public static void addItem(Item item)
+	public static boolean addItem(Item item)
 	{
 		if(item == null)
 		{
-			return;
+			return false;
 		}
 		
 		boolean isTool = false;
@@ -6250,6 +6323,21 @@ public class UiInventoryManager
 			{
 				iInventorySlots[i][j].setItem(itemsInventory[i][j]);
 			}
+		}
+		
+		return finish;
+	}
+	
+	private static void dropItem(Item item) throws CloneNotSupportedException
+	{
+		if(!addItem(item))
+		{
+			Item dropItem = item.clone();
+			dropItem.setX(Game.player.getX() + 64);
+			dropItem.setY(Game.player.getY());
+			dropItem.setVx(Game.player.getVx() + 64);
+			dropItem.setVy(Game.player.getVy());
+			Game.generateWorld.getItems().add(dropItem);
 		}
 	}
 	
