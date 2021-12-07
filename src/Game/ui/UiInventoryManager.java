@@ -5371,7 +5371,7 @@ public class UiInventoryManager
 			itemAnvilOutput = checkAnvil.checkAnvil(itemAnvilInput, itemAnvilTool);
 			aoAnvilSlot.setItem(itemAnvilOutput);
 			
-			int initialX = 212;
+			int initialX = 187;
 			int initialY = 57;
 			ArrayList<BufferedImage> word =  UiManager.stringToImage("Anvil");
 			
@@ -6161,6 +6161,7 @@ public class UiInventoryManager
 				inventoryTool = item;
 				toolInventorySlot.setItem(item);
 				isTool = true;
+				finish = true;
 			}
 		}
 		

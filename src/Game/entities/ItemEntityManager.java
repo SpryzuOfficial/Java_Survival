@@ -42,7 +42,7 @@ public class ItemEntityManager
 					boolean isBreak = false;
 					for(int j = 0; j < sameItems.size(); j++)
 					{
-						if(sameItems.get(j).get(0).getVx() == item.getVx() && sameItems.get(j).get(0).getVy() == item.getVy())
+						if((Math.sqrt(Math.pow(Math.abs(sameItems.get(j).get(0).getVx() - item.getVx()), 2) + Math.pow(Math.abs(sameItems.get(j).get(0).getVy() - item.getVy()), 2))) < 48)
 						{
 							if(sameItems.get(j).size() < 4)
 							{
@@ -82,6 +82,37 @@ public class ItemEntityManager
 					if(UiInventoryManager.addItem(dropItem))
 					{
 						Game.generateWorld.getItems().remove(i);
+					}
+				}
+			}
+			
+			for(int j = 0; j < sameItems.size(); j++)
+			{
+				for(int k = 0; k < sameItems.get(j).size(); k++)
+				{
+					for(int f = 0; f < sameItems.get(j).size(); f++)
+					{
+						if(sameItems.get(j).get(k).getCount() < 12 && k != f)
+						{
+							if(sameItems.get(j).get(k).getClass() == sameItems.get(j).get(f).getClass())
+							{
+								int sum = sameItems.get(j).get(k).getCount() + sameItems.get(j).get(f).getCount();
+								if(sum < 13)
+								{
+									sameItems.get(j).get(k).setCount(sum);
+									
+									Game.generateWorld.getItems().remove(sameItems.get(j).get(f));
+									sameItems.get(j).remove(sameItems.get(j).get(f));
+								}
+								else
+								{
+									sameItems.get(j).get(k).setCount(sum - (sum - 12));
+									sameItems.get(j).get(f).setCount(sum - 12);
+								}
+								
+								break;
+							}
+						}
 					}
 				}
 			}
@@ -138,8 +169,8 @@ public class ItemEntityManager
 							g.fillRect(sameItems.get(j).get(k).getX() + 64, sameItems.get(j).get(k).getY(), 96, 96);
 							for(int l = 0; l < sameItems.get(j).size(); l++)
 							{
-								int finalX = sameItems.get(j).get(l).getX() + 64;
-								int finalY = sameItems.get(j).get(l).getY() + (l * 64) + scrollY * 2;
+								int finalX = item.getX() + 64;
+								int finalY = item.getY() + (l * 64) + scrollY * 2;
 								
 								if(sameItems.get(j).size() > 1)
 								{
