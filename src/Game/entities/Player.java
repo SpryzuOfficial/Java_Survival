@@ -32,7 +32,7 @@ public class Player extends Entity
 		{
 			if(stamina > -10)
 			{
-				virtualSpace.setSpeed(6);
+				virtualSpace.setSpeed(32);//6
 			}
 			else
 			{

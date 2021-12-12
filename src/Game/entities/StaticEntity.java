@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import Game.Items.Item;
 
-public class StaticEntity extends Entity
+public class StaticEntity extends Entity implements Cloneable
 {
 	protected ArrayList<Item> items;
 	protected ArrayList<Double> probs;
@@ -29,6 +29,11 @@ public class StaticEntity extends Entity
 		this.probs = new ArrayList<Double>();
 		this.type = type;
 	}
+	
+	public StaticEntity clone() throws CloneNotSupportedException
+    {
+        return (StaticEntity) super.clone();
+    }
 	
 	@Override
 	public void tick()

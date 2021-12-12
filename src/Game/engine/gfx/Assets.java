@@ -11,10 +11,10 @@ public class Assets
 	
 	public static BufferedImage player, pointer, cow, player_water, player_leatherVest, player_leatherHat;
 	
-	public static BufferedImage dirt, grass, sand, water, rocks, magma;
+	public static BufferedImage dirt, grass, sand, water, rocks, magma, obsidianRocks;
 	
 	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE, plant, mushroomRedE, mushroomBlueE,
-	chestE, fruitBush, bush, superRock;
+	chestE, fruitBush, bush, superRock, stoneTilesE, sandStoneE, obsidianWall;
 	
 	public static BufferedImage nameFrameF, nameFrameI, nameFrameII, nameFrameE;
 	
@@ -24,7 +24,8 @@ public class Assets
 	clayMold, ironOre, basaltTray, ironBasaltTray, iron, woodSwordTemplate, clayMoldSword, ironSwordClay, sheepRawMeat, sheepMeat, 
 	rockFoodTray, rockSheepMeatTray, rockPot, rockPotWater, herbs, woodPot, woodPotHerb, rockPotHerb, mushroomRed, rockPotMushroomRed, 
 	woodPotMushroomRed, mushroomBlue, rockPotMushroomBlue, woodPotMushroomBlue, woodPickaxeTemplate, clayMoldPickaxe, ironPickaxeClay,
-	woodAxeTemplate, clayMoldAxe, ironAxeClay, chest, fruit, rootenFruit, sheepSpawn, needle, leather, leatherVest, leatherHat;
+	woodAxeTemplate, clayMoldAxe, ironAxeClay, chest, fruit, rootenFruit, sheepSpawn, needle, leather, leatherVest, leatherHat,
+	stoneTiles, sandStone, obsidian;
 	
 	public static BufferedImage sandpaper, axe, pickaxe, kinfe, hammer, basaltHammer, ironSword, ironPickaxe, ironAxe;
 	
@@ -87,6 +88,7 @@ public class Assets
 		water = tilesSESheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
 		rocks = tilesSESheet.crop(0, HEIGHT, WIDTH, HEIGHT);
 		magma = tilesSESheet.crop(WIDTH, HEIGHT, WIDTH, HEIGHT);
+		obsidianRocks = tilesSESheet.crop(WIDTH * 2, HEIGHT, WIDTH, HEIGHT);
 		
 		//Static entities
 		rock = tilesSESheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
@@ -106,6 +108,9 @@ public class Assets
 		fruitBush = tilesSESheet.crop(WIDTH * 7, HEIGHT, WIDTH, HEIGHT);
 		bush = tilesSESheet.crop(WIDTH * 8, HEIGHT, WIDTH, HEIGHT);
 		superRock = tilesSESheet.crop(WIDTH * 9, HEIGHT, WIDTH, HEIGHT);
+		stoneTilesE = tilesSESheet.crop(WIDTH * 10, HEIGHT, WIDTH, HEIGHT);
+		sandStoneE = tilesSESheet.crop(WIDTH * 11, HEIGHT, WIDTH, HEIGHT);
+		obsidianWall = tilesSESheet.crop(WIDTH * 12, HEIGHT, WIDTH, HEIGHT);
 		
 		//Entities
 		player = entitiesSheet.crop(0, 0, WIDTH, HEIGHT);
@@ -189,5 +194,8 @@ public class Assets
 		leatherVest = itemsSheet.crop(WIDTH * 6, HEIGHT * 4, WIDTH, HEIGHT);
 		leatherHat = itemsSheet.crop(WIDTH * 7, HEIGHT * 4, WIDTH, HEIGHT);
 		sheepSpawn = itemsSheet.crop(WIDTH * 8, HEIGHT * 4, WIDTH, HEIGHT);
+		stoneTiles = itemsSheet.crop(WIDTH * 9, HEIGHT * 4, WIDTH, HEIGHT);
+		sandStone = itemsSheet.crop(WIDTH * 10, HEIGHT * 4, WIDTH, HEIGHT);
+		obsidian = itemsSheet.crop(WIDTH * 11, HEIGHT * 4, WIDTH, HEIGHT);
 	}
 }

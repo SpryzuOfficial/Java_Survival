@@ -3800,12 +3800,87 @@ public class CheckCraftings
 																		  ),
 												};
 	
+	private CraftingItemsSlots[] stoneTilesRecipesTable = { 
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
+														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)},
+															 			  new StoneTiles(1, 0, 576)
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
+														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)},
+															 			  new StoneTiles(1, 0, 576)
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576), null}, 
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)},
+															 			  new StoneTiles(1, 0, 576)
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new Sandpaper(0, 576), new Hammer(0, 576)},
+															 			  new StoneTiles(1, 0, 576)
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
+														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)},
+															 			  new StoneTiles(1, 0, 576)
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, new Stone(1, 0, 576), new Stone(1, 0, 576)}, 
+														   			        {null, new Stone(1, 0, 576), new Stone(1, 0, 576)},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)},
+															 			  new StoneTiles(1, 0, 576)
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {new Stone(1, 0, 576), new Stone(1, 0, 576), null}, 
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
+														   			        {null, null, null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)},
+															 			  new StoneTiles(1, 0, 576)
+																		  ),
+													
+													new CraftingItemsSlots(
+															 new Item[][] { {null, null, null}, 
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
+														   			        {new Stone(1, 0, 576), new Stone(1, 0, 576), null},
+																		  },
+															 			  new Item[] {new Hammer(0, 576), new Sandpaper(0, 576)},
+															 			  new StoneTiles(1, 0, 576)
+																		  ),
+													
+												};
+	
 	public CraftingItemsSlots[][] recipes9 = new CraftingItemsSlots[][] {stringRecipesTable, sandpaperRecipesTable, axeRecipesTable, pickaxeRecipesTable,
 		knifeRecipesTable, hammerRecipesTable, woodTableRecipesTable, nailsRecipesTable, tableRecipesTable, woodPlankRecipesTable, polishedBasaltRecipesTable,
 		ovenRecipesTable, anvilRecipesTable, stickRecipesTable, clayMoldRecipesTable, basaltHammerRecipesTable, basaltTrayRecipesTable, woodSwordTemplateRecipesTable,
 		clayMoldSwordRecipesTable, rockFoodTrayRecipesTable, rockPotRecipesTable, woodPotRecipesTable, woodPotHerbRecipesTable, woodPotMushroomRedRecipesTable, woodPotMushroomBlueRecipesTable,
 		woodPickaxeTemplateRecipesTable, clayMoldPickaxeRecipesTable, woodAxeTemplateRecipesTable, clayMoldAxeRecipesTable, chestRecipesTable, needleRecipesTable, 
-		leatherVestRecipesTable, leatherHatRecipesTable};
+		leatherVestRecipesTable, leatherHatRecipesTable, stoneTilesRecipesTable};
 	
 	public Item checkCrafting(Item[][] craftingItems, Item[] tools)
 	{	

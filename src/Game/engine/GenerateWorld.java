@@ -38,25 +38,25 @@ public class GenerateWorld
 	
 	private Random random_blue;
 	
-	public GenerateWorld(int W, int H)
+	public GenerateWorld()
 	{
-		this.tiles = new Tile[H][W];
+		this.tiles = new Tile[Game.WORLD_SIZE][Game.WORLD_SIZE];
 		this.sEntities = new ArrayList<StaticEntity>();
 		this.animals = new ArrayList<Animal>();
 		this.ovens = new ArrayList<OvenE>();
 		this.chests = new ArrayList<ChestE>();
 		this.items = new ArrayList<Item>();
 		
-		worldNoises = new Double[968][968];
-		worldMoisture = new Double[968][968];
-		blueNoise = new Double[968][968];
-		temperature = new int[968][968];
+		worldNoises = new Double[Game.WORLD_SIZE][Game.WORLD_SIZE];
+		worldMoisture = new Double[Game.WORLD_SIZE][Game.WORLD_SIZE];
+		blueNoise = new Double[Game.WORLD_SIZE][Game.WORLD_SIZE];
+		temperature = new int[Game.WORLD_SIZE][Game.WORLD_SIZE];
 	}
 	
 	public void generate()
 	{
-		//int seed = new Random().nextInt();
-		int seed = 666;
+		int seed = new Random().nextInt();
+		//int seed = 666;
 		
 		System.out.println(seed);
 		
@@ -73,9 +73,9 @@ public class GenerateWorld
 			FileWriter tilesFile = new FileWriter("tiles.txt");
 			FileWriter blueNoiseFile = new FileWriter("blue.txt");
 			
-			for(int i = 0; i < 968; i++)
+			for(int i = 0; i < Game.WORLD_SIZE; i++)
 			{
-				for(int j = 0; j < 968; j++)
+				for(int j = 0; j < Game.WORLD_SIZE; j++)
 				{
 					blueNoise[i][j] = bluenoise.noise(50 * i, 50 * j);
 					double b = blueNoise[i][j];
@@ -125,25 +125,25 @@ public class GenerateWorld
 			}
 			blueNoiseFile.close();
 			
-			int px[], py[], cells = 40, size = 968;
+			int px[], py[], cells = 40;
 			int color[];
 			int n = 0;
 			Random rand = new Random(seed);
-			BufferedImage I = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
+			BufferedImage I = new BufferedImage(Game.WORLD_SIZE, Game.WORLD_SIZE, BufferedImage.TYPE_INT_RGB);
 			px = new int[cells];
 			py = new int[cells];
 			color = new int[cells];
 			
 			for (int k = 0; k < cells; k++) 
 			{
-				px[k] = rand.nextInt(size);
-				py[k] = rand.nextInt(size);
+				px[k] = rand.nextInt(Game.WORLD_SIZE);
+				py[k] = rand.nextInt(Game.WORLD_SIZE);
 				color[k] = (int)((k / (float) cells) * 100);
 			}
 			
-			for (int x = 0; x < size; x++) 
+			for (int x = 0; x < Game.WORLD_SIZE; x++) 
 			{
-				for (int y = 0; y < size; y++) 
+				for (int y = 0; y < Game.WORLD_SIZE; y++)
 				{
 					n = 0;
 					for (byte k = 0; k < cells; k++) 
@@ -186,22 +186,6 @@ public class GenerateWorld
 				}
 			}
 			
-			/*
-			for(int k = 0; k < cells; k++)
-			{
-				System.out.println(color[k]);
-			}
-			
-			System.out.println("---");
-			
-			for(int k = 0; k < cells; k++)
-			{
-				System.out.println(px[k]);
-			}
-			
-			System.out.println("---");
-			*/
-			
 			Graphics2D g = I.createGraphics();
 			g.setColor(Color.BLACK);
 			for (int i = 0; i < cells; i++) 
@@ -211,9 +195,9 @@ public class GenerateWorld
 			
 			ImageIO.write(I, "png", new File("voronoi.png"));
 			
-			for(int i = 0; i < 968; i++)
+			for(int i = 0; i < Game.WORLD_SIZE; i++)
 			{
-				for(int j = 0; j < 968; j++)
+				for(int j = 0; j < Game.WORLD_SIZE; j++)
 				{
 					double v = noise.turbulence2(i/120.6f, j/120.6f, 18.3f);
 					//double moisture = noiseMoisture.turbulence2(i*0.002f, j*0.002f, 0.38f);
@@ -235,8 +219,17 @@ public class GenerateWorld
 					
 					worldNoises[i][j] = v;
 					worldMoisture[i][j] = moisture;
+				}
+			}
+			
+			for(int i = 0; i < Game.WORLD_SIZE; i++)
+			{
+				for(int j = 0; j < Game.WORLD_SIZE; j++)
+				{
+					double v = worldNoises[i][j];
+					double moisture = worldMoisture[i][j];
 					
-					if((i >= 71 && j >= 71) && (i <= 904 && j <= 904))
+					if((i >= 71 && j >= 71) && (i <= Game.WORLD_SIZE-64 && j <= Game.WORLD_SIZE-64))
 					{
 						if(v < 0.1)
 						{
@@ -297,8 +290,7 @@ public class GenerateWorld
 									}
 									else
 									{
-										generateRockEntities(j, i);
-										
+										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 										tilesFile.write("+");
 									}
@@ -341,8 +333,7 @@ public class GenerateWorld
 									}
 									else
 									{
-										generateRockEntities(j, i);
-										
+										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 										tilesFile.write("+");
 									}
@@ -385,8 +376,7 @@ public class GenerateWorld
 									}
 									else
 									{
-										generateRockEntities(j, i);
-									
+										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 										tilesFile.write("+");
 									}
@@ -412,8 +402,7 @@ public class GenerateWorld
 									}
 									else
 									{
-										generateRockEntities(j, i);
-										
+										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 										tilesFile.write("+");
 									}
@@ -429,8 +418,7 @@ public class GenerateWorld
 									}
 									else if(v < 0.3)
 									{
-										generateRockEntities(j, i);
-										
+										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 										tilesFile.write("+");
 									}
@@ -461,8 +449,7 @@ public class GenerateWorld
 									}
 									else
 									{
-										generateRockEntities(j, i);
-										
+										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 										tilesFile.write("+");
 									}
@@ -481,8 +468,7 @@ public class GenerateWorld
 									}
 									else if(v < 0.3)
 									{
-										generateRockEntities(j, i);
-										
+										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 										tilesFile.write("+");
 									}
@@ -503,8 +489,28 @@ public class GenerateWorld
 									}
 									else
 									{
-										tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-										tilesFile.write("*");
+										if(v < 0.5)
+										{
+											if(v > 0.48)
+											{
+												istickocuped = true;
+												sEntities.add(new ObsidianWall((j*64), (i*64), (j*64) - Game.virtualSpace.getX(), (i*64) - Game.virtualSpace.getY()));
+												SESIZE++;
+												
+												tiles[i][j] = new ObsidianRocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+												tilesFile.write("?");
+											}
+											else
+											{
+												tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+												tilesFile.write("*");
+											}
+										}
+										else
+										{
+											tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+											tilesFile.write("W");
+										}
 									}
 								}
 							}
@@ -634,11 +640,50 @@ public class GenerateWorld
 			chunksValues.close();
 			chunksMoisture.close();
 			tilesFile.close();
+			
+			for(int i = 0; i < Game.WORLD_SIZE; i++)
+			{
+				for(int j = 0; j < Game.WORLD_SIZE; j++)
+				{
+					try
+					{
+						generateCustomeBiomeEdges(j, i, new Rocks(0, 0, 0, 0, 64, 64), new Magma(0, 0, 0, 0, 64, 64), new BasaltE((j*64), (i*64), (j*64) - Game.virtualSpace.getX(), (i*64) - Game.virtualSpace.getY()));
+						generateCustomeBiomeEdges(j, i, new Grass(0, 0, 0, 0, 64, 64), new Magma(0, 0, 0, 0, 64, 64), new Rock((j*64), (i*64), (j*64) - Game.virtualSpace.getX(), (i*64) - Game.virtualSpace.getY()));
+					
+						if(generateCustomeBiomeEdges(j, i, new Magma(0, 0, 0, 0, 64, 64), new Water(0, 0, 0, 0, 64, 64), new ObsidianWall((j*64), (i*64), (j*64) - Game.virtualSpace.getX(), (i*64) - Game.virtualSpace.getY())))
+						{
+							tiles[i][j] = new ObsidianRocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+							tilesFile.write("?");
+						}
+					}
+					catch(Exception e)
+					{
+						
+					}
+				}
+			}
 		}
 		catch(Exception e)
 		{
 			System.err.println(e);
 		}
+	}
+	
+	private boolean generateCustomeBiomeEdges(int x, int y, Tile f_tile, Tile s_tile, StaticEntity replacement) throws CloneNotSupportedException
+	{
+		if(tiles[y][x].getClass() == f_tile.getClass())
+		{
+			if(tiles[y][x-1].getClass() == s_tile.getClass() || tiles[y][x+1].getClass() == s_tile.getClass() || tiles[y-1][x].getClass() == s_tile.getClass() || tiles[y+1][x].getClass() == s_tile.getClass())
+			{
+				istickocuped = true;
+				sEntities.add(replacement.clone());
+				SESIZE++;
+				
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	private void generateForestEntities(int x, int y)
@@ -718,7 +763,7 @@ public class GenerateWorld
 			SESIZE++;
 		}
 		
-		if(generateEntitiesByR(y, x, 4) && !istickocuped)
+		if(generateEntitiesByR(y, x, 6) && !istickocuped)
 		{
 			istickocuped = true;
 			sEntities.add(new BasaltE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
@@ -829,14 +874,14 @@ public class GenerateWorld
 	
 	public boolean generateEntitiesByR(int i, int j, int R)
 	{
-		if(i != 484 || j != 484)
+		if(i != (Game.WORLD_SIZE / 2) || j != (Game.WORLD_SIZE / 2))
 		{
 			double max = 0;
 			for (int y = i - R; y <= i + R; y++) 
 			{
 				for (int x = j - R; x <= j + R; x++) 
 				{
-					if (0 <= y && y < 968 && 0 <= x && x < 968) 
+					if (0 <= y && y < Game.WORLD_SIZE && 0 <= x && x < Game.WORLD_SIZE) 
 					{
 						double e = blueNoise[y][x];
 						if (e > max) 

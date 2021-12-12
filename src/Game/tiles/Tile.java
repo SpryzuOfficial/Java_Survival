@@ -3,6 +3,7 @@ package Game.tiles;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import Game.Items.Item;
 import Game.engine.Game;
 import Game.positionSpaces.VirtualSpace;
 

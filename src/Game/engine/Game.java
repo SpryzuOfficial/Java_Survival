@@ -17,9 +17,9 @@ import Game.engine.gfx.*;
 public class Game implements Runnable
 {
 	//FINALS
-	private static final int TVSWIDTH = 61952, TVSHEIGHT = 61952;
-	private static final int TAWIDTH = TVSWIDTH / 64, TAHEIGHT = TVSHEIGHT / 64;
-	private static final int VSWIDTH = 704, VSHEIGHT = 704; 
+	public static final int WORLD_SIZE = 1936;
+	private static final int TVSWIDTH = WORLD_SIZE * 64, TVSHEIGHT = WORLD_SIZE * 64;
+	private static final int VSWIDTH = 704, VSHEIGHT = 704;
 	
 	public static Display display;
 	public static int width, height;
@@ -48,7 +48,7 @@ public class Game implements Runnable
 	private Pointer pointer;
 	public static int pointerX = 768, pointerY = 768;
 	
-	public static int lastX = 30656, lastY = 30656;
+	public static int lastX = (TVSWIDTH / 2) - (VSWIDTH / 2) + 32, lastY = (TVSHEIGHT / 2) - (VSHEIGHT / 2) + 32;
 	
 	public static boolean colliding;
 	
@@ -71,7 +71,7 @@ public class Game implements Runnable
 		
 		virtualSpace = new VirtualSpace(((TVSWIDTH / 2) - (VSWIDTH / 2)) + 32, ((TVSHEIGHT / 2) - (VSHEIGHT / 2)) + 32, VSWIDTH, VSHEIGHT, TVSWIDTH, TVSHEIGHT, 4);
 		
-		generateWorld = new GenerateWorld(TAWIDTH, TAHEIGHT);
+		generateWorld = new GenerateWorld();
 		
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
@@ -94,7 +94,7 @@ public class Game implements Runnable
 	}
 	
 	private void tick()
-	{	
+	{
 		keyManager.tick();
 		
 		UiManager.tick();
