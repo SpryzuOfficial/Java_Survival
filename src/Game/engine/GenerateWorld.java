@@ -125,7 +125,7 @@ public class GenerateWorld
 			}
 			blueNoiseFile.close();
 			
-			int px[], py[], cells = 40;
+			int px[], py[], cells = 60;
 			int color[];
 			int n = 0;
 			Random rand = new Random(seed);
@@ -242,6 +242,26 @@ public class GenerateWorld
 							{
 								if(moisture < 0.4)
 								{
+									if(v < 0.1)
+									{
+										generateEdgeEntities(j, i);
+										
+										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("^");
+									}
+									else if(v < 0.5)
+									{
+										tiles[i][j] = new Snow(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("_");
+									}
+									else
+									{
+										tiles[i][j] = new Ice(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										tilesFile.write("I");
+									}
+								}
+								else if(moisture < 0.7)
+								{
 									if(v < 0.2)
 									{
 										generateEdgeEntities(j, i);
@@ -260,23 +280,6 @@ public class GenerateWorld
 									{
 										tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
 										tilesFile.write("W");
-									}
-								}
-								else if(moisture < 0.7)
-								{
-									if(v < 0.2)
-									{
-										generateEdgeEntities(j, i);
-										
-										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-										tilesFile.write("^");
-									}
-									else
-									{
-										generateForestEntities(j, i);
-										
-										tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
-										tilesFile.write("G");
 									}
 								}
 								else
@@ -787,10 +790,10 @@ public class GenerateWorld
 			SESIZE++;
 		}
 		
-		if(generateEntitiesByR(y, x, 5) && !istickocuped)
+		if(generateEntitiesByR(y, x, 6) && !istickocuped)
 		{
 			istickocuped = true;
-			sEntities.add(new BasaltE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			sEntities.add(new Cactus((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
 			SESIZE++;
 		}
 		

@@ -11,10 +11,10 @@ public class Assets
 	
 	public static BufferedImage player, pointer, cow, player_water, player_leatherVest, player_leatherHat;
 	
-	public static BufferedImage dirt, grass, sand, water, rocks, magma, obsidianRocks;
+	public static BufferedImage dirt, grass, sand, water, rocks, magma, obsidianRocks, snow, ice;
 	
 	public static BufferedImage tree, rock, tableE, woodPlankE, basaltE, polishedBasaltE, ovenE, anvilE, clayE, ironOreE, plant, mushroomRedE, mushroomBlueE,
-	chestE, fruitBush, bush, superRock, stoneTilesE, sandStoneE, obsidianWall;
+	chestE, fruitBush, bush, superRock, stoneTilesE, sandStoneE, obsidianWall, cactus;
 	
 	public static BufferedImage nameFrameF, nameFrameI, nameFrameII, nameFrameE;
 	
@@ -89,6 +89,8 @@ public class Assets
 		rocks = tilesSESheet.crop(0, HEIGHT, WIDTH, HEIGHT);
 		magma = tilesSESheet.crop(WIDTH, HEIGHT, WIDTH, HEIGHT);
 		obsidianRocks = tilesSESheet.crop(WIDTH * 2, HEIGHT, WIDTH, HEIGHT);
+		snow = tilesSESheet.crop(WIDTH * 3, HEIGHT, WIDTH, HEIGHT);
+		ice = tilesSESheet.crop(0, HEIGHT*2, WIDTH, HEIGHT);
 		
 		//Static entities
 		rock = tilesSESheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
@@ -111,6 +113,7 @@ public class Assets
 		stoneTilesE = tilesSESheet.crop(WIDTH * 10, HEIGHT, WIDTH, HEIGHT);
 		sandStoneE = tilesSESheet.crop(WIDTH * 11, HEIGHT, WIDTH, HEIGHT);
 		obsidianWall = tilesSESheet.crop(WIDTH * 12, HEIGHT, WIDTH, HEIGHT);
+		cactus = tilesSESheet.crop(WIDTH * 13, HEIGHT, WIDTH, HEIGHT);
 		
 		//Entities
 		player = entitiesSheet.crop(0, 0, WIDTH, HEIGHT);
