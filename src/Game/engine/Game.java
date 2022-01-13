@@ -17,7 +17,7 @@ import Game.engine.gfx.*;
 public class Game implements Runnable
 {
 	//FINALS
-	public static final int WORLD_SIZE = 1936;
+	public static final int WORLD_SIZE = 968 * 2;
 	private static final int TVSWIDTH = WORLD_SIZE * 64, TVSHEIGHT = WORLD_SIZE * 64;
 	private static final int VSWIDTH = 704, VSHEIGHT = 704;
 	
@@ -131,7 +131,7 @@ public class Game implements Runnable
 					}
 				}
 				else
-				{						
+				{
 					player.setStaminaPerF(-0.6);
 					player.setFoodPerF(0.002);
 				}
@@ -159,6 +159,8 @@ public class Game implements Runnable
 		 	else
 		 	{
 		 		player.setLife(0);
+		 		player.setGameOver(true);
+		 		UiManager.uiImage = Assets.pause;
 		 	}
 		 	
 		 	player.setStamina(player.getStamina() - player.getStaminaPerF());
@@ -402,6 +404,11 @@ public class Game implements Runnable
 		
 		g.drawImage(Assets.pride, 656, 16, 32, 32, null);
 		
+		g.setColor(Color.BLACK);
+		g.fillRect(520, 50, 180, 180);
+		g.drawImage(Game.generateWorld.WorldImage.getSubimage(Game.player.getVx() / 64 - 20, Game.player.getVy() / 64 - 20, 40, 40), 530, 60, 160, 160, null);
+		g.fillRect(610, 140, 4, 4);
+		
 		if(UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3] != null)
 		{
 			String itemName = UiInventoryManager.itemsHotbar[UiInventoryManager.hotbarSelected - 3].toString();
@@ -460,7 +467,11 @@ public class Game implements Runnable
 			
 			if(delta >= 1)
 			{
-				tick();
+				if(!player.isGameOver())
+				{
+					tick();
+				}
+				
 				render();
 				
 				ticks++;

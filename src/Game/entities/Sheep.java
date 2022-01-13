@@ -13,7 +13,7 @@ public class Sheep extends Animal
 	
 	public Sheep(int Vx, int Vy, int Gx, int Gy)
 	{
-		super(Assets.cow, Gx, Gy, Vx, Vy, 2, 10);
+		super(Assets.sheep, Gx, Gy, Vx, Vy, 2, 10);
 		
 		this.items.add(new Wool(1, 0, 576));
 		this.items.add(new SheepRawMeat(1, 0, 576));

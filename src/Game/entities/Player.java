@@ -20,6 +20,8 @@ public class Player extends Entity
 	private double foodPerF = 0.001;
 	private double staminaPerF = 0.0;
 	
+	private boolean gameOver = false;
+	
 	public Player(int x, int y, int Vx, int Vy)
 	{
 		super(Assets.player, x, y, Vx, Vy, 64, 64, 4);
@@ -32,7 +34,7 @@ public class Player extends Entity
 		{
 			if(stamina > -10)
 			{
-				virtualSpace.setSpeed(32);//6
+				virtualSpace.setSpeed(32); //6
 			}
 			else
 			{
@@ -169,5 +171,15 @@ public class Player extends Entity
 	public ArrayList getPlayerExtraLayers() 
 	{
 		return playerExtraLayersW;
+	}
+
+	public boolean isGameOver() 
+	{
+		return gameOver;
+	}
+
+	public void setGameOver(boolean gameOver)
+	{
+		this.gameOver = gameOver;
 	}
 }

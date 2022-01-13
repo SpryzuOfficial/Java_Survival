@@ -9,7 +9,7 @@ public class Assets
 	
 	public static ArrayList<BufferedImage> font = new ArrayList<BufferedImage>();
 	
-	public static BufferedImage player, pointer, cow, player_water, player_leatherVest, player_leatherHat;
+	public static BufferedImage player, pointer, sheep, player_water, player_leatherVest, player_leatherHat, badSheep;
 	
 	public static BufferedImage dirt, grass, sand, water, rocks, magma, obsidianRocks, snow, ice;
 	
@@ -118,10 +118,11 @@ public class Assets
 		//Entities
 		player = entitiesSheet.crop(0, 0, WIDTH, HEIGHT);
 		pointer = entitiesSheet.crop(WIDTH, 0, WIDTH, HEIGHT);
-		cow = entitiesSheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
+		sheep = entitiesSheet.crop(WIDTH * 2, 0, WIDTH, HEIGHT);
 		player_water = entitiesSheet.crop(WIDTH * 3, 0, WIDTH, HEIGHT);
 		player_leatherVest = entitiesSheet.crop(WIDTH * 4, 0, WIDTH, HEIGHT);
 		player_leatherHat = entitiesSheet.crop(WIDTH * 5, 0, WIDTH, HEIGHT);
+		badSheep = entitiesSheet.crop(WIDTH * 6, 0, WIDTH, HEIGHT);
 		
 		//Items
 		hotbar = itemsSheet.crop(0, 0, WIDTH, HEIGHT);

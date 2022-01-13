@@ -19,6 +19,7 @@ import Game.tiles.*;
 
 public class GenerateWorld
 {	
+	public static BufferedImage WorldImage;
 	public static int ASIZE = 0;
 	public static int SESIZE = 0;
 	
@@ -55,8 +56,8 @@ public class GenerateWorld
 	
 	public void generate()
 	{
-		int seed = new Random().nextInt();
-		//int seed = 666;
+		//int seed = new Random().nextInt();
+		int seed = 666;
 		
 		System.out.println(seed);
 		
@@ -222,6 +223,7 @@ public class GenerateWorld
 				}
 			}
 			
+			WorldImage = new BufferedImage(Game.WORLD_SIZE, Game.WORLD_SIZE, BufferedImage.TYPE_INT_RGB);
 			for(int i = 0; i < Game.WORLD_SIZE; i++)
 			{
 				for(int j = 0; j < Game.WORLD_SIZE; j++)
@@ -234,6 +236,7 @@ public class GenerateWorld
 						if(v < 0.1)
 						{
 							tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+							WorldImage.setRGB(j, i, Color.BLUE.getRGB());
 							tilesFile.write("W");
 						}
 						else if(v < 1)
@@ -247,16 +250,19 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else if(v < 0.5)
 									{
 										tiles[i][j] = new Snow(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.WHITE.getRGB());
 										tilesFile.write("_");
 									}
 									else
 									{
 										tiles[i][j] = new Ice(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.CYAN.getRGB());
 										tilesFile.write("I");
 									}
 								}
@@ -267,6 +273,7 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else if(v < 0.5)
@@ -274,11 +281,13 @@ public class GenerateWorld
 										generateWetForestEntities(j, i);
 										
 										tiles[i][j] = new Dirt(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.GRAY.getRGB());
 										tilesFile.write("$");
 									}
 									else
 									{
 										tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.BLUE.getRGB());
 										tilesFile.write("W");
 									}
 								}
@@ -289,12 +298,14 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else
 									{
 										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.DARK_GRAY.getRGB());
 										tilesFile.write("+");
 									}
 								}
@@ -308,6 +319,7 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else
@@ -315,6 +327,7 @@ public class GenerateWorld
 										generateWetForestEntities(j, i);
 										
 										tiles[i][j] = new Dirt(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.GRAY.getRGB());
 										tilesFile.write("$");
 									}
 								}
@@ -325,6 +338,7 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else if(v < 0.4)
@@ -332,12 +346,14 @@ public class GenerateWorld
 										generateForestEntities(j, i);
 										
 										tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.GREEN.getRGB());
 										tilesFile.write("G");
 									}
 									else
 									{
 										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.DARK_GRAY.getRGB());
 										tilesFile.write("+");
 									}
 								}
@@ -348,6 +364,7 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else
@@ -355,6 +372,7 @@ public class GenerateWorld
 										generateForestEntities(j, i);
 										
 										tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.GREEN.getRGB());
 										tilesFile.write("G");
 									}
 								}
@@ -368,6 +386,7 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else if(v < 0.4)
@@ -375,12 +394,14 @@ public class GenerateWorld
 										generateForestEntities(j, i);
 										
 										tiles[i][j] = new Grass(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.GREEN.getRGB());
 										tilesFile.write("G");
 									}
 									else
 									{
 										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.DARK_GRAY.getRGB());
 										tilesFile.write("+");
 									}
 								}
@@ -389,6 +410,7 @@ public class GenerateWorld
 									generateDesertEntities(j, i);
 									
 									tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+									WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 									tilesFile.write("^");
 								}
 							}
@@ -401,12 +423,14 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else
 									{
 										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.DARK_GRAY.getRGB());
 										tilesFile.write("+");
 									}
 								}
@@ -417,17 +441,20 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else if(v < 0.3)
 									{
 										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.DARK_GRAY.getRGB());
 										tilesFile.write("+");
 									}
 									else
 									{
 										tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.RED.getRGB());
 										tilesFile.write("*");
 									}
 								}
@@ -439,6 +466,7 @@ public class GenerateWorld
 									generateDesertEntities(j, i);
 									
 									tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+									WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 									tilesFile.write("^");
 								}
 								else
@@ -448,12 +476,14 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else
 									{
 										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.DARK_GRAY.getRGB());
 										tilesFile.write("+");
 									}
 								}
@@ -467,17 +497,20 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else if(v < 0.3)
 									{
 										generateRockEntities(j, i);									
 										tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.DARK_GRAY.getRGB());
 										tilesFile.write("+");
 									}
 									else
 									{
 										tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.RED.getRGB());
 										tilesFile.write("*");
 									}
 								}
@@ -488,6 +521,7 @@ public class GenerateWorld
 										generateEdgeEntities(j, i);
 										
 										tiles[i][j] = new Sand(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+										WorldImage.setRGB(j, i, Color.ORANGE.getRGB());
 										tilesFile.write("^");
 									}
 									else
@@ -501,17 +535,20 @@ public class GenerateWorld
 												SESIZE++;
 												
 												tiles[i][j] = new ObsidianRocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+												WorldImage.setRGB(j, i, Color.BLACK.getRGB());
 												tilesFile.write("?");
 											}
 											else
 											{
 												tiles[i][j] = new Magma(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+												WorldImage.setRGB(j, i, Color.RED.getRGB());
 												tilesFile.write("*");
 											}
 										}
 										else
 										{
 											tiles[i][j] = new Water(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+											WorldImage.setRGB(j, i, Color.BLUE.getRGB());
 											tilesFile.write("W");
 										}
 									}
@@ -525,6 +562,7 @@ public class GenerateWorld
 						SESIZE++;
 						
 						tiles[i][j] = new Rocks(j * 64, i * 64, j * 64 - Game.virtualSpace.getX(), i * 64 - Game.virtualSpace.getY(), 64, 64);
+						WorldImage.setRGB(j, i, Color.BLACK.getRGB());
 						tilesFile.write("R");
 					}
 					
@@ -639,10 +677,138 @@ public class GenerateWorld
 				}
 			}
 			
+			int world_size = Game.WORLD_SIZE / 16;
+			int n_structures = (int) (Math.pow(world_size, 2) / 4);
+			int[] structure_x = new int[n_structures], structure_y = new int[n_structures];
+			Random rand_structure = new Random(seed);
+			
+			System.out.println(n_structures);
+			
+			Graphics2D structures_g = WorldImage.createGraphics();
+			structures_g.setColor(Color.MAGENTA);
+			
+			for(int i = 0; i < n_structures; i++)
+			{
+				structure_x[i] = rand_structure.nextInt(world_size);
+				structure_y[i] = rand_structure.nextInt(world_size);
+			}
+			
+			for(int i = 0; i < n_structures; i++)
+			{
+				int sY = (structure_y[i] * 16);
+				int sX = (structure_x[i] * 16);
+				if(tiles[sY + 8][sX + 8] instanceof Sand)
+				{
+					int n_chunks = rand_structure.nextInt(12) * 2;
+					
+					if(n_chunks > 0)
+					{
+						int bad_chunks = 0;
+						for(int k = 0; k < 4; k++)
+						{
+							boolean band = true;
+							
+							int sYM = sY;
+							int sXM = sX;
+							
+							switch(k)
+							{
+								case 0:
+									sYM += 16;
+									break;
+								case 1:
+									sXM += 16;
+									break;
+								case 2:
+									sYM -= 16;
+									break;
+								case 3:
+									sXM -= 16;
+									break;
+							}
+							
+							for(int y = sYM; y < sYM + 16; y++)
+							{
+								for(int x = sXM; x < sXM + 16; x++)
+								{
+									if(!(tiles[sYM][sXM] instanceof Sand))
+									{
+										band = false;
+										bad_chunks++;
+										break;
+									}
+								}
+								
+								if(!band)
+								{
+									break;
+								}
+							}
+						}
+						
+						if(bad_chunks < 2)
+						{
+							generateStructure(sY, sX);
+							
+							int new_room = rand_structure.nextInt(1) + 1;
+							
+							for(int k = 0; k < 4; k++)
+							{
+								if(new_room != 0)
+								{
+									if(rand_structure.nextInt(1) == 0 || (k - 3) == new_room)
+									{
+										int sYM = sY;
+										int sXM = sX;
+										
+										switch(k)
+										{
+											case 0:
+												sYM += 16;
+												break;
+											case 1:
+												sXM += 16;
+												break;
+											case 2:
+												sYM -= 16;
+												break;
+											case 3:
+												sXM -= 16;
+												break;
+										}
+										
+										int tiles_c = 0;
+										for(int y = sYM; y < sYM + 16; y++)
+										{
+											for(int x = sXM; x < sXM + 16; x++)
+											{
+												if(tiles[sYM][sXM] instanceof Sand)
+												{
+													tiles_c++;
+												}
+											}
+										}
+										
+										if((256 - tiles_c) < 65)
+										{
+											generateStructure(sYM, sXM);
+											new_room--;
+										}
+									}
+								}
+							}
+							
+							//structures_g.fill(new Ellipse2D .Double(((structure_x[i] * 16) + 8) - 2.5, ((structure_y[i] * 16) + 8) - 2.5, 5, 5));
+						}
+					}
+				}
+			}
+			
 			world.close();
 			chunksValues.close();
 			chunksMoisture.close();
 			tilesFile.close();
+			ImageIO.write(WorldImage, "png", new File("world.png"));
 			
 			for(int i = 0; i < Game.WORLD_SIZE; i++)
 			{
@@ -665,10 +831,28 @@ public class GenerateWorld
 					}
 				}
 			}
+			
 		}
 		catch(Exception e)
 		{
 			System.err.println(e);
+		}
+	}
+	
+	private void generateStructure(int yM, int xM)
+	{
+		for(int y = yM; y < yM + 16; y++)
+		{
+			for(int x = xM; x < xM + 16; x++)
+			{
+				if(y == yM || y == (yM + 16) - 1 || x == xM || x == (xM + 16) - 1)
+				{
+					sEntities.add(new SandStoneE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+					SESIZE++;
+					
+					//WorldImage.setRGB(x, y, Color.BLACK.getRGB());
+				}
+			}
 		}
 	}
 	
@@ -705,6 +889,13 @@ public class GenerateWorld
 			SESIZE++;
 		}
 		
+		if(generateEntitiesByR(y, x, 6) && !istickocuped)
+		{
+			istickocuped = true;
+			animals.add(new BadSheep(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
+			ASIZE++;
+		}
+		
 		if(generateEntitiesByR(y, x, 5) && !istickocuped)
 		{
 			istickocuped = true;
@@ -718,6 +909,7 @@ public class GenerateWorld
 			animals.add(new Sheep(x*64, y*64, x*64 - Game.virtualSpace.getX(), y*64 - Game.virtualSpace.getY()));
 			ASIZE++;
 		}
+		
 		if(generateEntitiesByR(y, x, 2) && !istickocuped)
 		{
 			istickocuped = true;
@@ -786,7 +978,7 @@ public class GenerateWorld
 		if(generateEntitiesByR(y, x, 17) && !istickocuped)
 		{
 			istickocuped = true;
-			sEntities.add(new IronOreE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
+			sEntities.add(new SandStoneE((x*64), (y*64), (x*64) - Game.virtualSpace.getX(), (y*64) - Game.virtualSpace.getY()));
 			SESIZE++;
 		}
 		
